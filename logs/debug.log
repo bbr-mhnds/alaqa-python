@@ -1,0 +1,1740 @@
+[2025-01-12 20:04:39] INFO autoreload Watching for file changes with StatReloader
+[2025-01-12 20:05:20] INFO views [OTP_DEBUG] Received send_otp request
+[2025-01-12 20:05:20] INFO views [OTP_DEBUG] Request Method: POST
+[2025-01-12 20:05:20] INFO views [OTP_DEBUG] Request Headers: {'Content-Length': '32', 'Content-Type': 'application/json', 'Host': 'localhost:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:4200', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:4200/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8'}
+[2025-01-12 20:05:20] INFO views [OTP_DEBUG] Request Data: {'phone_number': '9660555552022'}
+[2025-01-12 20:05:20] INFO views [OTP_DEBUG] Extracted phone number: 9660555552022
+[2025-01-12 20:05:20] INFO views [OTP_DEBUG] Sanitized phone number: 9660555552022
+[2025-01-12 20:05:20] INFO views [OTP_DEBUG] Calling OTPService.create_and_send_otp
+[2025-01-12 20:05:20] INFO services [OTP_DEBUG] Starting OTP creation for phone: 9660555552022
+[2025-01-12 20:05:20] INFO services [OTP_DEBUG] Generated OTP code: 401376
+[2025-01-12 20:05:20] INFO services [OTP_DEBUG] Generated OTP code: 401376 for phone: 9660555552022
+[2025-01-12 20:05:20] INFO services [OTP_DEBUG] Created OTP record - ID: 32dd8057-3e0e-4422-833f-450eea220688, Phone: 9660555552022, Code: 401376
+[2025-01-12 20:05:20] INFO services [OTP_DEBUG] Prepared SMS message: Your verification code is: 401376. Valid for 10 minutes.
+[2025-01-12 20:05:20] INFO services [OTP_DEBUG] Attempting to send SMS to 9660555552022
+[2025-01-12 20:05:20] INFO services [OTP_DEBUG] Message content: Your verification code is: 401376. Valid for 10 minutes.
+[2025-01-12 20:05:20] INFO services [OTP_DEBUG] DEV MODE - SMS would be sent to 9660555552022
+[2025-01-12 20:05:20] INFO services [OTP_DEBUG] DEV MODE - Message content: Your verification code is: 401376. Valid for 10 minutes.
+[2025-01-12 20:05:20] INFO services [OTP_DEBUG] SMS send result - Success: True, Response: SMS sent successfully (Development Mode)
+[2025-01-12 20:05:20] INFO services [OTP_DEBUG] Final result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': '32dd8057-3e0e-4422-833f-450eea220688'}
+[2025-01-12 20:05:20] INFO views [OTP_DEBUG] OTPService result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': '32dd8057-3e0e-4422-833f-450eea220688'}
+[2025-01-12 20:05:20] INFO views [OTP_DEBUG] Sending success response: {'status': 'success', 'message': 'OTP sent successfully', 'data': {'otp_id': '32dd8057-3e0e-4422-833f-450eea220688'}}
+[2025-01-12 20:05:57] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:05:57] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:05:57] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:05:57] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:06:52] INFO views [OTP_DEBUG] Received verify_otp request
+[2025-01-12 20:06:52] INFO views [OTP_DEBUG] Request Method: POST
+[2025-01-12 20:06:52] INFO views [OTP_DEBUG] Request Headers: {'Content-Length': '52', 'Content-Type': 'application/json', 'Host': 'localhost:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:4200', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:4200/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8'}
+[2025-01-12 20:06:52] INFO views [OTP_DEBUG] Request Data: {'phone_number': '9660555552022', 'otp_code': '401376'}
+[2025-01-12 20:06:52] INFO views [OTP_DEBUG] Verifying OTP - Phone: 9660555552022, Code: 401376
+[2025-01-12 20:06:52] INFO views [OTP_DEBUG] Sanitized phone number: 9660555552022
+[2025-01-12 20:06:52] INFO views [OTP_DEBUG] Sanitized OTP code: 401376
+[2025-01-12 20:06:52] INFO views [OTP_DEBUG] Calling OTPService.verify_otp
+[2025-01-12 20:06:52] INFO services Verifying OTP for 9660555552022
+[2025-01-12 20:06:52] INFO services OTP verified successfully for 9660555552022
+[2025-01-12 20:06:52] INFO views [OTP_DEBUG] Verification result - Success: True, Message: OTP verified successfully
+[2025-01-12 20:06:52] INFO views [OTP_DEBUG] Sending success response: {'status': 'success', 'message': 'OTP verified successfully'}
+[2025-01-12 20:07:14] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:14] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:14] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:14] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:20] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:20] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:20] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:20] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:20] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:20] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:20] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:20] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:21] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:21] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:21] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:21] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:21] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:21] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:21] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:21] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:21] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:21] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:21] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:21] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:21] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:21] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:21] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:21] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:21] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:21] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:21] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:21] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:22] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:22] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:22] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:22] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:22] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:22] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:22] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:22] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:22] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:22] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:22] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:22] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:22] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:22] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:22] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:22] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:22] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:22] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:22] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:22] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:22] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:22] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:22] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:22] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:23] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:23] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:23] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:23] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:23] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:23] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:23] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:23] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:23] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:23] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:23] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:23] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:23] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:23] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:23] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:23] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:23] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:23] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:23] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:23] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:23] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:23] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:23] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:07:23] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:12:20] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:12:20] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:12:20] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:12:20] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:44] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:44] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:44] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:44] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:51] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:51] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:51] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:51] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:52] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:52] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:52] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:52] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:52] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:52] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:52] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:52] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:52] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:52] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:52] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:52] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:52] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:52] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:52] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:52] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:53] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:53] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:53] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:53] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:53] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:53] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:53] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:53] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:53] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:53] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:53] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:53] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:53] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:53] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:53] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:53] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:53] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:53] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:53] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:53] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:53] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:53] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:53] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:53] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:53] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:53] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:53] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:53] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:54] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:54] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:54] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:54] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:54] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:54] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:54] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:54] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:54] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:54] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:54] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:54] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:54] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:54] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:54] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:54] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:54] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:54] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:54] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:13:54] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:14:07] INFO views [OTP_DEBUG] Received send_otp request
+[2025-01-12 20:14:07] INFO views [OTP_DEBUG] Request Method: POST
+[2025-01-12 20:14:07] INFO views [OTP_DEBUG] Request Headers: {'Content-Length': '32', 'Content-Type': 'application/json', 'Host': 'localhost:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:4200', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:4200/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8'}
+[2025-01-12 20:14:07] INFO views [OTP_DEBUG] Request Data: {'phone_number': '9660555552022'}
+[2025-01-12 20:14:07] INFO views [OTP_DEBUG] Extracted phone number: 9660555552022
+[2025-01-12 20:14:07] INFO views [OTP_DEBUG] Sanitized phone number: 9660555552022
+[2025-01-12 20:14:07] INFO views [OTP_DEBUG] Calling OTPService.create_and_send_otp
+[2025-01-12 20:14:07] INFO services [OTP_DEBUG] Starting OTP creation for phone: 9660555552022
+[2025-01-12 20:14:07] INFO services [OTP_DEBUG] Generated OTP code: 424923
+[2025-01-12 20:14:07] INFO services [OTP_DEBUG] Generated OTP code: 424923 for phone: 9660555552022
+[2025-01-12 20:14:07] INFO services [OTP_DEBUG] Created OTP record - ID: 3d1ae223-ae66-48f6-b638-f8d31abecd56, Phone: 9660555552022, Code: 424923
+[2025-01-12 20:14:07] INFO services [OTP_DEBUG] Prepared SMS message: Your verification code is: 424923. Valid for 10 minutes.
+[2025-01-12 20:14:07] INFO services [OTP_DEBUG] Attempting to send SMS to 9660555552022
+[2025-01-12 20:14:07] INFO services [OTP_DEBUG] Message content: Your verification code is: 424923. Valid for 10 minutes.
+[2025-01-12 20:14:07] INFO services [OTP_DEBUG] DEV MODE - SMS would be sent to 9660555552022
+[2025-01-12 20:14:07] INFO services [OTP_DEBUG] DEV MODE - Message content: Your verification code is: 424923. Valid for 10 minutes.
+[2025-01-12 20:14:07] INFO services [OTP_DEBUG] SMS send result - Success: True, Response: SMS sent successfully (Development Mode)
+[2025-01-12 20:14:07] INFO services [OTP_DEBUG] Final result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': '3d1ae223-ae66-48f6-b638-f8d31abecd56'}
+[2025-01-12 20:14:07] INFO views [OTP_DEBUG] OTPService result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': '3d1ae223-ae66-48f6-b638-f8d31abecd56'}
+[2025-01-12 20:14:07] INFO views [OTP_DEBUG] Sending success response: {'status': 'success', 'message': 'OTP sent successfully', 'data': {'otp_id': '3d1ae223-ae66-48f6-b638-f8d31abecd56'}}
+[2025-01-12 20:14:10] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:14:10] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:14:10] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:14:10] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:14:45] INFO views [OTP_DEBUG] Received verify_otp request
+[2025-01-12 20:14:45] INFO views [OTP_DEBUG] Request Method: POST
+[2025-01-12 20:14:45] INFO views [OTP_DEBUG] Request Headers: {'Content-Length': '52', 'Content-Type': 'application/json', 'Host': 'localhost:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:4200', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:4200/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8'}
+[2025-01-12 20:14:45] INFO views [OTP_DEBUG] Request Data: {'phone_number': '9660555552022', 'otp_code': '424923'}
+[2025-01-12 20:14:45] INFO views [OTP_DEBUG] Verifying OTP - Phone: 9660555552022, Code: 424923
+[2025-01-12 20:14:45] INFO views [OTP_DEBUG] Sanitized phone number: 9660555552022
+[2025-01-12 20:14:45] INFO views [OTP_DEBUG] Sanitized OTP code: 424923
+[2025-01-12 20:14:45] INFO views [OTP_DEBUG] Calling OTPService.verify_otp
+[2025-01-12 20:14:45] INFO services Verifying OTP for 9660555552022
+[2025-01-12 20:14:45] INFO services OTP verified successfully for 9660555552022
+[2025-01-12 20:14:45] INFO views [OTP_DEBUG] Verification result - Success: True, Message: OTP verified successfully
+[2025-01-12 20:14:45] INFO views [OTP_DEBUG] Sending success response: {'status': 'success', 'message': 'OTP verified successfully'}
+[2025-01-12 20:14:48] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:14:48] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:14:48] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:14:48] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:15:57] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:15:57] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:15:57] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:15:57] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:19:56] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:19:56] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:19:56] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:19:56] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:20:00] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:20:00] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:20:00] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:20:00] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:20:00] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:20:00] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:20:00] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:20:00] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:20:09] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:20:09] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:20:09] WARNING utils Could not reverse url from auth.user
+[2025-01-12 20:20:09] WARNING utils Could not reverse url from auth.user
+[2025-01-13 03:50:00] INFO autoreload Watching for file changes with StatReloader
+[2025-01-13 03:58:33] WARNING utils Could not reverse url from auth.user
+[2025-01-13 03:58:33] WARNING utils Could not reverse url from auth.user
+[2025-01-13 03:58:33] WARNING utils Could not reverse url from auth.user
+[2025-01-13 03:58:33] WARNING utils Could not reverse url from auth.user
+[2025-01-13 03:58:33] WARNING utils Could not reverse url from auth.user
+[2025-01-13 03:58:33] WARNING utils Could not reverse url from auth.user
+[2025-01-13 03:58:33] WARNING utils Could not reverse url from auth.user
+[2025-01-13 03:58:33] WARNING utils Could not reverse url from auth.user
+[2025-01-13 03:58:36] INFO views [OTP_DEBUG] Received send_otp request
+[2025-01-13 03:58:36] INFO views [OTP_DEBUG] Request Method: POST
+[2025-01-13 03:58:36] INFO views [OTP_DEBUG] Request Headers: {'Content-Length': '32', 'Content-Type': 'application/json', 'Host': 'localhost:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:4200', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:4200/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8'}
+[2025-01-13 03:58:36] INFO views [OTP_DEBUG] Request Data: {'phone_number': '9660555552022'}
+[2025-01-13 03:58:36] INFO views [OTP_DEBUG] Extracted phone number: 9660555552022
+[2025-01-13 03:58:36] INFO views [OTP_DEBUG] Sanitized phone number: 9660555552022
+[2025-01-13 03:58:36] INFO views [OTP_DEBUG] Calling OTPService.create_and_send_otp
+[2025-01-13 03:58:36] INFO services [OTP_DEBUG] Starting OTP creation for phone: 9660555552022
+[2025-01-13 03:58:36] INFO services [OTP_DEBUG] Generated OTP code: 988297
+[2025-01-13 03:58:36] INFO services [OTP_DEBUG] Generated OTP code: 988297 for phone: 9660555552022
+[2025-01-13 03:58:36] INFO services [OTP_DEBUG] Created OTP record - ID: 8388ace4-f639-4544-83a8-d13ab56fa827, Phone: 9660555552022, Code: 988297
+[2025-01-13 03:58:36] INFO services [OTP_DEBUG] Prepared SMS message: Your verification code is: 988297. Valid for 10 minutes.
+[2025-01-13 03:58:36] INFO services [OTP_DEBUG] Attempting to send SMS to 9660555552022
+[2025-01-13 03:58:36] INFO services [OTP_DEBUG] Message content: Your verification code is: 988297. Valid for 10 minutes.
+[2025-01-13 03:58:36] INFO services [OTP_DEBUG] DEV MODE - SMS would be sent to 9660555552022
+[2025-01-13 03:58:36] INFO services [OTP_DEBUG] DEV MODE - Message content: Your verification code is: 988297. Valid for 10 minutes.
+[2025-01-13 03:58:36] INFO services [OTP_DEBUG] SMS send result - Success: True, Response: SMS sent successfully (Development Mode)
+[2025-01-13 03:58:36] INFO services [OTP_DEBUG] Final result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': '8388ace4-f639-4544-83a8-d13ab56fa827'}
+[2025-01-13 03:58:36] INFO views [OTP_DEBUG] OTPService result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': '8388ace4-f639-4544-83a8-d13ab56fa827'}
+[2025-01-13 03:58:36] INFO views [OTP_DEBUG] Sending success response: {'status': 'success', 'message': 'OTP sent successfully', 'data': {'otp_id': '8388ace4-f639-4544-83a8-d13ab56fa827'}}
+[2025-01-13 03:58:40] WARNING utils Could not reverse url from auth.user
+[2025-01-13 03:58:40] WARNING utils Could not reverse url from auth.user
+[2025-01-13 03:58:40] WARNING utils Could not reverse url from auth.user
+[2025-01-13 03:58:40] WARNING utils Could not reverse url from auth.user
+[2025-01-13 03:58:47] INFO views [OTP_DEBUG] Received verify_otp request
+[2025-01-13 03:58:47] INFO views [OTP_DEBUG] Request Method: POST
+[2025-01-13 03:58:47] INFO views [OTP_DEBUG] Request Headers: {'Content-Length': '52', 'Content-Type': 'application/json', 'Host': 'localhost:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:4200', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:4200/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8'}
+[2025-01-13 03:58:47] INFO views [OTP_DEBUG] Request Data: {'phone_number': '9660555552022', 'otp_code': '988297'}
+[2025-01-13 03:58:47] INFO views [OTP_DEBUG] Verifying OTP - Phone: 9660555552022, Code: 988297
+[2025-01-13 03:58:47] INFO views [OTP_DEBUG] Sanitized phone number: 9660555552022
+[2025-01-13 03:58:47] INFO views [OTP_DEBUG] Sanitized OTP code: 988297
+[2025-01-13 03:58:47] INFO views [OTP_DEBUG] Calling OTPService.verify_otp
+[2025-01-13 03:58:47] INFO services Verifying OTP for 9660555552022
+[2025-01-13 03:58:47] INFO services OTP verified successfully for 9660555552022
+[2025-01-13 03:58:47] INFO views [OTP_DEBUG] Verification result - Success: True, Message: OTP verified successfully
+[2025-01-13 03:58:47] INFO views [OTP_DEBUG] Sending success response: {'status': 'success', 'message': 'OTP verified successfully'}
+[2025-01-13 03:59:07] WARNING utils Could not reverse url from auth.user
+[2025-01-13 03:59:07] WARNING utils Could not reverse url from auth.user
+[2025-01-13 03:59:07] WARNING utils Could not reverse url from auth.user
+[2025-01-13 03:59:07] WARNING utils Could not reverse url from auth.user
+[2025-01-13 03:59:12] INFO views [OTP_DEBUG] Received send_otp request
+[2025-01-13 03:59:12] INFO views [OTP_DEBUG] Request Method: POST
+[2025-01-13 03:59:12] INFO views [OTP_DEBUG] Request Headers: {'Content-Length': '32', 'Content-Type': 'application/json', 'Host': 'localhost:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:4200', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:4200/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8'}
+[2025-01-13 03:59:12] INFO views [OTP_DEBUG] Request Data: {'phone_number': '9660555552022'}
+[2025-01-13 03:59:12] INFO views [OTP_DEBUG] Extracted phone number: 9660555552022
+[2025-01-13 03:59:12] INFO views [OTP_DEBUG] Sanitized phone number: 9660555552022
+[2025-01-13 03:59:12] INFO views [OTP_DEBUG] Calling OTPService.create_and_send_otp
+[2025-01-13 03:59:12] INFO services [OTP_DEBUG] Starting OTP creation for phone: 9660555552022
+[2025-01-13 03:59:12] INFO services [OTP_DEBUG] Generated OTP code: 455445
+[2025-01-13 03:59:12] INFO services [OTP_DEBUG] Generated OTP code: 455445 for phone: 9660555552022
+[2025-01-13 03:59:12] INFO services [OTP_DEBUG] Created OTP record - ID: 1d8f9252-462f-4d76-9bb5-4c656e34d615, Phone: 9660555552022, Code: 455445
+[2025-01-13 03:59:12] INFO services [OTP_DEBUG] Prepared SMS message: Your verification code is: 455445. Valid for 10 minutes.
+[2025-01-13 03:59:12] INFO services [OTP_DEBUG] Attempting to send SMS to 9660555552022
+[2025-01-13 03:59:12] INFO services [OTP_DEBUG] Message content: Your verification code is: 455445. Valid for 10 minutes.
+[2025-01-13 03:59:12] INFO services [OTP_DEBUG] DEV MODE - SMS would be sent to 9660555552022
+[2025-01-13 03:59:12] INFO services [OTP_DEBUG] DEV MODE - Message content: Your verification code is: 455445. Valid for 10 minutes.
+[2025-01-13 03:59:12] INFO services [OTP_DEBUG] SMS send result - Success: True, Response: SMS sent successfully (Development Mode)
+[2025-01-13 03:59:12] INFO services [OTP_DEBUG] Final result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': '1d8f9252-462f-4d76-9bb5-4c656e34d615'}
+[2025-01-13 03:59:12] INFO views [OTP_DEBUG] OTPService result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': '1d8f9252-462f-4d76-9bb5-4c656e34d615'}
+[2025-01-13 03:59:12] INFO views [OTP_DEBUG] Sending success response: {'status': 'success', 'message': 'OTP sent successfully', 'data': {'otp_id': '1d8f9252-462f-4d76-9bb5-4c656e34d615'}}
+[2025-01-13 03:59:15] WARNING utils Could not reverse url from auth.user
+[2025-01-13 03:59:15] WARNING utils Could not reverse url from auth.user
+[2025-01-13 03:59:15] WARNING utils Could not reverse url from auth.user
+[2025-01-13 03:59:15] WARNING utils Could not reverse url from auth.user
+[2025-01-13 03:59:22] INFO views [OTP_DEBUG] Received verify_otp request
+[2025-01-13 03:59:22] INFO views [OTP_DEBUG] Request Method: POST
+[2025-01-13 03:59:22] INFO views [OTP_DEBUG] Request Headers: {'Content-Length': '52', 'Content-Type': 'application/json', 'Host': 'localhost:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:4200', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:4200/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8'}
+[2025-01-13 03:59:22] INFO views [OTP_DEBUG] Request Data: {'phone_number': '9660555552022', 'otp_code': '455445'}
+[2025-01-13 03:59:22] INFO views [OTP_DEBUG] Verifying OTP - Phone: 9660555552022, Code: 455445
+[2025-01-13 03:59:22] INFO views [OTP_DEBUG] Sanitized phone number: 9660555552022
+[2025-01-13 03:59:22] INFO views [OTP_DEBUG] Sanitized OTP code: 455445
+[2025-01-13 03:59:22] INFO views [OTP_DEBUG] Calling OTPService.verify_otp
+[2025-01-13 03:59:22] INFO services Verifying OTP for 9660555552022
+[2025-01-13 03:59:22] INFO services OTP verified successfully for 9660555552022
+[2025-01-13 03:59:22] INFO views [OTP_DEBUG] Verification result - Success: True, Message: OTP verified successfully
+[2025-01-13 03:59:22] INFO views [OTP_DEBUG] Sending success response: {'status': 'success', 'message': 'OTP verified successfully'}
+[2025-01-13 04:14:31] INFO autoreload /Users/babarsultan/Documents/alaqa/python-django/config/settings.py changed, reloading.
+[2025-01-13 04:14:32] INFO autoreload Watching for file changes with StatReloader
+[2025-01-13 04:16:23] WARNING utils Could not reverse url from auth.user
+[2025-01-13 04:16:23] WARNING utils Could not reverse url from auth.user
+[2025-01-13 04:16:23] WARNING utils Could not reverse url from auth.user
+[2025-01-13 04:16:23] WARNING utils Could not reverse url from auth.user
+[2025-01-13 04:16:26] WARNING utils Could not reverse url from auth.user
+[2025-01-13 04:16:26] WARNING utils Could not reverse url from auth.user
+[2025-01-13 04:16:26] WARNING utils Could not reverse url from auth.user
+[2025-01-13 04:16:26] WARNING utils Could not reverse url from auth.user
+[2025-01-13 04:16:26] WARNING utils Could not reverse url from auth.user
+[2025-01-13 04:17:13] WARNING utils Could not reverse url from auth.user
+[2025-01-13 04:17:13] WARNING utils Could not reverse url from auth.user
+[2025-01-13 04:17:13] WARNING utils Could not reverse url from auth.user
+[2025-01-13 04:17:13] WARNING utils Could not reverse url from auth.user
+[2025-01-13 04:19:14] INFO autoreload /Users/babarsultan/Documents/alaqa/python-django/doctors/views.py changed, reloading.
+[2025-01-13 04:19:15] INFO autoreload Watching for file changes with StatReloader
+[2025-01-13 04:22:36] INFO autoreload /Users/babarsultan/Documents/alaqa/python-django/doctors/views.py changed, reloading.
+[2025-01-13 04:22:36] INFO autoreload Watching for file changes with StatReloader
+[2025-01-13 05:23:37] INFO views [OTP_DEBUG] Received send_otp request
+[2025-01-13 05:23:37] INFO views [OTP_DEBUG] Request Method: POST
+[2025-01-13 05:23:37] INFO views [OTP_DEBUG] Request Headers: {'Content-Length': '32', 'Content-Type': 'application/json', 'Host': 'localhost:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:4200', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:4200/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8'}
+[2025-01-13 05:23:37] INFO views [OTP_DEBUG] Request Data: {'phone_number': '9660555552022'}
+[2025-01-13 05:23:37] INFO views [OTP_DEBUG] Extracted phone number: 9660555552022
+[2025-01-13 05:23:37] INFO views [OTP_DEBUG] Sanitized phone number: 9660555552022
+[2025-01-13 05:23:37] INFO views [OTP_DEBUG] Calling OTPService.create_and_send_otp
+[2025-01-13 05:23:37] INFO services [OTP_DEBUG] Starting OTP creation for phone: 9660555552022
+[2025-01-13 05:23:37] INFO services [OTP_DEBUG] Generated OTP code: 309261
+[2025-01-13 05:23:37] INFO services [OTP_DEBUG] Generated OTP code: 309261 for phone: 9660555552022
+[2025-01-13 05:23:37] INFO services [OTP_DEBUG] Created OTP record - ID: edd96320-cd1d-4caa-8908-2301d828a04e, Phone: 9660555552022, Code: 309261
+[2025-01-13 05:23:37] INFO services [OTP_DEBUG] Prepared SMS message: Your verification code is: 309261. Valid for 10 minutes.
+[2025-01-13 05:23:37] INFO services [OTP_DEBUG] Attempting to send SMS to 9660555552022
+[2025-01-13 05:23:37] INFO services [OTP_DEBUG] Message content: Your verification code is: 309261. Valid for 10 minutes.
+[2025-01-13 05:23:37] INFO services [OTP_DEBUG] DEV MODE - SMS would be sent to 9660555552022
+[2025-01-13 05:23:37] INFO services [OTP_DEBUG] DEV MODE - Message content: Your verification code is: 309261. Valid for 10 minutes.
+[2025-01-13 05:23:37] INFO services [OTP_DEBUG] SMS send result - Success: True, Response: SMS sent successfully (Development Mode)
+[2025-01-13 05:23:37] INFO services [OTP_DEBUG] Final result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': 'edd96320-cd1d-4caa-8908-2301d828a04e'}
+[2025-01-13 05:23:37] INFO views [OTP_DEBUG] OTPService result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': 'edd96320-cd1d-4caa-8908-2301d828a04e'}
+[2025-01-13 05:23:37] INFO views [OTP_DEBUG] Sending success response: {'status': 'success', 'message': 'OTP sent successfully', 'data': {'otp_id': 'edd96320-cd1d-4caa-8908-2301d828a04e'}}
+[2025-01-13 05:23:45] WARNING utils Could not reverse url from auth.user
+[2025-01-13 05:23:45] WARNING utils Could not reverse url from auth.user
+[2025-01-13 05:23:45] WARNING utils Could not reverse url from auth.user
+[2025-01-13 05:23:45] WARNING utils Could not reverse url from auth.user
+[2025-01-13 05:23:53] INFO views [OTP_DEBUG] Received verify_otp request
+[2025-01-13 05:23:53] INFO views [OTP_DEBUG] Request Method: POST
+[2025-01-13 05:23:53] INFO views [OTP_DEBUG] Request Headers: {'Content-Length': '52', 'Content-Type': 'application/json', 'Host': 'localhost:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:4200', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:4200/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8'}
+[2025-01-13 05:23:53] INFO views [OTP_DEBUG] Request Data: {'phone_number': '9660555552022', 'otp_code': '309261'}
+[2025-01-13 05:23:53] INFO views [OTP_DEBUG] Verifying OTP - Phone: 9660555552022, Code: 309261
+[2025-01-13 05:23:53] INFO views [OTP_DEBUG] Sanitized phone number: 9660555552022
+[2025-01-13 05:23:53] INFO views [OTP_DEBUG] Sanitized OTP code: 309261
+[2025-01-13 05:23:53] INFO views [OTP_DEBUG] Calling OTPService.verify_otp
+[2025-01-13 05:23:53] INFO services Verifying OTP for 9660555552022
+[2025-01-13 05:23:53] INFO services OTP verified successfully for 9660555552022
+[2025-01-13 05:23:53] INFO views [OTP_DEBUG] Verification result - Success: True, Message: OTP verified successfully
+[2025-01-13 05:23:53] INFO views [OTP_DEBUG] Sending success response: {'status': 'success', 'message': 'OTP verified successfully'}
+[2025-01-13 08:35:45] INFO views [OTP_DEBUG] Received send_otp request
+[2025-01-13 08:35:45] INFO views [OTP_DEBUG] Request Method: POST
+[2025-01-13 08:35:45] INFO views [OTP_DEBUG] Request Headers: {'Content-Length': '32', 'Content-Type': 'application/json', 'Host': 'localhost:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:4200', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:4200/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8'}
+[2025-01-13 08:35:45] INFO views [OTP_DEBUG] Request Data: {'phone_number': '9660555552022'}
+[2025-01-13 08:35:45] INFO views [OTP_DEBUG] Extracted phone number: 9660555552022
+[2025-01-13 08:35:45] INFO views [OTP_DEBUG] Sanitized phone number: 9660555552022
+[2025-01-13 08:35:45] INFO views [OTP_DEBUG] Calling OTPService.create_and_send_otp
+[2025-01-13 08:35:45] INFO services [OTP_DEBUG] Starting OTP creation for phone: 9660555552022
+[2025-01-13 08:35:45] INFO services [OTP_DEBUG] Generated OTP code: 676418
+[2025-01-13 08:35:45] INFO services [OTP_DEBUG] Generated OTP code: 676418 for phone: 9660555552022
+[2025-01-13 08:35:45] INFO services [OTP_DEBUG] Created OTP record - ID: 1c1aec52-776e-427b-8a43-3d6a741707ad, Phone: 9660555552022, Code: 676418
+[2025-01-13 08:35:45] INFO services [OTP_DEBUG] Prepared SMS message: Your verification code is: 676418. Valid for 10 minutes.
+[2025-01-13 08:35:45] INFO services [OTP_DEBUG] Attempting to send SMS to 9660555552022
+[2025-01-13 08:35:45] INFO services [OTP_DEBUG] Message content: Your verification code is: 676418. Valid for 10 minutes.
+[2025-01-13 08:35:45] INFO services [OTP_DEBUG] DEV MODE - SMS would be sent to 9660555552022
+[2025-01-13 08:35:45] INFO services [OTP_DEBUG] DEV MODE - Message content: Your verification code is: 676418. Valid for 10 minutes.
+[2025-01-13 08:35:45] INFO services [OTP_DEBUG] SMS send result - Success: True, Response: SMS sent successfully (Development Mode)
+[2025-01-13 08:35:45] INFO services [OTP_DEBUG] Final result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': '1c1aec52-776e-427b-8a43-3d6a741707ad'}
+[2025-01-13 08:35:45] INFO views [OTP_DEBUG] OTPService result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': '1c1aec52-776e-427b-8a43-3d6a741707ad'}
+[2025-01-13 08:35:45] INFO views [OTP_DEBUG] Sending success response: {'status': 'success', 'message': 'OTP sent successfully', 'data': {'otp_id': '1c1aec52-776e-427b-8a43-3d6a741707ad'}}
+[2025-01-13 08:35:49] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:35:49] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:35:49] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:35:49] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:35:55] INFO views [OTP_DEBUG] Received verify_otp request
+[2025-01-13 08:35:55] INFO views [OTP_DEBUG] Request Method: POST
+[2025-01-13 08:35:55] INFO views [OTP_DEBUG] Request Headers: {'Content-Length': '52', 'Content-Type': 'application/json', 'Host': 'localhost:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:4200', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:4200/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8'}
+[2025-01-13 08:35:55] INFO views [OTP_DEBUG] Request Data: {'phone_number': '9660555552022', 'otp_code': '676418'}
+[2025-01-13 08:35:55] INFO views [OTP_DEBUG] Verifying OTP - Phone: 9660555552022, Code: 676418
+[2025-01-13 08:35:55] INFO views [OTP_DEBUG] Sanitized phone number: 9660555552022
+[2025-01-13 08:35:55] INFO views [OTP_DEBUG] Sanitized OTP code: 676418
+[2025-01-13 08:35:55] INFO views [OTP_DEBUG] Calling OTPService.verify_otp
+[2025-01-13 08:35:55] INFO services Verifying OTP for 9660555552022
+[2025-01-13 08:35:55] INFO services OTP verified successfully for 9660555552022
+[2025-01-13 08:35:55] INFO views [OTP_DEBUG] Verification result - Success: True, Message: OTP verified successfully
+[2025-01-13 08:35:55] INFO views [OTP_DEBUG] Sending success response: {'status': 'success', 'message': 'OTP verified successfully'}
+[2025-01-13 08:48:31] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:31] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:31] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:31] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:34] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:34] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:34] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:34] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:34] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:34] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:34] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:34] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:34] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:34] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:34] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:34] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:34] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:34] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:34] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:34] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:35] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:35] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:35] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:35] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:35] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:35] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:35] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:35] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:35] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:35] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:35] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:35] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:35] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:35] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:35] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:35] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:35] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:35] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:35] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:35] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:35] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:35] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:35] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:35] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:35] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:35] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:35] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:35] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:36] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:36] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:36] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:36] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:36] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:36] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:36] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:36] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:36] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:36] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:36] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:36] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:36] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:36] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:36] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:36] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:36] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:36] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:36] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:36] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:36] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:36] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:36] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:36] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:36] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:36] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:36] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:36] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:36] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:36] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:36] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:36] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:37] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:37] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:37] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:48:37] WARNING utils Could not reverse url from auth.user
+[2025-01-13 08:58:31] INFO autoreload /Users/babarsultan/Documents/alaqa/python-django/config/urls.py changed, reloading.
+[2025-01-13 08:58:31] INFO autoreload Watching for file changes with StatReloader
+[2025-01-13 09:02:22] INFO autoreload /Users/babarsultan/Documents/alaqa/python-django/config/settings.py changed, reloading.
+[2025-01-13 09:02:23] INFO autoreload Watching for file changes with StatReloader
+[2025-01-13 09:04:16] INFO autoreload /Users/babarsultan/Documents/alaqa/python-django/appointments/views.py changed, reloading.
+[2025-01-13 09:04:17] INFO autoreload Watching for file changes with StatReloader
+[2025-01-13 09:04:26] INFO views [OTP_DEBUG] Received send_otp request
+[2025-01-13 09:04:26] INFO views [OTP_DEBUG] Request Method: POST
+[2025-01-13 09:04:26] INFO views [OTP_DEBUG] Request Headers: {'Content-Length': '32', 'Content-Type': 'application/json', 'Host': 'localhost:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:4200', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:4200/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8'}
+[2025-01-13 09:04:26] INFO views [OTP_DEBUG] Request Data: {'phone_number': '9660555552022'}
+[2025-01-13 09:04:26] INFO views [OTP_DEBUG] Extracted phone number: 9660555552022
+[2025-01-13 09:04:26] INFO views [OTP_DEBUG] Sanitized phone number: 9660555552022
+[2025-01-13 09:04:26] INFO views [OTP_DEBUG] Calling OTPService.create_and_send_otp
+[2025-01-13 09:04:26] INFO services [OTP_DEBUG] Starting OTP creation for phone: 9660555552022
+[2025-01-13 09:04:26] INFO services [OTP_DEBUG] Generated OTP code: 468203
+[2025-01-13 09:04:26] INFO services [OTP_DEBUG] Generated OTP code: 468203 for phone: 9660555552022
+[2025-01-13 09:04:26] INFO services [OTP_DEBUG] Created OTP record - ID: 019d7d75-c416-4b0d-acb8-33f55453eb80, Phone: 9660555552022, Code: 468203
+[2025-01-13 09:04:26] INFO services [OTP_DEBUG] Prepared SMS message: Your verification code is: 468203. Valid for 10 minutes.
+[2025-01-13 09:04:26] INFO services [OTP_DEBUG] Attempting to send SMS to 9660555552022
+[2025-01-13 09:04:26] INFO services [OTP_DEBUG] Message content: Your verification code is: 468203. Valid for 10 minutes.
+[2025-01-13 09:04:26] INFO services [OTP_DEBUG] DEV MODE - SMS would be sent to 9660555552022
+[2025-01-13 09:04:26] INFO services [OTP_DEBUG] DEV MODE - Message content: Your verification code is: 468203. Valid for 10 minutes.
+[2025-01-13 09:04:26] INFO services [OTP_DEBUG] SMS send result - Success: True, Response: SMS sent successfully (Development Mode)
+[2025-01-13 09:04:26] INFO services [OTP_DEBUG] Final result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': '019d7d75-c416-4b0d-acb8-33f55453eb80'}
+[2025-01-13 09:04:26] INFO views [OTP_DEBUG] OTPService result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': '019d7d75-c416-4b0d-acb8-33f55453eb80'}
+[2025-01-13 09:04:26] INFO views [OTP_DEBUG] Sending success response: {'status': 'success', 'message': 'OTP sent successfully', 'data': {'otp_id': '019d7d75-c416-4b0d-acb8-33f55453eb80'}}
+[2025-01-13 09:04:30] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:04:30] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:04:30] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:04:30] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:04:37] INFO views [OTP_DEBUG] Received verify_otp request
+[2025-01-13 09:04:37] INFO views [OTP_DEBUG] Request Method: POST
+[2025-01-13 09:04:37] INFO views [OTP_DEBUG] Request Headers: {'Content-Length': '52', 'Content-Type': 'application/json', 'Host': 'localhost:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:4200', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:4200/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8'}
+[2025-01-13 09:04:37] INFO views [OTP_DEBUG] Request Data: {'phone_number': '9660555552022', 'otp_code': '468203'}
+[2025-01-13 09:04:37] INFO views [OTP_DEBUG] Verifying OTP - Phone: 9660555552022, Code: 468203
+[2025-01-13 09:04:37] INFO views [OTP_DEBUG] Sanitized phone number: 9660555552022
+[2025-01-13 09:04:37] INFO views [OTP_DEBUG] Sanitized OTP code: 468203
+[2025-01-13 09:04:37] INFO views [OTP_DEBUG] Calling OTPService.verify_otp
+[2025-01-13 09:04:37] INFO services Verifying OTP for 9660555552022
+[2025-01-13 09:04:37] INFO services OTP verified successfully for 9660555552022
+[2025-01-13 09:04:37] INFO views [OTP_DEBUG] Verification result - Success: True, Message: OTP verified successfully
+[2025-01-13 09:04:37] INFO views [OTP_DEBUG] Sending success response: {'status': 'success', 'message': 'OTP verified successfully'}
+[2025-01-13 09:05:32] INFO autoreload /Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/requests/adapters.py changed, reloading.
+[2025-01-13 09:05:33] INFO autoreload Watching for file changes with StatReloader
+[2025-01-13 09:15:32] INFO views [OTP_DEBUG] Received send_otp request
+[2025-01-13 09:15:32] INFO views [OTP_DEBUG] Request Method: POST
+[2025-01-13 09:15:32] INFO views [OTP_DEBUG] Request Headers: {'Content-Length': '32', 'Content-Type': 'application/json', 'Host': 'localhost:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:4200', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:4200/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8'}
+[2025-01-13 09:15:32] INFO views [OTP_DEBUG] Request Data: {'phone_number': '9660555552022'}
+[2025-01-13 09:15:32] INFO views [OTP_DEBUG] Extracted phone number: 9660555552022
+[2025-01-13 09:15:32] INFO views [OTP_DEBUG] Sanitized phone number: 9660555552022
+[2025-01-13 09:15:32] INFO views [OTP_DEBUG] Calling OTPService.create_and_send_otp
+[2025-01-13 09:15:32] INFO services [OTP_DEBUG] Starting OTP creation for phone: 9660555552022
+[2025-01-13 09:15:32] INFO services [OTP_DEBUG] Generated OTP code: 260824
+[2025-01-13 09:15:32] INFO services [OTP_DEBUG] Generated OTP code: 260824 for phone: 9660555552022
+[2025-01-13 09:15:32] INFO services [OTP_DEBUG] Created OTP record - ID: d26f4a20-dc2e-42aa-8ddb-9141949a09ac, Phone: 9660555552022, Code: 260824
+[2025-01-13 09:15:32] INFO services [OTP_DEBUG] Prepared SMS message: Your verification code is: 260824. Valid for 10 minutes.
+[2025-01-13 09:15:32] INFO services [OTP_DEBUG] Attempting to send SMS to 9660555552022
+[2025-01-13 09:15:32] INFO services [OTP_DEBUG] Message content: Your verification code is: 260824. Valid for 10 minutes.
+[2025-01-13 09:15:32] INFO services [OTP_DEBUG] DEV MODE - SMS would be sent to 9660555552022
+[2025-01-13 09:15:32] INFO services [OTP_DEBUG] DEV MODE - Message content: Your verification code is: 260824. Valid for 10 minutes.
+[2025-01-13 09:15:32] INFO services [OTP_DEBUG] SMS send result - Success: True, Response: SMS sent successfully (Development Mode)
+[2025-01-13 09:15:32] INFO services [OTP_DEBUG] Final result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': 'd26f4a20-dc2e-42aa-8ddb-9141949a09ac'}
+[2025-01-13 09:15:32] INFO views [OTP_DEBUG] OTPService result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': 'd26f4a20-dc2e-42aa-8ddb-9141949a09ac'}
+[2025-01-13 09:15:32] INFO views [OTP_DEBUG] Sending success response: {'status': 'success', 'message': 'OTP sent successfully', 'data': {'otp_id': 'd26f4a20-dc2e-42aa-8ddb-9141949a09ac'}}
+[2025-01-13 09:15:36] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:15:36] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:15:36] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:15:36] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:15:42] INFO views [OTP_DEBUG] Received verify_otp request
+[2025-01-13 09:15:42] INFO views [OTP_DEBUG] Request Method: POST
+[2025-01-13 09:15:42] INFO views [OTP_DEBUG] Request Headers: {'Content-Length': '52', 'Content-Type': 'application/json', 'Host': 'localhost:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:4200', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:4200/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8'}
+[2025-01-13 09:15:42] INFO views [OTP_DEBUG] Request Data: {'phone_number': '9660555552022', 'otp_code': '260824'}
+[2025-01-13 09:15:42] INFO views [OTP_DEBUG] Verifying OTP - Phone: 9660555552022, Code: 260824
+[2025-01-13 09:15:42] INFO views [OTP_DEBUG] Sanitized phone number: 9660555552022
+[2025-01-13 09:15:42] INFO views [OTP_DEBUG] Sanitized OTP code: 260824
+[2025-01-13 09:15:42] INFO views [OTP_DEBUG] Calling OTPService.verify_otp
+[2025-01-13 09:15:42] INFO services Verifying OTP for 9660555552022
+[2025-01-13 09:15:42] INFO services OTP verified successfully for 9660555552022
+[2025-01-13 09:15:42] INFO views [OTP_DEBUG] Verification result - Success: True, Message: OTP verified successfully
+[2025-01-13 09:15:42] INFO views [OTP_DEBUG] Sending success response: {'status': 'success', 'message': 'OTP verified successfully'}
+[2025-01-13 09:18:42] INFO autoreload /Users/babarsultan/Documents/alaqa/python-django/appointments/views.py changed, reloading.
+[2025-01-13 09:18:42] INFO autoreload Watching for file changes with StatReloader
+[2025-01-13 09:19:35] INFO views [OTP_DEBUG] Received send_otp request
+[2025-01-13 09:19:35] INFO views [OTP_DEBUG] Request Method: POST
+[2025-01-13 09:19:35] INFO views [OTP_DEBUG] Request Headers: {'Content-Length': '32', 'Content-Type': 'application/json', 'Host': 'localhost:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:4200', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:4200/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8'}
+[2025-01-13 09:19:35] INFO views [OTP_DEBUG] Request Data: {'phone_number': '9660555552022'}
+[2025-01-13 09:19:35] INFO views [OTP_DEBUG] Extracted phone number: 9660555552022
+[2025-01-13 09:19:35] INFO views [OTP_DEBUG] Sanitized phone number: 9660555552022
+[2025-01-13 09:19:35] INFO views [OTP_DEBUG] Calling OTPService.create_and_send_otp
+[2025-01-13 09:19:35] INFO services [OTP_DEBUG] Starting OTP creation for phone: 9660555552022
+[2025-01-13 09:19:35] INFO services [OTP_DEBUG] Generated OTP code: 591759
+[2025-01-13 09:19:35] INFO services [OTP_DEBUG] Generated OTP code: 591759 for phone: 9660555552022
+[2025-01-13 09:19:35] INFO services [OTP_DEBUG] Created OTP record - ID: bd466352-2f19-4726-aee2-9f26f567592a, Phone: 9660555552022, Code: 591759
+[2025-01-13 09:19:35] INFO services [OTP_DEBUG] Prepared SMS message: Your verification code is: 591759. Valid for 10 minutes.
+[2025-01-13 09:19:35] INFO services [OTP_DEBUG] Attempting to send SMS to 9660555552022
+[2025-01-13 09:19:35] INFO services [OTP_DEBUG] Message content: Your verification code is: 591759. Valid for 10 minutes.
+[2025-01-13 09:19:35] INFO services [OTP_DEBUG] DEV MODE - SMS would be sent to 9660555552022
+[2025-01-13 09:19:35] INFO services [OTP_DEBUG] DEV MODE - Message content: Your verification code is: 591759. Valid for 10 minutes.
+[2025-01-13 09:19:35] INFO services [OTP_DEBUG] SMS send result - Success: True, Response: SMS sent successfully (Development Mode)
+[2025-01-13 09:19:35] INFO services [OTP_DEBUG] Final result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': 'bd466352-2f19-4726-aee2-9f26f567592a'}
+[2025-01-13 09:19:35] INFO views [OTP_DEBUG] OTPService result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': 'bd466352-2f19-4726-aee2-9f26f567592a'}
+[2025-01-13 09:19:35] INFO views [OTP_DEBUG] Sending success response: {'status': 'success', 'message': 'OTP sent successfully', 'data': {'otp_id': 'bd466352-2f19-4726-aee2-9f26f567592a'}}
+[2025-01-13 09:19:38] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:19:39] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:19:39] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:19:39] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:19:44] INFO views [OTP_DEBUG] Received verify_otp request
+[2025-01-13 09:19:44] INFO views [OTP_DEBUG] Request Method: POST
+[2025-01-13 09:19:44] INFO views [OTP_DEBUG] Request Headers: {'Content-Length': '52', 'Content-Type': 'application/json', 'Host': 'localhost:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:4200', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:4200/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8'}
+[2025-01-13 09:19:44] INFO views [OTP_DEBUG] Request Data: {'phone_number': '9660555552022', 'otp_code': '591759'}
+[2025-01-13 09:19:44] INFO views [OTP_DEBUG] Verifying OTP - Phone: 9660555552022, Code: 591759
+[2025-01-13 09:19:44] INFO views [OTP_DEBUG] Sanitized phone number: 9660555552022
+[2025-01-13 09:19:44] INFO views [OTP_DEBUG] Sanitized OTP code: 591759
+[2025-01-13 09:19:44] INFO views [OTP_DEBUG] Calling OTPService.verify_otp
+[2025-01-13 09:19:44] INFO services Verifying OTP for 9660555552022
+[2025-01-13 09:19:44] INFO services OTP verified successfully for 9660555552022
+[2025-01-13 09:19:44] INFO views [OTP_DEBUG] Verification result - Success: True, Message: OTP verified successfully
+[2025-01-13 09:19:44] INFO views [OTP_DEBUG] Sending success response: {'status': 'success', 'message': 'OTP verified successfully'}
+[2025-01-13 09:21:52] ERROR log Internal Server Error: /api/v1/appointments/
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/appointments/views.py", line 15, in create
+    serializer.is_valid(raise_exception=True)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 227, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+                           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 429, in run_validation
+    value = self.validate(value)
+  File "/Users/babarsultan/Documents/alaqa/python-django/appointments/serializers.py", line 33, in validate
+    if data['doctor'] not in data['specialties'].first().doctors.all():
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'first'
+[2025-01-13 09:21:53] ERROR log Internal Server Error: /api/v1/appointments/
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/appointments/views.py", line 15, in create
+    serializer.is_valid(raise_exception=True)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 227, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+                           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 429, in run_validation
+    value = self.validate(value)
+  File "/Users/babarsultan/Documents/alaqa/python-django/appointments/serializers.py", line 33, in validate
+    if data['doctor'] not in data['specialties'].first().doctors.all():
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'first'
+[2025-01-13 09:22:23] INFO autoreload /Users/babarsultan/Documents/alaqa/python-django/appointments/serializers.py changed, reloading.
+[2025-01-13 09:22:23] INFO autoreload Watching for file changes with StatReloader
+[2025-01-13 09:22:37] ERROR log Internal Server Error: /api/v1/appointments/
+[2025-01-13 09:23:07] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:23:07] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:23:07] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:23:07] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:23:07] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:23:08] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:23:08] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:23:08] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:23:08] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:23:08] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:23:12] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:23:12] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:23:12] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:23:12] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:23:16] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:23:16] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:23:16] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:23:16] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:23:16] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:23:36] INFO autoreload /Users/babarsultan/Documents/alaqa/python-django/appointments/admin.py changed, reloading.
+[2025-01-13 09:23:36] INFO autoreload Watching for file changes with StatReloader
+[2025-01-13 09:25:32] INFO autoreload /Users/babarsultan/Documents/alaqa/python-django/appointments/views.py changed, reloading.
+[2025-01-13 09:25:32] INFO autoreload Watching for file changes with StatReloader
+[2025-01-13 09:26:29] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:26:29] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:26:29] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:26:29] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:26:33] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:26:33] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:26:33] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:26:33] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:27:30] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:27:30] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:27:30] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:27:30] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:27:30] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:30:57] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:30:57] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:30:57] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:30:57] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:31:00] INFO views [OTP_DEBUG] Received send_otp request
+[2025-01-13 09:31:00] INFO views [OTP_DEBUG] Request Method: POST
+[2025-01-13 09:31:00] INFO views [OTP_DEBUG] Request Headers: {'Content-Length': '32', 'Content-Type': 'application/json', 'Host': 'localhost:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:4200', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:4200/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8'}
+[2025-01-13 09:31:00] INFO views [OTP_DEBUG] Request Data: {'phone_number': '9660555552022'}
+[2025-01-13 09:31:00] INFO views [OTP_DEBUG] Extracted phone number: 9660555552022
+[2025-01-13 09:31:00] INFO views [OTP_DEBUG] Sanitized phone number: 9660555552022
+[2025-01-13 09:31:00] INFO views [OTP_DEBUG] Calling OTPService.create_and_send_otp
+[2025-01-13 09:31:00] INFO services [OTP_DEBUG] Starting OTP creation for phone: 9660555552022
+[2025-01-13 09:31:00] INFO services [OTP_DEBUG] Generated OTP code: 174023
+[2025-01-13 09:31:00] INFO services [OTP_DEBUG] Generated OTP code: 174023 for phone: 9660555552022
+[2025-01-13 09:31:00] INFO services [OTP_DEBUG] Created OTP record - ID: b758cd9f-ce22-4821-87c9-23262b252ff5, Phone: 9660555552022, Code: 174023
+[2025-01-13 09:31:00] INFO services [OTP_DEBUG] Prepared SMS message: Your verification code is: 174023. Valid for 10 minutes.
+[2025-01-13 09:31:00] INFO services [OTP_DEBUG] Attempting to send SMS to 9660555552022
+[2025-01-13 09:31:00] INFO services [OTP_DEBUG] Message content: Your verification code is: 174023. Valid for 10 minutes.
+[2025-01-13 09:31:00] INFO services [OTP_DEBUG] DEV MODE - SMS would be sent to 9660555552022
+[2025-01-13 09:31:00] INFO services [OTP_DEBUG] DEV MODE - Message content: Your verification code is: 174023. Valid for 10 minutes.
+[2025-01-13 09:31:00] INFO services [OTP_DEBUG] SMS send result - Success: True, Response: SMS sent successfully (Development Mode)
+[2025-01-13 09:31:00] INFO services [OTP_DEBUG] Final result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': 'b758cd9f-ce22-4821-87c9-23262b252ff5'}
+[2025-01-13 09:31:00] INFO views [OTP_DEBUG] OTPService result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': 'b758cd9f-ce22-4821-87c9-23262b252ff5'}
+[2025-01-13 09:31:00] INFO views [OTP_DEBUG] Sending success response: {'status': 'success', 'message': 'OTP sent successfully', 'data': {'otp_id': 'b758cd9f-ce22-4821-87c9-23262b252ff5'}}
+[2025-01-13 09:31:03] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:31:03] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:31:03] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:31:03] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:31:03] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:31:03] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:31:03] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:31:03] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:31:09] INFO views [OTP_DEBUG] Received verify_otp request
+[2025-01-13 09:31:09] INFO views [OTP_DEBUG] Request Method: POST
+[2025-01-13 09:31:09] INFO views [OTP_DEBUG] Request Headers: {'Content-Length': '52', 'Content-Type': 'application/json', 'Host': 'localhost:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:4200', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:4200/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8'}
+[2025-01-13 09:31:09] INFO views [OTP_DEBUG] Request Data: {'phone_number': '9660555552022', 'otp_code': '174023'}
+[2025-01-13 09:31:09] INFO views [OTP_DEBUG] Verifying OTP - Phone: 9660555552022, Code: 174023
+[2025-01-13 09:31:09] INFO views [OTP_DEBUG] Sanitized phone number: 9660555552022
+[2025-01-13 09:31:09] INFO views [OTP_DEBUG] Sanitized OTP code: 174023
+[2025-01-13 09:31:09] INFO views [OTP_DEBUG] Calling OTPService.verify_otp
+[2025-01-13 09:31:09] INFO services Verifying OTP for 9660555552022
+[2025-01-13 09:31:09] INFO services OTP verified successfully for 9660555552022
+[2025-01-13 09:31:09] INFO views [OTP_DEBUG] Verification result - Success: True, Message: OTP verified successfully
+[2025-01-13 09:31:09] INFO views [OTP_DEBUG] Sending success response: {'status': 'success', 'message': 'OTP verified successfully'}
+[2025-01-13 09:31:22] WARNING log Bad Request: /api/v1/appointments/
+[2025-01-13 09:34:07] INFO views [OTP_DEBUG] Received send_otp request
+[2025-01-13 09:34:07] INFO views [OTP_DEBUG] Request Method: POST
+[2025-01-13 09:34:07] INFO views [OTP_DEBUG] Request Headers: {'Content-Length': '32', 'Content-Type': 'application/json', 'Host': 'localhost:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:4200', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:4200/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8'}
+[2025-01-13 09:34:07] INFO views [OTP_DEBUG] Request Data: {'phone_number': '9660555552022'}
+[2025-01-13 09:34:07] INFO views [OTP_DEBUG] Extracted phone number: 9660555552022
+[2025-01-13 09:34:07] INFO views [OTP_DEBUG] Sanitized phone number: 9660555552022
+[2025-01-13 09:34:07] INFO views [OTP_DEBUG] Calling OTPService.create_and_send_otp
+[2025-01-13 09:34:07] INFO services [OTP_DEBUG] Starting OTP creation for phone: 9660555552022
+[2025-01-13 09:34:07] INFO services [OTP_DEBUG] Generated OTP code: 512201
+[2025-01-13 09:34:07] INFO services [OTP_DEBUG] Generated OTP code: 512201 for phone: 9660555552022
+[2025-01-13 09:34:07] INFO services [OTP_DEBUG] Created OTP record - ID: 21356ca9-0dde-4d31-923c-31b29ea7fb56, Phone: 9660555552022, Code: 512201
+[2025-01-13 09:34:07] INFO services [OTP_DEBUG] Prepared SMS message: Your verification code is: 512201. Valid for 10 minutes.
+[2025-01-13 09:34:07] INFO services [OTP_DEBUG] Attempting to send SMS to 9660555552022
+[2025-01-13 09:34:07] INFO services [OTP_DEBUG] Message content: Your verification code is: 512201. Valid for 10 minutes.
+[2025-01-13 09:34:07] INFO services [OTP_DEBUG] DEV MODE - SMS would be sent to 9660555552022
+[2025-01-13 09:34:07] INFO services [OTP_DEBUG] DEV MODE - Message content: Your verification code is: 512201. Valid for 10 minutes.
+[2025-01-13 09:34:07] INFO services [OTP_DEBUG] SMS send result - Success: True, Response: SMS sent successfully (Development Mode)
+[2025-01-13 09:34:07] INFO services [OTP_DEBUG] Final result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': '21356ca9-0dde-4d31-923c-31b29ea7fb56'}
+[2025-01-13 09:34:07] INFO views [OTP_DEBUG] OTPService result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': '21356ca9-0dde-4d31-923c-31b29ea7fb56'}
+[2025-01-13 09:34:07] INFO views [OTP_DEBUG] Sending success response: {'status': 'success', 'message': 'OTP sent successfully', 'data': {'otp_id': '21356ca9-0dde-4d31-923c-31b29ea7fb56'}}
+[2025-01-13 09:34:10] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:34:10] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:34:10] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:34:10] WARNING utils Could not reverse url from auth.user
+[2025-01-13 09:34:18] INFO views [OTP_DEBUG] Received verify_otp request
+[2025-01-13 09:34:18] INFO views [OTP_DEBUG] Request Method: POST
+[2025-01-13 09:34:18] INFO views [OTP_DEBUG] Request Headers: {'Content-Length': '52', 'Content-Type': 'application/json', 'Host': 'localhost:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:4200', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:4200/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8'}
+[2025-01-13 09:34:18] INFO views [OTP_DEBUG] Request Data: {'phone_number': '9660555552022', 'otp_code': '512201'}
+[2025-01-13 09:34:18] INFO views [OTP_DEBUG] Verifying OTP - Phone: 9660555552022, Code: 512201
+[2025-01-13 09:34:18] INFO views [OTP_DEBUG] Sanitized phone number: 9660555552022
+[2025-01-13 09:34:18] INFO views [OTP_DEBUG] Sanitized OTP code: 512201
+[2025-01-13 09:34:18] INFO views [OTP_DEBUG] Calling OTPService.verify_otp
+[2025-01-13 09:34:18] INFO services Verifying OTP for 9660555552022
+[2025-01-13 09:34:18] INFO services OTP verified successfully for 9660555552022
+[2025-01-13 09:34:18] INFO views [OTP_DEBUG] Verification result - Success: True, Message: OTP verified successfully
+[2025-01-13 09:34:18] INFO views [OTP_DEBUG] Sending success response: {'status': 'success', 'message': 'OTP verified successfully'}
+[2025-01-13 09:34:31] WARNING log Unauthorized: /api/v1/video-calls/token/
+[2025-01-13 09:34:31] ERROR log Internal Server Error: /api/v1/appointments/
+[2025-01-13 09:35:06] INFO autoreload /Users/babarsultan/Documents/alaqa/python-django/appointments/views.py changed, reloading.
+[2025-01-13 09:35:06] INFO autoreload Watching for file changes with StatReloader
+[2025-01-13 09:36:04] INFO autoreload /Users/babarsultan/Documents/alaqa/python-django/video_calls/views.py changed, reloading.
+[2025-01-13 09:36:04] INFO autoreload Watching for file changes with StatReloader
+[2025-01-13 09:37:19] INFO autoreload /Users/babarsultan/Documents/alaqa/python-django/video_calls/views.py changed, reloading.
+[2025-01-13 09:37:19] INFO autoreload Watching for file changes with StatReloader
+[2025-01-13 10:00:31] WARNING utils Could not reverse url from auth.user
+[2025-01-13 10:00:31] WARNING utils Could not reverse url from auth.user
+[2025-01-13 10:00:31] WARNING utils Could not reverse url from auth.user
+[2025-01-13 10:00:31] WARNING utils Could not reverse url from auth.user
+[2025-01-13 10:00:32] WARNING utils Could not reverse url from auth.user
+[2025-01-13 10:00:32] WARNING utils Could not reverse url from auth.user
+[2025-01-13 10:00:32] WARNING utils Could not reverse url from auth.user
+[2025-01-13 10:00:32] WARNING utils Could not reverse url from auth.user
+[2025-01-13 10:00:32] WARNING utils Could not reverse url from auth.user
+[2025-01-13 10:06:56] WARNING log Unauthorized: /api/v1/appointments/
+[2025-01-13 10:06:56] WARNING log Unauthorized: /api/v1/appointments/
+[2025-01-13 10:08:51] WARNING log Unauthorized: /api/v1/appointments/
+[2025-01-13 10:10:09] INFO autoreload /Users/babarsultan/Documents/alaqa/python-django/appointments/views.py changed, reloading.
+[2025-01-13 10:10:09] INFO autoreload Watching for file changes with StatReloader
+[2025-01-13 10:11:10] INFO autoreload /Users/babarsultan/Documents/alaqa/python-django/appointments/views.py changed, reloading.
+[2025-01-13 10:11:11] INFO autoreload Watching for file changes with StatReloader
+[2025-01-13 10:29:26] WARNING log Not Found: /api/v1/api/v1/appointments/
+[2025-01-13 10:29:39] WARNING log Not Found: /api/v1/api/v1/appointments/
+[2025-01-13 10:30:57] WARNING log Unauthorized: /api/v1/appointments/
+[2025-01-13 10:30:57] WARNING log Not Found: /api/v1/auth/refresh-token/
+[2025-01-13 10:33:15] WARNING utils Could not reverse url from auth.user
+[2025-01-13 10:33:15] WARNING utils Could not reverse url from auth.user
+[2025-01-13 10:33:15] WARNING utils Could not reverse url from auth.user
+[2025-01-13 10:33:15] WARNING utils Could not reverse url from auth.user
+[2025-01-13 10:33:15] WARNING utils Could not reverse url from auth.user
+[2025-01-13 10:33:18] WARNING utils Could not reverse url from auth.user
+[2025-01-13 10:33:18] WARNING utils Could not reverse url from auth.user
+[2025-01-13 10:33:18] WARNING utils Could not reverse url from auth.user
+[2025-01-13 10:33:18] WARNING utils Could not reverse url from auth.user
+[2025-01-13 10:34:44] WARNING utils Could not reverse url from auth.user
+[2025-01-13 10:34:44] WARNING utils Could not reverse url from auth.user
+[2025-01-13 10:34:44] WARNING utils Could not reverse url from auth.user
+[2025-01-13 10:34:44] WARNING utils Could not reverse url from auth.user
+[2025-01-13 10:34:50] INFO views [OTP_DEBUG] Received send_otp request
+[2025-01-13 10:34:50] INFO views [OTP_DEBUG] Request Method: POST
+[2025-01-13 10:34:50] INFO views [OTP_DEBUG] Request Headers: {'Content-Length': '32', 'Content-Type': 'application/json', 'Host': 'localhost:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:4200', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:4200/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8'}
+[2025-01-13 10:34:50] INFO views [OTP_DEBUG] Request Data: {'phone_number': '9660555552022'}
+[2025-01-13 10:34:50] INFO views [OTP_DEBUG] Extracted phone number: 9660555552022
+[2025-01-13 10:34:50] INFO views [OTP_DEBUG] Sanitized phone number: 9660555552022
+[2025-01-13 10:34:50] INFO views [OTP_DEBUG] Calling OTPService.create_and_send_otp
+[2025-01-13 10:34:50] INFO services [OTP_DEBUG] Starting OTP creation for phone: 9660555552022
+[2025-01-13 10:34:50] INFO services [OTP_DEBUG] Generated OTP code: 160933
+[2025-01-13 10:34:50] INFO services [OTP_DEBUG] Generated OTP code: 160933 for phone: 9660555552022
+[2025-01-13 10:34:50] INFO services [OTP_DEBUG] Created OTP record - ID: 3ea63648-b593-4ae4-9d4d-d59c956d8cb4, Phone: 9660555552022, Code: 160933
+[2025-01-13 10:34:50] INFO services [OTP_DEBUG] Prepared SMS message: Your verification code is: 160933. Valid for 10 minutes.
+[2025-01-13 10:34:50] INFO services [OTP_DEBUG] Attempting to send SMS to 9660555552022
+[2025-01-13 10:34:50] INFO services [OTP_DEBUG] Message content: Your verification code is: 160933. Valid for 10 minutes.
+[2025-01-13 10:34:50] INFO services [OTP_DEBUG] DEV MODE - SMS would be sent to 9660555552022
+[2025-01-13 10:34:50] INFO services [OTP_DEBUG] DEV MODE - Message content: Your verification code is: 160933. Valid for 10 minutes.
+[2025-01-13 10:34:50] INFO services [OTP_DEBUG] SMS send result - Success: True, Response: SMS sent successfully (Development Mode)
+[2025-01-13 10:34:50] INFO services [OTP_DEBUG] Final result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': '3ea63648-b593-4ae4-9d4d-d59c956d8cb4'}
+[2025-01-13 10:34:50] INFO views [OTP_DEBUG] OTPService result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': '3ea63648-b593-4ae4-9d4d-d59c956d8cb4'}
+[2025-01-13 10:34:50] INFO views [OTP_DEBUG] Sending success response: {'status': 'success', 'message': 'OTP sent successfully', 'data': {'otp_id': '3ea63648-b593-4ae4-9d4d-d59c956d8cb4'}}
+[2025-01-13 10:34:54] WARNING utils Could not reverse url from auth.user
+[2025-01-13 10:34:54] WARNING utils Could not reverse url from auth.user
+[2025-01-13 10:34:54] WARNING utils Could not reverse url from auth.user
+[2025-01-13 10:34:54] WARNING utils Could not reverse url from auth.user
+[2025-01-13 10:35:00] INFO views [OTP_DEBUG] Received verify_otp request
+[2025-01-13 10:35:00] INFO views [OTP_DEBUG] Request Method: POST
+[2025-01-13 10:35:00] INFO views [OTP_DEBUG] Request Headers: {'Content-Length': '52', 'Content-Type': 'application/json', 'Host': 'localhost:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:4200', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:4200/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8'}
+[2025-01-13 10:35:00] INFO views [OTP_DEBUG] Request Data: {'phone_number': '9660555552022', 'otp_code': '160933'}
+[2025-01-13 10:35:00] INFO views [OTP_DEBUG] Verifying OTP - Phone: 9660555552022, Code: 160933
+[2025-01-13 10:35:00] INFO views [OTP_DEBUG] Sanitized phone number: 9660555552022
+[2025-01-13 10:35:00] INFO views [OTP_DEBUG] Sanitized OTP code: 160933
+[2025-01-13 10:35:00] INFO views [OTP_DEBUG] Calling OTPService.verify_otp
+[2025-01-13 10:35:00] INFO services Verifying OTP for 9660555552022
+[2025-01-13 10:35:00] INFO services OTP verified successfully for 9660555552022
+[2025-01-13 10:35:00] INFO views [OTP_DEBUG] Verification result - Success: True, Message: OTP verified successfully
+[2025-01-13 10:35:00] INFO views [OTP_DEBUG] Sending success response: {'status': 'success', 'message': 'OTP verified successfully'}
+[2025-01-13 10:35:08] WARNING utils Could not reverse url from auth.user
+[2025-01-13 10:35:08] WARNING utils Could not reverse url from auth.user
+[2025-01-13 10:35:08] WARNING utils Could not reverse url from auth.user
+[2025-01-13 10:35:08] WARNING utils Could not reverse url from auth.user
+[2025-01-13 10:36:03] WARNING utils Could not reverse url from auth.user
+[2025-01-13 10:36:03] WARNING utils Could not reverse url from auth.user
+[2025-01-13 10:36:03] WARNING utils Could not reverse url from auth.user
+[2025-01-13 10:36:03] WARNING utils Could not reverse url from auth.user
+[2025-01-13 10:36:08] WARNING utils Could not reverse url from auth.user
+[2025-01-13 10:36:08] WARNING utils Could not reverse url from auth.user
+[2025-01-13 10:36:08] WARNING utils Could not reverse url from auth.user
+[2025-01-13 10:36:08] WARNING utils Could not reverse url from auth.user
+[2025-01-13 10:36:08] WARNING utils Could not reverse url from auth.user
+[2025-01-13 10:36:32] WARNING log Not Found: /api/v1/appointments/2/join/
+[2025-01-13 10:47:07] WARNING log Unauthorized: /api/v1/appointments/
+[2025-01-13 10:47:07] WARNING log Not Found: /api/v1/auth/refresh-token/
+[2025-01-13 11:04:56] WARNING log Unauthorized: /api/v1/appointments/
+[2025-01-13 11:04:56] WARNING log Not Found: /api/v1/auth/refresh-token/
+[2025-01-13 11:27:12] WARNING log Unauthorized: /api/v1/appointments/
+[2025-01-13 11:27:12] WARNING log Not Found: /api/v1/auth/refresh-token/
+[2025-01-14 21:43:18] INFO autoreload Watching for file changes with StatReloader
+[2025-01-14 21:51:49] INFO autoreload Watching for file changes with StatReloader
+[2025-01-14 22:04:58] WARNING utils Could not reverse url from auth.user
+[2025-01-14 22:04:58] WARNING utils Could not reverse url from auth.user
+[2025-01-14 22:04:58] WARNING utils Could not reverse url from auth.user
+[2025-01-14 22:04:58] WARNING utils Could not reverse url from auth.user
+[2025-01-14 22:04:58] WARNING utils Could not reverse url from auth.user
+[2025-01-14 22:05:03] WARNING utils Could not reverse url from auth.user
+[2025-01-14 22:05:03] WARNING utils Could not reverse url from auth.user
+[2025-01-14 22:05:03] WARNING utils Could not reverse url from auth.user
+[2025-01-14 22:05:03] WARNING utils Could not reverse url from auth.user
+[2025-01-14 22:05:18] INFO views [OTP_DEBUG] Received send_otp request
+[2025-01-14 22:05:18] INFO views [OTP_DEBUG] Request Method: POST
+[2025-01-14 22:05:18] INFO views [OTP_DEBUG] Request Headers: {'Content-Length': '32', 'Content-Type': 'application/json', 'Host': 'localhost:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:64667', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:64667/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8,ps;q=0.7'}
+[2025-01-14 22:05:18] INFO views [OTP_DEBUG] Request Data: {'phone_number': '9660234567890'}
+[2025-01-14 22:05:18] INFO views [OTP_DEBUG] Extracted phone number: 9660234567890
+[2025-01-14 22:05:18] INFO views [OTP_DEBUG] Sanitized phone number: 9660234567890
+[2025-01-14 22:05:18] INFO views [OTP_DEBUG] Calling OTPService.create_and_send_otp
+[2025-01-14 22:05:18] INFO services [OTP_DEBUG] Starting OTP creation for phone: 9660234567890
+[2025-01-14 22:05:18] INFO services [OTP_DEBUG] Generated OTP code: 289106
+[2025-01-14 22:05:18] INFO services [OTP_DEBUG] Generated OTP code: 289106 for phone: 9660234567890
+[2025-01-14 22:05:18] INFO services [OTP_DEBUG] Created OTP record - ID: d141a9b3-65dc-494d-b2c5-effc4a1b3831, Phone: 9660234567890, Code: 289106
+[2025-01-14 22:05:18] INFO services [OTP_DEBUG] Prepared SMS message: Your verification code is: 289106. Valid for 10 minutes.
+[2025-01-14 22:05:18] INFO services [OTP_DEBUG] Attempting to send SMS to 9660234567890
+[2025-01-14 22:05:18] INFO services [OTP_DEBUG] Message content: Your verification code is: 289106. Valid for 10 minutes.
+[2025-01-14 22:05:18] INFO services [OTP_DEBUG] DEV MODE - SMS would be sent to 9660234567890
+[2025-01-14 22:05:18] INFO services [OTP_DEBUG] DEV MODE - Message content: Your verification code is: 289106. Valid for 10 minutes.
+[2025-01-14 22:05:18] INFO services [OTP_DEBUG] SMS send result - Success: True, Response: SMS sent successfully (Development Mode)
+[2025-01-14 22:05:18] INFO services [OTP_DEBUG] Final result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': 'd141a9b3-65dc-494d-b2c5-effc4a1b3831'}
+[2025-01-14 22:05:18] INFO views [OTP_DEBUG] OTPService result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': 'd141a9b3-65dc-494d-b2c5-effc4a1b3831'}
+[2025-01-14 22:05:18] INFO views [OTP_DEBUG] Sending success response: {'status': 'success', 'message': 'OTP sent successfully', 'data': {'otp_id': 'd141a9b3-65dc-494d-b2c5-effc4a1b3831'}}
+[2025-01-14 22:05:22] WARNING utils Could not reverse url from auth.user
+[2025-01-14 22:05:22] WARNING utils Could not reverse url from auth.user
+[2025-01-14 22:05:22] WARNING utils Could not reverse url from auth.user
+[2025-01-14 22:05:22] WARNING utils Could not reverse url from auth.user
+[2025-01-14 22:05:29] INFO views [OTP_DEBUG] Received verify_otp request
+[2025-01-14 22:05:29] INFO views [OTP_DEBUG] Request Method: POST
+[2025-01-14 22:05:29] INFO views [OTP_DEBUG] Request Headers: {'Content-Length': '52', 'Content-Type': 'application/json', 'Host': 'localhost:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:64667', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:64667/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8,ps;q=0.7'}
+[2025-01-14 22:05:29] INFO views [OTP_DEBUG] Request Data: {'phone_number': '9660234567890', 'otp_code': '289106'}
+[2025-01-14 22:05:29] INFO views [OTP_DEBUG] Verifying OTP - Phone: 9660234567890, Code: 289106
+[2025-01-14 22:05:29] INFO views [OTP_DEBUG] Sanitized phone number: 9660234567890
+[2025-01-14 22:05:29] INFO views [OTP_DEBUG] Sanitized OTP code: 289106
+[2025-01-14 22:05:29] INFO views [OTP_DEBUG] Calling OTPService.verify_otp
+[2025-01-14 22:05:29] INFO services Verifying OTP for 9660234567890
+[2025-01-14 22:05:29] INFO services OTP verified successfully for 9660234567890
+[2025-01-14 22:05:29] INFO views [OTP_DEBUG] Verification result - Success: True, Message: OTP verified successfully
+[2025-01-14 22:05:29] INFO views [OTP_DEBUG] Sending success response: {'status': 'success', 'message': 'OTP verified successfully'}
+[2025-01-14 22:09:04] WARNING log Unauthorized: /api/v1/appointments/
+[2025-01-14 22:09:04] WARNING log Not Found: /api/v1/auth/refresh-token/
+[2025-01-14 22:11:22] INFO autoreload /Users/babarsultan/Documents/alaqa/python-django/video_calls/views.py changed, reloading.
+[2025-01-14 22:11:22] INFO autoreload Watching for file changes with StatReloader
+[2025-01-14 22:12:33] INFO autoreload /Users/babarsultan/Documents/alaqa/python-django/video_calls/views.py changed, reloading.
+[2025-01-14 22:12:34] INFO autoreload Watching for file changes with StatReloader
+[2025-01-14 22:13:05] INFO autoreload /Users/babarsultan/Documents/alaqa/python-django/video_calls/views.py changed, reloading.
+[2025-01-14 22:13:05] INFO autoreload Watching for file changes with StatReloader
+[2025-01-14 22:13:16] INFO autoreload /Users/babarsultan/Documents/alaqa/python-django/video_calls/urls.py changed, reloading.
+[2025-01-14 22:13:16] INFO autoreload Watching for file changes with StatReloader
+[2025-01-14 22:14:08] INFO autoreload /Users/babarsultan/Documents/alaqa/python-django/video_calls/urls.py changed, reloading.
+[2025-01-14 22:14:08] INFO autoreload Watching for file changes with StatReloader
+[2025-01-14 22:15:08] INFO autoreload /Users/babarsultan/Documents/alaqa/python-django/video_calls/views.py changed, reloading.
+[2025-01-14 22:15:09] INFO autoreload Watching for file changes with StatReloader
+[2025-01-14 22:24:53] INFO autoreload /Users/babarsultan/Documents/alaqa/python-django/video_calls/views.py changed, reloading.
+[2025-01-14 22:24:53] INFO autoreload Watching for file changes with StatReloader
+[2025-01-14 22:25:51] INFO autoreload /Users/babarsultan/Documents/alaqa/python-django/video_calls/views.py changed, reloading.
+[2025-01-14 22:25:51] INFO autoreload Watching for file changes with StatReloader
+[2025-01-14 22:27:51] INFO autoreload /Users/babarsultan/Documents/alaqa/python-django/video_calls/views.py changed, reloading.
+[2025-01-14 22:27:51] INFO autoreload Watching for file changes with StatReloader
+[2025-01-15 08:33:49] WARNING utils Could not reverse url from auth.user
+[2025-01-15 08:33:49] WARNING utils Could not reverse url from auth.user
+[2025-01-15 08:33:49] WARNING utils Could not reverse url from auth.user
+[2025-01-15 08:33:49] WARNING utils Could not reverse url from auth.user
+[2025-01-15 08:34:00] WARNING utils Could not reverse url from auth.user
+[2025-01-15 08:34:00] WARNING utils Could not reverse url from auth.user
+[2025-01-15 08:34:00] WARNING utils Could not reverse url from auth.user
+[2025-01-15 08:34:00] WARNING utils Could not reverse url from auth.user
+[2025-01-15 08:34:04] WARNING utils Could not reverse url from auth.user
+[2025-01-15 08:34:04] WARNING utils Could not reverse url from auth.user
+[2025-01-15 08:34:04] WARNING utils Could not reverse url from auth.user
+[2025-01-15 08:34:04] WARNING utils Could not reverse url from auth.user
+[2025-01-15 08:34:10] WARNING log Unauthorized: /api/v1/appointments/
+[2025-01-15 08:34:10] WARNING log Not Found: /api/v1/auth/refresh-token/
+[2025-01-15 08:34:48] WARNING utils Could not reverse url from auth.user
+[2025-01-15 08:34:48] WARNING utils Could not reverse url from auth.user
+[2025-01-15 08:34:48] WARNING utils Could not reverse url from auth.user
+[2025-01-15 08:34:48] WARNING utils Could not reverse url from auth.user
+[2025-01-15 08:34:54] WARNING utils Could not reverse url from auth.user
+[2025-01-15 08:34:54] WARNING utils Could not reverse url from auth.user
+[2025-01-15 08:34:54] WARNING utils Could not reverse url from auth.user
+[2025-01-15 08:34:54] WARNING utils Could not reverse url from auth.user
+[2025-01-15 08:34:56] WARNING utils Could not reverse url from auth.user
+[2025-01-15 08:34:56] WARNING utils Could not reverse url from auth.user
+[2025-01-15 08:34:56] WARNING utils Could not reverse url from auth.user
+[2025-01-15 08:34:56] WARNING utils Could not reverse url from auth.user
+[2025-01-15 08:35:01] INFO views [OTP_DEBUG] Received send_otp request
+[2025-01-15 08:35:01] INFO views [OTP_DEBUG] Request Method: POST
+[2025-01-15 08:35:01] INFO views [OTP_DEBUG] Request Headers: {'Content-Length': '32', 'Content-Type': 'application/json', 'Host': 'localhost:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:64667', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:64667/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8,ps;q=0.7'}
+[2025-01-15 08:35:01] INFO views [OTP_DEBUG] Request Data: {'phone_number': '9666195470813'}
+[2025-01-15 08:35:01] INFO views [OTP_DEBUG] Extracted phone number: 9666195470813
+[2025-01-15 08:35:01] INFO views [OTP_DEBUG] Sanitized phone number: 9666195470813
+[2025-01-15 08:35:01] INFO views [OTP_DEBUG] Calling OTPService.create_and_send_otp
+[2025-01-15 08:35:01] INFO services [OTP_DEBUG] Starting OTP creation for phone: 9666195470813
+[2025-01-15 08:35:01] INFO services [OTP_DEBUG] Generated OTP code: 165292
+[2025-01-15 08:35:01] INFO services [OTP_DEBUG] Generated OTP code: 165292 for phone: 9666195470813
+[2025-01-15 08:35:01] INFO services [OTP_DEBUG] Created OTP record - ID: e879e53b-589d-4db0-8c74-5a58e7c61710, Phone: 9666195470813, Code: 165292
+[2025-01-15 08:35:01] INFO services [OTP_DEBUG] Prepared SMS message: Your verification code is: 165292. Valid for 10 minutes.
+[2025-01-15 08:35:01] INFO services [OTP_DEBUG] Attempting to send SMS to 9666195470813
+[2025-01-15 08:35:01] INFO services [OTP_DEBUG] Message content: Your verification code is: 165292. Valid for 10 minutes.
+[2025-01-15 08:35:01] INFO services [OTP_DEBUG] DEV MODE - SMS would be sent to 9666195470813
+[2025-01-15 08:35:01] INFO services [OTP_DEBUG] DEV MODE - Message content: Your verification code is: 165292. Valid for 10 minutes.
+[2025-01-15 08:35:01] INFO services [OTP_DEBUG] SMS send result - Success: True, Response: SMS sent successfully (Development Mode)
+[2025-01-15 08:35:01] INFO services [OTP_DEBUG] Final result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': 'e879e53b-589d-4db0-8c74-5a58e7c61710'}
+[2025-01-15 08:35:01] INFO views [OTP_DEBUG] OTPService result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': 'e879e53b-589d-4db0-8c74-5a58e7c61710'}
+[2025-01-15 08:35:01] INFO views [OTP_DEBUG] Sending success response: {'status': 'success', 'message': 'OTP sent successfully', 'data': {'otp_id': 'e879e53b-589d-4db0-8c74-5a58e7c61710'}}
+[2025-01-15 08:35:03] WARNING utils Could not reverse url from auth.user
+[2025-01-15 08:35:03] WARNING utils Could not reverse url from auth.user
+[2025-01-15 08:35:03] WARNING utils Could not reverse url from auth.user
+[2025-01-15 08:35:03] WARNING utils Could not reverse url from auth.user
+[2025-01-15 08:35:09] INFO views [OTP_DEBUG] Received verify_otp request
+[2025-01-15 08:35:09] INFO views [OTP_DEBUG] Request Method: POST
+[2025-01-15 08:35:09] INFO views [OTP_DEBUG] Request Headers: {'Content-Length': '52', 'Content-Type': 'application/json', 'Host': 'localhost:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:64667', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:64667/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8,ps;q=0.7'}
+[2025-01-15 08:35:09] INFO views [OTP_DEBUG] Request Data: {'phone_number': '9666195470813', 'otp_code': '165292'}
+[2025-01-15 08:35:09] INFO views [OTP_DEBUG] Verifying OTP - Phone: 9666195470813, Code: 165292
+[2025-01-15 08:35:09] INFO views [OTP_DEBUG] Sanitized phone number: 9666195470813
+[2025-01-15 08:35:09] INFO views [OTP_DEBUG] Sanitized OTP code: 165292
+[2025-01-15 08:35:09] INFO views [OTP_DEBUG] Calling OTPService.verify_otp
+[2025-01-15 08:35:09] INFO services Verifying OTP for 9666195470813
+[2025-01-15 08:35:09] INFO services OTP verified successfully for 9666195470813
+[2025-01-15 08:35:09] INFO views [OTP_DEBUG] Verification result - Success: True, Message: OTP verified successfully
+[2025-01-15 08:35:09] INFO views [OTP_DEBUG] Sending success response: {'status': 'success', 'message': 'OTP verified successfully'}
+[2025-01-15 08:35:13] WARNING log Bad Request: /api/v1/appointments/
+[2025-01-15 08:35:17] WARNING log Bad Request: /api/v1/appointments/
+[2025-01-15 08:35:17] WARNING log Bad Request: /api/v1/appointments/
+[2025-01-15 08:35:18] WARNING log Bad Request: /api/v1/appointments/
+[2025-01-15 08:35:18] WARNING log Bad Request: /api/v1/appointments/
+[2025-01-15 08:35:18] WARNING log Bad Request: /api/v1/appointments/
+[2025-01-15 08:35:18] WARNING log Bad Request: /api/v1/appointments/
+[2025-01-15 08:35:18] WARNING log Bad Request: /api/v1/appointments/
+[2025-01-15 08:35:42] WARNING log Bad Request: /api/v1/appointments/
+[2025-01-15 08:35:42] WARNING log Bad Request: /api/v1/appointments/
+[2025-01-15 08:37:42] WARNING log Bad Request: /api/v1/appointments/
+[2025-01-15 08:50:22] INFO views [OTP_DEBUG] Received send_otp request
+[2025-01-15 08:50:22] INFO views [OTP_DEBUG] Request Method: POST
+[2025-01-15 08:50:22] INFO views [OTP_DEBUG] Request Headers: {'Content-Length': '32', 'Content-Type': 'application/json', 'Host': 'localhost:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:64667', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:64667/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8,ps;q=0.7'}
+[2025-01-15 08:50:22] INFO views [OTP_DEBUG] Request Data: {'phone_number': '9666195470813'}
+[2025-01-15 08:50:22] INFO views [OTP_DEBUG] Extracted phone number: 9666195470813
+[2025-01-15 08:50:22] INFO views [OTP_DEBUG] Sanitized phone number: 9666195470813
+[2025-01-15 08:50:22] INFO views [OTP_DEBUG] Calling OTPService.create_and_send_otp
+[2025-01-15 08:50:22] INFO services [OTP_DEBUG] Starting OTP creation for phone: 9666195470813
+[2025-01-15 08:50:22] INFO services [OTP_DEBUG] Generated OTP code: 185829
+[2025-01-15 08:50:22] INFO services [OTP_DEBUG] Generated OTP code: 185829 for phone: 9666195470813
+[2025-01-15 08:50:22] INFO services [OTP_DEBUG] Created OTP record - ID: 2d090f53-f218-488d-aee7-a33741ae441c, Phone: 9666195470813, Code: 185829
+[2025-01-15 08:50:22] INFO services [OTP_DEBUG] Prepared SMS message: Your verification code is: 185829. Valid for 10 minutes.
+[2025-01-15 08:50:22] INFO services [OTP_DEBUG] Attempting to send SMS to 9666195470813
+[2025-01-15 08:50:22] INFO services [OTP_DEBUG] Message content: Your verification code is: 185829. Valid for 10 minutes.
+[2025-01-15 08:50:22] INFO services [OTP_DEBUG] DEV MODE - SMS would be sent to 9666195470813
+[2025-01-15 08:50:22] INFO services [OTP_DEBUG] DEV MODE - Message content: Your verification code is: 185829. Valid for 10 minutes.
+[2025-01-15 08:50:22] INFO services [OTP_DEBUG] SMS send result - Success: True, Response: SMS sent successfully (Development Mode)
+[2025-01-15 08:50:22] INFO services [OTP_DEBUG] Final result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': '2d090f53-f218-488d-aee7-a33741ae441c'}
+[2025-01-15 08:50:22] INFO views [OTP_DEBUG] OTPService result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': '2d090f53-f218-488d-aee7-a33741ae441c'}
+[2025-01-15 08:50:22] INFO views [OTP_DEBUG] Sending success response: {'status': 'success', 'message': 'OTP sent successfully', 'data': {'otp_id': '2d090f53-f218-488d-aee7-a33741ae441c'}}
+[2025-01-15 08:50:25] WARNING utils Could not reverse url from auth.user
+[2025-01-15 08:50:25] WARNING utils Could not reverse url from auth.user
+[2025-01-15 08:50:25] WARNING utils Could not reverse url from auth.user
+[2025-01-15 08:50:25] WARNING utils Could not reverse url from auth.user
+[2025-01-15 08:50:31] INFO views [OTP_DEBUG] Received verify_otp request
+[2025-01-15 08:50:31] INFO views [OTP_DEBUG] Request Method: POST
+[2025-01-15 08:50:31] INFO views [OTP_DEBUG] Request Headers: {'Content-Length': '52', 'Content-Type': 'application/json', 'Host': 'localhost:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:64667', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:64667/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8,ps;q=0.7'}
+[2025-01-15 08:50:31] INFO views [OTP_DEBUG] Request Data: {'phone_number': '9666195470813', 'otp_code': '185829'}
+[2025-01-15 08:50:31] INFO views [OTP_DEBUG] Verifying OTP - Phone: 9666195470813, Code: 185829
+[2025-01-15 08:50:31] INFO views [OTP_DEBUG] Sanitized phone number: 9666195470813
+[2025-01-15 08:50:31] INFO views [OTP_DEBUG] Sanitized OTP code: 185829
+[2025-01-15 08:50:31] INFO views [OTP_DEBUG] Calling OTPService.verify_otp
+[2025-01-15 08:50:31] INFO services Verifying OTP for 9666195470813
+[2025-01-15 08:50:31] INFO services OTP verified successfully for 9666195470813
+[2025-01-15 08:50:31] INFO views [OTP_DEBUG] Verification result - Success: True, Message: OTP verified successfully
+[2025-01-15 08:50:31] INFO views [OTP_DEBUG] Sending success response: {'status': 'success', 'message': 'OTP verified successfully'}
+[2025-01-15 08:50:44] INFO views Generated Agora token for channel: appointment_d1c799e8-f2c7-402d-905d-4e131f07c483_2025-01-15T08:50:44.467000+00:00, uid: 619462, role: 1
+[2025-01-15 08:51:14] WARNING log Unauthorized: /api/v1/appointments/
+[2025-01-15 08:51:14] WARNING log Not Found: /api/v1/auth/refresh-token/
+[2025-01-15 09:14:44] INFO views [OTP_DEBUG] Received send_otp request
+[2025-01-15 09:14:44] INFO views [OTP_DEBUG] Request Method: POST
+[2025-01-15 09:14:44] INFO views [OTP_DEBUG] Request Headers: {'Content-Length': '32', 'Content-Type': 'application/json', 'Host': 'localhost:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:64667', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:64667/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8,ps;q=0.7'}
+[2025-01-15 09:14:44] INFO views [OTP_DEBUG] Request Data: {'phone_number': '9666195470813'}
+[2025-01-15 09:14:44] INFO views [OTP_DEBUG] Extracted phone number: 9666195470813
+[2025-01-15 09:14:44] INFO views [OTP_DEBUG] Sanitized phone number: 9666195470813
+[2025-01-15 09:14:44] INFO views [OTP_DEBUG] Calling OTPService.create_and_send_otp
+[2025-01-15 09:14:44] INFO services [OTP_DEBUG] Starting OTP creation for phone: 9666195470813
+[2025-01-15 09:14:44] INFO services [OTP_DEBUG] Generated OTP code: 998118
+[2025-01-15 09:14:44] INFO services [OTP_DEBUG] Generated OTP code: 998118 for phone: 9666195470813
+[2025-01-15 09:14:44] INFO services [OTP_DEBUG] Created OTP record - ID: da596daa-7887-4249-bc1a-eeef7aa464da, Phone: 9666195470813, Code: 998118
+[2025-01-15 09:14:44] INFO services [OTP_DEBUG] Prepared SMS message: Your verification code is: 998118. Valid for 10 minutes.
+[2025-01-15 09:14:44] INFO services [OTP_DEBUG] Attempting to send SMS to 9666195470813
+[2025-01-15 09:14:44] INFO services [OTP_DEBUG] Message content: Your verification code is: 998118. Valid for 10 minutes.
+[2025-01-15 09:14:44] INFO services [OTP_DEBUG] DEV MODE - SMS would be sent to 9666195470813
+[2025-01-15 09:14:44] INFO services [OTP_DEBUG] DEV MODE - Message content: Your verification code is: 998118. Valid for 10 minutes.
+[2025-01-15 09:14:44] INFO services [OTP_DEBUG] SMS send result - Success: True, Response: SMS sent successfully (Development Mode)
+[2025-01-15 09:14:44] INFO services [OTP_DEBUG] Final result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': 'da596daa-7887-4249-bc1a-eeef7aa464da'}
+[2025-01-15 09:14:44] INFO views [OTP_DEBUG] OTPService result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': 'da596daa-7887-4249-bc1a-eeef7aa464da'}
+[2025-01-15 09:14:44] INFO views [OTP_DEBUG] Sending success response: {'status': 'success', 'message': 'OTP sent successfully', 'data': {'otp_id': 'da596daa-7887-4249-bc1a-eeef7aa464da'}}
+[2025-01-15 09:14:47] WARNING utils Could not reverse url from auth.user
+[2025-01-15 09:14:47] WARNING utils Could not reverse url from auth.user
+[2025-01-15 09:14:47] WARNING utils Could not reverse url from auth.user
+[2025-01-15 09:14:47] WARNING utils Could not reverse url from auth.user
+[2025-01-15 09:14:56] INFO views [OTP_DEBUG] Received verify_otp request
+[2025-01-15 09:14:56] INFO views [OTP_DEBUG] Request Method: POST
+[2025-01-15 09:14:56] INFO views [OTP_DEBUG] Request Headers: {'Content-Length': '52', 'Content-Type': 'application/json', 'Host': 'localhost:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:64667', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:64667/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8,ps;q=0.7'}
+[2025-01-15 09:14:56] INFO views [OTP_DEBUG] Request Data: {'phone_number': '9666195470813', 'otp_code': '998118'}
+[2025-01-15 09:14:56] INFO views [OTP_DEBUG] Verifying OTP - Phone: 9666195470813, Code: 998118
+[2025-01-15 09:14:56] INFO views [OTP_DEBUG] Sanitized phone number: 9666195470813
+[2025-01-15 09:14:56] INFO views [OTP_DEBUG] Sanitized OTP code: 998118
+[2025-01-15 09:14:56] INFO views [OTP_DEBUG] Calling OTPService.verify_otp
+[2025-01-15 09:14:56] INFO services Verifying OTP for 9666195470813
+[2025-01-15 09:14:56] INFO services OTP verified successfully for 9666195470813
+[2025-01-15 09:14:56] INFO views [OTP_DEBUG] Verification result - Success: True, Message: OTP verified successfully
+[2025-01-15 09:14:56] INFO views [OTP_DEBUG] Sending success response: {'status': 'success', 'message': 'OTP verified successfully'}
+[2025-01-15 09:16:46] WARNING log Unauthorized: /api/v1/appointments/
+[2025-01-15 09:16:46] WARNING log Not Found: /api/v1/auth/refresh-token/
+[2025-01-15 09:34:01] WARNING log Unauthorized: /api/v1/appointments/
+[2025-01-15 09:34:01] WARNING log Not Found: /api/v1/auth/refresh-token/
+[2025-01-15 09:56:03] WARNING log Unauthorized: /api/v1/appointments/
+[2025-01-15 09:56:04] WARNING log Not Found: /api/v1/auth/refresh-token/
+[2025-01-15 09:58:48] INFO autoreload /Users/babarsultan/Documents/alaqa/python-django/video_calls/views.py changed, reloading.
+[2025-01-15 09:58:48] INFO autoreload Watching for file changes with StatReloader
+[2025-01-15 09:59:48] INFO autoreload /Users/babarsultan/Documents/alaqa/python-django/video_calls/views.py changed, reloading.
+[2025-01-15 09:59:49] INFO autoreload Watching for file changes with StatReloader
+[2025-01-15 09:59:55] WARNING utils Could not reverse url from auth.user
+[2025-01-15 09:59:55] WARNING utils Could not reverse url from auth.user
+[2025-01-15 09:59:55] WARNING utils Could not reverse url from auth.user
+[2025-01-15 09:59:55] WARNING utils Could not reverse url from auth.user
+[2025-01-15 10:00:04] WARNING utils Could not reverse url from auth.user
+[2025-01-15 10:00:04] WARNING utils Could not reverse url from auth.user
+[2025-01-15 10:00:04] WARNING utils Could not reverse url from auth.user
+[2025-01-15 10:00:04] WARNING utils Could not reverse url from auth.user
+[2025-01-15 10:00:10] WARNING utils Could not reverse url from auth.user
+[2025-01-15 10:00:10] WARNING utils Could not reverse url from auth.user
+[2025-01-15 10:00:10] WARNING utils Could not reverse url from auth.user
+[2025-01-15 10:00:10] WARNING utils Could not reverse url from auth.user
+[2025-01-15 10:00:11] WARNING utils Could not reverse url from auth.user
+[2025-01-15 10:00:11] WARNING utils Could not reverse url from auth.user
+[2025-01-15 10:00:11] WARNING utils Could not reverse url from auth.user
+[2025-01-15 10:00:11] WARNING utils Could not reverse url from auth.user
+[2025-01-15 10:00:14] WARNING utils Could not reverse url from auth.user
+[2025-01-15 10:00:14] WARNING utils Could not reverse url from auth.user
+[2025-01-15 10:00:14] WARNING utils Could not reverse url from auth.user
+[2025-01-15 10:00:14] WARNING utils Could not reverse url from auth.user
+[2025-01-15 10:00:19] WARNING utils Could not reverse url from auth.user
+[2025-01-15 10:00:19] WARNING utils Could not reverse url from auth.user
+[2025-01-15 10:00:19] WARNING utils Could not reverse url from auth.user
+[2025-01-15 10:00:19] WARNING utils Could not reverse url from auth.user
+[2025-01-15 10:00:20] WARNING utils Could not reverse url from auth.user
+[2025-01-15 10:00:20] WARNING utils Could not reverse url from auth.user
+[2025-01-15 10:00:20] WARNING utils Could not reverse url from auth.user
+[2025-01-15 10:00:20] WARNING utils Could not reverse url from auth.user
+[2025-01-15 10:00:39] WARNING utils Could not reverse url from auth.user
+[2025-01-15 10:00:39] WARNING utils Could not reverse url from auth.user
+[2025-01-15 10:00:39] WARNING utils Could not reverse url from auth.user
+[2025-01-15 10:00:39] WARNING utils Could not reverse url from auth.user
+[2025-01-15 10:00:45] INFO views [OTP_DEBUG] Received send_otp request
+[2025-01-15 10:00:45] INFO views [OTP_DEBUG] Request Method: POST
+[2025-01-15 10:00:45] INFO views [OTP_DEBUG] Request Headers: {'Content-Length': '32', 'Content-Type': 'application/json', 'Host': 'localhost:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:64667', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:64667/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8,ps;q=0.7'}
+[2025-01-15 10:00:45] INFO views [OTP_DEBUG] Request Data: {'phone_number': '9666195470813'}
+[2025-01-15 10:00:45] INFO views [OTP_DEBUG] Extracted phone number: 9666195470813
+[2025-01-15 10:00:45] INFO views [OTP_DEBUG] Sanitized phone number: 9666195470813
+[2025-01-15 10:00:45] INFO views [OTP_DEBUG] Calling OTPService.create_and_send_otp
+[2025-01-15 10:00:45] INFO services [OTP_DEBUG] Starting OTP creation for phone: 9666195470813
+[2025-01-15 10:00:45] INFO services [OTP_DEBUG] Generated OTP code: 933818
+[2025-01-15 10:00:45] INFO services [OTP_DEBUG] Generated OTP code: 933818 for phone: 9666195470813
+[2025-01-15 10:00:46] INFO services [OTP_DEBUG] Created OTP record - ID: 06553a4e-ea23-40bc-95f9-41d6151dee3f, Phone: 9666195470813, Code: 933818
+[2025-01-15 10:00:46] INFO services [OTP_DEBUG] Prepared SMS message: Your verification code is: 933818. Valid for 10 minutes.
+[2025-01-15 10:00:46] INFO services [OTP_DEBUG] Attempting to send SMS to 9666195470813
+[2025-01-15 10:00:46] INFO services [OTP_DEBUG] Message content: Your verification code is: 933818. Valid for 10 minutes.
+[2025-01-15 10:00:46] INFO services [OTP_DEBUG] DEV MODE - SMS would be sent to 9666195470813
+[2025-01-15 10:00:46] INFO services [OTP_DEBUG] DEV MODE - Message content: Your verification code is: 933818. Valid for 10 minutes.
+[2025-01-15 10:00:46] INFO services [OTP_DEBUG] SMS send result - Success: True, Response: SMS sent successfully (Development Mode)
+[2025-01-15 10:00:46] INFO services [OTP_DEBUG] Final result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': '06553a4e-ea23-40bc-95f9-41d6151dee3f'}
+[2025-01-15 10:00:46] INFO views [OTP_DEBUG] OTPService result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': '06553a4e-ea23-40bc-95f9-41d6151dee3f'}
+[2025-01-15 10:00:46] INFO views [OTP_DEBUG] Sending success response: {'status': 'success', 'message': 'OTP sent successfully', 'data': {'otp_id': '06553a4e-ea23-40bc-95f9-41d6151dee3f'}}
+[2025-01-15 10:00:48] WARNING utils Could not reverse url from auth.user
+[2025-01-15 10:00:48] WARNING utils Could not reverse url from auth.user
+[2025-01-15 10:00:48] WARNING utils Could not reverse url from auth.user
+[2025-01-15 10:00:48] WARNING utils Could not reverse url from auth.user
+[2025-01-15 10:00:54] INFO views [OTP_DEBUG] Received verify_otp request
+[2025-01-15 10:00:54] INFO views [OTP_DEBUG] Request Method: POST
+[2025-01-15 10:00:54] INFO views [OTP_DEBUG] Request Headers: {'Content-Length': '52', 'Content-Type': 'application/json', 'Host': 'localhost:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:64667', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:64667/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8,ps;q=0.7'}
+[2025-01-15 10:00:54] INFO views [OTP_DEBUG] Request Data: {'phone_number': '9666195470813', 'otp_code': '933818'}
+[2025-01-15 10:00:54] INFO views [OTP_DEBUG] Verifying OTP - Phone: 9666195470813, Code: 933818
+[2025-01-15 10:00:54] INFO views [OTP_DEBUG] Sanitized phone number: 9666195470813
+[2025-01-15 10:00:54] INFO views [OTP_DEBUG] Sanitized OTP code: 933818
+[2025-01-15 10:00:54] INFO views [OTP_DEBUG] Calling OTPService.verify_otp
+[2025-01-15 10:00:54] INFO services Verifying OTP for 9666195470813
+[2025-01-15 10:00:54] INFO services OTP verified successfully for 9666195470813
+[2025-01-15 10:00:54] INFO views [OTP_DEBUG] Verification result - Success: True, Message: OTP verified successfully
+[2025-01-15 10:00:54] INFO views [OTP_DEBUG] Sending success response: {'status': 'success', 'message': 'OTP verified successfully'}
+[2025-01-15 10:00:57] WARNING log Bad Request: /api/v1/appointments/
+[2025-01-15 10:01:23] WARNING log Bad Request: /api/v1/appointments/
+[2025-01-15 10:02:46] WARNING log Bad Request: /api/v1/appointments/
+[2025-01-15 10:02:55] WARNING log Bad Request: /api/v1/appointments/
+[2025-01-15 10:03:38] INFO views [OTP_DEBUG] Received send_otp request
+[2025-01-15 10:03:38] INFO views [OTP_DEBUG] Request Method: POST
+[2025-01-15 10:03:38] INFO views [OTP_DEBUG] Request Headers: {'Content-Length': '32', 'Content-Type': 'application/json', 'Host': 'localhost:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:64667', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:64667/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8,ps;q=0.7'}
+[2025-01-15 10:03:38] INFO views [OTP_DEBUG] Request Data: {'phone_number': '9666195470813'}
+[2025-01-15 10:03:38] INFO views [OTP_DEBUG] Extracted phone number: 9666195470813
+[2025-01-15 10:03:38] INFO views [OTP_DEBUG] Sanitized phone number: 9666195470813
+[2025-01-15 10:03:38] INFO views [OTP_DEBUG] Calling OTPService.create_and_send_otp
+[2025-01-15 10:03:38] INFO services [OTP_DEBUG] Starting OTP creation for phone: 9666195470813
+[2025-01-15 10:03:38] INFO services [OTP_DEBUG] Generated OTP code: 474714
+[2025-01-15 10:03:38] INFO services [OTP_DEBUG] Generated OTP code: 474714 for phone: 9666195470813
+[2025-01-15 10:03:38] INFO services [OTP_DEBUG] Created OTP record - ID: e9142f27-9b3d-4c5c-8870-52b09c3a9c67, Phone: 9666195470813, Code: 474714
+[2025-01-15 10:03:38] INFO services [OTP_DEBUG] Prepared SMS message: Your verification code is: 474714. Valid for 10 minutes.
+[2025-01-15 10:03:38] INFO services [OTP_DEBUG] Attempting to send SMS to 9666195470813
+[2025-01-15 10:03:38] INFO services [OTP_DEBUG] Message content: Your verification code is: 474714. Valid for 10 minutes.
+[2025-01-15 10:03:38] INFO services [OTP_DEBUG] DEV MODE - SMS would be sent to 9666195470813
+[2025-01-15 10:03:38] INFO services [OTP_DEBUG] DEV MODE - Message content: Your verification code is: 474714. Valid for 10 minutes.
+[2025-01-15 10:03:38] INFO services [OTP_DEBUG] SMS send result - Success: True, Response: SMS sent successfully (Development Mode)
+[2025-01-15 10:03:38] INFO services [OTP_DEBUG] Final result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': 'e9142f27-9b3d-4c5c-8870-52b09c3a9c67'}
+[2025-01-15 10:03:38] INFO views [OTP_DEBUG] OTPService result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': 'e9142f27-9b3d-4c5c-8870-52b09c3a9c67'}
+[2025-01-15 10:03:38] INFO views [OTP_DEBUG] Sending success response: {'status': 'success', 'message': 'OTP sent successfully', 'data': {'otp_id': 'e9142f27-9b3d-4c5c-8870-52b09c3a9c67'}}
+[2025-01-15 10:03:40] WARNING utils Could not reverse url from auth.user
+[2025-01-15 10:03:40] WARNING utils Could not reverse url from auth.user
+[2025-01-15 10:03:40] WARNING utils Could not reverse url from auth.user
+[2025-01-15 10:03:40] WARNING utils Could not reverse url from auth.user
+[2025-01-15 10:03:48] INFO views [OTP_DEBUG] Received verify_otp request
+[2025-01-15 10:03:48] INFO views [OTP_DEBUG] Request Method: POST
+[2025-01-15 10:03:48] INFO views [OTP_DEBUG] Request Headers: {'Content-Length': '52', 'Content-Type': 'application/json', 'Host': 'localhost:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:64667', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:64667/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8,ps;q=0.7'}
+[2025-01-15 10:03:48] INFO views [OTP_DEBUG] Request Data: {'phone_number': '9666195470813', 'otp_code': '474714'}
+[2025-01-15 10:03:48] INFO views [OTP_DEBUG] Verifying OTP - Phone: 9666195470813, Code: 474714
+[2025-01-15 10:03:48] INFO views [OTP_DEBUG] Sanitized phone number: 9666195470813
+[2025-01-15 10:03:48] INFO views [OTP_DEBUG] Sanitized OTP code: 474714
+[2025-01-15 10:03:48] INFO views [OTP_DEBUG] Calling OTPService.verify_otp
+[2025-01-15 10:03:48] INFO services Verifying OTP for 9666195470813
+[2025-01-15 10:03:48] INFO services OTP verified successfully for 9666195470813
+[2025-01-15 10:03:48] INFO views [OTP_DEBUG] Verification result - Success: True, Message: OTP verified successfully
+[2025-01-15 10:03:48] INFO views [OTP_DEBUG] Sending success response: {'status': 'success', 'message': 'OTP verified successfully'}
+[2025-01-15 10:03:57] ERROR views Failed to generate Agora token: type object 'RtcTokenBuilder' has no attribute 'build_token_with_uid'
+[2025-01-15 10:03:57] WARNING views Validation error: [ErrorDetail(string="Token generation failed: type object 'RtcTokenBuilder' has no attribute 'build_token_with_uid'", code='invalid')]
+[2025-01-15 10:03:57] WARNING log Bad Request: /api/v1/video-calls/token/
+[2025-01-15 10:03:57] ERROR log Internal Server Error: /api/v1/appointments/
+[2025-01-15 10:04:18] ERROR views Failed to generate Agora token: type object 'RtcTokenBuilder' has no attribute 'build_token_with_uid'
+[2025-01-15 10:04:18] WARNING views Validation error: [ErrorDetail(string="Token generation failed: type object 'RtcTokenBuilder' has no attribute 'build_token_with_uid'", code='invalid')]
+[2025-01-15 10:04:18] WARNING log Bad Request: /api/v1/video-calls/token/
+[2025-01-15 10:04:18] ERROR log Internal Server Error: /api/v1/appointments/
+[2025-01-15 10:04:52] ERROR views Failed to generate Agora token: type object 'RtcTokenBuilder' has no attribute 'build_token_with_uid'
+[2025-01-15 10:04:52] WARNING views Validation error: [ErrorDetail(string="Token generation failed: type object 'RtcTokenBuilder' has no attribute 'build_token_with_uid'", code='invalid')]
+[2025-01-15 10:04:52] WARNING log Bad Request: /api/v1/video-calls/token/
+[2025-01-15 10:05:21] INFO autoreload /Users/babarsultan/Documents/alaqa/python-django/video_calls/views.py changed, reloading.
+[2025-01-15 10:05:21] INFO autoreload Watching for file changes with StatReloader
+[2025-01-15 10:05:44] INFO autoreload /Users/babarsultan/Documents/alaqa/python-django/video_calls/views.py changed, reloading.
+[2025-01-15 10:05:45] INFO autoreload Watching for file changes with StatReloader
+[2025-01-15 10:06:01] INFO autoreload /Users/babarsultan/Documents/alaqa/python-django/video_calls/views.py changed, reloading.
+[2025-01-15 10:06:01] INFO autoreload Watching for file changes with StatReloader
+[2025-01-15 10:08:13] INFO autoreload /Users/babarsultan/Documents/alaqa/python-django/video_calls/views.py changed, reloading.
+[2025-01-15 10:08:14] INFO autoreload Watching for file changes with StatReloader
+[2025-01-15 10:08:20] INFO views Generated Agora token for channel: appointment_fdb62949-ce34-4bac-ba7b-0aeee5a3ec1e_2025-01-15T10:08:20.430000+00:00, uid: 205
+[2025-01-15 10:14:06] INFO autoreload /Users/babarsultan/Documents/alaqa/python-django/video_calls/views.py changed, reloading.
+[2025-01-15 10:14:07] INFO autoreload Watching for file changes with StatReloader
+[2025-01-15 10:17:13] INFO views [OTP_DEBUG] Received send_otp request
+[2025-01-15 10:17:13] INFO views [OTP_DEBUG] Request Method: POST
+[2025-01-15 10:17:13] INFO views [OTP_DEBUG] Request Headers: {'Content-Length': '32', 'Content-Type': 'application/json', 'Host': 'localhost:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:64667', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:64667/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8,ps;q=0.7'}
+[2025-01-15 10:17:13] INFO views [OTP_DEBUG] Request Data: {'phone_number': '9666195470813'}
+[2025-01-15 10:17:13] INFO views [OTP_DEBUG] Extracted phone number: 9666195470813
+[2025-01-15 10:17:13] INFO views [OTP_DEBUG] Sanitized phone number: 9666195470813
+[2025-01-15 10:17:13] INFO views [OTP_DEBUG] Calling OTPService.create_and_send_otp
+[2025-01-15 10:17:13] INFO services [OTP_DEBUG] Starting OTP creation for phone: 9666195470813
+[2025-01-15 10:17:13] INFO services [OTP_DEBUG] Generated OTP code: 505610
+[2025-01-15 10:17:13] INFO services [OTP_DEBUG] Generated OTP code: 505610 for phone: 9666195470813
+[2025-01-15 10:17:13] INFO services [OTP_DEBUG] Created OTP record - ID: ae50b372-be9e-4f55-90ed-b181b585b218, Phone: 9666195470813, Code: 505610
+[2025-01-15 10:17:13] INFO services [OTP_DEBUG] Prepared SMS message: Your verification code is: 505610. Valid for 10 minutes.
+[2025-01-15 10:17:13] INFO services [OTP_DEBUG] Attempting to send SMS to 9666195470813
+[2025-01-15 10:17:13] INFO services [OTP_DEBUG] Message content: Your verification code is: 505610. Valid for 10 minutes.
+[2025-01-15 10:17:13] INFO services [OTP_DEBUG] DEV MODE - SMS would be sent to 9666195470813
+[2025-01-15 10:17:13] INFO services [OTP_DEBUG] DEV MODE - Message content: Your verification code is: 505610. Valid for 10 minutes.
+[2025-01-15 10:17:13] INFO services [OTP_DEBUG] SMS send result - Success: True, Response: SMS sent successfully (Development Mode)
+[2025-01-15 10:17:13] INFO services [OTP_DEBUG] Final result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': 'ae50b372-be9e-4f55-90ed-b181b585b218'}
+[2025-01-15 10:17:13] INFO views [OTP_DEBUG] OTPService result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': 'ae50b372-be9e-4f55-90ed-b181b585b218'}
+[2025-01-15 10:17:13] INFO views [OTP_DEBUG] Sending success response: {'status': 'success', 'message': 'OTP sent successfully', 'data': {'otp_id': 'ae50b372-be9e-4f55-90ed-b181b585b218'}}
+[2025-01-15 10:17:16] WARNING utils Could not reverse url from auth.user
+[2025-01-15 10:17:16] WARNING utils Could not reverse url from auth.user
+[2025-01-15 10:17:16] WARNING utils Could not reverse url from auth.user
+[2025-01-15 10:17:16] WARNING utils Could not reverse url from auth.user
+[2025-01-15 10:17:22] INFO views [OTP_DEBUG] Received verify_otp request
+[2025-01-15 10:17:22] INFO views [OTP_DEBUG] Request Method: POST
+[2025-01-15 10:17:22] INFO views [OTP_DEBUG] Request Headers: {'Content-Length': '52', 'Content-Type': 'application/json', 'Host': 'localhost:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:64667', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:64667/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8,ps;q=0.7'}
+[2025-01-15 10:17:22] INFO views [OTP_DEBUG] Request Data: {'phone_number': '9666195470813', 'otp_code': '505610'}
+[2025-01-15 10:17:22] INFO views [OTP_DEBUG] Verifying OTP - Phone: 9666195470813, Code: 505610
+[2025-01-15 10:17:22] INFO views [OTP_DEBUG] Sanitized phone number: 9666195470813
+[2025-01-15 10:17:22] INFO views [OTP_DEBUG] Sanitized OTP code: 505610
+[2025-01-15 10:17:22] INFO views [OTP_DEBUG] Calling OTPService.verify_otp
+[2025-01-15 10:17:22] INFO services Verifying OTP for 9666195470813
+[2025-01-15 10:17:22] INFO services OTP verified successfully for 9666195470813
+[2025-01-15 10:17:22] INFO views [OTP_DEBUG] Verification result - Success: True, Message: OTP verified successfully
+[2025-01-15 10:17:22] INFO views [OTP_DEBUG] Sending success response: {'status': 'success', 'message': 'OTP verified successfully'}
+[2025-01-15 10:17:34] ERROR views Token generation failed: type object 'RtcTokenBuilder' has no attribute 'build_token_with_uid_and_privilege'
+[2025-01-15 10:17:34] WARNING log Bad Request: /api/v1/video-calls/token/
+[2025-01-15 10:17:34] ERROR log Internal Server Error: /api/v1/appointments/
+[2025-01-15 10:17:49] ERROR views Token generation failed: type object 'RtcTokenBuilder' has no attribute 'build_token_with_uid_and_privilege'
+[2025-01-15 10:17:49] WARNING log Bad Request: /api/v1/video-calls/token/
+[2025-01-15 10:17:49] ERROR log Internal Server Error: /api/v1/appointments/
+[2025-01-15 10:19:03] INFO autoreload /Users/babarsultan/Documents/alaqa/python-django/video_calls/views.py changed, reloading.
+[2025-01-15 10:19:03] INFO autoreload Watching for file changes with StatReloader
+[2025-01-15 10:19:48] INFO autoreload /Users/babarsultan/Documents/alaqa/python-django/video_calls/views.py changed, reloading.
+[2025-01-15 10:19:48] INFO autoreload Watching for file changes with StatReloader
+[2025-01-15 10:20:09] INFO autoreload /Users/babarsultan/Documents/alaqa/python-django/video_calls/views.py changed, reloading.
+[2025-01-15 10:20:09] INFO autoreload Watching for file changes with StatReloader
+[2025-01-15 10:20:14] WARNING log Bad Request: /api/v1/video-calls/token/
+[2025-01-15 10:20:14] ERROR log Internal Server Error: /api/v1/appointments/
+[2025-01-15 10:20:50] WARNING log Bad Request: /api/v1/appointments/
+[2025-01-15 10:21:14] WARNING log Bad Request: /api/v1/appointments/
+[2025-01-15 10:21:26] WARNING log Bad Request: /api/v1/video-calls/token/
+[2025-01-15 10:21:26] ERROR log Internal Server Error: /api/v1/appointments/
+[2025-01-15 10:21:51] INFO autoreload /Users/babarsultan/Documents/alaqa/python-django/video_calls/views.py changed, reloading.
+[2025-01-15 10:21:51] INFO autoreload Watching for file changes with StatReloader
+[2025-01-15 10:21:59] WARNING log Bad Request: /api/v1/appointments/
+[2025-01-15 10:22:13] WARNING log Bad Request: /api/v1/video-calls/token/
+[2025-01-15 10:22:13] ERROR log Internal Server Error: /api/v1/appointments/
+[2025-01-15 10:22:19] INFO views Generated Agora token for channel: ce2da16c-d4fe-4b0d-909d-f2201bee1ca4_20240115143000, uid: 88
+[2025-01-15 10:22:40] INFO autoreload /Users/babarsultan/Documents/alaqa/python-django/appointments/views.py changed, reloading.
+[2025-01-15 10:22:40] INFO autoreload Watching for file changes with StatReloader
+[2025-01-15 10:22:48] INFO views Generated Agora token for channel: ce2da16c-d4fe-4b0d-909d-f2201bee1ca4_20240115T1430000000, uid: 38
+[2025-01-15 10:23:21] INFO autoreload /Users/babarsultan/Documents/alaqa/python-django/appointments/views.py changed, reloading.
+[2025-01-15 10:23:21] INFO autoreload Watching for file changes with StatReloader
+[2025-01-15 10:23:23] INFO views Generated Agora token for channel: fdb62949-ce34-4bac-ba7b-0aeee5a3ec1e_20250115T1023237420000000, uid: 27
+[2025-01-15 10:24:05] WARNING log Unauthorized: /api/v1/appointments/
+[2025-01-15 10:24:05] WARNING log Not Found: /api/v1/auth/refresh-token/
+[2025-01-15 21:02:03] INFO autoreload Watching for file changes with StatReloader
+[2025-01-15 21:06:48] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:06:48] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:06:48] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:06:48] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:06:48] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:06:53] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:06:53] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:06:53] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:06:53] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:07:00] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:07:00] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:07:00] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:07:00] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:07:02] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:07:02] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:07:02] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:07:02] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:08:04] INFO views [OTP_DEBUG] Received send_otp request
+[2025-01-15 21:08:04] INFO views [OTP_DEBUG] Request Method: POST
+[2025-01-15 21:08:04] INFO views [OTP_DEBUG] Request Headers: {'Content-Length': '32', 'Content-Type': 'application/json', 'Host': 'localhost:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:51249', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:51249/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8,ps;q=0.7'}
+[2025-01-15 21:08:04] INFO views [OTP_DEBUG] Request Data: {'phone_number': '9666195470813'}
+[2025-01-15 21:08:04] INFO views [OTP_DEBUG] Extracted phone number: 9666195470813
+[2025-01-15 21:08:04] INFO views [OTP_DEBUG] Sanitized phone number: 9666195470813
+[2025-01-15 21:08:04] INFO views [OTP_DEBUG] Calling OTPService.create_and_send_otp
+[2025-01-15 21:08:04] INFO services [OTP_DEBUG] Starting OTP creation for phone: 9666195470813
+[2025-01-15 21:08:04] INFO services [OTP_DEBUG] Generated OTP code: 900328
+[2025-01-15 21:08:04] INFO services [OTP_DEBUG] Generated OTP code: 900328 for phone: 9666195470813
+[2025-01-15 21:08:04] INFO services [OTP_DEBUG] Created OTP record - ID: 9d59434d-393b-451c-b905-4ce585a19d8b, Phone: 9666195470813, Code: 900328
+[2025-01-15 21:08:04] INFO services [OTP_DEBUG] Prepared SMS message: Your verification code is: 900328. Valid for 10 minutes.
+[2025-01-15 21:08:04] INFO services [OTP_DEBUG] Attempting to send SMS to 9666195470813
+[2025-01-15 21:08:04] INFO services [OTP_DEBUG] Message content: Your verification code is: 900328. Valid for 10 minutes.
+[2025-01-15 21:08:04] INFO services [OTP_DEBUG] DEV MODE - SMS would be sent to 9666195470813
+[2025-01-15 21:08:04] INFO services [OTP_DEBUG] DEV MODE - Message content: Your verification code is: 900328. Valid for 10 minutes.
+[2025-01-15 21:08:04] INFO services [OTP_DEBUG] SMS send result - Success: True, Response: SMS sent successfully (Development Mode)
+[2025-01-15 21:08:04] INFO services [OTP_DEBUG] Final result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': '9d59434d-393b-451c-b905-4ce585a19d8b'}
+[2025-01-15 21:08:04] INFO views [OTP_DEBUG] OTPService result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': '9d59434d-393b-451c-b905-4ce585a19d8b'}
+[2025-01-15 21:08:04] INFO views [OTP_DEBUG] Sending success response: {'status': 'success', 'message': 'OTP sent successfully', 'data': {'otp_id': '9d59434d-393b-451c-b905-4ce585a19d8b'}}
+[2025-01-15 21:08:09] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:08:09] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:08:09] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:08:09] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:08:14] INFO views [OTP_DEBUG] Received verify_otp request
+[2025-01-15 21:08:14] INFO views [OTP_DEBUG] Request Method: POST
+[2025-01-15 21:08:14] INFO views [OTP_DEBUG] Request Headers: {'Content-Length': '52', 'Content-Type': 'application/json', 'Host': 'localhost:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:51249', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:51249/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8,ps;q=0.7'}
+[2025-01-15 21:08:14] INFO views [OTP_DEBUG] Request Data: {'phone_number': '9666195470813', 'otp_code': '900328'}
+[2025-01-15 21:08:14] INFO views [OTP_DEBUG] Verifying OTP - Phone: 9666195470813, Code: 900328
+[2025-01-15 21:08:14] INFO views [OTP_DEBUG] Sanitized phone number: 9666195470813
+[2025-01-15 21:08:14] INFO views [OTP_DEBUG] Sanitized OTP code: 900328
+[2025-01-15 21:08:14] INFO views [OTP_DEBUG] Calling OTPService.verify_otp
+[2025-01-15 21:08:14] INFO services Verifying OTP for 9666195470813
+[2025-01-15 21:08:14] INFO services OTP verified successfully for 9666195470813
+[2025-01-15 21:08:14] INFO views [OTP_DEBUG] Verification result - Success: True, Message: OTP verified successfully
+[2025-01-15 21:08:14] INFO views [OTP_DEBUG] Sending success response: {'status': 'success', 'message': 'OTP verified successfully'}
+[2025-01-15 21:08:21] INFO views Generated Agora token for channel: fdb62949-ce34-4bac-ba7b-0aeee5a3ec1e_20250115T2108214290000000, uid: 198
+[2025-01-15 21:12:50] INFO autoreload /Users/babarsultan/Documents/alaqa/python-django/video_calls/views.py changed, reloading.
+[2025-01-15 21:12:51] INFO autoreload Watching for file changes with StatReloader
+[2025-01-15 21:13:09] INFO autoreload /Users/babarsultan/Documents/alaqa/python-django/video_calls/views.py changed, reloading.
+[2025-01-15 21:13:10] INFO autoreload Watching for file changes with StatReloader
+[2025-01-15 21:13:23] INFO views Generated Agora token for channel: ce2da16c-d4fe-4b0d-909d-f2201bee1ca4_20240115T1430000000, uid: 215
+[2025-01-15 21:13:41] INFO autoreload /Users/babarsultan/Documents/alaqa/python-django/video_calls/views.py changed, reloading.
+[2025-01-15 21:13:41] INFO autoreload Watching for file changes with StatReloader
+[2025-01-15 21:14:09] INFO views Generated Agora token for channel: ce2da16c-d4fe-4b0d-909d-f2201bee1ca4_20240116T1530000000, uid: 78
+[2025-01-15 21:15:44] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:15:44] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:15:44] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:15:44] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:15:50] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:15:50] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:15:50] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:15:50] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:15:59] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:15:59] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:15:59] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:15:59] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:16:01] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:16:01] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:16:01] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:16:01] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:16:05] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:16:05] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:16:05] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:16:05] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:16:09] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:16:09] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:16:09] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:16:09] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:16:10] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:16:10] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:16:10] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:16:10] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:16:27] INFO views [OTP_DEBUG] Received send_otp request
+[2025-01-15 21:16:27] INFO views [OTP_DEBUG] Request Method: POST
+[2025-01-15 21:16:27] INFO views [OTP_DEBUG] Request Headers: {'Content-Length': '32', 'Content-Type': 'application/json', 'Host': 'localhost:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:51249', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:51249/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8,ps;q=0.7'}
+[2025-01-15 21:16:27] INFO views [OTP_DEBUG] Request Data: {'phone_number': '9666195470813'}
+[2025-01-15 21:16:27] INFO views [OTP_DEBUG] Extracted phone number: 9666195470813
+[2025-01-15 21:16:27] INFO views [OTP_DEBUG] Sanitized phone number: 9666195470813
+[2025-01-15 21:16:27] INFO views [OTP_DEBUG] Calling OTPService.create_and_send_otp
+[2025-01-15 21:16:27] INFO services [OTP_DEBUG] Starting OTP creation for phone: 9666195470813
+[2025-01-15 21:16:27] INFO services [OTP_DEBUG] Generated OTP code: 700875
+[2025-01-15 21:16:27] INFO services [OTP_DEBUG] Generated OTP code: 700875 for phone: 9666195470813
+[2025-01-15 21:16:27] INFO services [OTP_DEBUG] Created OTP record - ID: d9360347-882a-493e-8805-9e16d78b2b15, Phone: 9666195470813, Code: 700875
+[2025-01-15 21:16:27] INFO services [OTP_DEBUG] Prepared SMS message: Your verification code is: 700875. Valid for 10 minutes.
+[2025-01-15 21:16:27] INFO services [OTP_DEBUG] Attempting to send SMS to 9666195470813
+[2025-01-15 21:16:27] INFO services [OTP_DEBUG] Message content: Your verification code is: 700875. Valid for 10 minutes.
+[2025-01-15 21:16:27] INFO services [OTP_DEBUG] DEV MODE - SMS would be sent to 9666195470813
+[2025-01-15 21:16:27] INFO services [OTP_DEBUG] DEV MODE - Message content: Your verification code is: 700875. Valid for 10 minutes.
+[2025-01-15 21:16:27] INFO services [OTP_DEBUG] SMS send result - Success: True, Response: SMS sent successfully (Development Mode)
+[2025-01-15 21:16:27] INFO services [OTP_DEBUG] Final result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': 'd9360347-882a-493e-8805-9e16d78b2b15'}
+[2025-01-15 21:16:27] INFO views [OTP_DEBUG] OTPService result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': 'd9360347-882a-493e-8805-9e16d78b2b15'}
+[2025-01-15 21:16:27] INFO views [OTP_DEBUG] Sending success response: {'status': 'success', 'message': 'OTP sent successfully', 'data': {'otp_id': 'd9360347-882a-493e-8805-9e16d78b2b15'}}
+[2025-01-15 21:16:30] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:16:30] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:16:30] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:16:30] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:16:35] INFO views [OTP_DEBUG] Received verify_otp request
+[2025-01-15 21:16:35] INFO views [OTP_DEBUG] Request Method: POST
+[2025-01-15 21:16:35] INFO views [OTP_DEBUG] Request Headers: {'Content-Length': '52', 'Content-Type': 'application/json', 'Host': 'localhost:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:51249', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:51249/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8,ps;q=0.7'}
+[2025-01-15 21:16:35] INFO views [OTP_DEBUG] Request Data: {'phone_number': '9666195470813', 'otp_code': '700875'}
+[2025-01-15 21:16:35] INFO views [OTP_DEBUG] Verifying OTP - Phone: 9666195470813, Code: 700875
+[2025-01-15 21:16:35] INFO views [OTP_DEBUG] Sanitized phone number: 9666195470813
+[2025-01-15 21:16:35] INFO views [OTP_DEBUG] Sanitized OTP code: 700875
+[2025-01-15 21:16:35] INFO views [OTP_DEBUG] Calling OTPService.verify_otp
+[2025-01-15 21:16:35] INFO services Verifying OTP for 9666195470813
+[2025-01-15 21:16:35] INFO services OTP verified successfully for 9666195470813
+[2025-01-15 21:16:35] INFO views [OTP_DEBUG] Verification result - Success: True, Message: OTP verified successfully
+[2025-01-15 21:16:35] INFO views [OTP_DEBUG] Sending success response: {'status': 'success', 'message': 'OTP verified successfully'}
+[2025-01-15 21:16:38] INFO views Generated Agora token for channel: fdb62949-ce34-4bac-ba7b-0aeee5a3ec1e_20250115T2116380230000000, uid: 168
+[2025-01-15 21:40:01] INFO autoreload /Users/babarsultan/Documents/alaqa/python-django/video_calls/views.py changed, reloading.
+[2025-01-15 21:40:02] INFO autoreload Watching for file changes with StatReloader
+[2025-01-15 21:40:22] ERROR views Failed to generate Agora token: RtcTokenBuilder.buildTokenWithUid() got an unexpected keyword argument 'joinChannelPrivilegeExpiredTs'
+[2025-01-15 21:40:41] INFO autoreload /Users/babarsultan/Documents/alaqa/python-django/video_calls/views.py changed, reloading.
+[2025-01-15 21:40:42] INFO autoreload Watching for file changes with StatReloader
+[2025-01-15 21:40:47] INFO views Generated Agora token for channel: test_channel_1736977247, uid: 7247951, expiry: 1736980847
+[2025-01-15 21:42:10] INFO views Generated Agora token for channel: test_call_1736977330, uid: 136, expiry: 1736980930
+[2025-01-15 21:42:43] INFO autoreload /Users/babarsultan/Documents/alaqa/python-django/video_calls/views.py changed, reloading.
+[2025-01-15 21:42:44] INFO autoreload Watching for file changes with StatReloader
+[2025-01-15 21:42:54] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:42:54] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:42:54] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:42:54] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:42:59] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:42:59] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:42:59] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:42:59] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:43:01] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:43:01] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:43:01] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:43:01] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:43:05] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:43:05] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:43:05] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:43:05] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:43:06] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:43:06] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:43:06] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:43:06] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:43:06] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:43:06] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:43:06] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:43:06] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:43:21] INFO views [OTP_DEBUG] Received send_otp request
+[2025-01-15 21:43:21] INFO views [OTP_DEBUG] Request Method: POST
+[2025-01-15 21:43:21] INFO views [OTP_DEBUG] Request Headers: {'Content-Length': '32', 'Content-Type': 'application/json', 'Host': 'localhost:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:51249', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:51249/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8,ps;q=0.7'}
+[2025-01-15 21:43:21] INFO views [OTP_DEBUG] Request Data: {'phone_number': '9666195470813'}
+[2025-01-15 21:43:21] INFO views [OTP_DEBUG] Extracted phone number: 9666195470813
+[2025-01-15 21:43:21] INFO views [OTP_DEBUG] Sanitized phone number: 9666195470813
+[2025-01-15 21:43:21] INFO views [OTP_DEBUG] Calling OTPService.create_and_send_otp
+[2025-01-15 21:43:21] INFO services [OTP_DEBUG] Starting OTP creation for phone: 9666195470813
+[2025-01-15 21:43:21] INFO services [OTP_DEBUG] Generated OTP code: 668344
+[2025-01-15 21:43:21] INFO services [OTP_DEBUG] Generated OTP code: 668344 for phone: 9666195470813
+[2025-01-15 21:43:21] INFO services [OTP_DEBUG] Created OTP record - ID: 0f78c3cf-5576-4d9d-a5b4-a5ce006265ed, Phone: 9666195470813, Code: 668344
+[2025-01-15 21:43:21] INFO services [OTP_DEBUG] Prepared SMS message: Your verification code is: 668344. Valid for 10 minutes.
+[2025-01-15 21:43:21] INFO services [OTP_DEBUG] Attempting to send SMS to 9666195470813
+[2025-01-15 21:43:21] INFO services [OTP_DEBUG] Message content: Your verification code is: 668344. Valid for 10 minutes.
+[2025-01-15 21:43:21] INFO services [OTP_DEBUG] DEV MODE - SMS would be sent to 9666195470813
+[2025-01-15 21:43:21] INFO services [OTP_DEBUG] DEV MODE - Message content: Your verification code is: 668344. Valid for 10 minutes.
+[2025-01-15 21:43:21] INFO services [OTP_DEBUG] SMS send result - Success: True, Response: SMS sent successfully (Development Mode)
+[2025-01-15 21:43:21] INFO services [OTP_DEBUG] Final result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': '0f78c3cf-5576-4d9d-a5b4-a5ce006265ed'}
+[2025-01-15 21:43:21] INFO views [OTP_DEBUG] OTPService result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': '0f78c3cf-5576-4d9d-a5b4-a5ce006265ed'}
+[2025-01-15 21:43:21] INFO views [OTP_DEBUG] Sending success response: {'status': 'success', 'message': 'OTP sent successfully', 'data': {'otp_id': '0f78c3cf-5576-4d9d-a5b4-a5ce006265ed'}}
+[2025-01-15 21:43:29] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:43:29] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:43:29] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:43:29] WARNING utils Could not reverse url from auth.user
+[2025-01-15 21:43:36] INFO views [OTP_DEBUG] Received verify_otp request
+[2025-01-15 21:43:36] INFO views [OTP_DEBUG] Request Method: POST
+[2025-01-15 21:43:36] INFO views [OTP_DEBUG] Request Headers: {'Content-Length': '52', 'Content-Type': 'application/json', 'Host': 'localhost:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:51249', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:51249/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8,ps;q=0.7'}
+[2025-01-15 21:43:36] INFO views [OTP_DEBUG] Request Data: {'phone_number': '9666195470813', 'otp_code': '668344'}
+[2025-01-15 21:43:36] INFO views [OTP_DEBUG] Verifying OTP - Phone: 9666195470813, Code: 668344
+[2025-01-15 21:43:36] INFO views [OTP_DEBUG] Sanitized phone number: 9666195470813
+[2025-01-15 21:43:36] INFO views [OTP_DEBUG] Sanitized OTP code: 668344
+[2025-01-15 21:43:36] INFO views [OTP_DEBUG] Calling OTPService.verify_otp
+[2025-01-15 21:43:36] INFO services Verifying OTP for 9666195470813
+[2025-01-15 21:43:36] INFO services OTP verified successfully for 9666195470813
+[2025-01-15 21:43:36] INFO views [OTP_DEBUG] Verification result - Success: True, Message: OTP verified successfully
+[2025-01-15 21:43:36] INFO views [OTP_DEBUG] Sending success response: {'status': 'success', 'message': 'OTP verified successfully'}
+[2025-01-15 21:43:38] WARNING log Bad Request: /api/v1/appointments/
+[2025-01-15 21:43:54] WARNING log Bad Request: /api/v1/appointments/
+[2025-01-15 21:44:16] INFO views Generated Agora token for channel: vid_fdb62949-ce34-4bac-ba7b-0aeee5a3ec1e_20250115T2144166310000000, uid: 7456684, expiry: 1736981056
+[2025-01-15 21:44:16] INFO views Generated token response: {'token': '00690cf8135383043a0a227dd7a3da51b2cIAA4K7bHV+lL9XcM0hWLHfA6IaByUc23kl/ze4y7tzlcmXuR77D+QA/FIgCupNsDsH2JZwQAAQBAOohnAgBAOohnAwBAOohnBABAOohn', 'channel_name': 'vid_fdb62949-ce34-4bac-ba7b-0aeee5a3ec1e_20250115T2144166310000000', 'uid': 7456684, 'app_id': '90cf8135383043a0a227dd7a3da51b2c', 'expiration_time': datetime.datetime(2025, 1, 15, 22, 44, 16), 'role': 1}
+[2025-01-15 21:44:21] WARNING log Unauthorized: /api/v1/appointments/
+[2025-01-15 21:44:21] WARNING log Not Found: /api/v1/auth/refresh-token/
+[2025-01-15 21:52:39] WARNING log Not Found: /api/v1/appointments/12/join/
+[2025-01-15 21:55:30] WARNING log Not Found: /api/v1/appointments/12/join/
+[2025-01-15 21:55:31] WARNING log Not Found: /api/v1/appointments/12/join/
+[2025-01-15 21:55:33] WARNING log Not Found: /api/v1/appointments/12/join/
+[2025-01-15 21:55:35] WARNING log Not Found: /api/v1/appointments/12/join/
+[2025-01-15 21:56:15] WARNING log Not Found: /api/v1/appointments/12/join/
+[2025-01-15 21:56:16] WARNING log Not Found: /api/v1/appointments/12/join/
+[2025-01-15 21:56:18] WARNING log Not Found: /api/v1/appointments/12/join/
+[2025-01-15 21:56:19] WARNING log Not Found: /api/v1/appointments/12/join/
+[2025-01-15 21:59:37] WARNING log Not Found: /api/v1/appointments/12/join/
+[2025-01-15 21:59:38] WARNING log Not Found: /api/v1/appointments/12/join/
+[2025-01-15 21:59:40] WARNING log Not Found: /api/v1/appointments/12/join/
+[2025-01-15 21:59:42] WARNING log Not Found: /api/v1/appointments/12/join/
+[2025-01-15 22:00:25] WARNING log Not Found: /api/v1/appointments/12/join/
+[2025-01-15 22:00:26] WARNING log Not Found: /api/v1/appointments/12/join/
+[2025-01-15 22:00:28] WARNING log Not Found: /api/v1/appointments/12/join/
+[2025-01-15 22:00:30] WARNING log Not Found: /api/v1/appointments/12/join/
+[2025-01-15 22:28:31] WARNING log Unauthorized: /api/v1/appointments/
+[2025-01-15 22:28:31] WARNING log Not Found: /api/v1/auth/refresh-token/
+[2025-01-15 23:18:47] WARNING log Not Found: /api/appointments/
+[2025-01-15 23:18:49] WARNING log Not Found: /api/appointments/
+[2025-01-16 04:38:20] WARNING log Unauthorized: /api/v1/appointments/
+[2025-01-16 04:38:20] WARNING log Not Found: /api/v1/auth/refresh-token/
+[2025-01-16 07:48:29] WARNING log Unauthorized: /api/v1/appointments/
+[2025-01-16 07:48:29] WARNING log Not Found: /api/v1/auth/refresh-token/
+[2025-01-16 07:53:48] INFO autoreload /Users/babarsultan/Documents/alaqa/python-django/config/settings.py changed, reloading.
+[2025-01-16 07:53:49] INFO autoreload Watching for file changes with StatReloader
+[2025-01-16 07:55:14] INFO autoreload /Users/babarsultan/Documents/alaqa/python-django/prescriptions/apps.py changed, reloading.
+[2025-01-16 07:55:14] INFO autoreload Watching for file changes with StatReloader
+[2025-01-16 07:55:48] INFO autoreload /Users/babarsultan/Documents/alaqa/python-django/config/urls.py changed, reloading.
+[2025-01-16 07:55:49] INFO autoreload Watching for file changes with StatReloader
+[2025-01-16 07:56:53] INFO autoreload /Users/babarsultan/Documents/alaqa/python-django/drugs/serializers.py changed, reloading.
+[2025-01-16 07:56:54] INFO autoreload Watching for file changes with StatReloader
+[2025-01-16 08:41:07] INFO autoreload /Users/babarsultan/Documents/alaqa/python-django/drugs/serializers.py changed, reloading.
+[2025-01-16 08:41:08] INFO autoreload Watching for file changes with StatReloader
+[2025-01-16 08:41:53] WARNING utils Could not reverse url from auth.user
+[2025-01-16 08:41:53] WARNING utils Could not reverse url from auth.user
+[2025-01-16 08:41:53] WARNING utils Could not reverse url from auth.user
+[2025-01-16 08:41:53] WARNING utils Could not reverse url from auth.user
+[2025-01-16 08:42:02] WARNING utils Could not reverse url from auth.user
+[2025-01-16 08:42:02] WARNING utils Could not reverse url from auth.user
+[2025-01-16 08:42:02] WARNING utils Could not reverse url from auth.user
+[2025-01-16 08:42:02] WARNING utils Could not reverse url from auth.user
+[2025-01-16 08:42:30] WARNING utils Could not reverse url from auth.user
+[2025-01-16 08:42:30] WARNING utils Could not reverse url from auth.user
+[2025-01-16 08:42:30] WARNING utils Could not reverse url from auth.user
+[2025-01-16 08:42:30] WARNING utils Could not reverse url from auth.user
+[2025-01-16 08:42:32] WARNING utils Could not reverse url from auth.user
+[2025-01-16 08:42:32] WARNING utils Could not reverse url from auth.user
+[2025-01-16 08:42:32] WARNING utils Could not reverse url from auth.user
+[2025-01-16 08:42:32] WARNING utils Could not reverse url from auth.user
+[2025-01-16 08:42:32] WARNING utils Could not reverse url from auth.user
+[2025-01-16 08:42:37] WARNING utils Could not reverse url from auth.user
+[2025-01-16 08:42:37] WARNING utils Could not reverse url from auth.user
+[2025-01-16 08:42:37] WARNING utils Could not reverse url from auth.user
+[2025-01-16 08:42:37] WARNING utils Could not reverse url from auth.user
+[2025-01-16 08:42:41] WARNING utils Could not reverse url from auth.user
+[2025-01-16 08:42:41] WARNING utils Could not reverse url from auth.user
+[2025-01-16 08:42:41] WARNING utils Could not reverse url from auth.user
+[2025-01-16 08:42:41] WARNING utils Could not reverse url from auth.user
+[2025-01-16 08:42:41] WARNING utils Could not reverse url from auth.user
+[2025-01-16 08:52:08] WARNING log Unauthorized: /api/v1/auth/login/
+[2025-01-16 08:52:27] WARNING utils Could not reverse url from auth.user
+[2025-01-16 08:52:27] WARNING utils Could not reverse url from auth.user
+[2025-01-16 08:52:27] WARNING utils Could not reverse url from auth.user
+[2025-01-16 08:52:27] WARNING utils Could not reverse url from auth.user
+[2025-01-16 08:52:52] WARNING log Unauthorized: /api/v1/drugs/categories/
+[2025-01-16 08:52:52] WARNING log Unauthorized: /api/v1/drugs/
+[2025-01-16 08:52:52] WARNING log Unauthorized: /api/v1/drugs/dosage-forms/
+[2025-01-16 09:08:21] WARNING log Unauthorized: /api/v1/appointments/
+[2025-01-16 09:08:21] WARNING log Not Found: /api/v1/auth/refresh-token/
+[2025-01-16 09:17:14] WARNING utils Could not reverse url from auth.user
+[2025-01-16 09:17:14] WARNING utils Could not reverse url from auth.user
+[2025-01-16 09:17:14] WARNING utils Could not reverse url from auth.user
+[2025-01-16 09:17:14] WARNING utils Could not reverse url from auth.user
+[2025-01-16 09:17:15] WARNING utils Could not reverse url from auth.user
+[2025-01-16 09:17:15] WARNING utils Could not reverse url from auth.user
+[2025-01-16 09:17:15] WARNING utils Could not reverse url from auth.user
+[2025-01-16 09:17:15] WARNING utils Could not reverse url from auth.user
+[2025-01-16 09:17:15] WARNING utils Could not reverse url from auth.user
+[2025-01-16 09:17:33] WARNING utils Could not reverse url from auth.user
+[2025-01-16 09:17:33] WARNING utils Could not reverse url from auth.user
+[2025-01-16 09:17:33] WARNING utils Could not reverse url from auth.user
+[2025-01-16 09:17:33] WARNING utils Could not reverse url from auth.user
+[2025-01-16 09:17:35] WARNING utils Could not reverse url from auth.user
+[2025-01-16 09:17:35] WARNING utils Could not reverse url from auth.user
+[2025-01-16 09:17:36] WARNING utils Could not reverse url from auth.user
+[2025-01-16 09:17:36] WARNING utils Could not reverse url from auth.user
+[2025-01-16 09:17:38] WARNING utils Could not reverse url from auth.user
+[2025-01-16 09:17:38] WARNING utils Could not reverse url from auth.user
+[2025-01-16 09:17:38] WARNING utils Could not reverse url from auth.user
+[2025-01-16 09:17:38] WARNING utils Could not reverse url from auth.user
+[2025-01-16 09:17:38] WARNING utils Could not reverse url from auth.user
+[2025-01-16 09:17:48] WARNING utils Could not reverse url from auth.user
+[2025-01-16 09:17:48] WARNING utils Could not reverse url from auth.user
+[2025-01-16 09:17:48] WARNING utils Could not reverse url from auth.user
+[2025-01-16 09:17:48] WARNING utils Could not reverse url from auth.user
+[2025-01-16 09:17:51] WARNING utils Could not reverse url from auth.user
+[2025-01-16 09:17:51] WARNING utils Could not reverse url from auth.user
+[2025-01-16 09:17:51] WARNING utils Could not reverse url from auth.user
+[2025-01-16 09:17:51] WARNING utils Could not reverse url from auth.user
+[2025-01-16 09:17:52] WARNING utils Could not reverse url from auth.user
+[2025-01-16 09:17:52] WARNING utils Could not reverse url from auth.user
+[2025-01-16 09:17:52] WARNING utils Could not reverse url from auth.user
+[2025-01-16 09:17:52] WARNING utils Could not reverse url from auth.user
+[2025-01-16 09:17:52] WARNING utils Could not reverse url from auth.user
+[2025-01-16 09:18:04] WARNING log Unauthorized: /api/v1/drugs/
+[2025-01-16 09:18:04] WARNING log Unauthorized: /api/v1/drugs/categories/
+[2025-01-16 09:18:04] WARNING log Unauthorized: /api/v1/drugs/dosage-forms/
+[2025-01-16 09:24:41] WARNING log Unauthorized: /api/v1/appointments/
+[2025-01-16 09:24:41] WARNING log Not Found: /api/v1/auth/refresh-token/
+[2025-01-17 09:21:20] INFO autoreload Watching for file changes with StatReloader
+[2025-01-17 09:23:36] WARNING log Unauthorized: /api/v1/drugs/
+[2025-01-17 09:23:36] WARNING log Unauthorized: /api/v1/drugs/dosage-forms/
+[2025-01-17 09:23:36] WARNING log Unauthorized: /api/v1/drugs/categories/
+[2025-01-17 09:24:22] WARNING log Unauthorized: /api/v1/drugs/
+[2025-01-17 09:24:22] WARNING log Not Found: /api/v1/drugs//categories
+[2025-01-17 09:24:22] WARNING log Not Found: /api/v1/drugs//dosage-forms
+[2025-01-17 09:25:23] WARNING log Not Found: /api/v1/drugs//dosage-forms
+[2025-01-17 09:25:23] WARNING log Not Found: /api/v1/drugs//categories
+[2025-01-17 09:26:05] WARNING log Not Found: /api/v1/drugs//dosage-forms
+[2025-01-17 09:26:05] WARNING log Not Found: /api/v1/drugs//categories
+[2025-01-17 09:28:00] WARNING log Not Found: /api/v1/drugs//categories
+[2025-01-17 09:28:00] WARNING log Not Found: /api/v1/drugs//dosage-forms
+[2025-01-17 09:31:17] WARNING log Not Found: /api/v1/drugs//dosage-forms
+[2025-01-17 09:31:17] WARNING log Not Found: /api/v1/drugs//categories
+[2025-01-17 09:33:16] WARNING log Not Found: /api/v1/drugs/dosage-forms/
+[2025-01-17 09:33:16] WARNING log Not Found: /api/v1/drugs/categories/
+[2025-01-17 09:33:24] WARNING log Not Found: /api/v1/drugs/dosage-forms/
+[2025-01-17 09:33:24] WARNING log Not Found: /api/v1/drugs/categories/
+[2025-01-17 09:34:18] WARNING utils Could not reverse url from auth.user
+[2025-01-17 09:34:18] WARNING utils Could not reverse url from auth.user
+[2025-01-17 09:34:18] WARNING utils Could not reverse url from auth.user
+[2025-01-17 09:34:18] WARNING utils Could not reverse url from auth.user
+[2025-01-17 09:34:18] WARNING utils Could not reverse url from auth.user
+[2025-01-17 09:34:23] WARNING utils Could not reverse url from auth.user
+[2025-01-17 09:34:23] WARNING utils Could not reverse url from auth.user
+[2025-01-17 09:34:23] WARNING utils Could not reverse url from auth.user
+[2025-01-17 09:34:23] WARNING utils Could not reverse url from auth.user
+[2025-01-17 09:34:36] WARNING utils Could not reverse url from auth.user
+[2025-01-17 09:34:36] WARNING utils Could not reverse url from auth.user
+[2025-01-17 09:34:36] WARNING utils Could not reverse url from auth.user
+[2025-01-17 09:34:36] WARNING utils Could not reverse url from auth.user
+[2025-01-17 09:34:38] WARNING utils Could not reverse url from auth.user
+[2025-01-17 09:34:38] WARNING utils Could not reverse url from auth.user
+[2025-01-17 09:34:38] WARNING utils Could not reverse url from auth.user
+[2025-01-17 09:34:38] WARNING utils Could not reverse url from auth.user
+[2025-01-17 09:43:19] WARNING log Not Found: /api/v1/drugs/categories/
+[2025-01-17 09:43:19] WARNING log Not Found: /api/v1/drugs/dosage-forms/
+[2025-01-17 09:43:26] WARNING log Not Found: /api/v1/drugs/dosage-forms/
+[2025-01-17 09:43:26] WARNING log Not Found: /api/v1/drugs/categories/
+[2025-01-17 09:45:46] WARNING log Not Found: /api/v1/drugs/dosage-forms/
+[2025-01-17 09:45:46] WARNING log Not Found: /api/v1/drugs/categories/
+[2025-01-17 09:49:22] INFO autoreload /Users/babarsultan/Documents/alaqa/python-django/drugs/urls.py changed, reloading.
+[2025-01-17 09:49:23] INFO autoreload Watching for file changes with StatReloader
+[2025-01-17 09:53:02] INFO autoreload /Users/babarsultan/Documents/alaqa/python-django/drugs/urls.py changed, reloading.
+[2025-01-17 09:53:02] INFO autoreload Watching for file changes with StatReloader
+[2025-01-17 10:06:02] WARNING log Not Found: /api/v1/api/v1/drugs
+[2025-01-17 10:06:02] WARNING log Not Found: /api/v1/api/v1/categories
+[2025-01-17 10:06:02] WARNING log Not Found: /api/v1/api/v1/dosage-forms
+[2025-01-17 10:07:45] WARNING log Not Found: /api/v1/api/v1/drugs/
+[2025-01-17 10:07:45] WARNING log Not Found: /api/v1/api/v1/dosage-forms/
+[2025-01-17 10:07:45] WARNING log Not Found: /api/v1/api/v1/categories/
+[2025-01-17 10:10:49] WARNING log Not Found: /api/v1/api/v1/drugs/
+[2025-01-17 10:10:49] WARNING log Not Found: /api/v1/api/v1/categories/
+[2025-01-17 10:10:49] WARNING log Not Found: /api/v1/api/v1/dosage-forms/
+[2025-01-17 10:12:15] WARNING log Not Found: /api/v1/api/v1/dosage-forms/
+[2025-01-17 10:12:15] WARNING log Not Found: /api/v1/api/v1/categories/
+[2025-01-17 10:12:15] WARNING log Not Found: /api/v1/api/v1/drugs/
+[2025-01-17 10:23:57] WARNING utils Could not reverse url from auth.user
+[2025-01-17 10:23:57] WARNING utils Could not reverse url from auth.user
+[2025-01-17 10:23:57] WARNING utils Could not reverse url from auth.user
+[2025-01-17 10:23:57] WARNING utils Could not reverse url from auth.user
+[2025-01-17 10:23:58] WARNING utils Could not reverse url from auth.user
+[2025-01-17 10:23:58] WARNING utils Could not reverse url from auth.user
+[2025-01-17 10:23:58] WARNING utils Could not reverse url from auth.user
+[2025-01-17 10:23:58] WARNING utils Could not reverse url from auth.user
+[2025-01-17 10:23:59] WARNING utils Could not reverse url from auth.user
+[2025-01-17 10:23:59] WARNING utils Could not reverse url from auth.user
+[2025-01-17 10:23:59] WARNING utils Could not reverse url from auth.user
+[2025-01-17 10:23:59] WARNING utils Could not reverse url from auth.user
+[2025-01-17 10:24:00] WARNING utils Could not reverse url from auth.user
+[2025-01-17 10:24:00] WARNING utils Could not reverse url from auth.user
+[2025-01-17 10:24:00] WARNING utils Could not reverse url from auth.user
+[2025-01-17 10:24:00] WARNING utils Could not reverse url from auth.user
+[2025-01-17 10:24:00] WARNING utils Could not reverse url from auth.user
+[2025-01-17 10:24:00] WARNING utils Could not reverse url from auth.user
+[2025-01-17 10:24:00] WARNING utils Could not reverse url from auth.user
+[2025-01-17 10:24:00] WARNING utils Could not reverse url from auth.user
+[2025-01-17 10:24:01] WARNING utils Could not reverse url from auth.user
+[2025-01-17 10:24:01] WARNING utils Could not reverse url from auth.user
+[2025-01-17 10:24:01] WARNING utils Could not reverse url from auth.user
+[2025-01-17 10:24:01] WARNING utils Could not reverse url from auth.user
+[2025-01-17 10:24:07] WARNING utils Could not reverse url from auth.user
+[2025-01-17 10:24:07] WARNING utils Could not reverse url from auth.user
+[2025-01-17 10:24:07] WARNING utils Could not reverse url from auth.user
+[2025-01-17 10:24:07] WARNING utils Could not reverse url from auth.user
+[2025-01-17 10:24:07] WARNING utils Could not reverse url from auth.user
+[2025-01-17 10:24:11] WARNING utils Could not reverse url from auth.user
+[2025-01-17 10:24:11] WARNING utils Could not reverse url from auth.user
+[2025-01-17 10:24:11] WARNING utils Could not reverse url from auth.user
+[2025-01-17 10:24:11] WARNING utils Could not reverse url from auth.user
