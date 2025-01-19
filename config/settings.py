@@ -31,7 +31,7 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool('DEBUG', default=True)
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]']
+ALLOWED_HOSTS = ["api.alaqa.net", "145.223.19.50", "localhost", "127.0.0.1"]
 
 
 # Application definition
@@ -64,7 +64,6 @@ INSTALLED_APPS = [
     'otp',  # Add the OTP app
     'appointments.apps.AppointmentsConfig',  # Add this line
     'prescriptions.apps.PrescriptionsConfig',  # Add prescriptions app
-    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -340,7 +339,10 @@ REST_FRAMEWORK = {
 }
 
 # CORS settings
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOWED_ORIGINS = ["https://api.alaqa.net:8000", "http://localhost:8000", "https://patient.zuwara.net", "https://doctor.zuwara.net", "https://admin.zuwara.net"]
+CSRF_TRUSTED_ORIGINS = ["https://api.alaqa.net:8000", "http://localhost:8000", "https://patient.zuwara.net", "https://doctor.zuwara.net", "https://admin.zuwara.net"]
+CSRF_COOKIE_SECURE = True
+CSRF_USE_SESSIONS = True
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_METHODS = [
     'DELETE',
@@ -350,16 +352,6 @@ CORS_ALLOW_METHODS = [
     'POST',
     'PUT',
 ]
-
-# HTTPS Security Settings
-SECURE_SSL_REDIRECT = True
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
-SECURE_BROWSER_XSS_FILTER = True
-SECURE_HSTS_SECONDS = 31536000  # 1 year
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-SECURE_HSTS_PRELOAD = True
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Agora Settings
 AGORA_APP_ID = env('AGORA_APP_ID', default='')
@@ -371,7 +363,3 @@ DREAMS_SMS_API_URL = env('DREAMS_SMS_API_URL', default='https://dreams.sa/api/se
 DREAMS_SMS_USER = env('DREAMS_SMS_USER', default='Alaqa')
 DREAMS_SMS_SECRET_KEY = env('DREAMS_SMS_SECRET_KEY', default='97aca06a4fd54aeb571d0de1ecac4f84ee19d323d5b56fe0a74d7eb2bfc673fe')
 DREAMS_SMS_SENDER = env('DREAMS_SMS_SENDER', default='zuwara')
-
-# SSL Certificate paths
-SSL_CERTIFICATE = os.path.join(BASE_DIR, 'ssl', 'local.crt')
-SSL_PRIVATE_KEY = os.path.join(BASE_DIR, 'ssl', 'local.key')

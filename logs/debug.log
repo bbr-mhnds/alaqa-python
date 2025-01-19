@@ -1738,3 +1738,487 @@ AttributeError: 'list' object has no attribute 'first'
 [2025-01-17 10:24:11] WARNING utils Could not reverse url from auth.user
 [2025-01-17 10:24:11] WARNING utils Could not reverse url from auth.user
 [2025-01-17 10:24:11] WARNING utils Could not reverse url from auth.user
+[2025-01-18 16:01:50] INFO autoreload Watching for file changes with StatReloader
+[2025-01-18 16:02:25] ERROR exception Invalid HTTP_HOST header: '145.223.19.50:8000'. You may need to add '145.223.19.50' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/var/www/alaqa/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/alaqa/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/alaqa/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/var/www/alaqa/venv/lib/python3.12/site-packages/django/http/request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '145.223.19.50:8000'. You may need to add '145.223.19.50' to ALLOWED_HOSTS.
+[2025-01-18 16:02:25] WARNING log Bad Request: /admin
+[2025-01-18 16:02:29] ERROR exception Invalid HTTP_HOST header: '145.223.19.50:8000'. You may need to add '145.223.19.50' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/var/www/alaqa/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/alaqa/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/alaqa/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/var/www/alaqa/venv/lib/python3.12/site-packages/django/http/request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '145.223.19.50:8000'. You may need to add '145.223.19.50' to ALLOWED_HOSTS.
+[2025-01-18 16:02:29] WARNING log Bad Request: /favicon.ico
+[2025-01-18 16:02:30] ERROR exception Invalid HTTP_HOST header: '145.223.19.50:8000'. You may need to add '145.223.19.50' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/var/www/alaqa/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/alaqa/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/alaqa/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/var/www/alaqa/venv/lib/python3.12/site-packages/django/http/request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '145.223.19.50:8000'. You may need to add '145.223.19.50' to ALLOWED_HOSTS.
+[2025-01-18 16:02:30] WARNING log Bad Request: /
+[2025-01-18 16:04:21] INFO autoreload Watching for file changes with StatReloader
+[2025-01-18 16:04:27] ERROR exception Invalid HTTP_HOST header: '145.223.19.50:8000'. You may need to add '145.223.19.50' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/var/www/alaqa/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/alaqa/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/alaqa/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/var/www/alaqa/venv/lib/python3.12/site-packages/django/http/request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '145.223.19.50:8000'. You may need to add '145.223.19.50' to ALLOWED_HOSTS.
+[2025-01-18 16:04:27] WARNING log Bad Request: /admin
+[2025-01-18 16:04:28] ERROR exception Invalid HTTP_HOST header: '145.223.19.50:8000'. You may need to add '145.223.19.50' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/var/www/alaqa/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/alaqa/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/alaqa/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/var/www/alaqa/venv/lib/python3.12/site-packages/django/http/request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '145.223.19.50:8000'. You may need to add '145.223.19.50' to ALLOWED_HOSTS.
+[2025-01-18 16:04:28] WARNING log Bad Request: /favicon.ico
+[2025-01-18 16:07:57] INFO autoreload Watching for file changes with StatReloader
+[2025-01-18 16:08:06] ERROR exception Invalid HTTP_HOST header: '145.223.19.50:8000'. You may need to add '145.223.19.50' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/var/www/alaqa/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/alaqa/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/alaqa/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/var/www/alaqa/venv/lib/python3.12/site-packages/django/http/request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '145.223.19.50:8000'. You may need to add '145.223.19.50' to ALLOWED_HOSTS.
+[2025-01-18 16:08:06] WARNING log Bad Request: /admin
+[2025-01-18 16:08:07] ERROR exception Invalid HTTP_HOST header: '145.223.19.50:8000'. You may need to add '145.223.19.50' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/var/www/alaqa/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/alaqa/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/alaqa/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/var/www/alaqa/venv/lib/python3.12/site-packages/django/http/request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '145.223.19.50:8000'. You may need to add '145.223.19.50' to ALLOWED_HOSTS.
+[2025-01-18 16:08:07] WARNING log Bad Request: /favicon.ico
+[2025-01-18 16:12:14] INFO autoreload Watching for file changes with StatReloader
+[2025-01-18 16:12:20] WARNING utils Could not reverse url from auth.user
+[2025-01-18 16:12:46] WARNING utils Could not reverse url from auth.user
+[2025-01-18 16:12:46] WARNING utils Could not reverse url from auth.user
+[2025-01-18 16:12:46] WARNING utils Could not reverse url from auth.user
+[2025-01-18 16:12:46] WARNING utils Could not reverse url from auth.user
+[2025-01-18 16:12:46] WARNING utils Could not reverse url from auth.user
+[2025-01-18 16:13:01] WARNING utils Could not reverse url from auth.user
+[2025-01-18 16:13:01] WARNING utils Could not reverse url from auth.user
+[2025-01-18 16:13:01] WARNING utils Could not reverse url from auth.user
+[2025-01-18 16:13:01] WARNING utils Could not reverse url from auth.user
+[2025-01-18 16:13:08] WARNING utils Could not reverse url from auth.user
+[2025-01-18 16:13:08] WARNING utils Could not reverse url from auth.user
+[2025-01-18 16:13:08] WARNING utils Could not reverse url from auth.user
+[2025-01-18 16:13:08] WARNING utils Could not reverse url from auth.user
+[2025-01-18 16:15:16] INFO autoreload Watching for file changes with StatReloader
+[2025-01-18 16:15:27] INFO autoreload Watching for file changes with StatReloader
+[2025-01-18 16:16:26] WARNING utils Could not reverse url from auth.user
+[2025-01-18 16:16:26] WARNING utils Could not reverse url from auth.user
+[2025-01-18 16:16:26] WARNING utils Could not reverse url from auth.user
+[2025-01-18 16:16:26] WARNING utils Could not reverse url from auth.user
+[2025-01-18 16:16:27] WARNING utils Could not reverse url from auth.user
+[2025-01-18 16:16:27] WARNING utils Could not reverse url from auth.user
+[2025-01-18 16:16:27] WARNING utils Could not reverse url from auth.user
+[2025-01-18 16:16:27] WARNING utils Could not reverse url from auth.user
+[2025-01-18 16:19:11] INFO autoreload Watching for file changes with StatReloader
+[2025-01-18 16:19:17] WARNING utils Could not reverse url from auth.user
+[2025-01-18 16:19:17] WARNING utils Could not reverse url from auth.user
+[2025-01-18 16:19:17] WARNING utils Could not reverse url from auth.user
+[2025-01-18 16:19:17] WARNING utils Could not reverse url from auth.user
+[2025-01-18 16:19:20] WARNING utils Could not reverse url from auth.user
+[2025-01-18 16:19:20] WARNING utils Could not reverse url from auth.user
+[2025-01-18 16:19:20] WARNING utils Could not reverse url from auth.user
+[2025-01-18 16:19:20] WARNING utils Could not reverse url from auth.user
+[2025-01-18 16:19:27] WARNING utils Could not reverse url from auth.user
+[2025-01-18 16:19:27] WARNING utils Could not reverse url from auth.user
+[2025-01-18 16:19:27] WARNING utils Could not reverse url from auth.user
+[2025-01-18 16:19:27] WARNING utils Could not reverse url from auth.user
+[2025-01-18 16:19:27] WARNING utils Could not reverse url from auth.user
+[2025-01-18 16:50:44] WARNING utils Could not reverse url from auth.user
+[2025-01-18 16:50:44] WARNING utils Could not reverse url from auth.user
+[2025-01-18 16:50:44] WARNING utils Could not reverse url from auth.user
+[2025-01-18 16:50:44] WARNING utils Could not reverse url from auth.user
+[2025-01-18 16:50:46] WARNING utils Could not reverse url from auth.user
+[2025-01-18 16:50:46] WARNING utils Could not reverse url from auth.user
+[2025-01-18 16:50:46] WARNING utils Could not reverse url from auth.user
+[2025-01-18 16:50:46] WARNING utils Could not reverse url from auth.user
+[2025-01-18 17:03:32] WARNING utils Could not reverse url from auth.user
+[2025-01-18 17:03:32] WARNING utils Could not reverse url from auth.user
+[2025-01-18 17:03:32] WARNING utils Could not reverse url from auth.user
+[2025-01-18 17:03:32] WARNING utils Could not reverse url from auth.user
+[2025-01-18 17:03:32] WARNING utils Could not reverse url from auth.user
+[2025-01-18 17:03:32] WARNING utils Could not reverse url from auth.user
+[2025-01-18 17:03:32] WARNING utils Could not reverse url from auth.user
+[2025-01-18 17:03:32] WARNING utils Could not reverse url from auth.user
+[2025-01-18 17:03:32] WARNING utils Could not reverse url from auth.user
+[2025-01-18 17:03:36] WARNING utils Could not reverse url from auth.user
+[2025-01-18 17:03:36] WARNING utils Could not reverse url from auth.user
+[2025-01-18 17:03:36] WARNING utils Could not reverse url from auth.user
+[2025-01-18 17:03:36] WARNING utils Could not reverse url from auth.user
+[2025-01-18 17:03:36] WARNING utils Could not reverse url from auth.user
+[2025-01-18 17:05:00] WARNING utils Could not reverse url from auth.user
+[2025-01-18 17:05:00] WARNING utils Could not reverse url from auth.user
+[2025-01-18 17:05:00] WARNING utils Could not reverse url from auth.user
+[2025-01-18 17:05:00] WARNING utils Could not reverse url from auth.user
+[2025-01-18 17:05:00] WARNING utils Could not reverse url from auth.user
+[2025-01-18 17:05:33] WARNING utils Could not reverse url from auth.user
+[2025-01-18 17:05:33] WARNING utils Could not reverse url from auth.user
+[2025-01-18 17:05:33] WARNING utils Could not reverse url from auth.user
+[2025-01-18 17:05:33] WARNING utils Could not reverse url from auth.user
+[2025-01-18 17:06:52] WARNING utils Could not reverse url from auth.user
+[2025-01-18 17:06:52] WARNING utils Could not reverse url from auth.user
+[2025-01-18 17:06:52] WARNING utils Could not reverse url from auth.user
+[2025-01-18 17:06:52] WARNING utils Could not reverse url from auth.user
+[2025-01-18 17:06:56] WARNING utils Could not reverse url from auth.user
+[2025-01-18 17:06:56] WARNING utils Could not reverse url from auth.user
+[2025-01-18 17:06:56] WARNING utils Could not reverse url from auth.user
+[2025-01-18 17:06:56] WARNING utils Could not reverse url from auth.user
+[2025-01-18 17:06:58] WARNING utils Could not reverse url from auth.user
+[2025-01-18 17:06:58] WARNING utils Could not reverse url from auth.user
+[2025-01-18 17:06:58] WARNING utils Could not reverse url from auth.user
+[2025-01-18 17:06:58] WARNING utils Could not reverse url from auth.user
+[2025-01-18 17:06:59] WARNING utils Could not reverse url from auth.user
+[2025-01-18 17:06:59] WARNING utils Could not reverse url from auth.user
+[2025-01-18 17:06:59] WARNING utils Could not reverse url from auth.user
+[2025-01-18 17:06:59] WARNING utils Could not reverse url from auth.user
+[2025-01-18 17:07:07] WARNING utils Could not reverse url from auth.user
+[2025-01-18 17:07:07] WARNING utils Could not reverse url from auth.user
+[2025-01-18 17:07:07] WARNING utils Could not reverse url from auth.user
+[2025-01-18 17:07:07] WARNING utils Could not reverse url from auth.user
+[2025-01-18 20:19:29] WARNING log Not Found: /
+[2025-01-18 21:45:40] WARNING log Not Found: /
+[2025-01-18 21:45:41] WARNING log Not Found: /
+[2025-01-18 21:45:48] WARNING log Not Found: /
+[2025-01-18 21:46:55] WARNING log Not Found: /api/v1//auth/login/
+[2025-01-18 21:48:03] WARNING log Not Found: /api/v1//auth/login/
+[2025-01-18 21:48:57] WARNING log Not Found: /
+[2025-01-18 21:50:59] WARNING log Unauthorized: /api/v1/auth/login/
+[2025-01-18 21:51:14] WARNING log Not Found: /api/v1/auth/me/
+[2025-01-18 21:52:44] WARNING log Unauthorized: /api/v1/specialties/
+[2025-01-18 21:52:59] WARNING utils Could not reverse url from auth.user
+[2025-01-18 21:53:05] WARNING log Method Not Allowed: /api/v1/specialties/
+[2025-01-18 21:53:22] WARNING log Forbidden (Origin checking failed - https://api.alaqa.net:8000 does not match any trusted origins.): /admin/login/
+[2025-01-18 21:53:22] WARNING log Not Found: /favicon.ico
+[2025-01-18 21:53:57] WARNING utils Could not reverse url from auth.user
+[2025-01-18 21:54:13] WARNING log Forbidden (Origin checking failed - https://api.alaqa.net:8000 does not match any trusted origins.): /admin/login/
+[2025-01-18 21:56:06] WARNING utils Could not reverse url from auth.user
+[2025-01-18 22:02:10] WARNING utils Could not reverse url from auth.user
+[2025-01-18 22:02:30] WARNING utils Could not reverse url from auth.user
+[2025-01-18 22:02:30] WARNING utils Could not reverse url from auth.user
+[2025-01-18 22:02:30] WARNING utils Could not reverse url from auth.user
+[2025-01-18 22:02:30] WARNING utils Could not reverse url from auth.user
+[2025-01-18 22:02:30] WARNING utils Could not reverse url from auth.user
+[2025-01-18 22:04:46] WARNING utils Could not reverse url from auth.user
+[2025-01-18 22:04:46] WARNING utils Could not reverse url from auth.user
+[2025-01-18 22:04:46] WARNING utils Could not reverse url from auth.user
+[2025-01-18 22:04:46] WARNING utils Could not reverse url from auth.user
+[2025-01-18 22:05:30] WARNING utils Could not reverse url from auth.user
+[2025-01-18 22:05:30] WARNING utils Could not reverse url from auth.user
+[2025-01-18 22:05:30] WARNING utils Could not reverse url from auth.user
+[2025-01-18 22:05:30] WARNING utils Could not reverse url from auth.user
+[2025-01-19 00:40:16] WARNING log Not Found: /
+[2025-01-19 01:01:22] WARNING log Not Found: /
+[2025-01-19 01:01:24] WARNING log Not Found: /
+[2025-01-19 01:01:28] WARNING log Not Found: /
+[2025-01-19 01:01:30] WARNING log Not Found: /
+[2025-01-19 02:58:46] WARNING log Not Found: /
+[2025-01-19 02:58:46] WARNING log Not Found: /
+[2025-01-19 05:45:19] WARNING log Not Found: /
+[2025-01-19 07:40:22] WARNING utils Could not reverse url from auth.user
+[2025-01-19 08:20:09] WARNING utils Could not reverse url from auth.user
+[2025-01-19 08:20:09] WARNING utils Could not reverse url from auth.user
+[2025-01-19 08:20:09] WARNING utils Could not reverse url from auth.user
+[2025-01-19 08:20:09] WARNING utils Could not reverse url from auth.user
+[2025-01-19 08:20:09] WARNING utils Could not reverse url from auth.user
+[2025-01-19 11:55:38] WARNING utils Could not reverse url from auth.user
+[2025-01-19 11:55:38] WARNING utils Could not reverse url from auth.user
+[2025-01-19 11:55:38] WARNING utils Could not reverse url from auth.user
+[2025-01-19 11:55:38] WARNING utils Could not reverse url from auth.user
+[2025-01-19 11:59:32] WARNING utils Could not reverse url from auth.user
+[2025-01-19 11:59:32] WARNING utils Could not reverse url from auth.user
+[2025-01-19 11:59:32] WARNING utils Could not reverse url from auth.user
+[2025-01-19 11:59:32] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:09:14] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:09:28] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:09:28] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:09:28] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:09:28] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:09:40] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:09:40] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:09:40] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:09:40] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:10:03] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:10:03] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:10:03] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:10:03] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:10:03] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:10:40] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:10:40] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:10:40] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:10:40] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:10:40] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:10:50] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:10:50] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:10:50] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:10:50] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:10:54] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:10:54] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:10:54] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:10:54] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:10:56] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:10:56] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:10:56] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:10:56] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:11:09] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:11:09] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:11:09] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:11:09] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:11:11] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:11:11] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:11:11] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:11:11] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:11:11] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:11:16] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:11:16] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:11:16] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:11:16] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:11:19] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:11:19] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:11:19] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:11:19] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:11:19] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:15:44] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:15:44] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:15:44] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:15:44] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:15:44] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:15:55] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:15:55] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:15:55] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:15:55] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:16:23] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:16:23] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:16:23] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:16:23] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:16:23] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:17:27] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:17:27] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:17:27] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:17:27] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:17:35] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:17:35] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:17:35] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:17:35] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:17:39] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:17:39] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:17:39] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:17:39] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:17:39] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:49:28] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:49:28] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:49:28] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:49:28] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:49:30] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:49:30] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:49:30] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:49:30] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:49:32] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:49:32] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:49:32] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:49:32] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:49:34] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:49:34] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:49:34] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:49:34] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:49:36] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:49:36] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:49:36] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:49:36] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:49:46] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:49:46] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:49:46] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:49:46] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:49:56] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:49:56] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:49:56] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:49:56] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:50:04] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:50:04] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:50:04] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:50:04] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:50:10] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:50:10] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:50:10] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:50:10] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:50:18] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:50:18] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:50:18] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:50:18] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:50:33] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:50:33] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:50:33] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:50:33] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:50:36] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:50:36] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:50:36] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:50:36] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:50:38] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:50:38] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:50:38] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:50:38] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:50:43] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:50:43] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:50:43] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:50:43] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:50:48] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:50:48] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:50:48] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:50:48] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:50:54] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:50:54] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:50:54] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:50:54] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:50:54] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:51:00] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:51:00] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:51:00] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:51:00] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:51:00] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:51:07] WARNING utils Could not reverse url from auth.user
+[2025-01-19 12:51:07] WARNING utils Could not reverse url from auth.user
+[2025-01-19 16:45:53] WARNING log Not Found: /
+[2025-01-19 17:28:41] WARNING log Not Found: /api/v1//appointments/
+[2025-01-19 17:28:56] WARNING log Not Found: /api/v1//specialties/specialties/
+[2025-01-19 18:05:29] WARNING utils Could not reverse url from auth.user
+[2025-01-19 18:05:29] WARNING utils Could not reverse url from auth.user
+[2025-01-19 18:05:29] WARNING utils Could not reverse url from auth.user
+[2025-01-19 18:05:29] WARNING utils Could not reverse url from auth.user
+[2025-01-19 18:05:41] INFO views [OTP_DEBUG] Received send_otp request
+[2025-01-19 18:05:41] INFO views [OTP_DEBUG] Request Method: POST
+[2025-01-19 18:05:41] INFO views [OTP_DEBUG] Request Headers: {'Host': 'api.alaqa.net', 'X-Real-Ip': '39.60.188.145', 'X-Forwarded-For': '39.60.188.145', 'X-Forwarded-Proto': 'https', 'Connection': 'close', 'Content-Length': '32', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Content-Type': 'application/json', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'https://patient.zuwara.net', 'Sec-Fetch-Site': 'cross-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'https://patient.zuwara.net/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8,ps;q=0.7'}
+[2025-01-19 18:05:41] INFO views [OTP_DEBUG] Request Data: {'phone_number': '9666195470813'}
+[2025-01-19 18:05:41] INFO views [OTP_DEBUG] Extracted phone number: 9666195470813
+[2025-01-19 18:05:41] INFO views [OTP_DEBUG] Sanitized phone number: 9666195470813
+[2025-01-19 18:05:41] INFO views [OTP_DEBUG] Calling OTPService.create_and_send_otp
+[2025-01-19 18:05:41] INFO services [OTP_DEBUG] Starting OTP creation for phone: 9666195470813
+[2025-01-19 18:05:41] INFO services [OTP_DEBUG] Generated OTP code: 994445
+[2025-01-19 18:05:41] INFO services [OTP_DEBUG] Generated OTP code: 994445 for phone: 9666195470813
+[2025-01-19 18:05:41] INFO services [OTP_DEBUG] Created OTP record - ID: 022579a3-3b42-4a8d-a849-c4354fea334f, Phone: 9666195470813, Code: 994445
+[2025-01-19 18:05:41] INFO services [OTP_DEBUG] Prepared SMS message: Your verification code is: 994445. Valid for 10 minutes.
+[2025-01-19 18:05:41] INFO services [OTP_DEBUG] Attempting to send SMS to 9666195470813
+[2025-01-19 18:05:41] INFO services [OTP_DEBUG] Message content: Your verification code is: 994445. Valid for 10 minutes.
+[2025-01-19 18:05:41] INFO services [OTP_DEBUG] DEV MODE - SMS would be sent to 9666195470813
+[2025-01-19 18:05:41] INFO services [OTP_DEBUG] DEV MODE - Message content: Your verification code is: 994445. Valid for 10 minutes.
+[2025-01-19 18:05:41] INFO services [OTP_DEBUG] SMS send result - Success: True, Response: SMS sent successfully (Development Mode)
+[2025-01-19 18:05:41] INFO services [OTP_DEBUG] Final result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': '022579a3-3b42-4a8d-a849-c4354fea334f'}
+[2025-01-19 18:05:41] INFO views [OTP_DEBUG] OTPService result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': '022579a3-3b42-4a8d-a849-c4354fea334f'}
+[2025-01-19 18:05:41] INFO views [OTP_DEBUG] Sending success response: {'status': 'success', 'message': 'OTP sent successfully', 'data': {'otp_id': '022579a3-3b42-4a8d-a849-c4354fea334f'}}
+[2025-01-19 18:05:54] WARNING utils Could not reverse url from auth.user
+[2025-01-19 18:05:54] WARNING utils Could not reverse url from auth.user
+[2025-01-19 18:05:54] WARNING utils Could not reverse url from auth.user
+[2025-01-19 18:05:54] WARNING utils Could not reverse url from auth.user
+[2025-01-19 18:06:02] INFO views [OTP_DEBUG] Received verify_otp request
+[2025-01-19 18:06:02] INFO views [OTP_DEBUG] Request Method: POST
+[2025-01-19 18:06:02] INFO views [OTP_DEBUG] Request Headers: {'Host': 'api.alaqa.net', 'X-Real-Ip': '39.60.188.145', 'X-Forwarded-For': '39.60.188.145', 'X-Forwarded-Proto': 'https', 'Connection': 'close', 'Content-Length': '52', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Content-Type': 'application/json', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'https://patient.zuwara.net', 'Sec-Fetch-Site': 'cross-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'https://patient.zuwara.net/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8,ps;q=0.7'}
+[2025-01-19 18:06:02] INFO views [OTP_DEBUG] Request Data: {'phone_number': '9666195470813', 'otp_code': '994445'}
+[2025-01-19 18:06:02] INFO views [OTP_DEBUG] Verifying OTP - Phone: 9666195470813, Code: 994445
+[2025-01-19 18:06:02] INFO views [OTP_DEBUG] Sanitized phone number: 9666195470813
+[2025-01-19 18:06:02] INFO views [OTP_DEBUG] Sanitized OTP code: 994445
+[2025-01-19 18:06:02] INFO views [OTP_DEBUG] Calling OTPService.verify_otp
+[2025-01-19 18:06:02] INFO services Verifying OTP for 9666195470813
+[2025-01-19 18:06:02] INFO services OTP verified successfully for 9666195470813
+[2025-01-19 18:06:02] INFO views [OTP_DEBUG] Verification result - Success: True, Message: OTP verified successfully
+[2025-01-19 18:06:02] INFO views [OTP_DEBUG] Sending success response: {'status': 'success', 'message': 'OTP verified successfully'}
+[2025-01-19 18:06:17] ERROR log Internal Server Error: /api/v1/appointments/
+[2025-01-19 18:12:29] ERROR log Internal Server Error: /api/v1/appointments/
+[2025-01-19 18:12:50] ERROR log Internal Server Error: /api/v1/appointments/
+[2025-01-19 18:15:45] ERROR log Internal Server Error: /api/v1/appointments/
+[2025-01-19 18:18:16] ERROR log Internal Server Error: /api/v1/appointments/
+[2025-01-19 18:20:53] INFO views [OTP_DEBUG] Received send_otp request
+[2025-01-19 18:20:53] INFO views [OTP_DEBUG] Request Method: POST
+[2025-01-19 18:20:53] INFO views [OTP_DEBUG] Request Headers: {'Host': 'api.alaqa.net', 'X-Real-Ip': '39.60.188.145', 'X-Forwarded-For': '39.60.188.145', 'X-Forwarded-Proto': 'https', 'Connection': 'close', 'Content-Length': '32', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Content-Type': 'application/json', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'https://patient.zuwara.net', 'Sec-Fetch-Site': 'cross-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'https://patient.zuwara.net/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8,ps;q=0.7'}
+[2025-01-19 18:20:53] INFO views [OTP_DEBUG] Request Data: {'phone_number': '9666195470813'}
+[2025-01-19 18:20:53] INFO views [OTP_DEBUG] Extracted phone number: 9666195470813
+[2025-01-19 18:20:53] INFO views [OTP_DEBUG] Sanitized phone number: 9666195470813
+[2025-01-19 18:20:53] INFO views [OTP_DEBUG] Calling OTPService.create_and_send_otp
+[2025-01-19 18:20:53] INFO services [OTP_DEBUG] Starting OTP creation for phone: 9666195470813
+[2025-01-19 18:20:53] INFO services [OTP_DEBUG] Generated OTP code: 921441
+[2025-01-19 18:20:53] INFO services [OTP_DEBUG] Generated OTP code: 921441 for phone: 9666195470813
+[2025-01-19 18:20:53] INFO services [OTP_DEBUG] Created OTP record - ID: ddb07eb7-19cf-4233-a68d-7224a3a7ee8b, Phone: 9666195470813, Code: 921441
+[2025-01-19 18:20:53] INFO services [OTP_DEBUG] Prepared SMS message: Your verification code is: 921441. Valid for 10 minutes.
+[2025-01-19 18:20:53] INFO services [OTP_DEBUG] Attempting to send SMS to 9666195470813
+[2025-01-19 18:20:53] INFO services [OTP_DEBUG] Message content: Your verification code is: 921441. Valid for 10 minutes.
+[2025-01-19 18:20:53] INFO services [OTP_DEBUG] DEV MODE - SMS would be sent to 9666195470813
+[2025-01-19 18:20:53] INFO services [OTP_DEBUG] DEV MODE - Message content: Your verification code is: 921441. Valid for 10 minutes.
+[2025-01-19 18:20:53] INFO services [OTP_DEBUG] SMS send result - Success: True, Response: SMS sent successfully (Development Mode)
+[2025-01-19 18:20:53] INFO services [OTP_DEBUG] Final result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': 'ddb07eb7-19cf-4233-a68d-7224a3a7ee8b'}
+[2025-01-19 18:20:53] INFO views [OTP_DEBUG] OTPService result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': 'ddb07eb7-19cf-4233-a68d-7224a3a7ee8b'}
+[2025-01-19 18:20:53] INFO views [OTP_DEBUG] Sending success response: {'status': 'success', 'message': 'OTP sent successfully', 'data': {'otp_id': 'ddb07eb7-19cf-4233-a68d-7224a3a7ee8b'}}
+[2025-01-19 18:20:56] WARNING utils Could not reverse url from auth.user
+[2025-01-19 18:20:56] WARNING utils Could not reverse url from auth.user
+[2025-01-19 18:20:56] WARNING utils Could not reverse url from auth.user
+[2025-01-19 18:20:56] WARNING utils Could not reverse url from auth.user
+[2025-01-19 18:21:05] INFO views [OTP_DEBUG] Received verify_otp request
+[2025-01-19 18:21:05] INFO views [OTP_DEBUG] Request Method: POST
+[2025-01-19 18:21:05] INFO views [OTP_DEBUG] Request Headers: {'Host': 'api.alaqa.net', 'X-Real-Ip': '39.60.188.145', 'X-Forwarded-For': '39.60.188.145', 'X-Forwarded-Proto': 'https', 'Connection': 'close', 'Content-Length': '52', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"', 'Content-Type': 'application/json', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'https://patient.zuwara.net', 'Sec-Fetch-Site': 'cross-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'https://patient.zuwara.net/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8,ps;q=0.7'}
+[2025-01-19 18:21:05] INFO views [OTP_DEBUG] Request Data: {'phone_number': '9666195470813', 'otp_code': '921441'}
+[2025-01-19 18:21:05] INFO views [OTP_DEBUG] Verifying OTP - Phone: 9666195470813, Code: 921441
+[2025-01-19 18:21:05] INFO views [OTP_DEBUG] Sanitized phone number: 9666195470813
+[2025-01-19 18:21:05] INFO views [OTP_DEBUG] Sanitized OTP code: 921441
+[2025-01-19 18:21:05] INFO views [OTP_DEBUG] Calling OTPService.verify_otp
+[2025-01-19 18:21:05] INFO services Verifying OTP for 9666195470813
+[2025-01-19 18:21:05] INFO services OTP verified successfully for 9666195470813
+[2025-01-19 18:21:05] INFO views [OTP_DEBUG] Verification result - Success: True, Message: OTP verified successfully
+[2025-01-19 18:21:05] INFO views [OTP_DEBUG] Sending success response: {'status': 'success', 'message': 'OTP verified successfully'}
+[2025-01-19 18:21:15] ERROR log Internal Server Error: /api/v1/appointments/
