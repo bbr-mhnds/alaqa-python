@@ -54,18 +54,30 @@ class OTPService:
             logger.info(f"[OTP_DEBUG] SMS API Raw Response: {response_text}")
             logger.info(f"[OTP_DEBUG] SMS API Response Status Code: {response.status_code}")
             
+            # Clean response text - remove any non-numeric characters except minus sign
+            cleaned_response = ''.join(c for c in response_text if c.isdigit() or c == '-')
+            
             # Handle different response codes
-            if response_text == '-124':
+            if cleaned_response == '-124':
                 logger.error("[OTP_DEBUG] SMS API Error: Invalid credentials")
-                return False, "Failed to send SMS: Invalid credentials"
-            elif response_text == '1':
+                return False, "Failed to send SMS: Invalid credentials or IP not whitelisted"
+            elif cleaned_response == '-120':
+                logger.error("[OTP_DEBUG] SMS API Error: Invalid sender ID")
+                return False, "Failed to send SMS: Invalid sender ID"
+            elif cleaned_response == '-110':
+                logger.error("[OTP_DEBUG] SMS API Error: Invalid phone number format")
+                return False, "Failed to send SMS: Invalid phone number format"
+            elif cleaned_response == '-111':
+                logger.error("[OTP_DEBUG] SMS API Error: Insufficient credit")
+                return False, "Failed to send SMS: Insufficient credit"
+            elif cleaned_response == '1':
                 logger.info("[OTP_DEBUG] SMS sent successfully")
                 return True, "SMS sent successfully"
-            elif response_text.startswith('-'):
-                logger.error(f"[OTP_DEBUG] SMS API Error Code: {response_text}")
-                return False, f"Failed to send SMS: API error {response_text}"
+            elif cleaned_response.startswith('-'):
+                logger.error(f"[OTP_DEBUG] SMS API Error Code: {cleaned_response}")
+                return False, f"Failed to send SMS: API error {cleaned_response}"
             else:
-                logger.info(f"[OTP_DEBUG] SMS sent with response: {response_text}")
+                logger.info(f"[OTP_DEBUG] SMS sent with response: {cleaned_response}")
                 return True, "SMS sent successfully"
             
         except requests.Timeout:
@@ -93,7 +105,7 @@ class OTPService:
             logger.info(f"[OTP_DEBUG] Created OTP record - ID: {otp.id}, Phone: {phone_number}, Code: {otp_code}")
             
             # Prepare message
-            message = f"Your verification code is: {otp_code}. Valid for 10 minutes."
+            message = f"ZUWARA: Your verification code is {otp_code}. Do not share this code with anyone. Valid for 10 minutes."
             logger.info(f"[OTP_DEBUG] Prepared SMS message: {message}")
             
             # Send SMS

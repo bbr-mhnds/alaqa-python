@@ -2222,3 +2222,38 @@ django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '145.223.19.50:
 [2025-01-19 18:21:05] INFO views [OTP_DEBUG] Verification result - Success: True, Message: OTP verified successfully
 [2025-01-19 18:21:05] INFO views [OTP_DEBUG] Sending success response: {'status': 'success', 'message': 'OTP verified successfully'}
 [2025-01-19 18:21:15] ERROR log Internal Server Error: /api/v1/appointments/
+[2025-01-20 21:33:30] INFO services [OTP_DEBUG] Attempting to send SMS to 9660555552022
+[2025-01-20 21:33:30] INFO services [OTP_DEBUG] Message content: Test message
+[2025-01-20 21:33:30] INFO services [OTP_DEBUG] Formatted number for sending: 555552022
+[2025-01-20 21:33:30] INFO services [OTP_DEBUG] DEV MODE - SMS would be sent to 555552022
+[2025-01-20 21:33:30] INFO services [OTP_DEBUG] DEV MODE - Message content: Test message
+[2025-01-20 21:33:48] INFO services [OTP_DEBUG] Attempting to send SMS to 966555552022
+[2025-01-20 21:33:48] INFO services [OTP_DEBUG] Message content: Test message
+[2025-01-20 21:33:48] INFO services [OTP_DEBUG] Formatted number for sending: 555552022
+[2025-01-20 21:33:48] INFO services [OTP_DEBUG] DEV MODE - SMS would be sent to 555552022
+[2025-01-20 21:33:48] INFO services [OTP_DEBUG] DEV MODE - Message content: Test message
+[2025-01-20 21:34:05] INFO services [OTP_DEBUG] Attempting to send SMS to 0555552022
+[2025-01-20 21:34:05] INFO services [OTP_DEBUG] Message content: Test message
+[2025-01-20 21:34:05] INFO services [OTP_DEBUG] Formatted number for sending: 555552022
+[2025-01-20 21:34:05] INFO services [OTP_DEBUG] DEV MODE - SMS would be sent to 555552022
+[2025-01-20 21:34:05] INFO services [OTP_DEBUG] DEV MODE - Message content: Test message
+[2025-01-20 21:34:21] INFO services [OTP_DEBUG] Attempting to send SMS to 555552022
+[2025-01-20 21:34:21] INFO services [OTP_DEBUG] Message content: Test message
+[2025-01-20 21:34:21] INFO services [OTP_DEBUG] Formatted number for sending: 555552022
+[2025-01-20 21:34:21] INFO services [OTP_DEBUG] DEV MODE - SMS would be sent to 555552022
+[2025-01-20 21:34:21] INFO services [OTP_DEBUG] DEV MODE - Message content: Test message
+[2025-01-20 22:23:04] INFO services [OTP_DEBUG] Starting OTP creation for phone: 555552022
+[2025-01-20 22:23:04] INFO services [OTP_DEBUG] Generated OTP code: 880432
+[2025-01-20 22:23:04] INFO services [OTP_DEBUG] Generated OTP code: 880432 for phone: 555552022
+[2025-01-20 22:23:04] INFO services [OTP_DEBUG] Created OTP record - ID: 4be41fc2-5cb3-4b80-b89d-6529999d18c5, Phone: 555552022, Code: 880432
+[2025-01-20 22:23:04] INFO services [OTP_DEBUG] Prepared SMS message: ZUWARA: Your verification code is 880432. Do not share this code with anyone. Valid for 10 minutes.
+[2025-01-20 22:23:04] INFO services [OTP_DEBUG] Attempting to send SMS to 555552022
+[2025-01-20 22:23:04] INFO services [OTP_DEBUG] Message content: ZUWARA: Your verification code is 880432. Do not share this code with anyone. Valid for 10 minutes.
+[2025-01-20 22:23:04] INFO services [OTP_DEBUG] Formatted number for sending: 555552022
+[2025-01-20 22:23:04] INFO services [OTP_DEBUG] Sending SMS with params: {'user': 'Alaqa', 'secret_key': '97aca06a4fd54aeb571d0de1ecac4f84ee19d323d5b56fe0a74d7eb2bfc673fe', 'to': '555552022', 'message': 'ZUWARA: Your verification code is 880432. Do not share this code with anyone. Valid for 10 minutes.', 'sender': 'zuwara'}
+[2025-01-20 22:23:04] INFO services [OTP_DEBUG] API URL: https://dreams.sa/api/sendsms/
+[2025-01-20 22:23:06] INFO services [OTP_DEBUG] SMS API Raw Response: Success
+[2025-01-20 22:23:06] INFO services [OTP_DEBUG] SMS API Response Status Code: 200
+[2025-01-20 22:23:06] INFO services [OTP_DEBUG] SMS sent with response: 
+[2025-01-20 22:23:06] INFO services [OTP_DEBUG] SMS send result - Success: True, Response: SMS sent successfully
+[2025-01-20 22:23:06] INFO services [OTP_DEBUG] Final result: {'success': True, 'message': 'SMS sent successfully', 'otp_id': '4be41fc2-5cb3-4b80-b89d-6529999d18c5'}
