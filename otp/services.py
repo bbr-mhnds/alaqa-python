@@ -23,6 +23,12 @@ class OTPService:
         logger.info(f"[OTP_DEBUG] Attempting to send SMS to {phone_number}")
         logger.info(f"[OTP_DEBUG] Message content: {message}")
         
+        # Format phone number: remove country code and leading zeros
+        if phone_number.startswith('966'):
+            phone_number = phone_number[3:]  # Remove 966
+        phone_number = phone_number.lstrip('0')  # Remove any leading zeros
+        logger.info(f"[OTP_DEBUG] Formatted number for sending: {phone_number}")
+        
         # Development mode - always succeed and log the OTP
         if settings.DEBUG:
             logger.info(f"[OTP_DEBUG] DEV MODE - SMS would be sent to {phone_number}")
