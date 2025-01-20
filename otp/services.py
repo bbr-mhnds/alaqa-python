@@ -105,7 +105,7 @@ class OTPService:
             logger.info(f"[OTP_DEBUG] Created OTP record - ID: {otp.id}, Phone: {phone_number}, Code: {otp_code}")
             
             # Prepare message
-            message = f"ZUWARA: Your verification code is {otp_code}. Do not share this code with anyone. Valid for 10 minutes."
+            message = f"""ZUWARA: Your verification code is {otp_code}"""
             logger.info(f"[OTP_DEBUG] Prepared SMS message: {message}")
             
             # Send SMS
