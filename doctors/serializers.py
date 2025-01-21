@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import Doctor
 from specialties.serializers import SpecialtySerializer
+from specialties.models import Specialty
 
 class DoctorSerializer(serializers.ModelSerializer):
     specialities = SpecialtySerializer(many=True, read_only=True)
@@ -64,4 +65,115 @@ class DoctorStatusSerializer(serializers.ModelSerializer):
     def validate_status(self, value):
         if value not in ['pending', 'approved', 'rejected']:
             raise serializers.ValidationError("Status must be either 'pending', 'approved', or 'rejected'")
-        return value 
+        return value
+
+class DoctorRegistrationSerializer(serializers.ModelSerializer):
+    """Serializer for doctor registration"""
+    password = serializers.CharField(write_only=True, required=True)
+    confirm_password = serializers.CharField(write_only=True, required=True)
+    specialities = serializers.PrimaryKeyRelatedField(
+        many=True,
+        queryset=Specialty.objects.all(),
+        required=True
+    )
+
+    class Meta:
+        model = Doctor
+        fields = [
+            'name_arabic', 'name', 'sex', 'email', 'phone',
+            'experience', 'category', 'language_in_sessions',
+            'license_number', 'specialities', 'profile_arabic',
+            'profile_english', 'photo', 'license_document',
+            'qualification_document', 'additional_documents',
+            'password', 'confirm_password'
+        ]
+        extra_kwargs = {
+            'license_document': {'required': True},
+            'qualification_document': {'required': True}
+        }
+
+    def validate(self, data):
+        # Validate passwords match
+        if data.get('password') != data.get('confirm_password'):
+            raise serializers.ValidationError("Passwords do not match")
+        
+        # Validate email uniqueness
+        email = data.get('email')
+        if email:
+            from django.contrib.auth import get_user_model
+            User = get_user_model()
+            if User.objects.filter(email=email).exists():
+                raise serializers.ValidationError({
+                    "email": "A user with this email already exists."
+                })
+        return data
+
+    def create(self, validated_data):
+        # Remove password fields from validated data
+        password = validated_data.pop('password')
+        validated_data.pop('confirm_password', None)
+        
+        # Create doctor instance
+        specialities = validated_data.pop('specialities')
+        doctor = Doctor.objects.create(**validated_data)
+        
+        # Add specialities
+        doctor.specialities.set(specialities)
+        
+        # Create user account for doctor (initially inactive)
+        from django.contrib.auth import get_user_model
+        User = get_user_model()
+        user = User.objects.create_user(
+            username=validated_data['email'],
+            email=validated_data['email'],
+            password=password,
+            is_active=False,  # Will be activated upon approval
+            is_staff=True  # Doctors need admin panel access
+        )
+        
+        # Add doctor role/group
+        from django.contrib.auth.models import Group
+        doctor_group, _ = Group.objects.get_or_create(name='Doctors')
+        user.groups.add(doctor_group)
+        
+        return doctor
+
+class DoctorApprovalSerializer(serializers.ModelSerializer):
+    """Serializer for doctor approval/rejection"""
+    class Meta:
+        model = Doctor
+        fields = ['status', 'rejection_reason']
+        extra_kwargs = {
+            'rejection_reason': {'required': False}
+        }
+
+    def validate(self, data):
+        if data.get('status') == 'rejected' and not data.get('rejection_reason'):
+            raise serializers.ValidationError(
+                "Rejection reason is required when rejecting a doctor"
+            )
+        return data
+
+    def update(self, instance, validated_data):
+        request = self.context.get('request')
+        status = validated_data.get('status')
+        
+        if status == 'approved':
+            # Set approval details
+            from django.utils import timezone
+            instance.approved_by = request.user
+            instance.approved_at = timezone.now()
+            
+            # Activate the user account
+            from django.contrib.auth import get_user_model
+            User = get_user_model()
+            try:
+                user = User.objects.get(email=instance.email)
+                user.is_active = True
+                user.save()
+            except User.DoesNotExist:
+                raise serializers.ValidationError(
+                    "User account not found for this doctor"
+                )
+        
+        return super().update(instance, validated_data) 

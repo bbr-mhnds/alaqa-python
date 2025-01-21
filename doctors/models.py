@@ -1,5 +1,6 @@
 import uuid
 from django.db import models
+from django.conf import settings
 from django.core.validators import RegexValidator
 from specialties.models import Specialty
 
@@ -52,6 +53,35 @@ class Doctor(models.Model):
     account_number = models.CharField(max_length=50)
     iban_number = models.CharField(max_length=50)
 
+    # Approval Management
+    approved_by = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name='approved_doctors'
+    )
+    approved_at = models.DateTimeField(null=True, blank=True)
+    rejection_reason = models.TextField(null=True, blank=True)
+    license_document = models.FileField(
+        upload_to='doctors/licenses/',
+        null=True,
+        blank=True,
+        help_text='Upload your medical license document'
+    )
+    qualification_document = models.FileField(
+        upload_to='doctors/qualifications/',
+        null=True,
+        blank=True,
+        help_text='Upload your qualification certificates'
+    )
+    additional_documents = models.FileField(
+        upload_to='doctors/additional/',
+        null=True,
+        blank=True,
+        help_text='Any additional supporting documents'
+    )
+
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -70,3 +100,31 @@ class Doctor(models.Model):
             'accountNumber': self.account_number,
             'ibanNumber': self.iban_number,
         }
+
+class DoctorVerification(models.Model):
+    """Model to store doctor verification codes"""
+    email = models.EmailField()
+    phone = models.CharField(max_length=17)
+    email_code = models.CharField(max_length=6)
+    sms_code = models.CharField(max_length=6)
+    email_verified = models.BooleanField(default=False)
+    phone_verified = models.BooleanField(default=False)
+    registration_data = models.JSONField()  # Store registration data temporarily
+    created_at = models.DateTimeField(auto_now_add=True)
+    expires_at = models.DateTimeField()
+    is_used = models.BooleanField(default=False)
+
+    class Meta:
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return f"Verification for {self.email}"
+
+    @property
+    def is_expired(self):
+        from django.utils import timezone
+        return timezone.now() > self.expires_at
+
+    @property
+    def is_complete(self):
+        return self.email_verified and self.phone_verified
