@@ -2274,3 +2274,788 @@ django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '145.223.19.50:
 [2025-01-20 22:29:19] INFO services [OTP_DEBUG] SMS sent with response: 
 [2025-01-20 22:29:19] INFO services [OTP_DEBUG] SMS send result - Success: True, Response: SMS sent successfully
 [2025-01-20 22:29:19] INFO services [OTP_DEBUG] Final result: {'success': True, 'message': 'SMS sent successfully', 'otp_id': '9aeb3882-f8ee-42ed-b165-73bd87119e2a'}
+[2025-01-21 09:02:14] INFO autoreload Watching for file changes with StatReloader
+[2025-01-21 09:09:05] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/models.py changed, reloading.
+[2025-01-21 09:09:05] INFO autoreload Watching for file changes with StatReloader
+[2025-01-21 09:09:28] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/serializers.py changed, reloading.
+[2025-01-21 09:09:29] INFO autoreload Watching for file changes with StatReloader
+[2025-01-21 09:09:51] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/views.py changed, reloading.
+[2025-01-21 09:09:52] INFO autoreload Watching for file changes with StatReloader
+[2025-01-21 09:10:01] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/urls.py changed, reloading.
+[2025-01-21 09:10:02] INFO autoreload Watching for file changes with StatReloader
+[2025-01-21 09:10:27] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/models.py changed, reloading.
+[2025-01-21 09:10:27] INFO autoreload Watching for file changes with StatReloader
+[2025-01-21 09:11:44] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/serializers.py changed, reloading.
+[2025-01-21 09:11:44] INFO autoreload Watching for file changes with StatReloader
+[2025-01-21 09:12:00] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/serializers.py changed, reloading.
+[2025-01-21 09:12:00] INFO autoreload Watching for file changes with StatReloader
+[2025-01-21 09:12:18] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/views.py changed, reloading.
+[2025-01-21 09:12:18] INFO autoreload Watching for file changes with StatReloader
+[2025-01-21 09:15:52] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/models.py changed, reloading.
+[2025-01-21 09:15:52] INFO autoreload Watching for file changes with StatReloader
+[2025-01-21 09:16:20] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/views.py changed, reloading.
+[2025-01-21 09:16:21] INFO autoreload Watching for file changes with StatReloader
+[2025-01-21 09:20:41] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/serializers.py changed, reloading.
+[2025-01-21 09:20:41] INFO autoreload Watching for file changes with StatReloader
+[2025-01-21 10:40:11] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/config/settings.py changed, reloading.
+[2025-01-21 10:40:11] INFO autoreload Watching for file changes with StatReloader
+[2025-01-21 10:40:18] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/config/settings.py changed, reloading.
+[2025-01-21 10:40:18] INFO autoreload Watching for file changes with StatReloader
+[2025-01-22 04:06:55] INFO autoreload Watching for file changes with StatReloader
+[2025-01-22 04:08:32] WARNING log Not Found: /favicon.ico
+[2025-01-22 04:09:22] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/config/settings.py changed, reloading.
+[2025-01-22 04:09:23] INFO autoreload Watching for file changes with StatReloader
+[2025-01-22 04:09:31] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/config/settings.py changed, reloading.
+[2025-01-22 04:09:32] INFO autoreload Watching for file changes with StatReloader
+[2025-01-22 04:11:13] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/config/settings.py changed, reloading.
+[2025-01-22 04:11:14] INFO autoreload Watching for file changes with StatReloader
+[2025-01-22 04:11:23] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/config/settings.py changed, reloading.
+[2025-01-22 04:11:23] INFO autoreload Watching for file changes with StatReloader
+[2025-01-22 04:11:52] WARNING log Unauthorized: /api/v1/auth/login/
+[2025-01-22 04:14:56] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/specialties/urls.py changed, reloading.
+[2025-01-22 04:14:56] INFO autoreload Watching for file changes with StatReloader
+[2025-01-22 04:15:13] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/specialties/urls.py changed, reloading.
+[2025-01-22 04:15:13] INFO autoreload Watching for file changes with StatReloader
+[2025-01-22 04:29:43] WARNING log Unauthorized: /api/v1/doctors/register/initiate/
+[2025-01-22 04:29:43] WARNING log Not Found: /api/v1/auth/refresh-token/
+[2025-01-22 04:31:31] WARNING log Unauthorized: /api/v1/doctors/register/initiate/
+[2025-01-22 04:33:17] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/views.py changed, reloading.
+[2025-01-22 04:33:18] INFO autoreload Watching for file changes with StatReloader
+[2025-01-22 04:34:02] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/views.py changed, reloading.
+[2025-01-22 04:34:03] INFO autoreload Watching for file changes with StatReloader
+[2025-01-22 04:34:11] INFO autoreload Watching for file changes with StatReloader
+[2025-01-22 04:34:36] WARNING log Unauthorized: /api/v1/doctors/register/initiate/
+[2025-01-22 04:37:49] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/views.py changed, reloading.
+[2025-01-22 04:37:50] INFO autoreload Watching for file changes with StatReloader
+[2025-01-22 04:39:56] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/views.py changed, reloading.
+[2025-01-22 04:39:56] INFO autoreload Watching for file changes with StatReloader
+[2025-01-22 04:45:02] WARNING log Bad Request: /api/v1/doctors/register/initiate/
+[2025-01-22 04:48:43] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/serializers.py changed, reloading.
+[2025-01-22 04:48:44] INFO autoreload Watching for file changes with StatReloader
+[2025-01-22 04:48:52] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/serializers.py changed, reloading.
+[2025-01-22 04:48:52] INFO autoreload Watching for file changes with StatReloader
+[2025-01-22 04:49:15] WARNING log Bad Request: /api/v1/doctors/register/initiate/
+[2025-01-22 04:50:45] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/serializers.py changed, reloading.
+[2025-01-22 04:50:46] INFO autoreload Watching for file changes with StatReloader
+[2025-01-22 04:51:03] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/serializers.py changed, reloading.
+[2025-01-22 04:51:04] INFO autoreload Watching for file changes with StatReloader
+[2025-01-22 04:51:32] WARNING log Bad Request: /api/v1/doctors/register/initiate/
+[2025-01-22 04:51:59] WARNING log Bad Request: /api/v1/doctors/register/initiate/
+[2025-01-22 04:52:24] WARNING log Bad Request: /api/v1/doctors/register/initiate/
+[2025-01-22 04:53:46] WARNING log Bad Request: /api/v1/doctors/register/initiate/
+[2025-01-22 04:53:54] WARNING log Bad Request: /api/v1/doctors/register/initiate/
+[2025-01-22 04:54:12] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/serializers.py changed, reloading.
+[2025-01-22 04:54:12] INFO autoreload Watching for file changes with StatReloader
+[2025-01-22 04:54:24] INFO services [OTP_DEBUG] Generated OTP code: 425935
+[2025-01-22 04:54:24] INFO services [OTP_DEBUG] Generated OTP code: 300760
+[2025-01-22 04:54:24] ERROR services [DOCTOR_DEBUG] Failed to send verification email: [Errno 61] Connection refused
+[2025-01-22 04:54:24] INFO services [OTP_DEBUG] Attempting to send SMS to +966555552022
+[2025-01-22 04:54:24] INFO services [OTP_DEBUG] Message content: ZUWARA: Your phone verification code is: 300760. Do not share this code with anyone.
+[2025-01-22 04:54:24] INFO services [OTP_DEBUG] Formatted number for sending: +966555552022
+[2025-01-22 04:54:24] INFO services [OTP_DEBUG] DEV MODE - SMS would be sent to +966555552022
+[2025-01-22 04:54:24] INFO services [OTP_DEBUG] DEV MODE - Message content: ZUWARA: Your phone verification code is: 300760. Do not share this code with anyone.
+[2025-01-22 04:54:24] WARNING log Bad Request: /api/v1/doctors/register/initiate/
+[2025-01-22 04:56:09] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/config/settings.py changed, reloading.
+[2025-01-22 04:56:10] INFO autoreload Watching for file changes with StatReloader
+[2025-01-22 04:56:28] INFO services [OTP_DEBUG] Generated OTP code: 991892
+[2025-01-22 04:56:28] INFO services [OTP_DEBUG] Generated OTP code: 634141
+[2025-01-22 04:56:30] ERROR services [DOCTOR_DEBUG] Failed to send verification email: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 4fb4d7f45d1cf-5db73eb5b64sm7874825a12.57 - gsmtp')
+[2025-01-22 04:56:30] INFO services [OTP_DEBUG] Attempting to send SMS to +966555552022
+[2025-01-22 04:56:30] INFO services [OTP_DEBUG] Message content: ZUWARA: Your phone verification code is: 634141. Do not share this code with anyone.
+[2025-01-22 04:56:30] INFO services [OTP_DEBUG] Formatted number for sending: +966555552022
+[2025-01-22 04:56:30] INFO services [OTP_DEBUG] DEV MODE - SMS would be sent to +966555552022
+[2025-01-22 04:56:30] INFO services [OTP_DEBUG] DEV MODE - Message content: ZUWARA: Your phone verification code is: 634141. Do not share this code with anyone.
+[2025-01-22 04:56:30] WARNING log Bad Request: /api/v1/doctors/register/initiate/
+[2025-01-22 04:56:43] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/config/settings.py changed, reloading.
+[2025-01-22 04:56:43] INFO autoreload Watching for file changes with StatReloader
+[2025-01-22 04:56:55] INFO services [OTP_DEBUG] Generated OTP code: 886594
+[2025-01-22 04:56:55] INFO services [OTP_DEBUG] Generated OTP code: 405755
+[2025-01-22 04:56:59] ERROR services [DOCTOR_DEBUG] Failed to send verification email: Connection unexpectedly closed
+[2025-01-22 04:56:59] INFO services [OTP_DEBUG] Attempting to send SMS to +966555552022
+[2025-01-22 04:56:59] INFO services [OTP_DEBUG] Message content: ZUWARA: Your phone verification code is: 405755. Do not share this code with anyone.
+[2025-01-22 04:56:59] INFO services [OTP_DEBUG] Formatted number for sending: +966555552022
+[2025-01-22 04:56:59] INFO services [OTP_DEBUG] DEV MODE - SMS would be sent to +966555552022
+[2025-01-22 04:56:59] INFO services [OTP_DEBUG] DEV MODE - Message content: ZUWARA: Your phone verification code is: 405755. Do not share this code with anyone.
+[2025-01-22 04:56:59] WARNING log Bad Request: /api/v1/doctors/register/initiate/
+[2025-01-22 04:57:14] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/config/settings.py changed, reloading.
+[2025-01-22 04:57:14] INFO autoreload Watching for file changes with StatReloader
+[2025-01-22 04:57:27] INFO services [OTP_DEBUG] Generated OTP code: 760809
+[2025-01-22 04:57:27] INFO services [OTP_DEBUG] Generated OTP code: 194688
+[2025-01-22 04:57:27] INFO services [DOCTOR_DEBUG] Verification email sent to h.babarsultan007@gmail.com
+[2025-01-22 04:57:27] INFO services [OTP_DEBUG] Attempting to send SMS to +966555552022
+[2025-01-22 04:57:27] INFO services [OTP_DEBUG] Message content: ZUWARA: Your phone verification code is: 194688. Do not share this code with anyone.
+[2025-01-22 04:57:27] INFO services [OTP_DEBUG] Formatted number for sending: +966555552022
+[2025-01-22 04:57:27] INFO services [OTP_DEBUG] DEV MODE - SMS would be sent to +966555552022
+[2025-01-22 04:57:27] INFO services [OTP_DEBUG] DEV MODE - Message content: ZUWARA: Your phone verification code is: 194688. Do not share this code with anyone.
+[2025-01-22 04:57:27] WARNING log Bad Request: /api/v1/doctors/register/initiate/
+[2025-01-22 04:57:43] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/models.py changed, reloading.
+[2025-01-22 04:57:43] INFO autoreload Watching for file changes with StatReloader
+[2025-01-22 04:58:19] WARNING log Bad Request: /api/v1/doctors/register/initiate/
+[2025-01-22 04:58:26] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/config/settings.py changed, reloading.
+[2025-01-22 04:58:26] INFO autoreload Watching for file changes with StatReloader
+[2025-01-22 04:59:01] WARNING log Bad Request: /api/v1/doctors/register/initiate/
+[2025-01-22 04:59:15] INFO services [OTP_DEBUG] Generated OTP code: 388300
+[2025-01-22 04:59:15] INFO services [OTP_DEBUG] Generated OTP code: 995647
+[2025-01-22 04:59:15] INFO services [DOCTOR_DEBUG] Verification email sent to doctor@example.com
+[2025-01-22 04:59:15] INFO services [OTP_DEBUG] Attempting to send SMS to +1234567890
+[2025-01-22 04:59:15] INFO services [OTP_DEBUG] Message content: ZUWARA: Your phone verification code is: 995647. Do not share this code with anyone.
+[2025-01-22 04:59:15] INFO services [OTP_DEBUG] Formatted number for sending: +1234567890
+[2025-01-22 04:59:15] INFO services [OTP_DEBUG] DEV MODE - SMS would be sent to +1234567890
+[2025-01-22 04:59:15] INFO services [OTP_DEBUG] DEV MODE - Message content: ZUWARA: Your phone verification code is: 995647. Do not share this code with anyone.
+[2025-01-22 04:59:15] WARNING log Bad Request: /api/v1/doctors/register/initiate/
+[2025-01-22 04:59:38] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/serializers.py changed, reloading.
+[2025-01-22 04:59:38] INFO autoreload Watching for file changes with StatReloader
+[2025-01-22 05:00:10] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/services.py changed, reloading.
+[2025-01-22 05:00:10] INFO autoreload Watching for file changes with StatReloader
+[2025-01-22 05:00:30] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/views.py changed, reloading.
+[2025-01-22 05:00:30] INFO autoreload Watching for file changes with StatReloader
+[2025-01-22 05:00:40] INFO services [OTP_DEBUG] Generated OTP code: 130319
+[2025-01-22 05:00:40] INFO services [OTP_DEBUG] Generated OTP code: 340612
+[2025-01-22 05:00:40] INFO services [DOCTOR_DEBUG] Verification email sent to doctor@example.com
+[2025-01-22 05:00:40] INFO services [OTP_DEBUG] Attempting to send SMS to +1234567890
+[2025-01-22 05:00:40] INFO services [OTP_DEBUG] Message content: ZUWARA: Your phone verification code is: 340612. Do not share this code with anyone.
+[2025-01-22 05:00:40] INFO services [OTP_DEBUG] Formatted number for sending: +1234567890
+[2025-01-22 05:00:40] INFO services [OTP_DEBUG] DEV MODE - SMS would be sent to +1234567890
+[2025-01-22 05:00:40] INFO services [OTP_DEBUG] DEV MODE - Message content: ZUWARA: Your phone verification code is: 340612. Do not share this code with anyone.
+[2025-01-22 05:00:40] ERROR services [DOCTOR_DEBUG] Failed to create verification instance: Object of type InMemoryUploadedFile is not JSON serializable
+[2025-01-22 05:00:40] WARNING log Bad Request: /api/v1/doctors/register/initiate/
+[2025-01-22 05:01:00] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/services.py changed, reloading.
+[2025-01-22 05:01:00] INFO autoreload Watching for file changes with StatReloader
+[2025-01-22 05:01:15] INFO services [OTP_DEBUG] Generated OTP code: 706412
+[2025-01-22 05:01:15] INFO services [OTP_DEBUG] Generated OTP code: 101804
+[2025-01-22 05:01:15] INFO services [DOCTOR_DEBUG] Verification email sent to doctor@example.com
+[2025-01-22 05:01:15] INFO services [OTP_DEBUG] Attempting to send SMS to +1234567890
+[2025-01-22 05:01:15] INFO services [OTP_DEBUG] Message content: ZUWARA: Your phone verification code is: 101804. Do not share this code with anyone.
+[2025-01-22 05:01:15] INFO services [OTP_DEBUG] Formatted number for sending: +1234567890
+[2025-01-22 05:01:15] INFO services [OTP_DEBUG] DEV MODE - SMS would be sent to +1234567890
+[2025-01-22 05:01:15] INFO services [OTP_DEBUG] DEV MODE - Message content: ZUWARA: Your phone verification code is: 101804. Do not share this code with anyone.
+[2025-01-22 05:01:15] INFO services [DOCTOR_DEBUG] Created verification instance for doctor@example.com
+[2025-01-22 08:34:09] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/config/settings.py changed, reloading.
+[2025-01-22 08:34:10] INFO autoreload Watching for file changes with StatReloader
+[2025-01-22 08:34:23] INFO autoreload Watching for file changes with StatReloader
+[2025-01-22 08:36:03] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/services.py changed, reloading.
+[2025-01-22 08:36:03] INFO autoreload Watching for file changes with StatReloader
+[2025-01-22 08:37:49] INFO autoreload Watching for file changes with StatReloader
+[2025-01-22 08:38:13] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:38:27] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:38:42] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:41:18] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:46:22] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:46:22] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:46:22] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:46:22] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:46:22] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:46:38] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:46:38] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:46:38] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:46:38] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:46:53] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:46:53] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:46:53] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:46:53] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:48:17] WARNING log Bad Request: /api/v1/doctors/register/initiate/
+[2025-01-22 08:48:33] INFO services [OTP_DEBUG] Generated OTP code: 220240
+[2025-01-22 08:48:33] INFO services [OTP_DEBUG] Generated OTP code: 341278
+[2025-01-22 08:48:33] INFO services [DOCTOR_DEBUG] Verification email sent to test@test.com
+[2025-01-22 08:48:33] INFO services [OTP_DEBUG] Attempting to send SMS to +966555552022
+[2025-01-22 08:48:33] INFO services [OTP_DEBUG] Message content: ZUWARA: Your phone verification code is: 341278. Do not share this code with anyone.
+[2025-01-22 08:48:33] INFO services [OTP_DEBUG] Formatted number for sending: +966555552022
+[2025-01-22 08:48:33] INFO services [OTP_DEBUG] DEV MODE - SMS would be sent to +966555552022
+[2025-01-22 08:48:33] INFO services [OTP_DEBUG] DEV MODE - Message content: ZUWARA: Your phone verification code is: 341278. Do not share this code with anyone.
+[2025-01-22 08:48:33] INFO services [DOCTOR_DEBUG] Created verification instance for test@test.com
+[2025-01-22 08:48:46] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:48:46] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:48:46] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:48:46] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:48:49] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:48:49] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:48:49] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:48:49] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:49:40] WARNING log Bad Request: /api/v1/doctors/register/verify/
+[2025-01-22 08:50:27] WARNING log Bad Request: /api/v1/doctors/register/verify/
+[2025-01-22 08:52:59] INFO services [OTP_DEBUG] Generated OTP code: 335458
+[2025-01-22 08:52:59] INFO services [OTP_DEBUG] Generated OTP code: 955115
+[2025-01-22 08:52:59] INFO services [DOCTOR_DEBUG] Verification email sent to babar.sultan@itpixelz.com
+[2025-01-22 08:52:59] INFO services [OTP_DEBUG] Attempting to send SMS to +966555552022
+[2025-01-22 08:52:59] INFO services [OTP_DEBUG] Message content: ZUWARA: Your phone verification code is: 955115. Do not share this code with anyone.
+[2025-01-22 08:52:59] INFO services [OTP_DEBUG] Formatted number for sending: +966555552022
+[2025-01-22 08:52:59] INFO services [OTP_DEBUG] DEV MODE - SMS would be sent to +966555552022
+[2025-01-22 08:52:59] INFO services [OTP_DEBUG] DEV MODE - Message content: ZUWARA: Your phone verification code is: 955115. Do not share this code with anyone.
+[2025-01-22 08:52:59] INFO services [DOCTOR_DEBUG] Created verification instance for babar.sultan@itpixelz.com
+[2025-01-22 08:53:31] WARNING log Bad Request: /api/v1/doctors/register/verify/
+[2025-01-22 08:54:46] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/views.py changed, reloading.
+[2025-01-22 08:54:46] INFO autoreload Watching for file changes with StatReloader
+[2025-01-22 08:55:06] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/services.py changed, reloading.
+[2025-01-22 08:55:07] INFO autoreload Watching for file changes with StatReloader
+[2025-01-22 08:57:18] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:18] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:18] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:18] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:19] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:19] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:19] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:19] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:31] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:31] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:31] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:31] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:32] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:32] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:32] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:32] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:32] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:32] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:32] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:32] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:32] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:32] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:32] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:32] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:32] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:32] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:32] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:32] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:32] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:32] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:32] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:32] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:33] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:33] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:33] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:33] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:33] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:33] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:33] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:33] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:33] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:33] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:33] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:33] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:33] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:33] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:33] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:33] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:33] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:33] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:33] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:33] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:33] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:33] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:33] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:33] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:33] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:33] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:33] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:33] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:46] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:46] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:46] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:57:46] WARNING utils Could not reverse url from auth.user
+[2025-01-22 08:58:21] WARNING log Not Found: /admin/doctors/doctorverification/
+[2025-01-22 08:59:14] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/admin.py changed, reloading.
+[2025-01-22 08:59:14] INFO autoreload Watching for file changes with StatReloader
+[2025-01-22 09:00:08] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/config/settings.py changed, reloading.
+[2025-01-22 09:00:09] INFO autoreload Watching for file changes with StatReloader
+[2025-01-22 09:00:20] WARNING utils Could not reverse url from auth.user
+[2025-01-22 09:00:20] WARNING utils Could not reverse url from auth.user
+[2025-01-22 09:00:20] WARNING utils Could not reverse url from auth.user
+[2025-01-22 09:00:20] WARNING utils Could not reverse url from auth.user
+[2025-01-22 09:00:26] WARNING utils Could not reverse url from auth.user
+[2025-01-22 09:00:26] WARNING utils Could not reverse url from auth.user
+[2025-01-22 09:00:26] WARNING utils Could not reverse url from auth.user
+[2025-01-22 09:00:26] WARNING utils Could not reverse url from auth.user
+[2025-01-22 09:00:26] WARNING utils Could not reverse url from auth.user
+[2025-01-22 09:10:32] WARNING utils Could not reverse url from auth.user
+[2025-01-22 09:10:32] WARNING utils Could not reverse url from auth.user
+[2025-01-22 09:10:32] WARNING utils Could not reverse url from auth.user
+[2025-01-22 09:10:32] WARNING utils Could not reverse url from auth.user
+[2025-01-22 09:10:50] WARNING utils Could not reverse url from auth.user
+[2025-01-22 09:10:50] WARNING utils Could not reverse url from auth.user
+[2025-01-22 09:10:50] WARNING utils Could not reverse url from auth.user
+[2025-01-22 09:10:50] WARNING utils Could not reverse url from auth.user
+[2025-01-22 09:11:07] WARNING utils Could not reverse url from auth.user
+[2025-01-22 09:11:07] WARNING utils Could not reverse url from auth.user
+[2025-01-22 09:11:07] WARNING utils Could not reverse url from auth.user
+[2025-01-22 09:11:07] WARNING utils Could not reverse url from auth.user
+[2025-01-22 09:11:07] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:27:34] INFO autoreload Watching for file changes with StatReloader
+[2025-01-22 22:29:51] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/services.py changed, reloading.
+[2025-01-22 22:29:52] INFO autoreload Watching for file changes with StatReloader
+[2025-01-22 22:30:09] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/views.py changed, reloading.
+[2025-01-22 22:30:10] INFO autoreload Watching for file changes with StatReloader
+[2025-01-22 22:30:28] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/views.py changed, reloading.
+[2025-01-22 22:30:29] INFO autoreload Watching for file changes with StatReloader
+[2025-01-22 22:32:49] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:32:49] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:32:49] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:32:49] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:32:52] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:32:52] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:32:52] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:32:52] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:33:03] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:33:03] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:33:03] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:33:03] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:33:05] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:33:05] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:33:05] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:33:05] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:34:47] INFO services [OTP_DEBUG] Generated OTP code: 809454
+[2025-01-22 22:34:47] INFO services [OTP_DEBUG] Attempting to send SMS to +966555552022
+[2025-01-22 22:34:47] INFO services [OTP_DEBUG] Message content: ZUWARA: Your phone verification code is: 809454. Do not share this code with anyone.
+[2025-01-22 22:34:47] INFO services [OTP_DEBUG] Formatted number for sending: +966555552022
+[2025-01-22 22:34:47] INFO services [OTP_DEBUG] DEV MODE - SMS would be sent to +966555552022
+[2025-01-22 22:34:47] INFO services [OTP_DEBUG] DEV MODE - Message content: ZUWARA: Your phone verification code is: 809454. Do not share this code with anyone.
+[2025-01-22 22:34:47] INFO services [DOCTOR_DEBUG] Created verification instance for babar.sultan@itpixelz.com
+[2025-01-22 22:34:53] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:34:53] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:34:53] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:34:53] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:34:55] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:34:55] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:34:55] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:34:55] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:34:55] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:35:01] WARNING log Bad Request: /api/v1/doctors/register/verify/
+[2025-01-22 22:35:46] WARNING log Not Found: /api/v1/doctors/register/verify/
+[2025-01-22 22:36:14] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:36:14] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:36:14] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:36:14] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:36:14] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:39:02] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:39:02] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:39:02] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:39:02] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:39:08] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:39:08] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:39:08] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:39:08] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:39:09] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:39:09] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:39:09] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:39:09] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:39:15] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/services.py changed, reloading.
+[2025-01-22 22:39:15] INFO autoreload Watching for file changes with StatReloader
+[2025-01-22 22:39:35] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/views.py changed, reloading.
+[2025-01-22 22:39:35] INFO autoreload Watching for file changes with StatReloader
+[2025-01-22 22:40:08] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/serializers.py changed, reloading.
+[2025-01-22 22:40:08] INFO autoreload Watching for file changes with StatReloader
+[2025-01-22 22:40:09] INFO services [OTP_DEBUG] Generated OTP code: 465916
+[2025-01-22 22:40:09] INFO services [OTP_DEBUG] Attempting to send SMS to +966555552022
+[2025-01-22 22:40:09] INFO services [OTP_DEBUG] Message content: ZUWARA: Your phone verification code is: 465916. Do not share this code with anyone.
+[2025-01-22 22:40:09] INFO services [OTP_DEBUG] Formatted number for sending: +966555552022
+[2025-01-22 22:40:09] INFO services [OTP_DEBUG] DEV MODE - SMS would be sent to +966555552022
+[2025-01-22 22:40:09] INFO services [OTP_DEBUG] DEV MODE - Message content: ZUWARA: Your phone verification code is: 465916. Do not share this code with anyone.
+[2025-01-22 22:40:09] INFO services [DOCTOR_DEBUG] Created verification instance for babar.sultan@itpixelz.com
+[2025-01-22 22:40:18] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:40:18] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:40:18] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:40:18] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:40:19] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:40:19] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:40:19] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:40:19] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:40:19] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:40:29] ERROR views [DOCTOR_DEBUG] Registration error: User() got unexpected keyword arguments: 'username'
+[2025-01-22 22:40:29] WARNING log Bad Request: /api/v1/doctors/register/verify/
+[2025-01-22 22:41:23] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/serializers.py changed, reloading.
+[2025-01-22 22:41:23] INFO autoreload Watching for file changes with StatReloader
+[2025-01-22 22:41:31] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/views.py changed, reloading.
+[2025-01-22 22:41:31] INFO autoreload Watching for file changes with StatReloader
+[2025-01-22 22:41:43] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:41:43] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:41:43] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:41:43] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:41:43] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:41:51] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:41:51] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:41:51] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:41:51] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:41:51] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:41:57] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:41:57] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:41:57] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:41:57] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:42:10] WARNING log Method Not Allowed: /api/v1/doctors/register/resend/
+[2025-01-22 22:42:25] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:42:25] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:42:25] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:42:25] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:42:25] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:42:31] ERROR views [DOCTOR_DEBUG] Registration error: {'email': [ErrorDetail(string='Doctor with this email already exists.', code='unique')], 'license_number': [ErrorDetail(string='Doctor with this license number already exists.', code='unique')]}
+[2025-01-22 22:42:31] WARNING log Bad Request: /api/v1/doctors/register/verify/
+[2025-01-22 22:42:53] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:42:53] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:42:53] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:42:53] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:42:59] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:43:00] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:43:00] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:43:00] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:43:05] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:43:05] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:43:05] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:43:05] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:43:06] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:43:06] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:43:06] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:43:06] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:43:55] WARNING log Bad Request: /api/v1/doctors/register/initiate/
+[2025-01-22 22:44:03] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:03] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:03] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:03] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:04] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:04] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:04] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:04] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:04] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:04] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:04] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:04] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:04] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:04] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:04] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:04] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:04] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:04] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:04] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:04] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:04] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:04] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:04] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:04] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:05] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:05] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:05] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:05] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:05] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:05] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:05] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:05] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:05] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:05] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:05] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:05] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:06] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:06] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:06] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:06] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:24] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:24] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:24] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:24] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:26] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:26] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:26] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:26] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:31] INFO services [OTP_DEBUG] Generated OTP code: 348481
+[2025-01-22 22:44:31] INFO services [OTP_DEBUG] Attempting to send SMS to +966555552022
+[2025-01-22 22:44:31] INFO services [OTP_DEBUG] Message content: ZUWARA: Your phone verification code is: 348481. Do not share this code with anyone.
+[2025-01-22 22:44:31] INFO services [OTP_DEBUG] Formatted number for sending: +966555552022
+[2025-01-22 22:44:31] INFO services [OTP_DEBUG] DEV MODE - SMS would be sent to +966555552022
+[2025-01-22 22:44:31] INFO services [OTP_DEBUG] DEV MODE - Message content: ZUWARA: Your phone verification code is: 348481. Do not share this code with anyone.
+[2025-01-22 22:44:31] INFO services [DOCTOR_DEBUG] Created verification instance for babar.sultan@itpixelz.com
+[2025-01-22 22:44:36] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:36] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:36] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:36] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:38] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:38] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:38] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:38] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:44:38] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:46:34] WARNING log Not Found: /api/v1//auth/login/
+[2025-01-22 22:46:46] WARNING log Not Found: /api/v1//auth/login/
+[2025-01-22 22:46:53] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:46:53] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:46:53] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:46:53] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:46:59] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:46:59] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:46:59] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:46:59] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:46:59] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:47:05] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:47:05] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:47:05] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:47:05] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:47:21] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:47:21] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:47:21] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:47:21] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:47:21] WARNING utils Could not reverse url from auth.user
+[2025-01-22 22:47:33] WARNING log Not Found: /api/v1//auth/login/
+[2025-01-22 23:02:51] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/urls.py changed, reloading.
+[2025-01-22 23:02:52] INFO autoreload Watching for file changes with StatReloader
+[2025-01-22 23:03:21] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/views.py changed, reloading.
+[2025-01-22 23:03:21] INFO autoreload Watching for file changes with StatReloader
+[2025-01-23 06:06:20] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/models.py changed, reloading.
+[2025-01-23 06:06:21] INFO autoreload Watching for file changes with StatReloader
+[2025-01-23 06:06:39] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/models.py changed, reloading.
+[2025-01-23 06:06:39] INFO autoreload Watching for file changes with StatReloader
+[2025-01-23 06:06:52] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/serializers.py changed, reloading.
+[2025-01-23 06:06:52] INFO autoreload Watching for file changes with StatReloader
+[2025-01-23 06:06:58] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/serializers.py changed, reloading.
+[2025-01-23 06:06:59] INFO autoreload Watching for file changes with StatReloader
+[2025-01-23 06:42:01] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:42:01] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:42:01] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:42:01] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:47:46] WARNING log Bad Request: /api/v1/doctors/register/initiate/
+[2025-01-23 06:50:27] WARNING log Bad Request: /api/v1/doctors/register/initiate/
+[2025-01-23 06:53:54] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:53:54] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:53:54] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:53:54] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:53:58] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:53:58] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:53:58] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:53:58] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:53:58] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:54:00] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:54:00] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:54:00] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:54:00] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:54:03] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:54:03] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:54:03] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:54:03] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:54:03] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:54:19] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:54:19] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:54:19] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:54:19] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:54:21] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:54:21] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:54:21] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:54:21] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:54:21] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:54:31] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:54:31] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:54:31] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:54:31] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:54:35] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:54:35] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:54:35] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:54:35] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:54:35] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:54:41] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:54:41] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:54:41] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:54:41] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:54:41] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:54:52] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:54:52] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:54:52] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:54:52] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:57:33] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:57:33] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:57:33] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:57:33] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:57:40] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:57:40] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:57:40] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:57:40] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:57:40] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:57:58] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:57:58] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:57:58] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:57:58] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:58:02] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:58:02] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:58:02] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:58:02] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:58:02] WARNING utils Could not reverse url from auth.user
+[2025-01-23 06:59:16] WARNING log Bad Request: /api/v1/doctors/register/initiate/
+[2025-01-23 07:01:02] WARNING utils Could not reverse url from auth.user
+[2025-01-23 07:01:02] WARNING utils Could not reverse url from auth.user
+[2025-01-23 07:01:02] WARNING utils Could not reverse url from auth.user
+[2025-01-23 07:01:02] WARNING utils Could not reverse url from auth.user
+[2025-01-23 07:01:55] WARNING log Bad Request: /api/v1/doctors/register/initiate/
+[2025-01-23 07:02:16] INFO services [OTP_DEBUG] Generated OTP code: 564861
+[2025-01-23 07:02:16] INFO services [OTP_DEBUG] Attempting to send SMS to +966555552022
+[2025-01-23 07:02:16] INFO services [OTP_DEBUG] Message content: ZUWARA: Your phone verification code is: 564861. Do not share this code with anyone.
+[2025-01-23 07:02:16] INFO services [OTP_DEBUG] Formatted number for sending: +966555552022
+[2025-01-23 07:02:16] INFO services [OTP_DEBUG] DEV MODE - SMS would be sent to +966555552022
+[2025-01-23 07:02:16] INFO services [OTP_DEBUG] DEV MODE - Message content: ZUWARA: Your phone verification code is: 564861. Do not share this code with anyone.
+[2025-01-23 07:02:16] INFO services [DOCTOR_DEBUG] Created verification instance for dr.a.e@hotmail.com
+[2025-01-23 07:02:31] WARNING utils Could not reverse url from auth.user
+[2025-01-23 07:02:31] WARNING utils Could not reverse url from auth.user
+[2025-01-23 07:02:31] WARNING utils Could not reverse url from auth.user
+[2025-01-23 07:02:31] WARNING utils Could not reverse url from auth.user
+[2025-01-23 07:02:33] WARNING utils Could not reverse url from auth.user
+[2025-01-23 07:02:33] WARNING utils Could not reverse url from auth.user
+[2025-01-23 07:02:33] WARNING utils Could not reverse url from auth.user
+[2025-01-23 07:02:33] WARNING utils Could not reverse url from auth.user
+[2025-01-23 07:02:33] WARNING utils Could not reverse url from auth.user
+[2025-01-23 07:03:32] WARNING utils Could not reverse url from auth.user
+[2025-01-23 07:03:32] WARNING utils Could not reverse url from auth.user
+[2025-01-23 07:03:32] WARNING utils Could not reverse url from auth.user
+[2025-01-23 07:03:32] WARNING utils Could not reverse url from auth.user
+[2025-01-23 07:03:43] WARNING utils Could not reverse url from auth.user
+[2025-01-23 07:03:43] WARNING utils Could not reverse url from auth.user
+[2025-01-23 07:03:43] WARNING utils Could not reverse url from auth.user
+[2025-01-23 07:03:43] WARNING utils Could not reverse url from auth.user
+[2025-01-23 07:04:28] WARNING log Unauthorized: /api/v1/auth/login/
+[2025-01-23 07:36:35] WARNING log Unauthorized: /api/v1/appointments/
+[2025-01-23 07:36:36] WARNING log Not Found: /api/v1/auth/refresh-token/
+[2025-01-23 07:44:46] ERROR log Internal Server Error: /api/v1/doctors/be728376-118e-448c-a53a-526448963307
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+    ...<9 lines>...
+    )
+RuntimeError: You called this URL via PUT, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining PUT data. Change your form to point to localhost:8000/api/v1/doctors/be728376-118e-448c-a53a-526448963307/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+[2025-01-23 07:44:47] ERROR log Internal Server Error: /api/v1/doctors/be728376-118e-448c-a53a-526448963307
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+    ...<9 lines>...
+    )
+RuntimeError: You called this URL via PUT, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining PUT data. Change your form to point to localhost:8000/api/v1/doctors/be728376-118e-448c-a53a-526448963307/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+[2025-01-23 07:44:47] ERROR log Internal Server Error: /api/v1/doctors/be728376-118e-448c-a53a-526448963307
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+    ...<9 lines>...
+    )
+RuntimeError: You called this URL via PUT, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining PUT data. Change your form to point to localhost:8000/api/v1/doctors/be728376-118e-448c-a53a-526448963307/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+[2025-01-23 10:48:09] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/services.py changed, reloading.
+[2025-01-23 10:48:10] INFO autoreload Watching for file changes with StatReloader
+[2025-01-23 10:48:36] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/views.py changed, reloading.
+[2025-01-23 10:48:36] INFO autoreload Watching for file changes with StatReloader
+[2025-01-23 10:49:26] WARNING log Bad Request: /api/v1/doctors/register/initiate/
+[2025-01-23 10:49:41] ERROR log Internal Server Error: /api/v1/doctors/register/initiate/
+[2025-01-23 10:49:56] WARNING log Bad Request: /api/v1/doctors/register/initiate/
+[2025-01-23 10:50:06] WARNING log Bad Request: /api/v1/doctors/register/initiate/
+[2025-01-23 10:50:16] WARNING log Bad Request: /api/v1/doctors/register/initiate/
+[2025-01-23 10:50:43] INFO services [DOCTOR_DEBUG] Created verification instance for test123@example.com
+[2025-01-23 10:50:43] INFO services [OTP_DEBUG] Starting OTP creation for phone: 555552022
+[2025-01-23 10:50:43] INFO services [OTP_DEBUG] Generated OTP code: 970094
+[2025-01-23 10:50:43] INFO services [OTP_DEBUG] Generated OTP code: 970094 for phone: 555552022
+[2025-01-23 10:50:43] INFO services [OTP_DEBUG] Created OTP record - ID: cd394382-3de4-4f76-8970-5d5fb6c2ffcb, Phone: 555552022, Code: 970094
+[2025-01-23 10:50:43] INFO services [OTP_DEBUG] Prepared SMS message: ZUWARA: Your verification code is 970094
+[2025-01-23 10:50:43] INFO services [OTP_DEBUG] Attempting to send SMS to 555552022
+[2025-01-23 10:50:43] INFO services [OTP_DEBUG] Message content: ZUWARA: Your verification code is 970094
+[2025-01-23 10:50:43] INFO services [OTP_DEBUG] Formatted number for sending: 555552022
+[2025-01-23 10:50:43] INFO services [OTP_DEBUG] DEV MODE - SMS would be sent to 555552022
+[2025-01-23 10:50:43] INFO services [OTP_DEBUG] DEV MODE - Message content: ZUWARA: Your verification code is 970094
+[2025-01-23 10:50:43] INFO services [OTP_DEBUG] SMS send result - Success: True, Response: SMS sent successfully (Development Mode)
+[2025-01-23 10:50:43] INFO services [OTP_DEBUG] Final result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': 'cd394382-3de4-4f76-8970-5d5fb6c2ffcb'}
+[2025-01-23 10:50:43] ERROR services [DOCTOR_DEBUG] Failed to create verification instance: value too long for type character varying(6)
+[2025-01-23 10:50:43] WARNING log Bad Request: /api/v1/doctors/register/initiate/
+[2025-01-23 10:51:17] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/models.py changed, reloading.
+[2025-01-23 10:51:17] INFO autoreload Watching for file changes with StatReloader
+[2025-01-23 10:51:40] INFO services [DOCTOR_DEBUG] Created verification instance for test123@example.com
+[2025-01-23 10:51:40] INFO services [OTP_DEBUG] Starting OTP creation for phone: 555552022
+[2025-01-23 10:51:40] INFO services [OTP_DEBUG] Generated OTP code: 680027
+[2025-01-23 10:51:40] INFO services [OTP_DEBUG] Generated OTP code: 680027 for phone: 555552022
+[2025-01-23 10:51:40] INFO services [OTP_DEBUG] Created OTP record - ID: 6665fee0-0f95-4bba-813e-5d35bd3b63a7, Phone: 555552022, Code: 680027
+[2025-01-23 10:51:40] INFO services [OTP_DEBUG] Prepared SMS message: ZUWARA: Your verification code is 680027
+[2025-01-23 10:51:40] INFO services [OTP_DEBUG] Attempting to send SMS to 555552022
+[2025-01-23 10:51:40] INFO services [OTP_DEBUG] Message content: ZUWARA: Your verification code is 680027
+[2025-01-23 10:51:40] INFO services [OTP_DEBUG] Formatted number for sending: 555552022
+[2025-01-23 10:51:40] INFO services [OTP_DEBUG] DEV MODE - SMS would be sent to 555552022
+[2025-01-23 10:51:40] INFO services [OTP_DEBUG] DEV MODE - Message content: ZUWARA: Your verification code is 680027
+[2025-01-23 10:51:40] INFO services [OTP_DEBUG] SMS send result - Success: True, Response: SMS sent successfully (Development Mode)
+[2025-01-23 10:51:40] INFO services [OTP_DEBUG] Final result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': '6665fee0-0f95-4bba-813e-5d35bd3b63a7'}
+[2025-01-23 10:51:54] INFO services Verifying OTP for 555552022
+[2025-01-23 10:51:54] INFO services OTP verified successfully for 555552022
+[2025-01-23 10:53:25] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:25] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:25] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:25] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:44] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:44] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:44] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:44] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:44] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:44] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:44] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:44] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:45] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:45] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:45] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:45] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:45] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:45] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:45] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:45] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:46] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:46] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:46] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:46] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:46] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:46] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:46] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:46] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:46] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:46] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:46] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:46] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:47] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:47] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:47] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:47] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:47] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:47] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:47] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:47] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:47] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:47] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:47] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:47] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:47] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:47] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:47] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:47] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:47] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:47] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:47] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:47] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:48] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:48] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:48] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:53:48] WARNING utils Could not reverse url from auth.user
+[2025-01-23 10:54:42] INFO services [OTP_DEBUG] Starting OTP creation for phone: 555552022
+[2025-01-23 10:54:42] INFO services [OTP_DEBUG] Generated OTP code: 624795
+[2025-01-23 10:54:42] INFO services [OTP_DEBUG] Generated OTP code: 624795 for phone: 555552022
+[2025-01-23 10:54:42] INFO services [OTP_DEBUG] Created OTP record - ID: 318f43c3-9219-449b-821b-96bd4e2072e8, Phone: 555552022, Code: 624795
+[2025-01-23 10:54:42] INFO services [OTP_DEBUG] Prepared SMS message: ZUWARA: Your verification code is 624795
+[2025-01-23 10:54:42] INFO services [OTP_DEBUG] Attempting to send SMS to 555552022
+[2025-01-23 10:54:42] INFO services [OTP_DEBUG] Message content: ZUWARA: Your verification code is 624795
+[2025-01-23 10:54:42] INFO services [OTP_DEBUG] Formatted number for sending: 555552022
+[2025-01-23 10:54:42] INFO services [OTP_DEBUG] Sending SMS with params: {'user': 'Alaqa', 'secret_key': '97aca06a4fd54aeb571d0de1ecac4f84ee19d323d5b56fe0a74d7eb2bfc673fe', 'to': '555552022', 'message': 'ZUWARA: Your verification code is 624795', 'sender': 'zuwara'}
+[2025-01-23 10:54:42] INFO services [OTP_DEBUG] API URL: https://dreams.sa/api/sendsms/
+[2025-01-23 10:54:44] INFO services [OTP_DEBUG] SMS API Raw Response: -124
+[2025-01-23 10:54:44] INFO services [OTP_DEBUG] SMS API Response Status Code: 200
+[2025-01-23 10:54:44] ERROR services [OTP_DEBUG] SMS API Error: Invalid credentials
+[2025-01-23 10:54:44] INFO services [OTP_DEBUG] SMS send result - Success: False, Response: Failed to send SMS: Invalid credentials or IP not whitelisted
+[2025-01-23 10:54:44] ERROR services [OTP_DEBUG] Failed to send SMS - OTP ID: 318f43c3-9219-449b-821b-96bd4e2072e8, Phone: 555552022
+[2025-01-23 10:54:44] INFO services [OTP_DEBUG] Final result: {'success': False, 'message': 'Failed to send SMS: Invalid credentials or IP not whitelisted', 'otp_id': None}
+[2025-01-23 10:55:11] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/services.py changed, reloading.
+[2025-01-23 10:55:11] INFO autoreload Watching for file changes with StatReloader
