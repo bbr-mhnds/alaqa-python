@@ -71,11 +71,11 @@ class DoctorRegistrationSerializer(serializers.ModelSerializer):
     """Serializer for doctor registration"""
     password = serializers.CharField(write_only=True, required=True)
     confirm_password = serializers.CharField(write_only=True, required=True)
-    specialities = serializers.PrimaryKeyRelatedField(
-        many=True,
-        queryset=Specialty.objects.all(),
-        required=True
-    )
+    specialities = serializers.JSONField(required=True)  # Changed to JSONField
+    license_document = serializers.FileField(required=True)
+    qualification_document = serializers.FileField(required=True)
+    additional_documents = serializers.FileField(required=False, allow_null=True)
+    terms_and_privacy_accepted = serializers.BooleanField(required=True)
 
     class Meta:
         model = Doctor
@@ -85,14 +85,16 @@ class DoctorRegistrationSerializer(serializers.ModelSerializer):
             'license_number', 'specialities', 'profile_arabic',
             'profile_english', 'photo', 'license_document',
             'qualification_document', 'additional_documents',
-            'password', 'confirm_password'
+            'password', 'confirm_password', 'terms_and_privacy_accepted'
         ]
-        extra_kwargs = {
-            'license_document': {'required': True},
-            'qualification_document': {'required': True}
-        }
 
     def validate(self, data):
+        # Validate terms and privacy acceptance
+        if not data.get('terms_and_privacy_accepted'):
+            raise serializers.ValidationError({
+                "terms_and_privacy_accepted": "You must accept the terms and privacy policy to register."
+            })
+        
         # Validate passwords match
         if data.get('password') != data.get('confirm_password'):
             raise serializers.ValidationError("Passwords do not match")
@@ -106,6 +108,33 @@ class DoctorRegistrationSerializer(serializers.ModelSerializer):
                 raise serializers.ValidationError({
                     "email": "A user with this email already exists."
                 })
+
+        # Validate and convert specialities
+        specialities = data.get('specialities', [])
+        if not isinstance(specialities, list):
+            try:
+                import json
+                specialities = json.loads(specialities)
+            except (json.JSONDecodeError, TypeError):
+                raise serializers.ValidationError({
+                    "specialities": "Invalid format. Expected a JSON array of UUIDs."
+                })
+
+        try:
+            import uuid
+            # Convert string UUIDs to UUID objects
+            uuid_list = [uuid.UUID(str(s)) for s in specialities]
+            existing_specialities = Specialty.objects.filter(id__in=uuid_list)
+            if len(existing_specialities) != len(specialities):
+                raise serializers.ValidationError({
+                    "specialities": "One or more specialities do not exist."
+                })
+            data['specialities'] = [str(s.id) for s in existing_specialities]  # Convert UUIDs to strings
+        except ValueError:
+            raise serializers.ValidationError({
+                "specialities": "Invalid UUID format for specialities."
+            })
+
         return data
 
     def create(self, validated_data):
@@ -113,8 +142,10 @@ class DoctorRegistrationSerializer(serializers.ModelSerializer):
         password = validated_data.pop('password')
         validated_data.pop('confirm_password', None)
         
-        # Create doctor instance
+        # Get specialities and remove from validated data
         specialities = validated_data.pop('specialities')
+        
+        # Create doctor instance
         doctor = Doctor.objects.create(**validated_data)
         
         # Add specialities
@@ -124,7 +155,6 @@ class DoctorRegistrationSerializer(serializers.ModelSerializer):
         from django.contrib.auth import get_user_model
         User = get_user_model()
         user = User.objects.create_user(
-            username=validated_data['email'],
             email=validated_data['email'],
             password=password,
             is_active=False,  # Will be activated upon approval

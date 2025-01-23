@@ -7,74 +7,83 @@ logger = logging.getLogger(__name__)
 
 class DoctorVerificationService:
     @staticmethod
-    def send_email_verification(email, code):
-        """Send verification email to doctor"""
-        try:
-            subject = "ZUWARA - Email Verification"
-            message = f"""
-            Thank you for registering with ZUWARA.
-            
-            Your email verification code is: {code}
-            
-            Please use this code to complete your registration.
-            Do not share this code with anyone.
-            
-            Best regards,
-            ZUWARA Team
-            """
-            
-            send_mail(
-                subject=subject,
-                message=message,
-                from_email=settings.DEFAULT_FROM_EMAIL,
-                recipient_list=[email],
-                fail_silently=False,
-            )
-            
-            logger.info(f"[DOCTOR_DEBUG] Verification email sent to {email}")
-            return True, "Verification email sent successfully"
-            
-        except Exception as e:
-            logger.error(f"[DOCTOR_DEBUG] Failed to send verification email: {str(e)}")
-            return False, f"Failed to send verification email: {str(e)}"
+    def generate_verification_code():
+        """Generate unique code for SMS verification"""
+        return OTPService.generate_otp()
 
     @staticmethod
-    def generate_verification_codes():
-        """Generate unique codes for email and SMS verification"""
-        email_code = OTPService.generate_otp()
-        sms_code = OTPService.generate_otp()
+    def send_verification_codes(email, phone, registration_data=None):
+        """Send verification code via SMS only"""
+        sms_code = DoctorVerificationService.generate_verification_code()
         
-        # Ensure codes are different
-        while email_code == sms_code:
-            sms_code = OTPService.generate_otp()
-            
-        return email_code, sms_code
-
-    @staticmethod
-    def send_verification_codes(email, phone):
-        """Send verification codes via email and SMS"""
-        email_code, sms_code = DoctorVerificationService.generate_verification_codes()
-        
-        # Send email verification
-        email_success, email_message = DoctorVerificationService.send_email_verification(
-            email, email_code
-        )
-        
-        # Send SMS verification
+        # Send SMS verification using Dreams SMS service
         sms_success, sms_message = OTPService.send_sms(
             phone,
             f"ZUWARA: Your phone verification code is: {sms_code}. Do not share this code with anyone."
         )
-        
-        return {
-            'email': {
-                'success': email_success,
-                'message': email_message,
-                'code': email_code
-            },
-            'sms': {
-                'success': sms_success,
-                'message': sms_message,
-                'code': sms_code
+
+        # Create DoctorVerification instance
+        from django.utils import timezone
+        from .models import DoctorVerification
+
+        try:
+            # Extract file fields from registration data
+            license_document = registration_data.pop('license_document', None) if registration_data else None
+            qualification_document = registration_data.pop('qualification_document', None) if registration_data else None
+            additional_documents = registration_data.pop('additional_documents', None) if registration_data else None
+            
+            # Store file paths in registration data
+            if license_document:
+                registration_data['license_document_path'] = f'doctors/licenses/{license_document.name}'
+            if qualification_document:
+                registration_data['qualification_document_path'] = f'doctors/qualifications/{qualification_document.name}'
+            if additional_documents:
+                registration_data['additional_documents_path'] = f'doctors/additional/{additional_documents.name}'
+            
+            # Create verification instance
+            verification = DoctorVerification.objects.create(
+                email=email,
+                phone=phone,
+                sms_code=sms_code,
+                email_verified=True,  # Auto verify email
+                phone_verified=False,  # Will be verified with SMS code
+                registration_data=registration_data or {},
+                expires_at=timezone.now() + timezone.timedelta(minutes=10)
+            )
+
+            # Handle file uploads
+            if license_document:
+                verification.license_document.save(
+                    license_document.name,
+                    license_document,
+                    save=False
+                )
+            if qualification_document:
+                verification.qualification_document.save(
+                    qualification_document.name,
+                    qualification_document,
+                    save=False
+                )
+            
+            verification.save()
+            logger.info(f"[DOCTOR_DEBUG] Created verification instance for {email}")
+                
+            return {
+                'email': {
+                    'success': True,
+                    'message': 'Email verification skipped',
+                },
+                'sms': {
+                    'success': sms_success,
+                    'message': sms_message,
+                    'code': sms_code
+                },
+                'verification_id': str(verification.id)
             }
-        } 
+                
+        except Exception as e:
+            logger.error(f"[DOCTOR_DEBUG] Failed to create verification instance: {str(e)}")
+            return {
+                'email': {'success': False, 'message': str(e)},
+                'sms': {'success': False, 'message': str(e)}
+            } 

@@ -337,12 +337,72 @@ REST_FRAMEWORK = {
         'rest_framework.parsers.MultiPartParser',
     ],
 }
-
+# CORS_ALLOWED_ORIGINS = ["https://api.alaqa.net:8000", "http://localhost:8000", "https://patient.zuwara.net", "https://doctor.zuwara.net", "https://admin.zuwara.net"]
+# CSRF_TRUSTED_ORIGINS = ["https://api.alaqa.net:8000", "http://localhost:8000", "https://patient.zuwara.net", "https://doctor.zuwara.net", "https://admin.zuwara.net"]
+# CSRF_COOKIE_SECURE = True
+# CSRF_USE_SESSIONS = True
 # CORS settings
-CORS_ALLOWED_ORIGINS = ["https://api.alaqa.net:8000", "http://localhost:8000", "https://patient.zuwara.net", "https://doctor.zuwara.net", "https://admin.zuwara.net"]
-CSRF_TRUSTED_ORIGINS = ["https://api.alaqa.net:8000", "http://localhost:8000", "https://patient.zuwara.net", "https://doctor.zuwara.net", "https://admin.zuwara.net"]
-CSRF_COOKIE_SECURE = True
-CSRF_USE_SESSIONS = True
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:8000",
+    "http://127.0.0.1:8000",
+    "http://localhost:4200",  # Angular development server
+    "http://127.0.0.1:4200",  # Angular development server alternative
+    "https://api.alaqa.net:8000",
+    "https://patient.zuwara.net",
+    "https://doctor.zuwara.net",
+    "https://admin.zuwara.net"
+]
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:8000",
+    "http://127.0.0.1:8000",
+    "http://localhost:4200",  # Angular development server
+    "http://127.0.0.1:4200",  # Angular development server alternative
+    "https://api.alaqa.net:8000",
+    "https://patient.zuwara.net",
+    "https://doctor.zuwara.net",
+    "https://admin.zuwara.net"
+]
+
+# Only enforce CSRF cookie security in production
+CSRF_COOKIE_SECURE = not DEBUG
+SESSION_COOKIE_SECURE = not DEBUG
+SECURE_SSL_REDIRECT = not DEBUG
+
+# Development server settings
+if DEBUG:
+    # Disable all HTTPS/SSL related settings
+    CSRF_COOKIE_SECURE = False
+    SESSION_COOKIE_SECURE = False
+    SECURE_SSL_REDIRECT = False
+    SECURE_PROXY_SSL_HEADER = None
+    SECURE_SSL_HOST = None
+    SECURE_HSTS_SECONDS = None
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = None
+    SECURE_HSTS_PRELOAD = None
+    SECURE_CONTENT_TYPE_NOSNIFF = None
+    SECURE_BROWSER_XSS_FILTER = None
+    X_FRAME_OPTIONS = 'SAMEORIGIN'
+    
+    # Allow all hosts in development
+    ALLOWED_HOSTS = ['*']
+    
+    # Development-specific CORS settings
+    CORS_ALLOW_ALL_ORIGINS = True
+    CORS_ALLOWED_ORIGINS = []  # Not used when CORS_ALLOW_ALL_ORIGINS = True
+    CORS_ORIGIN_ALLOW_ALL = True
+    
+    # Use console email backend in development
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+else:
+    # Production settings remain unchanged
+    CSRF_COOKIE_SECURE = True
+    SESSION_COOKIE_SECURE = True
+    SECURE_SSL_REDIRECT = True
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    CORS_ALLOW_ALL_ORIGINS = False
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+# Common settings for both development and production
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_METHODS = [
     'DELETE',
@@ -352,6 +412,22 @@ CORS_ALLOW_METHODS = [
     'POST',
     'PUT',
 ]
+
+# Additional CORS settings
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+]
+
+# Disable CORS_URLS_REGEX for development
+CORS_URLS_REGEX = r'^/api/.*$'
 
 # Agora Settings
 AGORA_APP_ID = env('AGORA_APP_ID', default='')
@@ -363,3 +439,7 @@ DREAMS_SMS_API_URL = env('DREAMS_SMS_API_URL', default='https://dreams.sa/api/se
 DREAMS_SMS_USER = env('DREAMS_SMS_USER', default='Alaqa')
 DREAMS_SMS_SECRET_KEY = env('DREAMS_SMS_SECRET_KEY', default='97aca06a4fd54aeb571d0de1ecac4f84ee19d323d5b56fe0a74d7eb2bfc673fe')
 DREAMS_SMS_SENDER = env('DREAMS_SMS_SENDER', default='zuwara')
+
+# Email Settings
+EMAIL_BACKEND = EMAIL_BACKEND
+DEFAULT_FROM_EMAIL = 'Zuwara Healthcare <no-reply@zuwara.net>'

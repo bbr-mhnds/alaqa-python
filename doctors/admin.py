@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Doctor
+from .models import Doctor, DoctorVerification
 
 @admin.register(Doctor)
 class DoctorAdmin(admin.ModelAdmin):
@@ -27,6 +27,32 @@ class DoctorAdmin(admin.ModelAdmin):
         }),
         ('Timestamps', {
             'fields': ('created_at', 'updated_at'),
+            'classes': ('collapse',)
+        }),
+    )
+
+@admin.register(DoctorVerification)
+class DoctorVerificationAdmin(admin.ModelAdmin):
+    list_display = ('email', 'phone', 'email_verified', 'phone_verified', 'is_used', 'created_at', 'expires_at')
+    list_filter = ('email_verified', 'phone_verified', 'is_used', 'created_at')
+    search_fields = ('email', 'phone')
+    readonly_fields = ('created_at', 'expires_at')
+    
+    fieldsets = (
+        (None, {
+            'fields': ('email', 'phone', 'email_code', 'sms_code')
+        }),
+        ('Verification Status', {
+            'fields': ('email_verified', 'phone_verified', 'is_used')
+        }),
+        ('Documents', {
+            'fields': ('license_document', 'qualification_document')
+        }),
+        ('Registration Data', {
+            'fields': ('registration_data',)
+        }),
+        ('Timestamps', {
+            'fields': ('created_at', 'expires_at'),
             'classes': ('collapse',)
         }),
     )

@@ -17,6 +17,9 @@ from .serializers import (
 )
 from rest_framework import serializers
 from .services import DoctorVerificationService
+import logging
+
+logger = logging.getLogger(__name__)
 
 class DoctorFilter(django_filters.FilterSet):
     status = django_filters.CharFilter(field_name='status')
@@ -60,7 +63,7 @@ class DoctorViewSet(viewsets.ModelViewSet):
         """
         queryset = super().get_queryset()
         
-        # For public endpoints (list, retrieve), only show approved doctors
+        # For public endpoints (list, retrieve), only show approved doctors if not authenticated
         if self.action in ['list', 'retrieve'] and not self.request.user.is_authenticated:
             queryset = queryset.filter(status='approved')
         
@@ -230,10 +233,11 @@ class IsSuperAdmin(permissions.BasePermission):
 class DoctorRegistrationViewSet(viewsets.ModelViewSet):
     queryset = Doctor.objects.all()
     serializer_class = DoctorRegistrationSerializer
+    authentication_classes = []  # Disable authentication completely
     permission_classes = [permissions.AllowAny]
     http_method_names = ['post']
 
-    @action(detail=False, methods=['post'])
+    @action(detail=False, methods=['post'], authentication_classes=[], permission_classes=[permissions.AllowAny])
     def initiate(self, request):
         """Step 1: Initiate registration and send verification codes"""
         try:
@@ -245,111 +249,120 @@ class DoctorRegistrationViewSet(viewsets.ModelViewSet):
             phone = serializer.validated_data['phone']
             
             # Send verification codes
-            verification_result = DoctorVerificationService.send_verification_codes(email, phone)
+            verification_result = DoctorVerificationService.send_verification_codes(
+                email=email,
+                phone=phone,
+                registration_data=serializer.validated_data
+            )
             
-            if not verification_result['email']['success'] or not verification_result['sms']['success']:
+            if verification_result['email']['success'] and verification_result['sms']['success']:
+                return Response({
+                    'status': 'success',
+                    'message': 'Verification codes sent successfully',
+                    'data': {
+                        'verification_id': verification_result.get('verification_id'),
+                        'email': verification_result['email']['message'],
+                        'sms': verification_result['sms']['message']
+                    }
+                })
+            else:
                 return Response({
                     'status': 'error',
                     'message': 'Failed to send verification codes',
-                    'email_error': verification_result['email']['message'],
-                    'sms_error': verification_result['sms']['message']
+                    'data': {
+                        'email': verification_result['email']['message'],
+                        'sms': verification_result['sms']['message']
+                    }
                 }, status=status.HTTP_400_BAD_REQUEST)
-            
-            # Store verification data
-            verification = DoctorVerification.objects.create(
-                email=email,
-                phone=phone,
-                email_code=verification_result['email']['code'],
-                sms_code=verification_result['sms']['code'],
-                registration_data=request.data,
-                expires_at=timezone.now() + timedelta(minutes=10)
-            )
-            
+                
+        except serializers.ValidationError as e:
             return Response({
-                'status': 'success',
-                'message': 'Verification codes sent successfully',
-                'data': {
-                    'verification_id': verification.id,
-                    'email_sent': verification_result['email']['success'],
-                    'sms_sent': verification_result['sms']['success'],
-                    'expires_at': verification.expires_at
-                }
-            })
-            
+                'status': 'error',
+                'message': 'Validation error',
+                'errors': e.detail
+            }, status=status.HTTP_400_BAD_REQUEST)
         except Exception as e:
             return Response({
                 'status': 'error',
                 'message': str(e)
-            }, status=status.HTTP_400_BAD_REQUEST)
+            }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-    @action(detail=False, methods=['post'])
+    @action(detail=False, methods=['post'], authentication_classes=[], permission_classes=[permissions.AllowAny])
     def verify(self, request):
-        """Step 2: Verify email and SMS codes"""
+        """Step 2: Verify SMS code"""
         try:
-            verification_id = request.data.get('verification_id')
-            email_code = request.data.get('email_code')
             sms_code = request.data.get('sms_code')
+            email = request.data.get('email')  # Add email to find the latest verification
             
-            if not all([verification_id, email_code, sms_code]):
+            if not all([sms_code, email]):
                 return Response({
                     'status': 'error',
-                    'message': 'Missing required fields'
+                    'message': 'Missing required fields. Please provide sms_code and email.'
                 }, status=status.HTTP_400_BAD_REQUEST)
             
             try:
-                verification = DoctorVerification.objects.get(id=verification_id, is_used=False)
+                # Find the latest unverified verification for this email
+                verification = DoctorVerification.objects.filter(
+                    email=email,
+                    is_used=False,
+                    phone_verified=False
+                ).latest('created_at')
             except DoctorVerification.DoesNotExist:
                 return Response({
                     'status': 'error',
-                    'message': 'Invalid verification ID'
+                    'message': 'No pending verification found for this email'
                 }, status=status.HTTP_404_NOT_FOUND)
             
             if verification.is_expired:
                 return Response({
                     'status': 'error',
-                    'message': 'Verification codes have expired'
+                    'message': 'Verification code has expired'
                 }, status=status.HTTP_400_BAD_REQUEST)
             
-            # Verify codes
-            if email_code == verification.email_code:
-                verification.email_verified = True
-            
+            # Verify SMS code
             if sms_code == verification.sms_code:
                 verification.phone_verified = True
-            
-            verification.save()
-            
-            if not verification.is_complete:
+                verification.is_used = True
+                verification.save()
+                
+                # Prepare registration data with file fields
+                registration_data = verification.registration_data.copy()
+                
+                # Transfer files from verification to final paths
+                if verification.license_document:
+                    registration_data['license_document'] = verification.license_document
+                if verification.qualification_document:
+                    registration_data['qualification_document'] = verification.qualification_document
+                
+                # Complete registration
+                serializer = self.get_serializer(data=registration_data)
+                serializer.is_valid(raise_exception=True)
+                doctor = serializer.save()
+                
+                return Response({
+                    'status': 'success',
+                    'message': 'Registration successful. Your account is pending approval.',
+                    'data': {
+                        'doctor': DoctorSerializer(doctor).data,
+                        'next_steps': [
+                            'Your registration is being reviewed by our team.',
+                            'You will receive a notification once your account is approved.',
+                            'After approval, you can sign in using your email and password.',
+                            'For any questions, please contact our support team.'
+                        ]
+                    }
+                }, status=status.HTTP_201_CREATED)
+            else:
                 return Response({
                     'status': 'error',
-                    'message': 'Invalid verification codes',
-                    'email_verified': verification.email_verified,
-                    'phone_verified': verification.phone_verified
+                    'message': 'Invalid verification code',
+                    'data': {
+                        'phone_verified': verification.phone_verified
+                    }
                 }, status=status.HTTP_400_BAD_REQUEST)
             
-            # Complete registration
-            verification.is_used = True
-            verification.save()
-            
-            serializer = self.get_serializer(data=verification.registration_data)
-            serializer.is_valid(raise_exception=True)
-            doctor = serializer.save()
-            
-            return Response({
-                'status': 'success',
-                'message': 'Registration successful. Your account is pending approval.',
-                'data': {
-                    'doctor': DoctorSerializer(doctor).data,
-                    'next_steps': [
-                        'Your registration is being reviewed by our team.',
-                        'You will receive a notification once your account is approved.',
-                        'After approval, you can sign in using your email and password.',
-                        'For any questions, please contact our support team.'
-                    ]
-                }
-            }, status=status.HTTP_201_CREATED)
-            
         except Exception as e:
+            logger.error(f"[DOCTOR_DEBUG] Registration error: {str(e)}")  # Add logging
             return Response({
                 'status': 'error',
                 'message': str(e)

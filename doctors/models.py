@@ -47,6 +47,7 @@ class Doctor(models.Model):
     profile_english = models.TextField()
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='pending')
     photo = models.ImageField(upload_to='doctors/', null=True, blank=True)
+    terms_and_privacy_accepted = models.BooleanField(default=False)
     
     # Bank Details
     account_holder_name = models.CharField(max_length=255)
@@ -110,6 +111,8 @@ class DoctorVerification(models.Model):
     email_verified = models.BooleanField(default=False)
     phone_verified = models.BooleanField(default=False)
     registration_data = models.JSONField()  # Store registration data temporarily
+    license_document = models.FileField(upload_to='temp/license_documents/', null=True)
+    qualification_document = models.FileField(upload_to='temp/qualification_documents/', null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     expires_at = models.DateTimeField()
     is_used = models.BooleanField(default=False)
