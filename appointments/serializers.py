@@ -24,8 +24,8 @@ class AppointmentSerializer(serializers.ModelSerializer):
     def validate_phone_number(self, value):
         # Remove any non-digit characters
         cleaned_number = ''.join(filter(str.isdigit, value))
-        if len(cleaned_number) < 10:
-            raise serializers.ValidationError("Phone number must have at least 10 digits")
+        if len(cleaned_number) < 9:
+            raise serializers.ValidationError("Phone number must have at least 9 digits")
         return cleaned_number
 
     def validate(self, data):

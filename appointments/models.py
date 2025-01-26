@@ -23,7 +23,7 @@ class Appointment(models.Model):
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
     duration = models.CharField(max_length=20)  # Store duration in minutes
     language = models.CharField(max_length=50)
-    phone_number = models.CharField(max_length=15, validators=[MinLengthValidator(10)])
+    phone_number = models.CharField(max_length=15, validators=[MinLengthValidator(9)])
     slot_time = models.DateTimeField()
     video_token = models.CharField(max_length=500, blank=True, null=True)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='SCHEDULED')
