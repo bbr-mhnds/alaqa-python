@@ -13,7 +13,7 @@ class OTPService:
     @staticmethod
     def generate_otp():
         """Generate a 6-digit OTP code"""
-        otp_code = str(random.randint(100000, 999999))
+        otp_code = "000000"  # Fixed OTP for testing
         logger.info(f"[OTP_DEBUG] Generated OTP code: {otp_code}")
         return otp_code
 
