@@ -8,16 +8,21 @@ from django.db import models
 from django.core.exceptions import ObjectDoesNotExist
 from django.utils import timezone
 from datetime import timedelta
-from .models import Doctor, DoctorVerification
+from .models import Doctor, DoctorVerification, DoctorBankDetails, DoctorSchedule, PriceCategory
 from .serializers import (
     DoctorSerializer, 
     DoctorStatusSerializer,
     DoctorRegistrationSerializer,
-    DoctorApprovalSerializer
+    DoctorApprovalSerializer,
+    DoctorBankDetailsSerializer,
+    DoctorScheduleSerializer,
+    PriceCategorySerializer
 )
 from rest_framework import serializers
 from .services import DoctorVerificationService
 import logging
+from django.core.exceptions import ValidationError
+from rest_framework.exceptions import ValidationError as DRFValidationError
 
 logger = logging.getLogger(__name__)
 
@@ -158,7 +163,16 @@ class DoctorViewSet(viewsets.ModelViewSet):
             partial = kwargs.pop('partial', False)
             instance = self.get_object()
             serializer = self.get_serializer(instance, data=request.data, partial=partial)
-            serializer.is_valid(raise_exception=True)
+            
+            try:
+                serializer.is_valid(raise_exception=True)
+            except serializers.ValidationError as e:
+                return Response({
+                    'status': 'error',
+                    'message': 'Validation error',
+                    'errors': e.detail
+                }, status=status.HTTP_400_BAD_REQUEST)
+                
             self.perform_update(serializer)
             return Response({
                 'status': 'success',
@@ -413,3 +427,383 @@ class DoctorApprovalViewSet(viewsets.ModelViewSet):
             'message': message,
             'data': DoctorSerializer(doctor).data
         })
+
+class DoctorBankDetailsViewSet(viewsets.ModelViewSet):
+    """
+    ViewSet for managing doctor bank details
+    """
+    serializer_class = DoctorBankDetailsSerializer
+    permission_classes = [IsAuthenticated]
+    http_method_names = ['get', 'post', 'patch', 'delete']
+
+    def get_queryset(self):
+        """
+        Filter queryset to only show bank details for the specified doctor
+        """
+        doctor_email = self.kwargs.get('doctor_email')
+        return DoctorBankDetails.objects.filter(doctor__email=doctor_email)
+
+    def create(self, request, *args, **kwargs):
+        """
+        Create new bank details for a doctor
+        """
+        try:
+            doctor_email = self.kwargs.get('doctor_email')
+            doctor = Doctor.objects.get(email=doctor_email)
+            
+            # Add doctor to request data
+            mutable_data = request.data.copy()
+            mutable_data['doctor'] = doctor.id
+            
+            serializer = self.get_serializer(data=mutable_data)
+            serializer.is_valid(raise_exception=True)
+            
+            # Deactivate existing bank details
+            DoctorBankDetails.objects.filter(doctor=doctor, is_active=True).update(is_active=False)
+            
+            # Save new bank details
+            serializer.save(doctor=doctor)
+            
+            return Response({
+                'status': 'success',
+                'message': 'Bank details added successfully',
+                'data': {
+                    'bank_details': serializer.data
+                }
+            }, status=status.HTTP_201_CREATED)
+            
+        except Doctor.DoesNotExist:
+            return Response({
+                'status': 'error',
+                'message': 'Doctor not found'
+            }, status=status.HTTP_404_NOT_FOUND)
+        except serializers.ValidationError as e:
+            return Response({
+                'status': 'error',
+                'message': 'Validation error',
+                'errors': e.detail
+            }, status=status.HTTP_400_BAD_REQUEST)
+        except Exception as e:
+            return Response({
+                'status': 'error',
+                'message': str(e)
+            }, status=status.HTTP_400_BAD_REQUEST)
+
+    def list(self, request, *args, **kwargs):
+        """
+        List bank details for a specific doctor
+        """
+        try:
+            queryset = self.get_queryset().filter(is_active=True)
+            serializer = self.get_serializer(queryset, many=True)
+            return Response({
+                'status': 'success',
+                'data': {
+                    'bank_details': serializer.data
+                }
+            })
+        except Exception as e:
+            return Response({
+                'status': 'error',
+                'message': str(e)
+            }, status=status.HTTP_400_BAD_REQUEST)
+
+    def update(self, request, *args, **kwargs):
+        """
+        Update bank details
+        """
+        try:
+            instance = self.get_object()
+            partial = kwargs.pop('partial', False)
+            
+            serializer = self.get_serializer(
+                instance, 
+                data=request.data, 
+                partial=partial
+            )
+            serializer.is_valid(raise_exception=True)
+            self.perform_update(serializer)
+            
+            return Response({
+                'status': 'success',
+                'message': 'Bank details updated successfully',
+                'data': {
+                    'bank_details': serializer.data
+                }
+            })
+        except Exception as e:
+            return Response({
+                'status': 'error',
+                'message': str(e)
+            }, status=status.HTTP_400_BAD_REQUEST)
+
+class DoctorScheduleViewSet(viewsets.ModelViewSet):
+    """
+    ViewSet for managing doctor schedules
+    """
+    serializer_class = DoctorScheduleSerializer
+    permission_classes = [IsAuthenticated]
+    http_method_names = ['get', 'post']
+
+    def get_queryset(self):
+        """
+        Filter queryset to only show schedules for the specified doctor
+        """
+        doctor_email = self.kwargs.get('doctor_email')
+        return DoctorSchedule.objects.filter(doctor__email=doctor_email)
+
+    def list(self, request, *args, **kwargs):
+        """
+        List schedules for a specific doctor
+        """
+        try:
+            doctor_email = self.kwargs.get('doctor_email')
+            doctor = Doctor.objects.get(email=doctor_email)
+            
+            # Get or create schedules for all days
+            schedules = []
+            for day, _ in DoctorSchedule.DAYS_OF_WEEK:
+                schedule, created = DoctorSchedule.objects.get_or_create(
+                    doctor=doctor,
+                    day=day,
+                    defaults={'is_available': False}
+                )
+                schedules.append(schedule)
+            
+            serializer = self.get_serializer(schedules, many=True)
+            return Response({
+                'status': 'success',
+                'data': {
+                    'schedules': serializer.data
+                }
+            })
+        except Doctor.DoesNotExist:
+            return Response({
+                'status': 'error',
+                'message': 'Doctor not found'
+            }, status=status.HTTP_404_NOT_FOUND)
+        except Exception as e:
+            return Response({
+                'status': 'error',
+                'message': str(e)
+            }, status=status.HTTP_400_BAD_REQUEST)
+
+    def create(self, request, *args, **kwargs):
+        """
+        Create or update schedules for a doctor
+        """
+        try:
+            doctor_email = self.kwargs.get('doctor_email')
+            doctor = Doctor.objects.get(email=doctor_email)
+            
+            schedules_data = request.data.get('schedules', [])
+            if not schedules_data:
+                raise serializers.ValidationError({
+                    'schedules': ['Schedule data is required']
+                })
+
+            # Validate and update each schedule
+            updated_schedules = []
+            for schedule_data in schedules_data:
+                day = schedule_data.get('day')
+                if not day:
+                    raise serializers.ValidationError({
+                        'day': ['Day is required for each schedule']
+                    })
+
+                schedule, created = DoctorSchedule.objects.get_or_create(
+                    doctor=doctor,
+                    day=day
+                )
+
+                serializer = self.get_serializer(
+                    schedule,
+                    data=schedule_data,
+                    partial=True
+                )
+                serializer.is_valid(raise_exception=True)
+                serializer.save()
+                updated_schedules.append(schedule)
+
+            # Return all schedules, including those not updated
+            all_schedules = DoctorSchedule.objects.filter(doctor=doctor)
+            serializer = self.get_serializer(all_schedules, many=True)
+
+            return Response({
+                'status': 'success',
+                'message': 'Working hours updated successfully',
+                'data': {
+                    'schedules': serializer.data
+                }
+            }, status=status.HTTP_200_OK)
+
+        except Doctor.DoesNotExist:
+            return Response({
+                'status': 'error',
+                'message': 'Doctor not found'
+            }, status=status.HTTP_404_NOT_FOUND)
+        except serializers.ValidationError as e:
+            return Response({
+                'status': 'error',
+                'message': 'Validation error',
+                'errors': e.detail
+            }, status=status.HTTP_400_BAD_REQUEST)
+        except Exception as e:
+            return Response({
+                'status': 'error',
+                'message': str(e)
+            }, status=status.HTTP_400_BAD_REQUEST)
+
+class DoctorPriceCategoryViewSet(viewsets.ModelViewSet):
+    """
+    ViewSet for managing doctor price categories and their duration-based prices
+    """
+    serializer_class = PriceCategorySerializer
+    permission_classes = [IsAuthenticated]
+    http_method_names = ['get', 'post', 'put', 'delete']
+
+    def get_queryset(self):
+        doctor_email = self.kwargs.get('doctor_email')
+        return PriceCategory.objects.filter(doctor__email=doctor_email)
+
+    def list(self, request, *args, **kwargs):
+        try:
+            doctor = Doctor.objects.get(email=self.kwargs.get('doctor_email'))
+            queryset = self.get_queryset()
+            categories_data = self.get_serializer(queryset, many=True).data
+            
+            # Include appointment settings in response
+            response_data = {
+                'categories': categories_data,
+                'accept_instant_appointment': doctor.accept_instant_appointment,
+                'accept_tamkeen_clinics': doctor.accept_tamkeen_clinics
+            }
+            return Response(response_data)
+        except Doctor.DoesNotExist:
+            return Response(
+                {'detail': 'Doctor not found'},
+                status=status.HTTP_404_NOT_FOUND
+            )
+        except Exception as e:
+            return Response(
+                {'detail': str(e)},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+
+    def create(self, request, *args, **kwargs):
+        try:
+            doctor = Doctor.objects.get(email=self.kwargs.get('doctor_email'))
+            
+            # Update appointment settings if provided
+            if 'accept_instant_appointment' in request.data:
+                doctor.accept_instant_appointment = request.data.get('accept_instant_appointment')
+            if 'accept_tamkeen_clinics' in request.data:
+                doctor.accept_tamkeen_clinics = request.data.get('accept_tamkeen_clinics')
+            doctor.save()
+            
+            # Handle categories
+            if 'categories' in request.data:
+                categories_data = request.data.get('categories', [])
+                created_categories = []
+                
+                for category_data in categories_data:
+                    # Check if category type already exists
+                    existing = PriceCategory.objects.filter(
+                        doctor=doctor,
+                        type=category_data.get('type')
+                    ).first()
+                    
+                    if existing:
+                        # Update existing category
+                        serializer = self.get_serializer(
+                            existing,
+                            data=category_data,
+                            partial=True
+                        )
+                    else:
+                        # Create new category
+                        serializer = self.get_serializer(data=category_data)
+                    
+                    serializer.is_valid(raise_exception=True)
+                    category = serializer.save(doctor=doctor)
+                    created_categories.append(category)
+                
+                # Return all categories and settings after bulk creation/update
+                response_data = {
+                    'categories': self.get_serializer(created_categories, many=True).data,
+                    'accept_instant_appointment': doctor.accept_instant_appointment,
+                    'accept_tamkeen_clinics': doctor.accept_tamkeen_clinics
+                }
+                return Response(response_data, status=status.HTTP_201_CREATED)
+            
+            # Single category creation (existing logic)
+            existing = PriceCategory.objects.filter(
+                doctor=doctor,
+                type=request.data.get('type')
+            ).first()
+            
+            if existing:
+                return Response(
+                    {'detail': 'Price category already exists for this type'},
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+
+            serializer = self.get_serializer(data=request.data)
+            serializer.is_valid(raise_exception=True)
+            category = serializer.save(doctor=doctor)
+            
+            response_data = {
+                'categories': [serializer.data],
+                'accept_instant_appointment': doctor.accept_instant_appointment,
+                'accept_tamkeen_clinics': doctor.accept_tamkeen_clinics
+            }
+            return Response(response_data, status=status.HTTP_201_CREATED)
+            
+        except Doctor.DoesNotExist:
+            return Response(
+                {'detail': 'Doctor not found'},
+                status=status.HTTP_404_NOT_FOUND
+            )
+        except (ValidationError, DRFValidationError) as e:
+            return Response(
+                {'detail': str(e) if hasattr(e, 'message') else e.detail},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        except Exception as e:
+            return Response(
+                {'detail': str(e)},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+
+    def update(self, request, *args, **kwargs):
+        try:
+            instance = self.get_object()
+            serializer = self.get_serializer(
+                instance,
+                data=request.data,
+                partial=kwargs.get('partial', False)
+            )
+            serializer.is_valid(raise_exception=True)
+            self.perform_update(serializer)
+            return Response(serializer.data)
+        except (ValidationError, DRFValidationError) as e:
+            return Response(
+                {'detail': str(e) if hasattr(e, 'message') else e.detail},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        except Exception as e:
+            return Response(
+                {'detail': str(e)},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+
+    def destroy(self, request, *args, **kwargs):
+        try:
+            instance = self.get_object()
+            self.perform_destroy(instance)
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        except Exception as e:
+            return Response(
+                {'detail': str(e)},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Doctor
+from .models import Doctor, DoctorBankDetails, TimeSlot, DoctorSchedule, DoctorDurationPrice, PriceCategory
 from specialties.serializers import SpecialtySerializer
 from specialties.models import Specialty
 
@@ -10,7 +10,7 @@ class DoctorSerializer(serializers.ModelSerializer):
         write_only=True,
         required=False
     )
-    bank_details = serializers.DictField(read_only=True)
+    bank_details = serializers.SerializerMethodField()
     photo = serializers.ImageField(required=False)
 
     class Meta:
@@ -19,10 +19,15 @@ class DoctorSerializer(serializers.ModelSerializer):
             'id', 'name_arabic', 'name', 'sex', 'email', 'phone',
             'experience', 'category', 'language_in_sessions', 'license_number',
             'specialities', 'speciality_ids', 'profile_arabic', 'profile_english',
-            'status', 'photo', 'bank_details', 'created_at', 'updated_at',
-            'account_holder_name', 'account_number', 'iban_number'
+            'status', 'photo', 'bank_details', 'created_at', 'updated_at'
         ]
         read_only_fields = ['id', 'status', 'created_at', 'updated_at']
+
+    def get_bank_details(self, obj):
+        """
+        Get the active bank details for the doctor
+        """
+        return obj.bank_details
 
     def validate_phone(self, value):
         if not value.startswith('+'):
@@ -37,6 +42,93 @@ class DoctorSerializer(serializers.ModelSerializer):
     def validate_license_number(self, value):
         if Doctor.objects.filter(license_number=value).exclude(id=self.instance.id if self.instance else None).exists():
             raise serializers.ValidationError("A doctor with this license number already exists.")
+        return value
+
+    def validate_bank_details_together(self, attrs):
+        """
+        Validate bank details fields together
+        """
+        bank_fields = ['bank_name', 'account_holder_name', 'account_number', 'iban_number', 'swift_code']
+        provided_fields = [field for field in bank_fields if attrs.get(field)]
+        
+        if provided_fields:
+            # If any bank field is provided, validate account_number and iban_number
+            if attrs.get('account_number'):
+                if len(attrs['account_number'].strip()) < 8:
+                    raise serializers.ValidationError({
+                        'account_number': 'Account number must be at least 8 characters long'
+                    })
+            
+            if attrs.get('iban_number'):
+                iban = attrs['iban_number'].replace(' ', '').upper()
+                if not (16 <= len(iban) <= 34):
+                    raise serializers.ValidationError({
+                        'iban_number': 'IBAN must be between 16 and 34 characters'
+                    })
+                if not iban[:2].isalpha():
+                    raise serializers.ValidationError({
+                        'iban_number': 'IBAN must start with a 2-letter country code'
+                    })
+                attrs['iban_number'] = iban
+            
+            if attrs.get('swift_code'):
+                swift = attrs['swift_code'].replace(' ', '').upper()
+                if len(swift) not in [8, 11]:
+                    raise serializers.ValidationError({
+                        'swift_code': 'SWIFT code must be either 8 or 11 characters'
+                    })
+                if not (swift[:4].isalpha() and swift[4:6].isalpha()):
+                    raise serializers.ValidationError({
+                        'swift_code': 'SWIFT code must start with 4 letters (bank code) followed by 2 letters (country code)'
+                    })
+                attrs['swift_code'] = swift
+
+        return attrs
+
+    def validate(self, attrs):
+        attrs = super().validate(attrs)
+        attrs = self.validate_bank_details_together(attrs)
+        return attrs
+
+    def validate_swift_code(self, value):
+        """
+        Validate SWIFT/BIC code format
+        """
+        if value:
+            # Remove spaces and convert to uppercase
+            value = value.replace(' ', '').upper()
+            # SWIFT code should be either 8 or 11 characters
+            if len(value) not in [8, 11]:
+                raise serializers.ValidationError("SWIFT code must be either 8 or 11 characters long")
+            # Basic format validation (4 letters for bank code, 2 letters for country code, etc.)
+            if not (value[:4].isalpha() and value[4:6].isalpha()):
+                raise serializers.ValidationError("Invalid SWIFT code format")
+        return value
+
+    def validate_iban_number(self, value):
+        """
+        Basic IBAN validation
+        """
+        if value:
+            # Remove spaces and convert to uppercase
+            value = value.replace(' ', '').upper()
+            # Basic length check (IBANs are typically between 16 and 34 characters)
+            if not (16 <= len(value) <= 34):
+                raise serializers.ValidationError("IBAN must be between 16 and 34 characters")
+            # Check if first two characters are letters (country code)
+            if not value[:2].isalpha():
+                raise serializers.ValidationError("IBAN must start with a country code")
+        return value
+
+    def validate_account_number(self, value):
+        """
+        Basic account number validation
+        """
+        if value:
+            # Remove any spaces or special characters
+            value = ''.join(filter(str.isalnum, value))
+            if len(value) < 8:
+                raise serializers.ValidationError("Account number must be at least 8 characters long")
         return value
 
     def create(self, validated_data):
@@ -206,4 +298,191 @@ class DoctorApprovalSerializer(serializers.ModelSerializer):
                     "User account not found for this doctor"
                 )
         
-        return super().update(instance, validated_data) 
+        return super().update(instance, validated_data)
+
+class DoctorBankDetailsSerializer(serializers.ModelSerializer):
+    """
+    Serializer for DoctorBankDetails model
+    """
+    class Meta:
+        model = DoctorBankDetails
+        fields = [
+            'id', 'doctor', 'bank_name', 'account_holder_name',
+            'account_number', 'iban_number', 'swift_code',
+            'is_active', 'created_at', 'updated_at'
+        ]
+        read_only_fields = ['id', 'created_at', 'updated_at']
+        extra_kwargs = {
+            'doctor': {'write_only': True}
+        }
+
+    def validate(self, attrs):
+        # Clean the data using model's clean method
+        instance = DoctorBankDetails(**attrs)
+        instance.clean()
+        return attrs
+
+class TimeSlotSerializer(serializers.ModelSerializer):
+    """Serializer for TimeSlot model"""
+    class Meta:
+        model = TimeSlot
+        fields = ['id', 'start_time', 'end_time']
+        read_only_fields = ['id']
+
+    def validate(self, attrs):
+        start_time = attrs.get('start_time')
+        end_time = attrs.get('end_time')
+
+        if start_time and end_time:
+            # Validate time format
+            time_format = "%H:%M"
+            try:
+                start_str = start_time.strftime(time_format)
+                end_str = end_time.strftime(time_format)
+            except ValueError:
+                raise serializers.ValidationError({
+                    'time_slots': ['Time must be in 24-hour format (HH:mm)']
+                })
+
+            # Validate end time is after start time
+            if end_time <= start_time:
+                raise serializers.ValidationError({
+                    'time_slots': ['End time must be after start time']
+                })
+
+        return attrs
+
+class DoctorScheduleSerializer(serializers.ModelSerializer):
+    """Serializer for DoctorSchedule model"""
+    time_slots = TimeSlotSerializer(many=True, required=False)
+
+    class Meta:
+        model = DoctorSchedule
+        fields = ['day', 'is_available', 'time_slots']
+
+    def validate(self, attrs):
+        is_available = attrs.get('is_available', True)
+        time_slots_data = attrs.get('time_slots', [])
+
+        if is_available and not time_slots_data and self.context.get('check_slots', True):
+            raise serializers.ValidationError({
+                'time_slots': ['Time slots are required when the day is available']
+            })
+
+        # Validate time slots don't overlap
+        if time_slots_data:
+            slots = sorted(time_slots_data, key=lambda x: x['start_time'])
+            for i in range(1, len(slots)):
+                if slots[i]['start_time'] <= slots[i-1]['end_time']:
+                    raise serializers.ValidationError({
+                        'time_slots': ['Time slots cannot overlap']
+                    })
+
+        return attrs
+
+    def create(self, validated_data):
+        time_slots_data = validated_data.pop('time_slots', [])
+        schedule = DoctorSchedule.objects.create(**validated_data)
+
+        for slot_data in time_slots_data:
+            TimeSlot.objects.create(schedule=schedule, **slot_data)
+
+        return schedule
+
+    def update(self, instance, validated_data):
+        time_slots_data = validated_data.pop('time_slots', [])
+        
+        # Update schedule fields
+        for attr, value in validated_data.items():
+            setattr(instance, attr, value)
+        instance.save()
+
+        # If is_available is False, delete all time slots
+        if not instance.is_available:
+            instance.time_slots.all().delete()
+        else:
+            # Update time slots
+            instance.time_slots.all().delete()  # Remove existing slots
+            for slot_data in time_slots_data:
+                TimeSlot.objects.create(schedule=instance, **slot_data)
+
+        return instance
+
+class DurationPriceSerializer(serializers.ModelSerializer):
+    """Serializer for duration-based price entries"""
+    class Meta:
+        model = DoctorDurationPrice
+        fields = ['duration', 'price']
+
+    def validate_duration(self, value):
+        if value < 5:
+            raise serializers.ValidationError("Duration must be at least 5 minutes")
+        if value % 5 != 0:
+            raise serializers.ValidationError("Duration must be in increments of 5 minutes")
+        return value
+
+    def validate_price(self, value):
+        if value < 0:
+            raise serializers.ValidationError("Price cannot be negative")
+        return value
+
+class PriceCategorySerializer(serializers.ModelSerializer):
+    """Serializer for price categories with nested duration prices"""
+    entries = DurationPriceSerializer(many=True, required=False)
+
+    class Meta:
+        model = PriceCategory
+        fields = ['type', 'is_enabled', 'entries']
+
+    def validate(self, attrs):
+        is_enabled = attrs.get('is_enabled', True)
+        entries = attrs.get('entries', [])
+
+        if is_enabled and not entries and self.context.get('check_entries', True):
+            raise serializers.ValidationError({
+                'entries': 'At least one duration-price entry is required when category is enabled'
+            })
+
+        # Check for duplicate durations
+        if entries:
+            durations = [entry['duration'] for entry in entries]
+            if len(durations) != len(set(durations)):
+                raise serializers.ValidationError({
+                    'entries': 'Duplicate durations are not allowed'
+                })
+
+            # Check maximum entries
+            if len(entries) > 10:
+                raise serializers.ValidationError({
+                    'entries': 'Maximum 10 entries allowed per category'
+                })
+
+        return attrs
+
+    def create(self, validated_data):
+        entries_data = validated_data.pop('entries', [])
+        category = PriceCategory.objects.create(**validated_data)
+
+        for entry_data in entries_data:
+            DoctorDurationPrice.objects.create(category=category, **entry_data)
+
+        return category
+
+    def update(self, instance, validated_data):
+        entries_data = validated_data.pop('entries', [])
+        
+        # Update category fields
+        for attr, value in validated_data.items():
+            setattr(instance, attr, value)
+        instance.save()
+
+        # If category is disabled, remove all entries
+        if not instance.is_enabled:
+            instance.entries.all().delete()
+        else:
+            # Update entries
+            instance.entries.all().delete()  # Remove existing entries
+            for entry_data in entries_data:
+                DoctorDurationPrice.objects.create(category=instance, **entry_data)
+
+        return instance 
