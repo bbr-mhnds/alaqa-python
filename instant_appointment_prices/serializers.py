@@ -7,7 +7,7 @@ class InstantAppointmentPriceSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = InstantAppointmentPrice
-        fields = ['id', 'duration', 'price', 'created_at', 'updated_at']
+        fields = ['id', 'duration', 'price', 'site_type', 'created_at', 'updated_at']
         read_only_fields = ['id', 'created_at', 'updated_at']
 
     def validate_duration(self, value):
@@ -26,4 +26,13 @@ class InstantAppointmentPriceSerializer(serializers.ModelSerializer):
         """
         if value <= 0:
             raise serializers.ValidationError("Price must be positive")
-        return value 
+        return value
+
+    def validate_site_type(self, value):
+        """
+        Validate that site_type is one of the allowed values
+        """
+        allowed_types = ['clinic', 'video', 'home']
+        if value.lower() not in allowed_types:
+            raise serializers.ValidationError(f"Site type must be one of: {', '.join(allowed_types)}")
+        return value.lower() 

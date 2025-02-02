@@ -35,19 +35,24 @@ schema_view = get_schema_view(
     permission_classes=(permissions.AllowAny,),
 )
 
+api_v1_patterns = [
+    path('auth/', include('authentication.urls')),
+    path('specialties/', include('specialties.urls')),
+    path('patients/', include('patients.urls')),
+    path('doctors/', include('doctors.urls')),
+    path('drugs/', include('drugs.urls')),
+    path('instant-appointment-prices/', include('instant_appointment_prices.urls')),
+    path('video-calls/', include('video_calls.urls')),
+    path('integrations/', include('integrations.urls')),
+    path('otp/', include('otp.urls')),
+    path('', include('appointments.urls')),
+    path('prescriptions/', include('prescriptions.urls')),
+    path('services/', include('services.urls')),
+]
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/v1/auth/', include('authentication.urls')),
-    path('api/v1/specialties/', include('specialties.urls')),
-    path('api/v1/patients/', include('patients.urls')),
-    path('api/v1/doctors/', include('doctors.urls')),
-    path('api/v1/drugs/', include('drugs.urls')),
-    path('api/v1/instant-appointment-prices/', include('instant_appointment_prices.urls')),
-    path('api/v1/video-calls/', include('video_calls.urls')),
-    path('api/v1/integrations/', include('integrations.urls')),
-    path('api/v1/otp/', include('otp.urls')),
-    path('api/v1/', include('appointments.urls')),
-    path('api/v1/prescriptions/', include('prescriptions.urls')),
+    path('api/v1/', include(api_v1_patterns)),
     
     # API Documentation
     path('swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-json'),

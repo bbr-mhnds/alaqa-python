@@ -64,6 +64,7 @@ INSTALLED_APPS = [
     'otp',  # Add the OTP app
     'appointments.apps.AppointmentsConfig',  # Add this line
     'prescriptions.apps.PrescriptionsConfig',  # Add prescriptions app
+    'services.apps.ServicesConfig',  # Add services app
 ]
 
 MIDDLEWARE = [

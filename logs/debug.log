@@ -3059,3 +3059,2328 @@ RuntimeError: You called this URL via PUT, but the URL doesn't end in a slash an
 [2025-01-23 10:54:44] INFO services [OTP_DEBUG] Final result: {'success': False, 'message': 'Failed to send SMS: Invalid credentials or IP not whitelisted', 'otp_id': None}
 [2025-01-23 10:55:11] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/services.py changed, reloading.
 [2025-01-23 10:55:11] INFO autoreload Watching for file changes with StatReloader
+[2025-01-27 21:14:37] INFO autoreload Watching for file changes with StatReloader
+[2025-01-27 21:22:52] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/config/settings.py changed, reloading.
+[2025-01-27 21:22:52] INFO autoreload Watching for file changes with StatReloader
+[2025-01-27 21:22:58] WARNING utils Could not reverse url from auth.user
+[2025-01-27 21:22:58] WARNING utils Could not reverse url from auth.user
+[2025-01-27 21:22:58] WARNING utils Could not reverse url from auth.user
+[2025-01-27 21:22:58] WARNING utils Could not reverse url from auth.user
+[2025-01-27 21:23:23] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/config/urls.py changed, reloading.
+[2025-01-27 21:23:24] INFO autoreload Watching for file changes with StatReloader
+[2025-01-27 21:23:26] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/services/models.py changed, reloading.
+[2025-01-27 21:23:27] INFO autoreload Watching for file changes with StatReloader
+[2025-01-27 21:23:38] WARNING utils Could not reverse url from auth.user
+[2025-01-27 21:23:38] WARNING utils Could not reverse url from auth.user
+[2025-01-27 21:23:38] WARNING utils Could not reverse url from auth.user
+[2025-01-27 21:23:38] WARNING utils Could not reverse url from auth.user
+[2025-01-27 21:23:38] WARNING utils Could not reverse url from auth.user
+[2025-01-27 21:23:41] WARNING utils Could not reverse url from auth.user
+[2025-01-27 21:23:41] WARNING utils Could not reverse url from auth.user
+[2025-01-27 21:23:41] WARNING utils Could not reverse url from auth.user
+[2025-01-27 21:23:41] WARNING utils Could not reverse url from auth.user
+[2025-01-27 21:23:41] WARNING utils Could not reverse url from auth.user
+[2025-01-27 21:26:14] WARNING log Unauthorized: /api/v1/services/
+[2025-01-27 21:26:16] WARNING log Not Found: /api/v1/services/4/
+[2025-01-27 21:26:17] WARNING log Bad Request: /api/v1/services/
+[2025-01-27 21:26:28] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/services/serializers.py changed, reloading.
+[2025-01-27 21:26:28] INFO autoreload Watching for file changes with StatReloader
+[2025-01-27 21:27:19] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/services/serializers.py changed, reloading.
+[2025-01-27 21:27:20] INFO autoreload Watching for file changes with StatReloader
+[2025-01-27 21:28:01] ERROR log Internal Server Error: /api/v1/services/
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/psycopg/cursor.py", line 732, in execute
+    raise ex.with_traceback(None)
+psycopg.errors.UndefinedTable: relation "services_service" does not exist
+LINE 1: SELECT COUNT(*) AS "__count" FROM "services_service"
+                                          ^
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 40, in list
+    page = self.paginate_queryset(queryset)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 171, in paginate_queryset
+    return self.paginator.paginate_queryset(queryset, self.request, view=self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/pagination.py", line 204, in paginate_queryset
+    self.page = paginator.page(page_number)
+                ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 89, in page
+    number = self.validate_number(number)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 70, in validate_number
+    if number > self.num_pages:
+                ^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 116, in num_pages
+    if self.count == 0 and not self.allow_empty_first_page:
+       ^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 110, in count
+    return c()
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/query.py", line 618, in count
+    return self.query.get_count(using=self.db)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 618, in get_count
+    return obj.get_aggregation(using, {"__count": Count("*")})["__count"]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 604, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/psycopg/cursor.py", line 732, in execute
+    raise ex.with_traceback(None)
+django.db.utils.ProgrammingError: relation "services_service" does not exist
+LINE 1: SELECT COUNT(*) AS "__count" FROM "services_service"
+                                          ^
+[2025-01-27 21:28:15] ERROR log Internal Server Error: /api/v1/services/
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/psycopg/cursor.py", line 732, in execute
+    raise ex.with_traceback(None)
+psycopg.errors.UndefinedTable: relation "services_service" does not exist
+LINE 1: SELECT COUNT(*) AS "__count" FROM "services_service"
+                                          ^
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 40, in list
+    page = self.paginate_queryset(queryset)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 171, in paginate_queryset
+    return self.paginator.paginate_queryset(queryset, self.request, view=self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/pagination.py", line 204, in paginate_queryset
+    self.page = paginator.page(page_number)
+                ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 89, in page
+    number = self.validate_number(number)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 70, in validate_number
+    if number > self.num_pages:
+                ^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 116, in num_pages
+    if self.count == 0 and not self.allow_empty_first_page:
+       ^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 110, in count
+    return c()
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/query.py", line 618, in count
+    return self.query.get_count(using=self.db)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 618, in get_count
+    return obj.get_aggregation(using, {"__count": Count("*")})["__count"]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 604, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/psycopg/cursor.py", line 732, in execute
+    raise ex.with_traceback(None)
+django.db.utils.ProgrammingError: relation "services_service" does not exist
+LINE 1: SELECT COUNT(*) AS "__count" FROM "services_service"
+                                          ^
+[2025-01-27 21:30:57] ERROR log Internal Server Error: /api/v1/services/
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/psycopg/cursor.py", line 732, in execute
+    raise ex.with_traceback(None)
+psycopg.errors.UndefinedTable: relation "services_service" does not exist
+LINE 1: SELECT COUNT(*) AS "__count" FROM "services_service"
+                                          ^
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 40, in list
+    page = self.paginate_queryset(queryset)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 171, in paginate_queryset
+    return self.paginator.paginate_queryset(queryset, self.request, view=self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/pagination.py", line 204, in paginate_queryset
+    self.page = paginator.page(page_number)
+                ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 89, in page
+    number = self.validate_number(number)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 70, in validate_number
+    if number > self.num_pages:
+                ^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 116, in num_pages
+    if self.count == 0 and not self.allow_empty_first_page:
+       ^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 110, in count
+    return c()
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/query.py", line 618, in count
+    return self.query.get_count(using=self.db)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 618, in get_count
+    return obj.get_aggregation(using, {"__count": Count("*")})["__count"]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 604, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/psycopg/cursor.py", line 732, in execute
+    raise ex.with_traceback(None)
+django.db.utils.ProgrammingError: relation "services_service" does not exist
+LINE 1: SELECT COUNT(*) AS "__count" FROM "services_service"
+                                          ^
+[2025-01-27 21:30:58] ERROR log Internal Server Error: /api/v1/services/
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/psycopg/cursor.py", line 732, in execute
+    raise ex.with_traceback(None)
+psycopg.errors.UndefinedTable: relation "services_service" does not exist
+LINE 1: SELECT COUNT(*) AS "__count" FROM "services_service"
+                                          ^
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 40, in list
+    page = self.paginate_queryset(queryset)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 171, in paginate_queryset
+    return self.paginator.paginate_queryset(queryset, self.request, view=self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/pagination.py", line 204, in paginate_queryset
+    self.page = paginator.page(page_number)
+                ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 89, in page
+    number = self.validate_number(number)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 70, in validate_number
+    if number > self.num_pages:
+                ^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 116, in num_pages
+    if self.count == 0 and not self.allow_empty_first_page:
+       ^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 110, in count
+    return c()
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/query.py", line 618, in count
+    return self.query.get_count(using=self.db)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 618, in get_count
+    return obj.get_aggregation(using, {"__count": Count("*")})["__count"]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 604, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/psycopg/cursor.py", line 732, in execute
+    raise ex.with_traceback(None)
+django.db.utils.ProgrammingError: relation "services_service" does not exist
+LINE 1: SELECT COUNT(*) AS "__count" FROM "services_service"
+                                          ^
+[2025-01-27 21:30:58] ERROR log Internal Server Error: /api/v1/services/
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/psycopg/cursor.py", line 732, in execute
+    raise ex.with_traceback(None)
+psycopg.errors.UndefinedTable: relation "services_service" does not exist
+LINE 1: SELECT COUNT(*) AS "__count" FROM "services_service"
+                                          ^
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 40, in list
+    page = self.paginate_queryset(queryset)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 171, in paginate_queryset
+    return self.paginator.paginate_queryset(queryset, self.request, view=self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/pagination.py", line 204, in paginate_queryset
+    self.page = paginator.page(page_number)
+                ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 89, in page
+    number = self.validate_number(number)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 70, in validate_number
+    if number > self.num_pages:
+                ^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 116, in num_pages
+    if self.count == 0 and not self.allow_empty_first_page:
+       ^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 110, in count
+    return c()
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/query.py", line 618, in count
+    return self.query.get_count(using=self.db)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 618, in get_count
+    return obj.get_aggregation(using, {"__count": Count("*")})["__count"]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 604, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/psycopg/cursor.py", line 732, in execute
+    raise ex.with_traceback(None)
+django.db.utils.ProgrammingError: relation "services_service" does not exist
+LINE 1: SELECT COUNT(*) AS "__count" FROM "services_service"
+                                          ^
+[2025-01-27 21:30:58] ERROR log Internal Server Error: /api/v1/services/
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/psycopg/cursor.py", line 732, in execute
+    raise ex.with_traceback(None)
+psycopg.errors.UndefinedTable: relation "services_service" does not exist
+LINE 1: SELECT COUNT(*) AS "__count" FROM "services_service"
+                                          ^
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 40, in list
+    page = self.paginate_queryset(queryset)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 171, in paginate_queryset
+    return self.paginator.paginate_queryset(queryset, self.request, view=self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/pagination.py", line 204, in paginate_queryset
+    self.page = paginator.page(page_number)
+                ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 89, in page
+    number = self.validate_number(number)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 70, in validate_number
+    if number > self.num_pages:
+                ^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 116, in num_pages
+    if self.count == 0 and not self.allow_empty_first_page:
+       ^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 110, in count
+    return c()
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/query.py", line 618, in count
+    return self.query.get_count(using=self.db)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 618, in get_count
+    return obj.get_aggregation(using, {"__count": Count("*")})["__count"]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 604, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/psycopg/cursor.py", line 732, in execute
+    raise ex.with_traceback(None)
+django.db.utils.ProgrammingError: relation "services_service" does not exist
+LINE 1: SELECT COUNT(*) AS "__count" FROM "services_service"
+                                          ^
+[2025-01-27 21:30:58] ERROR log Internal Server Error: /api/v1/services/
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/psycopg/cursor.py", line 732, in execute
+    raise ex.with_traceback(None)
+psycopg.errors.UndefinedTable: relation "services_service" does not exist
+LINE 1: SELECT COUNT(*) AS "__count" FROM "services_service"
+                                          ^
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 40, in list
+    page = self.paginate_queryset(queryset)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 171, in paginate_queryset
+    return self.paginator.paginate_queryset(queryset, self.request, view=self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/pagination.py", line 204, in paginate_queryset
+    self.page = paginator.page(page_number)
+                ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 89, in page
+    number = self.validate_number(number)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 70, in validate_number
+    if number > self.num_pages:
+                ^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 116, in num_pages
+    if self.count == 0 and not self.allow_empty_first_page:
+       ^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 110, in count
+    return c()
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/query.py", line 618, in count
+    return self.query.get_count(using=self.db)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 618, in get_count
+    return obj.get_aggregation(using, {"__count": Count("*")})["__count"]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 604, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/psycopg/cursor.py", line 732, in execute
+    raise ex.with_traceback(None)
+django.db.utils.ProgrammingError: relation "services_service" does not exist
+LINE 1: SELECT COUNT(*) AS "__count" FROM "services_service"
+                                          ^
+[2025-01-27 21:30:59] ERROR log Internal Server Error: /api/v1/services/
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/psycopg/cursor.py", line 732, in execute
+    raise ex.with_traceback(None)
+psycopg.errors.UndefinedTable: relation "services_service" does not exist
+LINE 1: SELECT COUNT(*) AS "__count" FROM "services_service"
+                                          ^
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 40, in list
+    page = self.paginate_queryset(queryset)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 171, in paginate_queryset
+    return self.paginator.paginate_queryset(queryset, self.request, view=self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/pagination.py", line 204, in paginate_queryset
+    self.page = paginator.page(page_number)
+                ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 89, in page
+    number = self.validate_number(number)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 70, in validate_number
+    if number > self.num_pages:
+                ^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 116, in num_pages
+    if self.count == 0 and not self.allow_empty_first_page:
+       ^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 110, in count
+    return c()
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/query.py", line 618, in count
+    return self.query.get_count(using=self.db)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 618, in get_count
+    return obj.get_aggregation(using, {"__count": Count("*")})["__count"]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 604, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/psycopg/cursor.py", line 732, in execute
+    raise ex.with_traceback(None)
+django.db.utils.ProgrammingError: relation "services_service" does not exist
+LINE 1: SELECT COUNT(*) AS "__count" FROM "services_service"
+                                          ^
+[2025-01-27 21:30:59] ERROR log Internal Server Error: /api/v1/services/
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/psycopg/cursor.py", line 732, in execute
+    raise ex.with_traceback(None)
+psycopg.errors.UndefinedTable: relation "services_service" does not exist
+LINE 1: SELECT COUNT(*) AS "__count" FROM "services_service"
+                                          ^
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 40, in list
+    page = self.paginate_queryset(queryset)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 171, in paginate_queryset
+    return self.paginator.paginate_queryset(queryset, self.request, view=self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/pagination.py", line 204, in paginate_queryset
+    self.page = paginator.page(page_number)
+                ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 89, in page
+    number = self.validate_number(number)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 70, in validate_number
+    if number > self.num_pages:
+                ^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 116, in num_pages
+    if self.count == 0 and not self.allow_empty_first_page:
+       ^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 110, in count
+    return c()
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/query.py", line 618, in count
+    return self.query.get_count(using=self.db)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 618, in get_count
+    return obj.get_aggregation(using, {"__count": Count("*")})["__count"]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 604, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/psycopg/cursor.py", line 732, in execute
+    raise ex.with_traceback(None)
+django.db.utils.ProgrammingError: relation "services_service" does not exist
+LINE 1: SELECT COUNT(*) AS "__count" FROM "services_service"
+                                          ^
+[2025-01-27 21:30:59] ERROR log Internal Server Error: /api/v1/services/
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/psycopg/cursor.py", line 732, in execute
+    raise ex.with_traceback(None)
+psycopg.errors.UndefinedTable: relation "services_service" does not exist
+LINE 1: SELECT COUNT(*) AS "__count" FROM "services_service"
+                                          ^
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 40, in list
+    page = self.paginate_queryset(queryset)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 171, in paginate_queryset
+    return self.paginator.paginate_queryset(queryset, self.request, view=self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/pagination.py", line 204, in paginate_queryset
+    self.page = paginator.page(page_number)
+                ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 89, in page
+    number = self.validate_number(number)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 70, in validate_number
+    if number > self.num_pages:
+                ^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 116, in num_pages
+    if self.count == 0 and not self.allow_empty_first_page:
+       ^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 110, in count
+    return c()
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/query.py", line 618, in count
+    return self.query.get_count(using=self.db)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 618, in get_count
+    return obj.get_aggregation(using, {"__count": Count("*")})["__count"]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 604, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/psycopg/cursor.py", line 732, in execute
+    raise ex.with_traceback(None)
+django.db.utils.ProgrammingError: relation "services_service" does not exist
+LINE 1: SELECT COUNT(*) AS "__count" FROM "services_service"
+                                          ^
+[2025-01-27 21:30:59] ERROR log Internal Server Error: /api/v1/services/
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/psycopg/cursor.py", line 732, in execute
+    raise ex.with_traceback(None)
+psycopg.errors.UndefinedTable: relation "services_service" does not exist
+LINE 1: SELECT COUNT(*) AS "__count" FROM "services_service"
+                                          ^
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 40, in list
+    page = self.paginate_queryset(queryset)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 171, in paginate_queryset
+    return self.paginator.paginate_queryset(queryset, self.request, view=self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/pagination.py", line 204, in paginate_queryset
+    self.page = paginator.page(page_number)
+                ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 89, in page
+    number = self.validate_number(number)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 70, in validate_number
+    if number > self.num_pages:
+                ^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 116, in num_pages
+    if self.count == 0 and not self.allow_empty_first_page:
+       ^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 110, in count
+    return c()
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/query.py", line 618, in count
+    return self.query.get_count(using=self.db)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 618, in get_count
+    return obj.get_aggregation(using, {"__count": Count("*")})["__count"]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 604, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/psycopg/cursor.py", line 732, in execute
+    raise ex.with_traceback(None)
+django.db.utils.ProgrammingError: relation "services_service" does not exist
+LINE 1: SELECT COUNT(*) AS "__count" FROM "services_service"
+                                          ^
+[2025-01-27 21:31:07] ERROR log Internal Server Error: /api/v1/services/
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/psycopg/cursor.py", line 732, in execute
+    raise ex.with_traceback(None)
+psycopg.errors.UndefinedTable: relation "services_service" does not exist
+LINE 1: SELECT COUNT(*) AS "__count" FROM "services_service"
+                                          ^
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 40, in list
+    page = self.paginate_queryset(queryset)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 171, in paginate_queryset
+    return self.paginator.paginate_queryset(queryset, self.request, view=self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/pagination.py", line 204, in paginate_queryset
+    self.page = paginator.page(page_number)
+                ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 89, in page
+    number = self.validate_number(number)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 70, in validate_number
+    if number > self.num_pages:
+                ^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 116, in num_pages
+    if self.count == 0 and not self.allow_empty_first_page:
+       ^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 110, in count
+    return c()
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/query.py", line 618, in count
+    return self.query.get_count(using=self.db)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 618, in get_count
+    return obj.get_aggregation(using, {"__count": Count("*")})["__count"]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 604, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/psycopg/cursor.py", line 732, in execute
+    raise ex.with_traceback(None)
+django.db.utils.ProgrammingError: relation "services_service" does not exist
+LINE 1: SELECT COUNT(*) AS "__count" FROM "services_service"
+                                          ^
+[2025-01-27 21:31:56] ERROR log Internal Server Error: /api/v1/services/
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/psycopg/cursor.py", line 732, in execute
+    raise ex.with_traceback(None)
+psycopg.errors.UndefinedTable: relation "services_service" does not exist
+LINE 1: SELECT COUNT(*) AS "__count" FROM "services_service"
+                                          ^
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 40, in list
+    page = self.paginate_queryset(queryset)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 171, in paginate_queryset
+    return self.paginator.paginate_queryset(queryset, self.request, view=self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/pagination.py", line 204, in paginate_queryset
+    self.page = paginator.page(page_number)
+                ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 89, in page
+    number = self.validate_number(number)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 70, in validate_number
+    if number > self.num_pages:
+                ^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 116, in num_pages
+    if self.count == 0 and not self.allow_empty_first_page:
+       ^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 110, in count
+    return c()
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/query.py", line 618, in count
+    return self.query.get_count(using=self.db)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 618, in get_count
+    return obj.get_aggregation(using, {"__count": Count("*")})["__count"]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 604, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/psycopg/cursor.py", line 732, in execute
+    raise ex.with_traceback(None)
+django.db.utils.ProgrammingError: relation "services_service" does not exist
+LINE 1: SELECT COUNT(*) AS "__count" FROM "services_service"
+                                          ^
+[2025-01-27 21:33:06] ERROR log Internal Server Error: /api/v1/services/
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/psycopg/cursor.py", line 732, in execute
+    raise ex.with_traceback(None)
+psycopg.errors.UndefinedTable: relation "services_service" does not exist
+LINE 1: SELECT COUNT(*) AS "__count" FROM "services_service"
+                                          ^
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 40, in list
+    page = self.paginate_queryset(queryset)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 171, in paginate_queryset
+    return self.paginator.paginate_queryset(queryset, self.request, view=self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/pagination.py", line 204, in paginate_queryset
+    self.page = paginator.page(page_number)
+                ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 89, in page
+    number = self.validate_number(number)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 70, in validate_number
+    if number > self.num_pages:
+                ^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 116, in num_pages
+    if self.count == 0 and not self.allow_empty_first_page:
+       ^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 110, in count
+    return c()
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/query.py", line 618, in count
+    return self.query.get_count(using=self.db)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 618, in get_count
+    return obj.get_aggregation(using, {"__count": Count("*")})["__count"]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 604, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/psycopg/cursor.py", line 732, in execute
+    raise ex.with_traceback(None)
+django.db.utils.ProgrammingError: relation "services_service" does not exist
+LINE 1: SELECT COUNT(*) AS "__count" FROM "services_service"
+                                          ^
+[2025-01-27 21:33:46] ERROR log Internal Server Error: /api/v1/services/
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/psycopg/cursor.py", line 732, in execute
+    raise ex.with_traceback(None)
+psycopg.errors.UndefinedTable: relation "services_service" does not exist
+LINE 1: SELECT COUNT(*) AS "__count" FROM "services_service"
+                                          ^
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 40, in list
+    page = self.paginate_queryset(queryset)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 171, in paginate_queryset
+    return self.paginator.paginate_queryset(queryset, self.request, view=self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/pagination.py", line 204, in paginate_queryset
+    self.page = paginator.page(page_number)
+                ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 89, in page
+    number = self.validate_number(number)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 70, in validate_number
+    if number > self.num_pages:
+                ^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 116, in num_pages
+    if self.count == 0 and not self.allow_empty_first_page:
+       ^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 110, in count
+    return c()
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/query.py", line 618, in count
+    return self.query.get_count(using=self.db)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 618, in get_count
+    return obj.get_aggregation(using, {"__count": Count("*")})["__count"]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 604, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/psycopg/cursor.py", line 732, in execute
+    raise ex.with_traceback(None)
+django.db.utils.ProgrammingError: relation "services_service" does not exist
+LINE 1: SELECT COUNT(*) AS "__count" FROM "services_service"
+                                          ^
+[2025-01-27 21:34:46] ERROR log Internal Server Error: /api/v1/services/
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/psycopg/cursor.py", line 732, in execute
+    raise ex.with_traceback(None)
+psycopg.errors.UndefinedTable: relation "services_service" does not exist
+LINE 1: SELECT COUNT(*) AS "__count" FROM "services_service"
+                                          ^
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 40, in list
+    page = self.paginate_queryset(queryset)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 171, in paginate_queryset
+    return self.paginator.paginate_queryset(queryset, self.request, view=self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/pagination.py", line 204, in paginate_queryset
+    self.page = paginator.page(page_number)
+                ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 89, in page
+    number = self.validate_number(number)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 70, in validate_number
+    if number > self.num_pages:
+                ^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 116, in num_pages
+    if self.count == 0 and not self.allow_empty_first_page:
+       ^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 110, in count
+    return c()
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/query.py", line 618, in count
+    return self.query.get_count(using=self.db)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 618, in get_count
+    return obj.get_aggregation(using, {"__count": Count("*")})["__count"]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 604, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/psycopg/cursor.py", line 732, in execute
+    raise ex.with_traceback(None)
+django.db.utils.ProgrammingError: relation "services_service" does not exist
+LINE 1: SELECT COUNT(*) AS "__count" FROM "services_service"
+                                          ^
+[2025-01-27 21:35:01] ERROR log Internal Server Error: /api/v1/services/
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/psycopg/cursor.py", line 732, in execute
+    raise ex.with_traceback(None)
+psycopg.errors.UndefinedTable: relation "services_service" does not exist
+LINE 1: SELECT COUNT(*) AS "__count" FROM "services_service"
+                                          ^
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 40, in list
+    page = self.paginate_queryset(queryset)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 171, in paginate_queryset
+    return self.paginator.paginate_queryset(queryset, self.request, view=self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/pagination.py", line 204, in paginate_queryset
+    self.page = paginator.page(page_number)
+                ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 89, in page
+    number = self.validate_number(number)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 70, in validate_number
+    if number > self.num_pages:
+                ^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 116, in num_pages
+    if self.count == 0 and not self.allow_empty_first_page:
+       ^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 110, in count
+    return c()
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/query.py", line 618, in count
+    return self.query.get_count(using=self.db)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 618, in get_count
+    return obj.get_aggregation(using, {"__count": Count("*")})["__count"]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 604, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/psycopg/cursor.py", line 732, in execute
+    raise ex.with_traceback(None)
+django.db.utils.ProgrammingError: relation "services_service" does not exist
+LINE 1: SELECT COUNT(*) AS "__count" FROM "services_service"
+                                          ^
+[2025-01-27 21:36:24] ERROR log Internal Server Error: /api/v1/services/
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/psycopg/cursor.py", line 732, in execute
+    raise ex.with_traceback(None)
+psycopg.errors.UndefinedTable: relation "services_service" does not exist
+LINE 1: SELECT COUNT(*) AS "__count" FROM "services_service"
+                                          ^
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 40, in list
+    page = self.paginate_queryset(queryset)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 171, in paginate_queryset
+    return self.paginator.paginate_queryset(queryset, self.request, view=self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/pagination.py", line 204, in paginate_queryset
+    self.page = paginator.page(page_number)
+                ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 89, in page
+    number = self.validate_number(number)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 70, in validate_number
+    if number > self.num_pages:
+                ^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 116, in num_pages
+    if self.count == 0 and not self.allow_empty_first_page:
+       ^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 110, in count
+    return c()
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/query.py", line 618, in count
+    return self.query.get_count(using=self.db)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 618, in get_count
+    return obj.get_aggregation(using, {"__count": Count("*")})["__count"]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 604, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/psycopg/cursor.py", line 732, in execute
+    raise ex.with_traceback(None)
+django.db.utils.ProgrammingError: relation "services_service" does not exist
+LINE 1: SELECT COUNT(*) AS "__count" FROM "services_service"
+                                          ^
+[2025-01-27 21:38:08] ERROR log Internal Server Error: /api/v1/services/
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/psycopg/cursor.py", line 732, in execute
+    raise ex.with_traceback(None)
+psycopg.errors.UndefinedTable: relation "services_service" does not exist
+LINE 1: SELECT COUNT(*) AS "__count" FROM "services_service"
+                                          ^
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 40, in list
+    page = self.paginate_queryset(queryset)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/generics.py", line 171, in paginate_queryset
+    return self.paginator.paginate_queryset(queryset, self.request, view=self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/pagination.py", line 204, in paginate_queryset
+    self.page = paginator.page(page_number)
+                ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 89, in page
+    number = self.validate_number(number)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 70, in validate_number
+    if number > self.num_pages:
+                ^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 116, in num_pages
+    if self.count == 0 and not self.allow_empty_first_page:
+       ^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/paginator.py", line 110, in count
+    return c()
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/query.py", line 618, in count
+    return self.query.get_count(using=self.db)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 618, in get_count
+    return obj.get_aggregation(using, {"__count": Count("*")})["__count"]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 604, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/psycopg/cursor.py", line 732, in execute
+    raise ex.with_traceback(None)
+django.db.utils.ProgrammingError: relation "services_service" does not exist
+LINE 1: SELECT COUNT(*) AS "__count" FROM "services_service"
+                                          ^
+[2025-01-27 22:02:36] WARNING log Not Found: /api/v1/api/v1/services
+[2025-01-27 22:06:16] WARNING log Not Found: /api/v1/api/v1/services
+[2025-01-27 22:21:31] WARNING log Not Found: /api/v1/api/v1/services
+[2025-01-27 22:22:22] WARNING log Not Found: /api/v1/api/v1/services
+[2025-01-27 22:26:15] WARNING log Not Found: /api/v1/api/v1/services
+[2025-01-27 22:26:41] WARNING log Not Found: /api/v1/api/v1/services
+[2025-01-27 22:48:08] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/services/migrations/0001_initial.py changed, reloading.
+[2025-01-27 22:48:08] INFO autoreload Watching for file changes with StatReloader
+[2025-01-27 22:48:32] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/config/urls.py changed, reloading.
+[2025-01-27 22:48:33] INFO autoreload Watching for file changes with StatReloader
+[2025-01-27 22:48:53] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/services/views.py changed, reloading.
+[2025-01-27 22:48:53] INFO autoreload Watching for file changes with StatReloader
+[2025-01-27 22:55:01] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/config/urls.py changed, reloading.
+[2025-01-27 22:55:01] INFO autoreload Watching for file changes with StatReloader
+[2025-01-27 23:02:38] WARNING log Not Found: /api/v1/api/v1/services
+[2025-01-27 23:02:48] WARNING log Not Found: /api/v1/api/v1/services
+[2025-01-27 23:16:14] WARNING log Not Found: /api/v1/api/v1/services
+[2025-01-27 23:17:29] WARNING log Not Found: /api/v1/api/v1/services
+[2025-01-27 23:18:31] WARNING log Not Found: /api/v1/api/v1/services
+[2025-01-27 23:18:32] WARNING log Not Found: /api/v1/api/v1/services
+[2025-01-27 23:18:38] WARNING log Not Found: /api/v1/api/v1/services
+[2025-01-27 23:19:46] WARNING log Not Found: /api/v1/api/v1/services
+[2025-01-27 23:20:19] WARNING log Not Found: /api/v1/api/v1/countries
+[2025-01-27 23:20:19] WARNING log Not Found: /api/v1/api/v1/cities
+[2025-01-27 23:20:19] WARNING log Not Found: /api/v1/api/v1/countries
+[2025-01-27 23:20:19] WARNING log Not Found: /api/v1/api/v1/cities
+[2025-01-27 23:20:41] WARNING log Not Found: /api/v1/api/v1/countries
+[2025-01-27 23:20:41] WARNING log Not Found: /api/v1/api/v1/cities
+[2025-01-27 23:20:54] WARNING log Not Found: /api/v1/api/v1/cities
+[2025-01-27 23:20:54] WARNING log Not Found: /api/v1/api/v1/countries
+[2025-01-28 07:05:12] WARNING log Not Found: /api/v1/api/v1/services
+[2025-01-28 07:06:44] WARNING log Not Found: /api/v1/api/v1/services
+[2025-01-28 07:06:55] WARNING log Not Found: /api/v1/api/v1/services
+[2025-01-28 07:08:10] ERROR log Internal Server Error: /api/v1/services
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+    ...<9 lines>...
+    )
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to localhost:8000/api/v1/services/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+[2025-01-28 07:11:28] WARNING log Unauthorized: /api/v1/services/
+[2025-01-28 07:14:00] WARNING log Unauthorized: /api/v1/services/
+[2025-01-28 07:14:44] WARNING log Unauthorized: /api/v1/services/
+[2025-01-28 07:15:30] WARNING log Unauthorized: /api/v1/services/
+[2025-01-28 07:16:04] WARNING log Unauthorized: /api/v1/services/
+[2025-01-28 07:16:57] WARNING log Unauthorized: /api/v1/services/
+[2025-01-28 07:17:27] WARNING log Unauthorized: /api/v1/services/
+[2025-01-28 07:20:15] WARNING log Unauthorized: /api/v1/services/
+[2025-01-28 07:21:25] WARNING log Unauthorized: /api/v1/services/
+[2025-01-28 07:25:08] WARNING log Bad Request: /api/v1/services/
+[2025-01-28 07:29:07] WARNING log Bad Request: /api/v1/services/
+[2025-01-28 21:11:00] INFO autoreload Watching for file changes with StatReloader
+[2025-01-28 21:16:39] WARNING log Bad Request: /api/v1/services/1/
+[2025-01-28 21:17:02] WARNING log Not Found: /api/v1/services/1/toggle-status/
+[2025-01-28 21:17:02] WARNING log Not Found: /api/v1/services/1/toggle-status/
+[2025-01-28 21:19:56] WARNING log Not Found: /api/v1/api/v1/cities
+[2025-01-28 21:19:56] WARNING log Not Found: /api/v1/api/v1/countries
+[2025-01-28 21:23:38] WARNING log Not Found: /api/v1/services/2/sub-services/
+[2025-01-28 21:23:48] WARNING log Not Found: /api/v1/services/2/sub-services/
+[2025-01-29 08:09:22] WARNING log Not Found: /api/v1/services/2/sub-services/
+[2025-01-29 08:11:59] WARNING log Not Found: /api/v1/services/2/sub-services/
+[2025-01-29 08:18:58] WARNING log Not Found: /api/v1/services/2/sub-services/
+[2025-01-29 08:19:02] WARNING log Not Found: /api/v1/services/2/sub-services/
+[2025-01-29 08:23:57] WARNING log Not Found: /api/v1/services/2/sub-services/
+[2025-01-29 21:38:27] INFO autoreload Watching for file changes with StatReloader
+[2025-01-29 21:39:23] ERROR log Internal Server Error: /api/v1/patients
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+    ...<9 lines>...
+    )
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to localhost:8000/api/v1/patients/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+[2025-01-29 21:44:00] WARNING log Bad Request: /api/v1/patients/
+[2025-01-29 21:44:25] WARNING log Bad Request: /api/v1/patients/
+[2025-01-30 10:39:43] WARNING utils Could not reverse url from auth.user
+[2025-01-30 10:40:02] WARNING utils Could not reverse url from auth.user
+[2025-01-30 10:40:02] WARNING utils Could not reverse url from auth.user
+[2025-01-30 10:40:02] WARNING utils Could not reverse url from auth.user
+[2025-01-30 10:40:02] WARNING utils Could not reverse url from auth.user
+[2025-01-30 10:40:02] WARNING utils Could not reverse url from auth.user
+[2025-01-30 10:40:10] WARNING utils Could not reverse url from auth.user
+[2025-01-30 10:40:10] WARNING utils Could not reverse url from auth.user
+[2025-01-30 10:40:10] WARNING utils Could not reverse url from auth.user
+[2025-01-30 10:40:10] WARNING utils Could not reverse url from auth.user
+[2025-01-30 10:57:38] INFO autoreload Watching for file changes with StatReloader
+[2025-01-30 10:57:44] WARNING utils Could not reverse url from auth.user
+[2025-01-30 10:57:44] WARNING utils Could not reverse url from auth.user
+[2025-01-30 10:57:44] WARNING utils Could not reverse url from auth.user
+[2025-01-30 10:57:44] WARNING utils Could not reverse url from auth.user
+[2025-01-30 10:57:55] WARNING utils Could not reverse url from auth.user
+[2025-01-30 10:57:55] WARNING utils Could not reverse url from auth.user
+[2025-01-30 10:57:55] WARNING utils Could not reverse url from auth.user
+[2025-01-30 10:57:55] WARNING utils Could not reverse url from auth.user
+[2025-01-30 10:57:55] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:44] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/instant_appointment_prices/admin.py changed, reloading.
+[2025-01-30 11:01:44] INFO autoreload Watching for file changes with StatReloader
+[2025-01-30 11:01:53] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:53] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:53] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:53] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:53] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:54] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:54] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:54] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:54] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:54] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:54] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:54] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:54] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:54] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:54] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:54] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:54] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:54] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:54] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:54] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:55] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:55] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:55] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:55] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:55] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:55] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:55] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:55] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:55] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:55] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:55] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:55] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:55] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:55] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:55] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:55] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:55] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:55] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:55] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:55] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:55] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:55] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:55] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:55] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:55] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:55] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:55] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:55] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:55] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:55] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:55] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:55] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:55] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:55] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:55] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:55] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:55] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:55] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:55] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:55] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:56] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:56] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:56] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:56] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:01:56] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:02:02] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:02:02] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:02:02] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:02:02] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:02:05] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:02:05] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:02:05] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:02:05] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:02:05] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:02:21] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:02:21] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:02:21] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:02:21] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:02:25] WARNING base Method Not Allowed (GET): /admin/logout/
+[2025-01-30 11:02:25] WARNING log Method Not Allowed: /admin/logout/
+[2025-01-30 11:02:28] WARNING base Method Not Allowed (GET): /admin/logout/
+[2025-01-30 11:02:28] WARNING log Method Not Allowed: /admin/logout/
+[2025-01-30 11:02:32] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:02:32] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:02:32] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:02:32] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:02:32] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:02:43] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:02:43] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:02:43] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:02:43] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:02:55] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:02:55] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:02:55] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:02:55] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:02:58] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:02:58] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:02:58] WARNING utils Could not reverse url from auth.user
+[2025-01-30 11:02:58] WARNING utils Could not reverse url from auth.user
+[2025-01-30 22:37:14] INFO autoreload Watching for file changes with StatReloader
+[2025-01-30 22:38:38] WARNING utils Could not reverse url from auth.user
+[2025-01-30 22:38:38] WARNING utils Could not reverse url from auth.user
+[2025-01-30 22:38:38] WARNING utils Could not reverse url from auth.user
+[2025-01-30 22:38:38] WARNING utils Could not reverse url from auth.user
+[2025-01-30 22:38:42] WARNING utils Could not reverse url from auth.user
+[2025-01-30 22:38:42] WARNING utils Could not reverse url from auth.user
+[2025-01-30 22:38:42] WARNING utils Could not reverse url from auth.user
+[2025-01-30 22:38:42] WARNING utils Could not reverse url from auth.user
+[2025-01-30 22:38:42] WARNING utils Could not reverse url from auth.user
+[2025-01-30 22:56:45] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/models.py changed, reloading.
+[2025-01-30 22:56:46] INFO autoreload Watching for file changes with StatReloader
+[2025-01-30 22:57:03] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/serializers.py changed, reloading.
+[2025-01-30 22:57:04] INFO autoreload Watching for file changes with StatReloader
+[2025-01-30 22:57:24] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/models.py changed, reloading.
+[2025-01-30 22:57:25] INFO autoreload Watching for file changes with StatReloader
+[2025-01-30 22:57:46] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/models.py changed, reloading.
+[2025-01-30 22:57:47] INFO autoreload Watching for file changes with StatReloader
+[2025-01-30 22:57:57] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/models.py changed, reloading.
+[2025-01-30 22:57:58] INFO autoreload Watching for file changes with StatReloader
+[2025-01-30 22:58:25] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/models.py changed, reloading.
+[2025-01-30 22:58:26] INFO autoreload Watching for file changes with StatReloader
+[2025-01-30 23:13:09] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/instant_appointment_prices/admin.py changed, reloading.
+[2025-01-30 23:13:09] INFO autoreload Watching for file changes with StatReloader
+[2025-01-30 23:20:41] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/models.py changed, reloading.
+[2025-01-30 23:20:41] INFO autoreload Watching for file changes with StatReloader
+[2025-02-02 07:58:59] INFO autoreload Watching for file changes with StatReloader
+[2025-02-02 08:01:47] WARNING log Bad Request: /api/v1/doctors/current-doctor-id/
+[2025-02-02 08:02:06] WARNING log Bad Request: /api/v1/doctors/current-doctor-id/
+[2025-02-02 08:11:55] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/views.py changed, reloading.
+[2025-02-02 08:11:56] INFO autoreload Watching for file changes with StatReloader
+[2025-02-02 08:12:14] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/views.py changed, reloading.
+[2025-02-02 08:12:14] INFO autoreload Watching for file changes with StatReloader
+[2025-02-02 08:13:53] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/views.py changed, reloading.
+[2025-02-02 08:13:54] INFO autoreload Watching for file changes with StatReloader
+[2025-02-02 14:42:54] WARNING log Unauthorized: /api/v1/doctors/dfe8382c-9af8-47cd-b32c-8a71d64ddb88/
+[2025-02-02 14:42:54] WARNING log Not Found: /api/v1/auth/refresh-token/
+[2025-02-02 14:44:19] WARNING log Bad Request: /api/v1/doctors/dfe8382c-9af8-47cd-b32c-8a71d64ddb88/
+[2025-02-02 14:44:26] WARNING log Bad Request: /api/v1/doctors/dfe8382c-9af8-47cd-b32c-8a71d64ddb88/
+[2025-02-02 14:44:41] WARNING log Bad Request: /api/v1/doctors/dfe8382c-9af8-47cd-b32c-8a71d64ddb88/
+[2025-02-02 14:46:48] WARNING log Bad Request: /api/v1/doctors/dfe8382c-9af8-47cd-b32c-8a71d64ddb88/
+[2025-02-02 14:46:59] WARNING log Bad Request: /api/v1/doctors/dfe8382c-9af8-47cd-b32c-8a71d64ddb88/
+[2025-02-02 14:47:59] WARNING log Bad Request: /api/v1/doctors/dfe8382c-9af8-47cd-b32c-8a71d64ddb88/
+[2025-02-02 14:48:30] WARNING log Bad Request: /api/v1/doctors/dfe8382c-9af8-47cd-b32c-8a71d64ddb88/
+[2025-02-02 14:50:41] WARNING log Bad Request: /api/v1/doctors/dfe8382c-9af8-47cd-b32c-8a71d64ddb88/
+[2025-02-02 14:51:28] WARNING log Bad Request: /api/v1/doctors/dfe8382c-9af8-47cd-b32c-8a71d64ddb88/
+[2025-02-02 14:51:49] WARNING log Bad Request: /api/v1/doctors/dfe8382c-9af8-47cd-b32c-8a71d64ddb88/
+[2025-02-02 14:53:14] WARNING log Bad Request: /api/v1/doctors/dfe8382c-9af8-47cd-b32c-8a71d64ddb88/
+[2025-02-02 14:53:39] WARNING log Bad Request: /api/v1/doctors/dfe8382c-9af8-47cd-b32c-8a71d64ddb88/
+[2025-02-02 14:53:54] WARNING log Bad Request: /api/v1/doctors/dfe8382c-9af8-47cd-b32c-8a71d64ddb88/
+[2025-02-02 14:58:03] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/serializers.py changed, reloading.
+[2025-02-02 14:58:03] INFO autoreload Watching for file changes with StatReloader
+[2025-02-02 14:58:15] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/views.py changed, reloading.
+[2025-02-02 14:58:15] INFO autoreload Watching for file changes with StatReloader
+[2025-02-02 14:59:55] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/views.py changed, reloading.
+[2025-02-02 14:59:55] INFO autoreload Watching for file changes with StatReloader
+[2025-02-02 15:00:03] WARNING log Unauthorized: /api/v1/doctors/dfe8382c-9af8-47cd-b32c-8a71d64ddb88/
+[2025-02-02 15:00:04] WARNING log Not Found: /api/v1/auth/refresh-token/
+[2025-02-02 15:00:17] WARNING log Bad Request: /api/v1/doctors/dfe8382c-9af8-47cd-b32c-8a71d64ddb88/
+[2025-02-02 15:01:12] WARNING log Bad Request: /api/v1/doctors/dfe8382c-9af8-47cd-b32c-8a71d64ddb88/
+[2025-02-02 15:03:00] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/models.py changed, reloading.
+[2025-02-02 15:03:01] INFO autoreload Watching for file changes with StatReloader
+[2025-02-02 15:03:15] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/serializers.py changed, reloading.
+[2025-02-02 15:03:15] INFO autoreload Watching for file changes with StatReloader
+[2025-02-02 15:03:31] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/views.py changed, reloading.
+[2025-02-02 15:03:32] INFO autoreload Watching for file changes with StatReloader
+[2025-02-02 15:03:45] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/urls.py changed, reloading.
+[2025-02-02 15:03:46] INFO autoreload Watching for file changes with StatReloader
+[2025-02-02 15:07:30] WARNING log Not Found: /api/v1/doctors/dfe8382c-9af8-47cd-b32c-8a71d64ddb88/
+[2025-02-02 15:07:59] WARNING log Not Found: /api/v1/doctors/dfe8382c-9af8-47cd-b32c-8a71d64ddb88/
+[2025-02-02 15:08:52] WARNING log Not Found: /api/v1/doctors/dfe8382c-9af8-47cd-b32c-8a71d64ddb88/bank-details/
+[2025-02-02 15:10:41] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/urls.py changed, reloading.
+[2025-02-02 15:10:41] INFO autoreload Watching for file changes with StatReloader
+[2025-02-02 15:11:00] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/views.py changed, reloading.
+[2025-02-02 15:11:00] INFO autoreload Watching for file changes with StatReloader
+[2025-02-02 15:11:12] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/views.py changed, reloading.
+[2025-02-02 15:11:12] INFO autoreload Watching for file changes with StatReloader
+[2025-02-02 15:12:05] WARNING log Bad Request: /api/v1/doctors/dfe8382c-9af8-47cd-b32c-8a71d64ddb88/bank-details/
+[2025-02-02 15:12:52] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/models.py changed, reloading.
+[2025-02-02 15:12:52] INFO autoreload Watching for file changes with StatReloader
+[2025-02-02 15:13:15] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/serializers.py changed, reloading.
+[2025-02-02 15:13:16] INFO autoreload Watching for file changes with StatReloader
+[2025-02-02 15:16:10] WARNING log Unauthorized: /api/v1/doctors/dfe8382c-9af8-47cd-b32c-8a71d64ddb88/bank-details/
+[2025-02-02 15:16:26] WARNING log Unauthorized: /api/v1/doctors/dfe8382c-9af8-47cd-b32c-8a71d64ddb88/
+[2025-02-02 15:16:26] WARNING log Not Found: /api/v1/auth/refresh-token/
+[2025-02-02 15:16:36] WARNING log Bad Request: /api/v1/doctors/dfe8382c-9af8-47cd-b32c-8a71d64ddb88/
+[2025-02-02 15:17:22] WARNING log Not Found: /api/v1/doctors/dfe8382c-9af8-47cd-b32c-8a71d64ddb88/bank-details/
+[2025-02-02 15:18:04] WARNING utils Could not reverse url from auth.user
+[2025-02-02 15:18:04] WARNING utils Could not reverse url from auth.user
+[2025-02-02 15:18:04] WARNING utils Could not reverse url from auth.user
+[2025-02-02 15:18:04] WARNING utils Could not reverse url from auth.user
+[2025-02-02 15:18:04] WARNING utils Could not reverse url from auth.user
+[2025-02-02 15:18:09] WARNING utils Could not reverse url from auth.user
+[2025-02-02 15:18:09] WARNING utils Could not reverse url from auth.user
+[2025-02-02 15:18:09] WARNING utils Could not reverse url from auth.user
+[2025-02-02 15:18:09] WARNING utils Could not reverse url from auth.user
+[2025-02-02 15:18:09] WARNING utils Could not reverse url from auth.user
+[2025-02-02 15:18:09] WARNING utils Could not reverse url from auth.user
+[2025-02-02 15:18:09] WARNING utils Could not reverse url from auth.user
+[2025-02-02 15:18:09] WARNING utils Could not reverse url from auth.user
+[2025-02-02 15:18:16] WARNING utils Could not reverse url from auth.user
+[2025-02-02 15:18:16] WARNING utils Could not reverse url from auth.user
+[2025-02-02 15:18:16] WARNING utils Could not reverse url from auth.user
+[2025-02-02 15:18:16] WARNING utils Could not reverse url from auth.user
+[2025-02-02 15:18:28] WARNING utils Could not reverse url from auth.user
+[2025-02-02 15:18:28] WARNING utils Could not reverse url from auth.user
+[2025-02-02 15:18:28] WARNING utils Could not reverse url from auth.user
+[2025-02-02 15:18:28] WARNING utils Could not reverse url from auth.user
+[2025-02-02 15:18:28] WARNING utils Could not reverse url from auth.user
+[2025-02-02 15:18:38] WARNING utils Could not reverse url from auth.user
+[2025-02-02 15:18:38] WARNING utils Could not reverse url from auth.user
+[2025-02-02 15:18:38] WARNING utils Could not reverse url from auth.user
+[2025-02-02 15:18:38] WARNING utils Could not reverse url from auth.user
+[2025-02-02 15:18:41] WARNING utils Could not reverse url from auth.user
+[2025-02-02 15:18:41] WARNING utils Could not reverse url from auth.user
+[2025-02-02 15:18:41] WARNING utils Could not reverse url from auth.user
+[2025-02-02 15:18:41] WARNING utils Could not reverse url from auth.user
+[2025-02-02 15:18:41] WARNING utils Could not reverse url from auth.user
+[2025-02-02 15:18:48] WARNING utils Could not reverse url from auth.user
+[2025-02-02 15:18:48] WARNING utils Could not reverse url from auth.user
+[2025-02-02 15:18:48] WARNING utils Could not reverse url from auth.user
+[2025-02-02 15:18:48] WARNING utils Could not reverse url from auth.user
+[2025-02-02 15:19:05] WARNING utils Could not reverse url from auth.user
+[2025-02-02 15:19:05] WARNING utils Could not reverse url from auth.user
+[2025-02-02 15:19:05] WARNING utils Could not reverse url from auth.user
+[2025-02-02 15:19:05] WARNING utils Could not reverse url from auth.user
+[2025-02-02 15:19:29] WARNING utils Could not reverse url from auth.user
+[2025-02-02 15:19:29] WARNING utils Could not reverse url from auth.user
+[2025-02-02 15:19:29] WARNING utils Could not reverse url from auth.user
+[2025-02-02 15:19:29] WARNING utils Could not reverse url from auth.user
+[2025-02-02 15:19:51] WARNING utils Could not reverse url from auth.user
+[2025-02-02 15:19:51] WARNING utils Could not reverse url from auth.user
+[2025-02-02 15:19:51] WARNING utils Could not reverse url from auth.user
+[2025-02-02 15:19:51] WARNING utils Could not reverse url from auth.user
+[2025-02-02 15:19:51] WARNING utils Could not reverse url from auth.user
+[2025-02-02 15:20:16] WARNING log Bad Request: /api/v1/doctors/817ecd76-f0fa-4ece-b0a9-1cebdfe77f3b/
+[2025-02-02 15:20:52] WARNING log Not Found: /api/v1/doctors/817ecd76-f0fa-4ece-b0a9-1cebdfe77f3b/bank-details/
+[2025-02-02 15:21:03] WARNING log Not Found: /api/v1/doctors/817ecd76-f0fa-4ece-b0a9-1cebdfe77f3b/bank-details/
+[2025-02-02 15:26:14] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/views.py changed, reloading.
+[2025-02-02 15:26:14] INFO autoreload Watching for file changes with StatReloader
+[2025-02-02 15:26:27] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/urls.py changed, reloading.
+[2025-02-02 15:26:27] INFO autoreload Watching for file changes with StatReloader
+[2025-02-02 15:27:17] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/views.py changed, reloading.
+[2025-02-02 15:27:17] INFO autoreload Watching for file changes with StatReloader
+[2025-02-02 15:28:09] WARNING log Bad Request: /api/v1/doctors/817ecd76-f0fa-4ece-b0a9-1cebdfe77f3b/
+[2025-02-02 15:28:34] WARNING log Not Found: /api/v1/doctors/dr.a.e@hotmail.com/
+[2025-02-02 15:31:35] WARNING log Not Found: /api/v1/doctors/dr.a.e@hotmail.com/
+[2025-02-02 15:32:05] WARNING log Not Found: /api/v1/doctors/dr.a.e@hotmail.com/
+[2025-02-02 16:34:03] WARNING log Not Found: /api/v1/doctors/dr.a.e@hotmail.com/working-hours/
+[2025-02-02 16:34:15] WARNING log Not Found: /api/v1/doctors/dr.a.e@hotmail.com/working-hours/
+[2025-02-02 16:34:18] WARNING log Not Found: /api/v1/doctors/dr.a.e@hotmail.com/working-hours/
+[2025-02-02 16:40:47] WARNING log Not Found: /api/v1/doctors/dr.a.e@hotmail.com/working-hours/
+[2025-02-02 16:41:01] WARNING log Not Found: /api/v1/doctors/dr.a.e@hotmail.com/working-hours/
+[2025-02-02 16:56:28] WARNING log Not Found: /api/v1/doctors/dr.a.e@hotmail.com/schedules/
+[2025-02-02 16:56:41] WARNING log Not Found: /api/v1/doctors/dr.a.e@hotmail.com/schedules/
+[2025-02-02 16:57:17] WARNING log Not Found: /api/v1/doctors/dr.a.e@hotmail.com/schedules/
+[2025-02-02 16:58:00] WARNING log Not Found: /api/v1/doctors/dr.a.e@hotmail.com/schedules/
+[2025-02-02 16:58:18] WARNING log Not Found: /api/v1/doctors/dr.a.e@hotmail.com/schedules/
+[2025-02-02 16:59:23] WARNING log Not Found: /api/v1/doctors/dr.a.e@hotmail.com/schedules/
+[2025-02-02 17:00:08] WARNING log Not Found: /api/v1/doctors/dr.a.e@hotmail.com/schedules/
+[2025-02-02 17:00:48] WARNING log Not Found: /api/v1/doctors/dr.a.e@hotmail.com/schedules/
+[2025-02-02 17:01:04] WARNING log Not Found: /api/v1/doctors/dr.a.e@hotmail.com/schedules/
+[2025-02-02 17:02:20] WARNING log Not Found: /api/v1/doctors/dr.a.e@hotmail.com/schedules/
+[2025-02-02 17:02:22] WARNING log Not Found: /api/v1/doctors/dr.a.e@hotmail.com/schedules/
+[2025-02-02 17:06:19] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/models.py changed, reloading.
+[2025-02-02 17:06:19] INFO autoreload Watching for file changes with StatReloader
+[2025-02-02 17:06:46] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/serializers.py changed, reloading.
+[2025-02-02 17:06:47] INFO autoreload Watching for file changes with StatReloader
+[2025-02-02 17:07:12] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/views.py changed, reloading.
+[2025-02-02 17:07:12] INFO autoreload Watching for file changes with StatReloader
+[2025-02-02 17:07:28] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/urls.py changed, reloading.
+[2025-02-02 17:07:28] INFO autoreload Watching for file changes with StatReloader
+[2025-02-02 17:09:25] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/views.py changed, reloading.
+[2025-02-02 17:09:26] INFO autoreload Watching for file changes with StatReloader
+[2025-02-02 17:11:46] WARNING log Unauthorized: /api/v1/doctors/dr.a.e@hotmail.com/schedules/
+[2025-02-02 17:11:46] WARNING log Not Found: /api/v1/auth/refresh-token/
+[2025-02-02 17:34:10] WARNING log Unauthorized: /api/v1/doctors/dr.a.e@hotmail.com/schedules/
+[2025-02-02 17:34:10] WARNING log Not Found: /api/v1/auth/refresh-token/
+[2025-02-02 18:26:16] WARNING log Unauthorized: /api/v1/doctors/dr.a.e@hotmail.com/schedules/
+[2025-02-02 18:26:16] WARNING log Not Found: /api/v1/auth/refresh-token/
+[2025-02-02 18:30:08] WARNING log Not Found: /api/v1/doctors/dr.a.e@hotmail.com/duration-prices/
+[2025-02-02 18:30:49] WARNING log Not Found: /api/v1/doctors/dr.a.e@hotmail.com/duration-prices/
+[2025-02-02 18:31:04] WARNING log Not Found: /api/v1/doctors/dr.a.e@hotmail.com/duration-prices/
+[2025-02-02 18:34:07] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/models.py changed, reloading.
+[2025-02-02 18:34:07] INFO autoreload Watching for file changes with StatReloader
+[2025-02-02 18:34:26] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/serializers.py changed, reloading.
+[2025-02-02 18:34:27] INFO autoreload Watching for file changes with StatReloader
+[2025-02-02 18:34:45] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/views.py changed, reloading.
+[2025-02-02 18:34:46] INFO autoreload Watching for file changes with StatReloader
+[2025-02-02 18:34:57] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/urls.py changed, reloading.
+[2025-02-02 18:34:57] INFO autoreload Watching for file changes with StatReloader
+[2025-02-02 18:35:40] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/views.py changed, reloading.
+[2025-02-02 18:35:40] INFO autoreload Watching for file changes with StatReloader
+[2025-02-02 18:38:02] WARNING log Not Found: /api/v1/doctors/dr.a.e@hotmail.com/duration-prices/
+[2025-02-02 18:38:27] WARNING log Not Found: /api/v1/doctors/dr.a.e@hotmail.com/duration-prices/
+[2025-02-02 18:39:06] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/urls.py changed, reloading.
+[2025-02-02 18:39:07] INFO autoreload Watching for file changes with StatReloader
+[2025-02-02 18:41:37] WARNING log Unauthorized: /api/v1/doctors/dr.a.e@hotmail.com/duration-prices/
+[2025-02-02 18:41:37] WARNING log Not Found: /api/v1/auth/refresh-token/
+[2025-02-02 18:42:25] ERROR log Internal Server Error: /api/v1/doctors/dr.a.e@hotmail.com/duration-prices/
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/alaqa-python/doctors/views.py", line 701, in create
+    serializer.is_valid(raise_exception=True)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 235, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'type': [ErrorDetail(string='This field is required.', code='required')]}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/alaqa-python/doctors/views.py", line 715, in create
+    except ValidationError as e:
+           ^^^^^^^^^^^^^^^
+NameError: name 'ValidationError' is not defined
+[2025-02-02 18:44:15] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/views.py changed, reloading.
+[2025-02-02 18:44:16] INFO autoreload Watching for file changes with StatReloader
+[2025-02-02 18:44:32] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/views.py changed, reloading.
+[2025-02-02 18:44:32] INFO autoreload Watching for file changes with StatReloader
+[2025-02-02 18:50:45] WARNING log Not Found: /api/v1/doctors/dr.a.e@hotmail.com/
+[2025-02-02 18:52:58] WARNING utils Could not reverse url from auth.user
+[2025-02-02 18:52:58] WARNING utils Could not reverse url from auth.user
+[2025-02-02 18:52:58] WARNING utils Could not reverse url from auth.user
+[2025-02-02 18:52:58] WARNING utils Could not reverse url from auth.user
+[2025-02-02 18:52:58] WARNING utils Could not reverse url from auth.user
+[2025-02-02 18:54:51] WARNING log Unauthorized: /api/v1/instant-appointment-prices/
+[2025-02-02 18:55:33] WARNING log Unauthorized: /api/v1/instant-appointment-prices/
+[2025-02-02 18:58:04] WARNING utils Could not reverse url from auth.user
+[2025-02-02 18:58:04] WARNING utils Could not reverse url from auth.user
+[2025-02-02 18:58:04] WARNING utils Could not reverse url from auth.user
+[2025-02-02 18:58:04] WARNING utils Could not reverse url from auth.user
+[2025-02-02 18:58:08] WARNING utils Could not reverse url from auth.user
+[2025-02-02 18:58:08] WARNING utils Could not reverse url from auth.user
+[2025-02-02 18:58:08] WARNING utils Could not reverse url from auth.user
+[2025-02-02 18:58:08] WARNING utils Could not reverse url from auth.user
+[2025-02-02 18:58:15] WARNING utils Could not reverse url from auth.user
+[2025-02-02 18:58:15] WARNING utils Could not reverse url from auth.user
+[2025-02-02 18:58:15] WARNING utils Could not reverse url from auth.user
+[2025-02-02 18:58:15] WARNING utils Could not reverse url from auth.user
+[2025-02-02 18:58:16] WARNING utils Could not reverse url from auth.user
+[2025-02-02 18:58:16] WARNING utils Could not reverse url from auth.user
+[2025-02-02 18:58:16] WARNING utils Could not reverse url from auth.user
+[2025-02-02 18:58:16] WARNING utils Could not reverse url from auth.user
+[2025-02-02 19:17:02] WARNING log Unauthorized: /api/v1/instant-appointment-prices/
+[2025-02-02 19:17:02] WARNING log Not Found: /api/v1/auth/refresh-token/
+[2025-02-02 20:08:06] WARNING log Not Found: /api/v1/api/v1/instant-appointment-prices
+[2025-02-02 20:08:47] WARNING log Not Found: /api/v1/api/v1/instant-appointment-prices
+[2025-02-02 20:09:31] WARNING log Unauthorized: /api/v1/instant-appointment-prices/
+[2025-02-02 20:09:31] WARNING log Not Found: /api/v1/auth/refresh-token/
+[2025-02-02 20:27:16] WARNING log Unauthorized: /api/v1/instant-appointment-prices/
+[2025-02-02 20:27:16] WARNING log Not Found: /api/v1/auth/refresh-token/
+[2025-02-02 20:36:16] ERROR log Internal Server Error: /api/v1/instant-appointment-prices
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+    ...<9 lines>...
+    )
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to localhost:8000/api/v1/instant-appointment-prices/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+[2025-02-02 20:43:05] WARNING log Unauthorized: /api/v1/instant-appointment-prices/
+[2025-02-02 20:43:05] WARNING log Not Found: /api/v1/auth/refresh-token/
+[2025-02-02 20:55:20] WARNING log Not Found: /api/v1/api/v1/doctors/duration-prices
+[2025-02-02 20:57:45] WARNING log Not Found: /api/v1/api/v1/doctors/duration-prices
+[2025-02-02 20:59:06] WARNING log Not Found: /api/v1/api/v1/doctors/duration-prices
+[2025-02-02 20:59:40] WARNING log Unauthorized: /api/v1/instant-appointment-prices/
+[2025-02-02 20:59:40] WARNING log Not Found: /api/v1/auth/refresh-token/
+[2025-02-02 21:02:19] ERROR log Internal Server Error: /api/v1/instant-appointment-prices
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+    ...<9 lines>...
+    )
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to localhost:8000/api/v1/instant-appointment-prices/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+[2025-02-02 21:04:12] WARNING log Not Found: /api/v1/duration-prices
+[2025-02-02 21:06:29] WARNING log Not Found: /api/v1/v1/doctors/dr.a.e@hotmail.com/duration-prices
+[2025-02-02 21:07:40] ERROR log Internal Server Error: /api/v1/doctors/dr.a.e@hotmail.com/duration-prices
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+    ...<9 lines>...
+    )
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to localhost:8000/api/v1/doctors/dr.a.e@hotmail.com/duration-prices/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+[2025-02-02 21:08:26] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/models.py changed, reloading.
+[2025-02-02 21:08:27] INFO autoreload Watching for file changes with StatReloader
+[2025-02-02 21:08:49] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/views.py changed, reloading.
+[2025-02-02 21:08:49] INFO autoreload Watching for file changes with StatReloader
+[2025-02-02 21:09:18] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/views.py changed, reloading.
+[2025-02-02 21:09:19] INFO autoreload Watching for file changes with StatReloader
+[2025-02-02 21:09:28] ERROR log Internal Server Error: /api/v1/doctors/dr.a.e@hotmail.com/duration-prices
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+    ...<9 lines>...
+    )
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to localhost:8000/api/v1/doctors/dr.a.e@hotmail.com/duration-prices/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
