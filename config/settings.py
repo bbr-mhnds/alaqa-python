@@ -442,5 +442,7 @@ DREAMS_SMS_SECRET_KEY = env('DREAMS_SMS_SECRET_KEY', default='97aca06a4fd54aeb57
 DREAMS_SMS_SENDER = env('DREAMS_SMS_SENDER', default='zuwara')
 
 # Email Settings
-EMAIL_BACKEND = EMAIL_BACKEND
-DEFAULT_FROM_EMAIL = 'Zuwara Healthcare <no-reply@zuwara.net>'
+EMAIL_BACKEND = 'sendgrid_backend.SendgridBackend'
+SENDGRID_API_KEY = env('SENDGRID_API_KEY', default='')
+DEFAULT_FROM_EMAIL = env('DEFAULT_FROM_EMAIL', default='noreply@alaqa.net')
+SENDGRID_SANDBOX_MODE_IN_DEBUG = env.bool('SENDGRID_SANDBOX_MODE_IN_DEBUG', default=True)

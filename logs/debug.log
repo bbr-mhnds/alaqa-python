@@ -5384,3 +5384,47 @@ Traceback (most recent call last):
     ...<9 lines>...
     )
 RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to localhost:8000/api/v1/doctors/dr.a.e@hotmail.com/duration-prices/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+[2025-02-02 21:30:16] WARNING log Unauthorized: /api/v1/instant-appointment-prices/
+[2025-02-02 21:30:19] WARNING log Unauthorized: /api/v1/instant-appointment-prices/
+[2025-02-02 21:30:32] WARNING log Unauthorized: /api/v1/instant-appointment-prices/
+[2025-02-02 21:32:47] WARNING log Unauthorized: /api/v1/instant-appointment-prices/
+[2025-02-02 21:32:51] WARNING log Unauthorized: /api/v1/instant-appointment-prices/
+[2025-02-02 21:33:02] WARNING log Unauthorized: /api/v1/instant-appointment-prices/
+[2025-02-02 21:50:43] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/otp/services.py changed, reloading.
+[2025-02-02 21:50:44] INFO autoreload Watching for file changes with StatReloader
+[2025-02-02 21:50:48] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/otp/services.py changed, reloading.
+[2025-02-02 21:50:49] INFO autoreload Watching for file changes with StatReloader
+[2025-02-02 21:53:05] INFO services [OTP_DEBUG] Attempting to send SMS to 966555552022
+[2025-02-02 21:53:05] INFO services [OTP_DEBUG] Message content: مرحباً بك في تطبيق زوارة! رمز التحقق الخاص بك هو
+[2025-02-02 21:53:05] INFO services [OTP_DEBUG] Formatted number for sending: 555552022
+[2025-02-02 21:53:05] INFO services [OTP_DEBUG] Sending SMS with params: {'user': 'Alaqa', 'secret_key': '97aca06a4fd54aeb571d0de1ecac4f84ee19d323d5b56fe0a74d7eb2bfc673fe', 'to': '555552022', 'message': 'مرحباً بك في تطبيق زوارة! رمز التحقق الخاص بك هو', 'sender': 'zuwara'}
+[2025-02-02 21:53:05] INFO services [OTP_DEBUG] API URL: https://dreams.sa/api/sendsms/
+[2025-02-02 21:53:08] INFO services [OTP_DEBUG] SMS API Raw Response: -124
+[2025-02-02 21:53:08] INFO services [OTP_DEBUG] SMS API Response Status Code: 200
+[2025-02-02 21:53:08] ERROR services [OTP_DEBUG] SMS API Response: Invalid credentials or IP not whitelisted
+[2025-02-02 22:01:48] INFO views [OTP_DEBUG] Received send_otp request
+[2025-02-02 22:01:48] INFO views [OTP_DEBUG] Request Method: POST
+[2025-02-02 22:01:48] INFO views [OTP_DEBUG] Request Headers: {'Content-Length': '29', 'Content-Type': 'application/json', 'Host': 'localhost:8000', 'User-Agent': 'curl/8.7.1', 'Accept': '*/*'}
+[2025-02-02 22:01:48] INFO views [OTP_DEBUG] Request Data: {'phone_number': '555552022'}
+[2025-02-02 22:01:48] INFO views [OTP_DEBUG] Extracted phone number: 555552022
+[2025-02-02 22:01:48] INFO views [OTP_DEBUG] Sanitized phone number: 555552022
+[2025-02-02 22:01:48] INFO views [OTP_DEBUG] Calling OTPService.create_and_send_otp
+[2025-02-02 22:01:48] INFO services [OTP_DEBUG] Starting OTP creation for phone: 555552022
+[2025-02-02 22:01:48] INFO services [OTP_DEBUG] Generated OTP code: 232461
+[2025-02-02 22:01:48] INFO services [OTP_DEBUG] Generated OTP code: 232461 for phone: 966555552022
+[2025-02-02 22:01:48] INFO services [OTP_DEBUG] Created OTP record - ID: e5f1d079-0a83-4fb0-be50-3d89fb21009d, Phone: 966555552022
+[2025-02-02 22:01:48] INFO services [OTP_DEBUG] Prepared SMS message: ZUWARA: Your verification code is 232461
+[2025-02-02 22:01:48] INFO services [OTP_DEBUG] Attempting to send SMS to 966555552022
+[2025-02-02 22:01:48] INFO services [OTP_DEBUG] Message content: ZUWARA: Your verification code is 232461
+[2025-02-02 22:01:48] INFO services [OTP_DEBUG] Formatted number for sending: 555552022
+[2025-02-02 22:01:48] INFO services [OTP_DEBUG] DEV MODE - SMS would be sent to 555552022
+[2025-02-02 22:01:48] INFO services [OTP_DEBUG] DEV MODE - Message content: ZUWARA: Your verification code is 232461
+[2025-02-02 22:01:48] INFO services [OTP_DEBUG] SMS send result - Success: True, Response: SMS sent successfully (Development Mode)
+[2025-02-02 22:01:48] INFO services [OTP_DEBUG] Final result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': 'e5f1d079-0a83-4fb0-be50-3d89fb21009d'}
+[2025-02-02 22:01:48] INFO views [OTP_DEBUG] OTPService result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': 'e5f1d079-0a83-4fb0-be50-3d89fb21009d'}
+[2025-02-02 22:01:48] INFO views [OTP_DEBUG] Sending success response: {'status': 'success', 'message': 'OTP sent successfully', 'data': {'otp_id': 'e5f1d079-0a83-4fb0-be50-3d89fb21009d'}}
+[2025-02-02 22:20:05] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/config/settings.py changed, reloading.
+[2025-02-02 22:20:06] INFO autoreload Watching for file changes with StatReloader
+[2025-02-02 22:27:17] INFO email_service Email sent successfully to ['babar@alaqa.net']. Status code: 202
+[2025-02-02 22:28:39] INFO email_service Email sent successfully to ['babar@alaqa.net']. Status code: 202
+[2025-02-02 22:28:41] INFO email_service Email sent successfully to ['abdulrahman@alaqa.net']. Status code: 202

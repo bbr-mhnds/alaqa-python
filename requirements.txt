@@ -21,6 +21,7 @@ python-dotenv==1.0.0
 pytz==2024.2
 PyYAML==6.0.2
 requests==2.31.0
+sendgrid==6.11.0
 setuptools==75.6.0
 sqlparse==0.5.3
 typing_extensions==4.12.2
