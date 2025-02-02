@@ -3,6 +3,7 @@ import requests
 import logging
 from django.conf import settings
 from .models import OTP
+from django.utils import timezone
 
 logger = logging.getLogger(__name__)
 
@@ -12,10 +13,29 @@ class OTPService:
     """
     @staticmethod
     def generate_otp():
-        """Generate a 6-digit OTP code"""
-        otp_code = "000000"  # Fixed OTP for testing
+        """Generate a random 6-digit OTP code"""
+        otp_code = ''.join([str(random.randint(0, 9)) for _ in range(6)])
         logger.info(f"[OTP_DEBUG] Generated OTP code: {otp_code}")
         return otp_code
+
+    @staticmethod
+    def validate_phone_number(phone_number):
+        """Validate and format phone number"""
+        # Remove any spaces or special characters
+        phone_number = ''.join(filter(str.isdigit, phone_number))
+        
+        # Validate Saudi phone number format
+        if phone_number.startswith('966'):
+            if len(phone_number) != 12:  # 966 + 9 digits
+                return None, "Invalid Saudi phone number length"
+        elif phone_number.startswith('05'):
+            phone_number = '966' + phone_number[1:]  # Convert 05x to 966x
+        elif phone_number.startswith('5'):
+            phone_number = '966' + phone_number
+        else:
+            return None, "Invalid phone number format"
+            
+        return phone_number, "Valid phone number"
 
     @staticmethod
     def send_sms(phone_number, message):
@@ -34,6 +54,19 @@ class OTPService:
             logger.info(f"[OTP_DEBUG] DEV MODE - SMS would be sent to {phone_number}")
             logger.info(f"[OTP_DEBUG] DEV MODE - Message content: {message}")
             return True, "SMS sent successfully (Development Mode)"
+            
+        # Validate required settings
+        required_settings = [
+            'DREAMS_SMS_API_URL',
+            'DREAMS_SMS_USER',
+            'DREAMS_SMS_SECRET_KEY',
+            'DREAMS_SMS_SENDER'
+        ]
+        
+        for setting in required_settings:
+            if not hasattr(settings, setting) or not getattr(settings, setting):
+                logger.error(f"[OTP_DEBUG] Missing required setting: {setting}")
+                return False, f"SMS configuration error: Missing {setting}"
             
         url = settings.DREAMS_SMS_API_URL
         params = {
@@ -58,21 +91,20 @@ class OTPService:
             cleaned_response = ''.join(c for c in response_text if c.isdigit() or c == '-')
             
             # Handle different response codes
-            if cleaned_response == '-124':
-                logger.error("[OTP_DEBUG] SMS API Error: Invalid credentials")
-                return False, "Failed to send SMS: Invalid credentials or IP not whitelisted"
-            elif cleaned_response == '-120':
-                logger.error("[OTP_DEBUG] SMS API Error: Invalid sender ID")
-                return False, "Failed to send SMS: Invalid sender ID"
-            elif cleaned_response == '-110':
-                logger.error("[OTP_DEBUG] SMS API Error: Invalid phone number format")
-                return False, "Failed to send SMS: Invalid phone number format"
-            elif cleaned_response == '-111':
-                logger.error("[OTP_DEBUG] SMS API Error: Insufficient credit")
-                return False, "Failed to send SMS: Insufficient credit"
-            elif cleaned_response == '1':
-                logger.info("[OTP_DEBUG] SMS sent successfully")
-                return True, "SMS sent successfully"
+            response_codes = {
+                '-124': "Invalid credentials or IP not whitelisted",
+                '-120': "Invalid sender ID",
+                '-110': "Invalid phone number format",
+                '-111': "Insufficient credit",
+                '1': "Success"
+            }
+            
+            if cleaned_response in response_codes:
+                is_success = cleaned_response == '1'
+                message = response_codes[cleaned_response]
+                log_method = logger.info if is_success else logger.error
+                log_method(f"[OTP_DEBUG] SMS API Response: {message}")
+                return is_success, message
             elif cleaned_response.startswith('-'):
                 logger.error(f"[OTP_DEBUG] SMS API Error Code: {cleaned_response}")
                 return False, f"Failed to send SMS: API error {cleaned_response}"
@@ -93,27 +125,54 @@ class OTPService:
         logger.info(f"[OTP_DEBUG] Starting OTP creation for phone: {phone_number}")
         
         try:
-            # Generate OTP
+            # Validate phone number
+            validated_number, validation_message = cls.validate_phone_number(phone_number)
+            if not validated_number:
+                logger.error(f"[OTP_DEBUG] Invalid phone number: {validation_message}")
+                return {
+                    'success': False,
+                    'message': validation_message,
+                    'otp_id': None
+                }
+                
+            # Check for existing unverified OTP
+            existing_otp = OTP.objects.filter(
+                phone_number=validated_number,
+                is_verified=False,
+                expires_at__gt=timezone.now()
+            ).first()
+            
+            if existing_otp and existing_otp.is_valid:
+                logger.info(f"[OTP_DEBUG] Valid OTP already exists for {validated_number}")
+                message = f"""ZUWARA: Your verification code is {existing_otp.otp_code}"""
+                success, response = cls.send_sms(validated_number, message)
+                return {
+                    'success': success,
+                    'message': response,
+                    'otp_id': str(existing_otp.id) if success else None
+                }
+            
+            # Generate new OTP
             otp_code = cls.generate_otp()
-            logger.info(f"[OTP_DEBUG] Generated OTP code: {otp_code} for phone: {phone_number}")
+            logger.info(f"[OTP_DEBUG] Generated OTP code: {otp_code} for phone: {validated_number}")
             
             # Create OTP record
             otp = OTP.objects.create(
-                phone_number=phone_number,
+                phone_number=validated_number,
                 otp_code=otp_code
             )
-            logger.info(f"[OTP_DEBUG] Created OTP record - ID: {otp.id}, Phone: {phone_number}, Code: {otp_code}")
+            logger.info(f"[OTP_DEBUG] Created OTP record - ID: {otp.id}, Phone: {validated_number}")
             
             # Prepare message
             message = f"""ZUWARA: Your verification code is {otp_code}"""
             logger.info(f"[OTP_DEBUG] Prepared SMS message: {message}")
             
             # Send SMS
-            success, response = cls.send_sms(phone_number, message)
+            success, response = cls.send_sms(validated_number, message)
             logger.info(f"[OTP_DEBUG] SMS send result - Success: {success}, Response: {response}")
             
             if not success:
-                logger.error(f"[OTP_DEBUG] Failed to send SMS - OTP ID: {otp.id}, Phone: {phone_number}")
+                logger.error(f"[OTP_DEBUG] Failed to send SMS - OTP ID: {otp.id}, Phone: {validated_number}")
             
             result = {
                 'success': success,
