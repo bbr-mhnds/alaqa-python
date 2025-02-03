@@ -1,5 +1,6 @@
 from django.test import TestCase
 from django.conf import settings
+from unittest.mock import patch
 from .services import OTPService
 from .models import OTP
 
@@ -60,3 +61,40 @@ class OTPServiceTests(TestCase):
         self.assertEqual(otp.phone_number, "966555552022")  # Should be converted to full format
         self.assertFalse(otp.is_verified)
         self.assertEqual(otp.attempts, 0)
+
+    @patch('services.email_service.SendGridAPIClient')
+    def test_create_and_send_doctor_verification(self, mock_sendgrid):
+        """Test sending both SMS and email verification"""
+        # Test data
+        phone_number = "555552022"
+        email = "test.doctor@alaqa.net"
+        
+        # Mock SendGrid response
+        mock_response = type('MockResponse', (), {'status_code': 202})()
+        mock_sendgrid.return_value.send.return_value = mock_response
+        
+        # Test the complete verification flow
+        result = OTPService.create_and_send_doctor_verification(phone_number, email)
+        
+        # Log the result for debugging
+        print(f"Doctor Verification Result: {result}")
+        
+        # Assertions
+        self.assertTrue(result['success'], f"Verification failed: {result['message']}")
+        self.assertIsNotNone(result['otp_id'], "OTP ID should not be None")
+        
+        # Verify OTP was created in database
+        otp = OTP.objects.get(id=result['otp_id'])
+        self.assertEqual(otp.phone_number, "966555552022")  # Should be converted to full format
+        self.assertFalse(otp.is_verified)
+        self.assertEqual(otp.attempts, 0)
+        
+        # Verify both SMS and email statuses
+        self.assertTrue(result['sms_status']['success'], 
+                       f"SMS failed: {result['sms_status']['message']}")
+        self.assertTrue(result['email_status']['success'], 
+                       f"Email failed: {result['email_status']['message']}")
+        
+        # Verify the same OTP code was used for both SMS and email
+        self.assertIn(otp.otp_code, result['sms_status']['message'])
+        mock_sendgrid.return_value.send.assert_called_once()

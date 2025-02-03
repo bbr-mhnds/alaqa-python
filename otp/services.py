@@ -4,6 +4,7 @@ import logging
 from django.conf import settings
 from .models import OTP
 from django.utils import timezone
+from services.email_service import EmailService
 
 logger = logging.getLogger(__name__)
 
@@ -11,6 +12,10 @@ class OTPService:
     """
     Service class for handling OTP operations
     """
+    def __init__(self):
+        """Initialize services"""
+        self.email_service = EmailService()
+
     @staticmethod
     def generate_otp():
         """Generate a random 6-digit OTP code"""
@@ -229,4 +234,86 @@ class OTPService:
             return False, "Invalid OTP"
         except Exception as e:
             logger.exception("Error in verify_otp")
-            return False, f"Error verifying OTP: {str(e)}" 
+            return False, f"Error verifying OTP: {str(e)}"
+
+    @classmethod
+    def create_and_send_doctor_verification(cls, phone_number, email):
+        """
+        Create and send OTP via both SMS and email for doctor verification
+        
+        Args:
+            phone_number: Doctor's phone number
+            email: Doctor's email address
+            
+        Returns:
+            dict: Response containing success status and messages for both SMS and email
+        """
+        logger.info(f"[OTP_DEBUG] Starting doctor verification for phone: {phone_number}, email: {email}")
+        
+        try:
+            # Validate phone number
+            validated_number, validation_message = cls.validate_phone_number(phone_number)
+            if not validated_number:
+                logger.error(f"[OTP_DEBUG] Invalid phone number: {validation_message}")
+                return {
+                    'success': False,
+                    'message': validation_message,
+                    'otp_id': None
+                }
+            
+            # Check for existing unverified OTP
+            existing_otp = OTP.objects.filter(
+                phone_number=validated_number,
+                is_verified=False,
+                expires_at__gt=timezone.now()
+            ).first()
+            
+            if existing_otp and existing_otp.is_valid:
+                otp_code = existing_otp.otp_code
+                logger.info(f"[OTP_DEBUG] Using existing valid OTP for {validated_number}")
+            else:
+                # Generate new OTP
+                otp_code = cls.generate_otp()
+                # Create OTP record
+                existing_otp = OTP.objects.create(
+                    phone_number=validated_number,
+                    otp_code=otp_code
+                )
+                logger.info(f"[OTP_DEBUG] Created new OTP record - ID: {existing_otp.id}")
+            
+            # Initialize service instance for email
+            service = cls()
+            
+            # Send SMS
+            sms_message = f"""ALAQA: Your verification code is {otp_code}"""
+            sms_success, sms_response = cls.send_sms(validated_number, sms_message)
+            logger.info(f"[OTP_DEBUG] SMS send result - Success: {sms_success}, Response: {sms_response}")
+            
+            # Send Email
+            email_result = service.email_service.send_otp_email(email, otp_code)
+            logger.info(f"[OTP_DEBUG] Email send result: {email_result}")
+            
+            # Prepare result
+            success = sms_success and email_result['success']
+            message = f"SMS: {sms_response}, Email: {email_result['message']}"
+            
+            result = {
+                'success': success,
+                'message': message,
+                'otp_id': str(existing_otp.id) if success else None,
+                'sms_status': {'success': sms_success, 'message': sms_response},
+                'email_status': email_result
+            }
+            
+            logger.info(f"[OTP_DEBUG] Final verification result: {result}")
+            return result
+            
+        except Exception as e:
+            logger.exception("[OTP_DEBUG] Error in create_and_send_doctor_verification")
+            return {
+                'success': False,
+                'message': f"Failed to send verification: {str(e)}",
+                'otp_id': None,
+                'sms_status': {'success': False, 'message': str(e)},
+                'email_status': {'success': False, 'message': str(e)}
+            } 
