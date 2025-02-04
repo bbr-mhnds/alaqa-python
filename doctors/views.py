@@ -16,7 +16,8 @@ from .serializers import (
     DoctorApprovalSerializer,
     DoctorBankDetailsSerializer,
     DoctorScheduleSerializer,
-    PriceCategorySerializer
+    PriceCategorySerializer,
+    DoctorRegistrationInitiateSerializer
 )
 from rest_framework import serializers
 from .services import DoctorVerificationService
@@ -251,6 +252,11 @@ class DoctorRegistrationViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.AllowAny]
     http_method_names = ['post']
 
+    def get_serializer_class(self):
+        if self.action == 'initiate':
+            return DoctorRegistrationInitiateSerializer
+        return DoctorRegistrationSerializer
+
     @action(detail=False, methods=['post'], authentication_classes=[], permission_classes=[permissions.AllowAny])
     def initiate(self, request):
         """Step 1: Initiate registration and send verification codes"""
@@ -262,11 +268,17 @@ class DoctorRegistrationViewSet(viewsets.ModelViewSet):
             email = serializer.validated_data['email']
             phone = serializer.validated_data['phone']
             
+            # Store registration data for later use
+            registration_data = {
+                'email': email,
+                'phone': phone
+            }
+            
             # Send verification codes
             verification_result = DoctorVerificationService.send_verification_codes(
                 email=email,
                 phone=phone,
-                registration_data=serializer.validated_data
+                registration_data=registration_data  # Pass registration data to store
             )
             
             if verification_result['email']['success'] and verification_result['sms']['success']:
@@ -288,7 +300,6 @@ class DoctorRegistrationViewSet(viewsets.ModelViewSet):
                         'sms': verification_result['sms']['message']
                     }
                 }, status=status.HTTP_400_BAD_REQUEST)
-                
         except serializers.ValidationError as e:
             return Response({
                 'status': 'error',
@@ -303,10 +314,10 @@ class DoctorRegistrationViewSet(viewsets.ModelViewSet):
 
     @action(detail=False, methods=['post'], authentication_classes=[], permission_classes=[permissions.AllowAny])
     def verify(self, request):
-        """Step 2: Verify SMS code"""
+        """Step 2: Complete registration with verification"""
         try:
             sms_code = request.data.get('sms_code')
-            email = request.data.get('email')  # Add email to find the latest verification
+            email = request.data.get('email')
             
             if not all([sms_code, email]):
                 return Response({
@@ -339,17 +350,12 @@ class DoctorRegistrationViewSet(viewsets.ModelViewSet):
                 verification.is_used = True
                 verification.save()
                 
-                # Prepare registration data with file fields
-                registration_data = verification.registration_data.copy()
-                
-                # Transfer files from verification to final paths
-                if verification.license_document:
-                    registration_data['license_document'] = verification.license_document
-                if verification.qualification_document:
-                    registration_data['qualification_document'] = verification.qualification_document
+                # Merge stored registration data with new data
+                registration_data = verification.registration_data or {}
+                registration_data.update(request.data)
                 
                 # Complete registration
-                serializer = self.get_serializer(data=registration_data)
+                serializer = DoctorRegistrationSerializer(data=registration_data)
                 serializer.is_valid(raise_exception=True)
                 doctor = serializer.save()
                 
@@ -375,8 +381,14 @@ class DoctorRegistrationViewSet(viewsets.ModelViewSet):
                     }
                 }, status=status.HTTP_400_BAD_REQUEST)
             
+        except serializers.ValidationError as e:
+            return Response({
+                'status': 'error',
+                'message': 'Validation error',
+                'errors': e.detail
+            }, status=status.HTTP_400_BAD_REQUEST)
         except Exception as e:
-            logger.error(f"[DOCTOR_DEBUG] Registration error: {str(e)}")  # Add logging
+            logger.error(f"[DOCTOR_DEBUG] Registration error: {str(e)}")
             return Response({
                 'status': 'error',
                 'message': str(e)
