@@ -2,6 +2,7 @@ from rest_framework import serializers
 from .models import Doctor, DoctorBankDetails, TimeSlot, DoctorSchedule, DoctorDurationPrice, PriceCategory, DoctorVerification
 from specialties.serializers import SpecialtySerializer
 from specialties.models import Specialty
+from django.utils import timezone
 
 class DoctorSerializer(serializers.ModelSerializer):
     specialities = SpecialtySerializer(many=True, read_only=True)
@@ -580,6 +581,7 @@ class DoctorRegistrationVerifySerializer(serializers.Serializer):
 
     def validate(self, data):
         try:
+            # First get the doctor verification
             verification = DoctorVerification.objects.get(
                 id=data['verification_id'],
                 email=data['email'],
@@ -590,9 +592,34 @@ class DoctorRegistrationVerifySerializer(serializers.Serializer):
                 raise serializers.ValidationError({
                     "verification_id": "Verification code has expired"
                 })
+            
+            # Get the OTP record
+            from otp.models import OTP
+            otp = OTP.objects.filter(
+                phone_number=verification.phone,
+                is_verified=False,
+                expires_at__gt=timezone.now()
+            ).latest('created_at')
+            
+            if not otp.is_valid:
+                if otp.is_expired:
+                    raise serializers.ValidationError({
+                        "sms_code": "OTP has expired"
+                    })
+                if otp.attempts >= 3:
+                    raise serializers.ValidationError({
+                        "sms_code": "Maximum verification attempts exceeded"
+                    })
+            
             data['verification'] = verification
+            data['otp'] = otp
+            
         except DoctorVerification.DoesNotExist:
             raise serializers.ValidationError({
                 "verification_id": "Invalid or expired verification"
+            })
+        except OTP.DoesNotExist:
+            raise serializers.ValidationError({
+                "sms_code": "No valid OTP found"
             })
         return data 

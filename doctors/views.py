@@ -329,9 +329,15 @@ class DoctorRegistrationViewSet(viewsets.ModelViewSet):
             verify_serializer.is_valid(raise_exception=True)
             
             verification = verify_serializer.validated_data['verification']
+            otp = verify_serializer.validated_data['otp']
             
-            # Verify SMS code
-            if verify_serializer.validated_data['sms_code'] == verification.sms_code:
+            # Verify OTP code
+            if verification_data['sms_code'] == otp.otp_code:
+                # Mark OTP as verified
+                otp.is_verified = True
+                otp.save()
+                
+                # Mark verification as complete
                 verification.phone_verified = True
                 verification.is_used = True
                 verification.save()
@@ -371,11 +377,16 @@ class DoctorRegistrationViewSet(viewsets.ModelViewSet):
                     }
                 }, status=status.HTTP_201_CREATED)
             else:
+                # Increment OTP attempts
+                otp.attempts += 1
+                otp.save()
+                
                 return Response({
                     'status': 'error',
                     'message': 'Invalid verification code',
                     'data': {
-                        'phone_verified': verification.phone_verified
+                        'phone_verified': verification.phone_verified,
+                        'attempts_remaining': max(3 - otp.attempts, 0)
                     }
                 }, status=status.HTTP_400_BAD_REQUEST)
             
