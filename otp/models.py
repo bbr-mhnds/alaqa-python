@@ -4,44 +4,43 @@ from django.utils import timezone
 from datetime import timedelta
 
 class OTP(models.Model):
-    """
-    Model to store OTP records with validation and expiry functionality
-    """
+    """Model for storing OTP codes"""
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    phone_number = models.CharField(max_length=20)
+    phone_number = models.CharField(max_length=17)
     otp_code = models.CharField(max_length=6)
+    attempts = models.IntegerField(default=0)
     is_verified = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     expires_at = models.DateTimeField()
-    attempts = models.IntegerField(default=0)
     
     class Meta:
         ordering = ['-created_at']
         verbose_name = 'OTP'
         verbose_name_plural = 'OTPs'
         indexes = [
-            models.Index(fields=['-created_at']),
-            models.Index(fields=['phone_number', 'is_verified']),
+            models.Index(fields=['phone_number', 'otp_code']),
+            models.Index(fields=['phone_number', 'created_at']),
+            models.Index(fields=['otp_code', 'created_at']),
         ]
-
+    
     def __str__(self):
-        return f"{self.phone_number} - {self.get_status_display()}"
-
-    def save(self, *args, **kwargs):
-        if not self.expires_at:
-            # Set expiry to 10 minutes from creation
-            self.expires_at = timezone.now() + timedelta(minutes=10)
-        super().save(*args, **kwargs)
-
+        return f"OTP for {self.phone_number}"
+    
     @property
     def is_expired(self):
         """Check if OTP has expired"""
         return timezone.now() > self.expires_at
-
+    
     @property
     def is_valid(self):
         """Check if OTP is still valid"""
-        return not self.is_expired and not self.is_verified and self.attempts < 3
+        return not self.is_verified and not self.is_expired and self.attempts < 3
+    
+    def save(self, *args, **kwargs):
+        # Set expires_at if not set
+        if not self.expires_at:
+            self.expires_at = timezone.now() + timezone.timedelta(minutes=10)
+        super().save(*args, **kwargs)
 
     def get_status_display(self):
         """Get human-readable status"""

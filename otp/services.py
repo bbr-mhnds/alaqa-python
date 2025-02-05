@@ -161,10 +161,11 @@ class OTPService:
             otp_code = cls.generate_otp()
             logger.info(f"[OTP_DEBUG] Generated OTP code: {otp_code} for phone: {validated_number}")
             
-            # Create OTP record
+            # Create OTP record with proper expiration time
             otp = OTP.objects.create(
                 phone_number=validated_number,
-                otp_code=otp_code
+                otp_code=otp_code,
+                expires_at=timezone.now() + timezone.timedelta(minutes=10)  # Set expiration to 10 minutes
             )
             logger.info(f"[OTP_DEBUG] Created OTP record - ID: {otp.id}, Phone: {validated_number}")
             
@@ -274,10 +275,11 @@ class OTPService:
             else:
                 # Generate new OTP
                 otp_code = cls.generate_otp()
-                # Create OTP record
+                # Create OTP record with proper expiration time
                 existing_otp = OTP.objects.create(
                     phone_number=validated_number,
-                    otp_code=otp_code
+                    otp_code=otp_code,
+                    expires_at=timezone.now() + timezone.timedelta(minutes=10)  # Set expiration to 10 minutes
                 )
                 logger.info(f"[OTP_DEBUG] Created new OTP record - ID: {existing_otp.id}")
             

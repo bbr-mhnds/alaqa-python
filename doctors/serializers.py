@@ -235,17 +235,51 @@ class DoctorRegistrationSerializer(serializers.ModelSerializer):
             })
 
         # Validate bank details
-        bank_details = DoctorBankDetails(
-            bank_name=data.get('bank_name'),
-            account_holder_name=data.get('account_holder_name'),
-            account_number=data.get('account_number'),
-            iban_number=data.get('iban_number'),
-            swift_code=data.get('swift_code')
-        )
-        try:
-            bank_details.clean()
-        except ValidationError as e:
-            raise serializers.ValidationError(e.message_dict)
+        bank_fields = {
+            'bank_name': data.get('bank_name'),
+            'account_holder_name': data.get('account_holder_name'),
+            'account_number': data.get('account_number'),
+            'iban_number': data.get('iban_number'),
+            'swift_code': data.get('swift_code')
+        }
+
+        # Basic validation for bank details
+        if not all(bank_fields.values()):
+            raise serializers.ValidationError({
+                "bank_details": "All bank details fields are required."
+            })
+
+        # Validate SWIFT code
+        swift = bank_fields['swift_code'].replace(' ', '').upper()
+        if len(swift) not in [8, 11]:
+            raise serializers.ValidationError({
+                'swift_code': 'SWIFT code must be either 8 or 11 characters'
+            })
+        if not (swift[:4].isalpha() and swift[4:6].isalpha()):
+            raise serializers.ValidationError({
+                'swift_code': 'SWIFT code must start with 4 letters (bank code) followed by 2 letters (country code)'
+            })
+        data['swift_code'] = swift
+
+        # Validate IBAN
+        iban = bank_fields['iban_number'].replace(' ', '').upper()
+        if not (16 <= len(iban) <= 34):
+            raise serializers.ValidationError({
+                'iban_number': 'IBAN must be between 16 and 34 characters'
+            })
+        if not iban[:2].isalpha():
+            raise serializers.ValidationError({
+                'iban_number': 'IBAN must start with a country code'
+            })
+        data['iban_number'] = iban
+
+        # Validate account number
+        account_number = ''.join(filter(str.isalnum, bank_fields['account_number']))
+        if len(account_number) < 8:
+            raise serializers.ValidationError({
+                'account_number': 'Account number must be at least 8 characters long'
+            })
+        data['account_number'] = account_number
 
         return data
 
