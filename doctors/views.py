@@ -17,7 +17,8 @@ from .serializers import (
     DoctorBankDetailsSerializer,
     DoctorScheduleSerializer,
     PriceCategorySerializer,
-    DoctorRegistrationInitiateSerializer
+    DoctorRegistrationInitiateSerializer,
+    DoctorRegistrationVerifySerializer
 )
 from rest_framework import serializers
 from .services import DoctorVerificationService
@@ -316,48 +317,45 @@ class DoctorRegistrationViewSet(viewsets.ModelViewSet):
     def verify(self, request):
         """Step 2: Complete registration with verification"""
         try:
-            sms_code = request.data.get('sms_code')
-            email = request.data.get('email')
+            # Extract verification data
+            verification_data = {
+                'verification_id': request.data.get('verification_id'),
+                'email': request.data.get('email'),
+                'sms_code': request.data.get('sms_code')
+            }
             
-            if not all([sms_code, email]):
-                return Response({
-                    'status': 'error',
-                    'message': 'Missing required fields. Please provide sms_code and email.'
-                }, status=status.HTTP_400_BAD_REQUEST)
+            # Validate verification data
+            verify_serializer = DoctorRegistrationVerifySerializer(data=verification_data)
+            verify_serializer.is_valid(raise_exception=True)
             
-            try:
-                # Find the latest unverified verification for this email
-                verification = DoctorVerification.objects.filter(
-                    email=email,
-                    is_used=False,
-                    phone_verified=False
-                ).latest('created_at')
-            except DoctorVerification.DoesNotExist:
-                return Response({
-                    'status': 'error',
-                    'message': 'No pending verification found for this email'
-                }, status=status.HTTP_404_NOT_FOUND)
-            
-            if verification.is_expired:
-                return Response({
-                    'status': 'error',
-                    'message': 'Verification code has expired'
-                }, status=status.HTTP_400_BAD_REQUEST)
+            verification = verify_serializer.validated_data['verification']
             
             # Verify SMS code
-            if sms_code == verification.sms_code:
+            if verify_serializer.validated_data['sms_code'] == verification.sms_code:
                 verification.phone_verified = True
                 verification.is_used = True
                 verification.save()
                 
-                # Merge stored registration data with new data
+                # Complete registration with stored data
                 registration_data = verification.registration_data or {}
-                registration_data.update(request.data)
+                
+                # Update with new data, handling files separately
+                for key, value in request.data.items():
+                    if key not in ['verification_id', 'email', 'sms_code']:
+                        registration_data[key] = value
+                
+                # Handle file uploads
+                if 'license_document' in request.FILES:
+                    registration_data['license_document'] = request.FILES['license_document']
+                if 'qualification_document' in request.FILES:
+                    registration_data['qualification_document'] = request.FILES['qualification_document']
+                if 'additional_documents' in request.FILES:
+                    registration_data['additional_documents'] = request.FILES['additional_documents']
                 
                 # Complete registration
-                serializer = DoctorRegistrationSerializer(data=registration_data)
-                serializer.is_valid(raise_exception=True)
-                doctor = serializer.save()
+                registration_serializer = DoctorRegistrationSerializer(data=registration_data)
+                registration_serializer.is_valid(raise_exception=True)
+                doctor = registration_serializer.save()
                 
                 return Response({
                     'status': 'success',
@@ -382,6 +380,7 @@ class DoctorRegistrationViewSet(viewsets.ModelViewSet):
                 }, status=status.HTTP_400_BAD_REQUEST)
             
         except serializers.ValidationError as e:
+            logger.error(f"[DOCTOR_DEBUG] Registration validation error: {str(e)}")
             return Response({
                 'status': 'error',
                 'message': 'Validation error',

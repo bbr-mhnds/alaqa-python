@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Doctor, DoctorBankDetails, TimeSlot, DoctorSchedule, DoctorDurationPrice, PriceCategory
+from .models import Doctor, DoctorBankDetails, TimeSlot, DoctorSchedule, DoctorDurationPrice, PriceCategory, DoctorVerification
 from specialties.serializers import SpecialtySerializer
 from specialties.models import Specialty
 
@@ -168,6 +168,11 @@ class DoctorRegistrationSerializer(serializers.ModelSerializer):
     qualification_document = serializers.FileField(required=True)
     additional_documents = serializers.FileField(required=False, allow_null=True)
     terms_and_privacy_accepted = serializers.BooleanField(required=True)
+    account_holder_name = serializers.CharField(write_only=True, required=True)
+    account_number = serializers.CharField(write_only=True, required=True)
+    iban_number = serializers.CharField(write_only=True, required=True)
+    bank_name = serializers.CharField(write_only=True, required=True)
+    swift_code = serializers.CharField(write_only=True, required=True)
 
     class Meta:
         model = Doctor
@@ -177,7 +182,9 @@ class DoctorRegistrationSerializer(serializers.ModelSerializer):
             'license_number', 'specialities', 'profile_arabic',
             'profile_english', 'photo', 'license_document',
             'qualification_document', 'additional_documents',
-            'password', 'confirm_password', 'terms_and_privacy_accepted'
+            'password', 'confirm_password', 'terms_and_privacy_accepted',
+            'account_holder_name', 'account_number', 'iban_number',
+            'bank_name', 'swift_code'
         ]
 
     def validate(self, data):
@@ -211,7 +218,7 @@ class DoctorRegistrationSerializer(serializers.ModelSerializer):
                 raise serializers.ValidationError({
                     "specialities": "Invalid format. Expected a JSON array of UUIDs."
                 })
-
+        
         try:
             import uuid
             # Convert string UUIDs to UUID objects
@@ -227,6 +234,19 @@ class DoctorRegistrationSerializer(serializers.ModelSerializer):
                 "specialities": "Invalid UUID format for specialities."
             })
 
+        # Validate bank details
+        bank_details = DoctorBankDetails(
+            bank_name=data.get('bank_name'),
+            account_holder_name=data.get('account_holder_name'),
+            account_number=data.get('account_number'),
+            iban_number=data.get('iban_number'),
+            swift_code=data.get('swift_code')
+        )
+        try:
+            bank_details.clean()
+        except ValidationError as e:
+            raise serializers.ValidationError(e.message_dict)
+
         return data
 
     def create(self, validated_data):
@@ -236,6 +256,15 @@ class DoctorRegistrationSerializer(serializers.ModelSerializer):
         
         # Get specialities and remove from validated data
         specialities = validated_data.pop('specialities')
+        
+        # Get bank details and remove from validated data
+        bank_details_data = {
+            'bank_name': validated_data.pop('bank_name'),
+            'account_holder_name': validated_data.pop('account_holder_name'),
+            'account_number': validated_data.pop('account_number'),
+            'iban_number': validated_data.pop('iban_number'),
+            'swift_code': validated_data.pop('swift_code')
+        }
         
         # Create doctor instance
         doctor = Doctor.objects.create(**validated_data)
@@ -257,6 +286,9 @@ class DoctorRegistrationSerializer(serializers.ModelSerializer):
         from django.contrib.auth.models import Group
         doctor_group, _ = Group.objects.get_or_create(name='Doctors')
         user.groups.add(doctor_group)
+        
+        # Create bank details
+        DoctorBankDetails.objects.create(doctor=doctor, **bank_details_data)
         
         return doctor
 
@@ -485,4 +517,48 @@ class PriceCategorySerializer(serializers.ModelSerializer):
             for entry_data in entries_data:
                 DoctorDurationPrice.objects.create(category=instance, **entry_data)
 
-        return instance 
+        return instance
+
+class DoctorRegistrationInitiateSerializer(serializers.Serializer):
+    """Serializer for initiating doctor registration"""
+    email = serializers.EmailField()
+    phone = serializers.CharField()
+
+    def validate_email(self, value):
+        from django.contrib.auth import get_user_model
+        User = get_user_model()
+        if User.objects.filter(email=value).exists():
+            raise serializers.ValidationError("A user with this email already exists.")
+        return value
+
+    def validate_phone(self, value):
+        # Remove any non-digit characters
+        cleaned_number = ''.join(filter(str.isdigit, value))
+        if len(cleaned_number) < 9:
+            raise serializers.ValidationError("Phone number must have at least 9 digits")
+        return cleaned_number
+
+class DoctorRegistrationVerifySerializer(serializers.Serializer):
+    """Serializer for verifying doctor registration"""
+    verification_id = serializers.IntegerField()
+    email = serializers.EmailField()
+    sms_code = serializers.CharField()
+
+    def validate(self, data):
+        try:
+            verification = DoctorVerification.objects.get(
+                id=data['verification_id'],
+                email=data['email'],
+                is_used=False,
+                phone_verified=False
+            )
+            if verification.is_expired:
+                raise serializers.ValidationError({
+                    "verification_id": "Verification code has expired"
+                })
+            data['verification'] = verification
+        except DoctorVerification.DoesNotExist:
+            raise serializers.ValidationError({
+                "verification_id": "Invalid or expired verification"
+            })
+        return data 
