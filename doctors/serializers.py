@@ -164,7 +164,7 @@ class DoctorRegistrationSerializer(serializers.ModelSerializer):
     """Serializer for doctor registration"""
     password = serializers.CharField(write_only=True, required=True)
     confirm_password = serializers.CharField(write_only=True, required=True)
-    specialities = serializers.JSONField(required=True)  # Changed to JSONField
+    specialities = serializers.CharField(required=True)  # Changed to CharField to handle form data
     license_document = serializers.FileField(required=True)
     qualification_document = serializers.FileField(required=True)
     additional_documents = serializers.FileField(required=False, allow_null=True)
@@ -210,29 +210,28 @@ class DoctorRegistrationSerializer(serializers.ModelSerializer):
                 })
 
         # Validate and convert specialities
-        specialities = data.get('specialities', [])
-        if not isinstance(specialities, list):
-            try:
-                import json
-                specialities = json.loads(specialities)
-            except (json.JSONDecodeError, TypeError):
-                raise serializers.ValidationError({
-                    "specialities": "Invalid format. Expected a JSON array of UUIDs."
-                })
-        
+        specialities = data.get('specialities', '')
         try:
-            import uuid
+            import json
+            # Handle string input from form
+            if isinstance(specialities, str):
+                if specialities.startswith('[') and specialities.endswith(']'):
+                    specialities = json.loads(specialities)
+                else:
+                    specialities = [specialities]  # Single ID case
+            
             # Convert string UUIDs to UUID objects
+            import uuid
             uuid_list = [uuid.UUID(str(s)) for s in specialities]
             existing_specialities = Specialty.objects.filter(id__in=uuid_list)
             if len(existing_specialities) != len(specialities):
                 raise serializers.ValidationError({
                     "specialities": "One or more specialities do not exist."
                 })
-            data['specialities'] = [str(s.id) for s in existing_specialities]  # Convert UUIDs to strings
-        except ValueError:
+            data['specialities'] = [str(s.id) for s in existing_specialities]
+        except (ValueError, json.JSONDecodeError):
             raise serializers.ValidationError({
-                "specialities": "Invalid UUID format for specialities."
+                "specialities": "Invalid specialty ID format."
             })
 
         # Validate bank details

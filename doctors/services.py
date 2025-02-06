@@ -24,6 +24,15 @@ class DoctorVerificationService:
     def send_verification_codes(email, phone, registration_data=None):
         """Send verification codes via SMS only"""
         try:
+            # Validate and format phone number
+            validated_number, validation_message = OTPService.validate_phone_number(phone)
+            if not validated_number:
+                return {
+                    'success': False,
+                    'message': validation_message,
+                    'verification_id': None
+                }
+            
             # Create and send OTP using OTPService
             otp_result = OTPService.create_and_send_otp(phone)
             
@@ -55,7 +64,7 @@ class DoctorVerificationService:
                 # Create verification instance
                 verification = DoctorVerification.objects.create(
                     email=email,
-                    phone=phone,
+                    phone=validated_number,  # Use validated phone number
                     email_verified=True,  # Auto verify email
                     phone_verified=False,  # Will be verified with SMS code
                     registration_data=registration_data or {},

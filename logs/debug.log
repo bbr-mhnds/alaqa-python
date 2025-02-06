@@ -5501,3 +5501,26 @@ RuntimeError: You called this URL via POST, but the URL doesn't end in a slash a
 [2025-02-06 16:01:41] INFO autoreload Watching for file changes with StatReloader
 [2025-02-06 16:05:18] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/services.py changed, reloading.
 [2025-02-06 16:05:19] INFO autoreload Watching for file changes with StatReloader
+[2025-02-06 18:24:49] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/views.py changed, reloading.
+[2025-02-06 18:24:50] INFO autoreload Watching for file changes with StatReloader
+[2025-02-06 18:31:38] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/views.py changed, reloading.
+[2025-02-06 18:31:38] INFO autoreload Watching for file changes with StatReloader
+[2025-02-06 18:39:30] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/views.py changed, reloading.
+[2025-02-06 18:39:31] INFO autoreload Watching for file changes with StatReloader
+[2025-02-06 18:40:27] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/views.py changed, reloading.
+[2025-02-06 18:40:28] INFO autoreload Watching for file changes with StatReloader
+[2025-02-06 18:44:18] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/views.py changed, reloading.
+[2025-02-06 18:44:18] INFO autoreload Watching for file changes with StatReloader
+[2025-02-06 19:15:46] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/services.py changed, reloading.
+[2025-02-06 19:15:47] INFO autoreload Watching for file changes with StatReloader
+[2025-02-06 19:43:03] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/serializers.py changed, reloading.
+[2025-02-06 19:43:03] INFO autoreload Watching for file changes with StatReloader
+[2025-02-06 19:43:20] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/serializers.py changed, reloading.
+[2025-02-06 19:43:20] INFO autoreload Watching for file changes with StatReloader
+[2025-02-06 19:46:57] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/serializers.py changed, reloading.
+[2025-02-06 19:46:57] INFO autoreload Watching for file changes with StatReloader
+[2025-02-06 19:53:18] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/serializers.py changed, reloading.
+[2025-02-06 19:53:19] INFO autoreload Watching for file changes with StatReloader
+[2025-02-06 20:01:30] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/serializers.py changed, reloading.
+[2025-02-06 20:01:32] INFO autoreload Watching for file changes with StatReloader
+[2025-02-06 22:53:10] INFO autoreload Watching for file changes with StatReloader

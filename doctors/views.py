@@ -366,15 +366,48 @@ class DoctorRegistrationViewSet(viewsets.ModelViewSet):
                     verification.phone_verified = True
                     verification.save()
                     logger.info(f"[DOCTOR_DEBUG] Marked verification as complete - ID: {verification.id}")
+
+                    # Create user account
+                    from django.contrib.auth import get_user_model
+                    from django.contrib.auth.models import Group
+                    User = get_user_model()
+                    
+                    # Create user with a temporary password
+                    temp_password = User.objects.make_random_password()
+                    user = User.objects.create_user(
+                        email=verification.email,
+                        password=temp_password,
+                        is_active=True,
+                        is_staff=True
+                    )
+                    
+                    # Add to doctors group
+                    doctor_group, _ = Group.objects.get_or_create(name='Doctors')
+                    user.groups.add(doctor_group)
+                    logger.info(f"[DOCTOR_DEBUG] Created user account - ID: {user.id}")
+
+                    # Create doctor profile
+                    from .models import Doctor
+                    doctor = Doctor.objects.create(
+                        name=f"Dr. {verification.email.split('@')[0]}",  # Temporary name
+                        name_arabic="طبيب",  # Temporary name
+                        email=verification.email,
+                        phone=verification.phone,
+                        status='pending',
+                        category='general'  # Default category
+                    )
+                    logger.info(f"[DOCTOR_DEBUG] Created doctor profile - ID: {doctor.id}")
                     
                     return Response({
                         'status': 'success',
-                        'message': 'Phone number verified successfully.',
+                        'message': 'Phone number verified and account created successfully.',
                         'data': {
                             'verification_id': str(verification.id),
+                            'doctor_id': str(doctor.id),
                             'next_steps': [
                                 'Your phone number has been verified.',
-                                'Please proceed with completing your registration.'
+                                'Your account has been created.',
+                                'Please complete your profile with additional details.'
                             ]
                         }
                     })
@@ -433,15 +466,20 @@ class DoctorRegistrationViewSet(viewsets.ModelViewSet):
                     }
                 }, status=status.HTTP_400_BAD_REQUEST)
             
-            # Complete registration with stored data
-            registration_data = verification.registration_data or {}
+            # Get existing doctor
+            try:
+                doctor = Doctor.objects.get(email=email)
+            except Doctor.DoesNotExist:
+                return Response({
+                    'status': 'error',
+                    'message': 'Doctor profile not found. Please verify your phone number first.',
+                }, status=status.HTTP_400_BAD_REQUEST)
             
-            # Update with new data, handling files separately
-            for key, value in request.data.items():
-                if key not in ['verification_id']:
-                    registration_data[key] = value
+            # Update registration data
+            registration_data = request.data.copy()
+            registration_data.pop('verification_id', None)
             
-            # Log file uploads
+            # Handle file uploads
             if 'license_document' in request.FILES:
                 logger.info("[DOCTOR_DEBUG] Processing license document")
                 registration_data['license_document'] = request.FILES['license_document']
@@ -452,15 +490,24 @@ class DoctorRegistrationViewSet(viewsets.ModelViewSet):
                 logger.info("[DOCTOR_DEBUG] Processing additional documents")
                 registration_data['additional_documents'] = request.FILES['additional_documents']
             
-            # Complete registration
+            # Update doctor profile
             logger.info("[DOCTOR_DEBUG] Validating registration data")
-            registration_serializer = DoctorRegistrationSerializer(data=registration_data)
+            registration_serializer = DoctorRegistrationSerializer(doctor, data=registration_data, partial=True)
             registration_serializer.is_valid(raise_exception=True)
             
             with transaction.atomic():
-                logger.info("[DOCTOR_DEBUG] Creating doctor record")
+                logger.info("[DOCTOR_DEBUG] Updating doctor record")
                 doctor = registration_serializer.save()
-                logger.info(f"[DOCTOR_DEBUG] Doctor record created successfully - ID: {doctor.id}")
+                logger.info(f"[DOCTOR_DEBUG] Doctor record updated successfully - ID: {doctor.id}")
+                
+                # Update user password if provided
+                if 'password' in registration_data:
+                    from django.contrib.auth import get_user_model
+                    User = get_user_model()
+                    user = User.objects.get(email=email)
+                    user.set_password(registration_data['password'])
+                    user.save()
+                    logger.info(f"[DOCTOR_DEBUG] Updated user password")
                 
                 # Mark verification as used
                 verification.is_used = True
@@ -468,17 +515,17 @@ class DoctorRegistrationViewSet(viewsets.ModelViewSet):
                 
                 return Response({
                     'status': 'success',
-                    'message': 'Registration successful. Your account is pending approval.',
+                    'message': 'Registration completed successfully. Your profile is pending approval.',
                     'data': {
                         'doctor': DoctorSerializer(doctor).data,
                         'next_steps': [
-                            'Your registration is being reviewed by our team.',
+                            'Your profile is being reviewed by our team.',
                             'You will receive a notification once your account is approved.',
                             'After approval, you can sign in using your email and password.',
                             'For any questions, please contact our support team.'
                         ]
                     }
-                }, status=status.HTTP_201_CREATED)
+                }, status=status.HTTP_200_OK)
                 
         except serializers.ValidationError as e:
             logger.error(f"[DOCTOR_DEBUG] Registration validation error: {str(e)}")
