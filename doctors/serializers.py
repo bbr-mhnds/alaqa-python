@@ -568,10 +568,19 @@ class DoctorRegistrationInitiateSerializer(serializers.Serializer):
 
     def validate_phone(self, value):
         # Remove any non-digit characters
-        cleaned_number = ''.join(filter(str.isdigit, value))
-        if len(cleaned_number) < 9:
-            raise serializers.ValidationError("Phone number must have at least 9 digits")
-        return cleaned_number
+        phone = ''.join(filter(str.isdigit, value))
+        
+        # Add Saudi prefix if needed
+        if phone.startswith('5'):
+            phone = '966' + phone
+        elif phone.startswith('05'):
+            phone = '966' + phone[1:]
+            
+        # Validate length
+        if len(phone) != 12:  # 966 + 9 digits
+            raise serializers.ValidationError("Invalid phone number format. Must be a Saudi number.")
+            
+        return phone
 
 class DoctorRegistrationVerifySerializer(serializers.Serializer):
     """Serializer for verifying doctor registration"""
