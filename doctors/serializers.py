@@ -581,25 +581,30 @@ class DoctorRegistrationVerifySerializer(serializers.Serializer):
 
     def validate(self, data):
         try:
-            # First get the doctor verification
+            # Get the doctor verification
             verification = DoctorVerification.objects.get(
                 id=data['verification_id'],
                 email=data['email'],
-                is_used=False,
-                phone_verified=False
+                is_used=False
             )
+            
             if verification.is_expired:
                 raise serializers.ValidationError({
-                    "verification_id": "Verification code has expired"
+                    "verification_id": "Verification has expired"
                 })
             
             # Get the OTP record
             from otp.models import OTP
-            otp = OTP.objects.filter(
-                phone_number=verification.phone,
-                is_verified=False,
-                expires_at__gt=timezone.now()
-            ).latest('created_at')
+            try:
+                otp = OTP.objects.filter(
+                    phone_number=verification.phone,
+                    is_verified=False,
+                    expires_at__gt=timezone.now()
+                ).latest('created_at')
+            except OTP.DoesNotExist:
+                raise serializers.ValidationError({
+                    "sms_code": "No valid OTP found"
+                })
             
             if not otp.is_valid:
                 if otp.is_expired:
@@ -618,8 +623,5 @@ class DoctorRegistrationVerifySerializer(serializers.Serializer):
             raise serializers.ValidationError({
                 "verification_id": "Invalid or expired verification"
             })
-        except OTP.DoesNotExist:
-            raise serializers.ValidationError({
-                "sms_code": "No valid OTP found"
-            })
-        return data 
+            
+        return data

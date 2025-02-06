@@ -282,24 +282,19 @@ class DoctorRegistrationViewSet(viewsets.ModelViewSet):
                 registration_data=registration_data  # Pass registration data to store
             )
             
-            if verification_result['email']['success'] and verification_result['sms']['success']:
+            if verification_result['success']:
                 return Response({
                     'status': 'success',
-                    'message': 'Verification codes sent successfully',
+                    'message': verification_result['message'],
                     'data': {
                         'verification_id': verification_result.get('verification_id'),
-                        'email': verification_result['email']['message'],
-                        'sms': verification_result['sms']['message']
+                        'otp_id': verification_result.get('otp_id')
                     }
                 })
             else:
                 return Response({
                     'status': 'error',
-                    'message': 'Failed to send verification codes',
-                    'data': {
-                        'email': verification_result['email']['message'],
-                        'sms': verification_result['sms']['message']
-                    }
+                    'message': verification_result['message']
                 }, status=status.HTTP_400_BAD_REQUEST)
         except serializers.ValidationError as e:
             return Response({
@@ -385,7 +380,6 @@ class DoctorRegistrationViewSet(viewsets.ModelViewSet):
                     'status': 'error',
                     'message': 'Invalid verification code',
                     'data': {
-                        'phone_verified': verification.phone_verified,
                         'attempts_remaining': max(3 - otp.attempts, 0)
                     }
                 }, status=status.HTTP_400_BAD_REQUEST)
