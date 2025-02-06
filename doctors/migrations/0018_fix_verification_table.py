@@ -2,7 +2,7 @@ from django.db import migrations
 
 class Migration(migrations.Migration):
     dependencies = [
-        ('doctors', '0017_recreate_doctor_verification'),
+        ('doctors', '0016_fix_doctor_verification_schema'),
     ]
 
     operations = [
