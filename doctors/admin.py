@@ -40,7 +40,7 @@ class DoctorVerificationAdmin(admin.ModelAdmin):
     
     fieldsets = (
         (None, {
-            'fields': ('email', 'phone', 'email_code', 'sms_code')
+            'fields': ('email', 'phone')
         }),
         ('Verification Status', {
             'fields': ('email_verified', 'phone_verified', 'is_used')

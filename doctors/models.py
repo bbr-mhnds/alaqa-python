@@ -111,14 +111,12 @@ class Doctor(models.Model):
         return None
 
 class DoctorVerification(models.Model):
-    """Model to store doctor verification codes"""
+    """Model to store doctor verification data"""
     email = models.EmailField()
     phone = models.CharField(max_length=17)
-    email_code = models.CharField(max_length=6)
-    sms_code = models.CharField(max_length=10)  # Increased length to accommodate longer codes
-    email_verified = models.BooleanField(default=False)
+    email_verified = models.BooleanField(default=True)  # Always true since we don't use email verification
     phone_verified = models.BooleanField(default=False)
-    registration_data = models.JSONField()  # Store registration data temporarily
+    registration_data = models.JSONField(default=dict)  # Store registration data temporarily
     license_document = models.FileField(upload_to='temp/license_documents/', null=True)
     qualification_document = models.FileField(upload_to='temp/qualification_documents/', null=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -138,7 +136,7 @@ class DoctorVerification(models.Model):
 
     @property
     def is_complete(self):
-        return self.email_verified and self.phone_verified
+        return self.phone_verified  # Only check phone verification since email is always true
 
 class DoctorBankDetails(models.Model):
     """

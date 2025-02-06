@@ -1,7 +1,7 @@
 # Doctor Registration API Documentation
 
 ## Overview
-The doctor registration process is a two-step verification system that requires both email and SMS verification before completing the registration. After successful registration, the doctor's account will be pending admin approval.
+The doctor registration process is a two-step verification system that uses SMS verification before completing the registration. After successful registration, the doctor's account will be pending admin approval.
 
 ## Base URL
 ```
@@ -11,30 +11,15 @@ The doctor registration process is a two-step verification system that requires 
 ## Endpoints
 
 ### 1. Initiate Registration
-Start the registration process by submitting doctor details and receiving verification codes.
+Start the registration process by submitting doctor details and receiving verification code.
 
 **Endpoint:** `POST /register/initiate/`
 
 **Request Body:**
 ```json
 {
-    "name_arabic": "الطبيب محمد",
-    "name": "Dr. Mohammed",
-    "sex": "male",              // Options: male, female
     "email": "doctor@example.com",
-    "phone": "+966555555555",   // Format: +966XXXXXXXXX
-    "experience": "10 years",
-    "category": "specialist",    // Options: consultant, specialist, general
-    "language_in_sessions": "both",  // Options: arabic, english, both
-    "license_number": "12345",
-    "specialities": [1, 2],     // Array of specialty IDs
-    "profile_arabic": "نبذة عن الطبيب",
-    "profile_english": "Doctor profile",
-    "license_document": [file],  // Required
-    "qualification_document": [file],  // Required
-    "additional_documents": [file],    // Optional
-    "password": "secure_password",
-    "confirm_password": "secure_password"
+    "phone": "+966555555555"   // Format: +966XXXXXXXXX
 }
 ```
 
@@ -42,12 +27,10 @@ Start the registration process by submitting doctor details and receiving verifi
 ```json
 {
     "status": "success",
-    "message": "Verification codes sent successfully",
+    "message": "Verification code sent successfully",
     "data": {
         "verification_id": "123",
-        "email_sent": true,
-        "sms_sent": true,
-        "expires_at": "2025-01-20T22:45:00Z"
+        "otp_id": "uuid"
     }
 }
 ```
@@ -61,7 +44,7 @@ Start the registration process by submitting doctor details and receiving verifi
     "message": "Validation error",
     "errors": {
         "email": ["A user with this email already exists."],
-        "license_number": ["A doctor with this license number already exists."]
+        "phone": ["Invalid phone number format"]
     }
 }
 ```
@@ -70,14 +53,13 @@ Start the registration process by submitting doctor details and receiving verifi
 ```json
 {
     "status": "error",
-    "message": "Failed to send verification codes",
-    "email_error": "Failed to send email",
+    "message": "Failed to send verification code",
     "sms_error": "Failed to send SMS"
 }
 ```
 
 ### 2. Complete Registration with Verification
-Verify email and SMS codes to complete the registration process.
+Verify SMS code to complete the registration process.
 
 **Endpoint:** `POST /register/verify/`
 
@@ -85,8 +67,30 @@ Verify email and SMS codes to complete the registration process.
 ```json
 {
     "verification_id": "123",
-    "email_code": "123456",  // 6-digit code received in email
-    "sms_code": "789012"     // 6-digit code received in SMS
+    "email": "doctor@example.com",
+    "sms_code": "000000",     // 6-digit code received in SMS
+    "name_arabic": "الطبيب محمد",
+    "name": "Dr. Mohammed",
+    "sex": "male",              // Options: male, female
+    "phone": "+966555555555",   // Format: +966XXXXXXXXX
+    "experience": "10 years",
+    "category": "specialist",    // Options: consultant, specialist, general
+    "language_in_sessions": "both",  // Options: arabic, english, both
+    "license_number": "12345",
+    "specialities": [1, 2],     // Array of specialty IDs
+    "profile_arabic": "نبذة عن الطبيب",
+    "profile_english": "Doctor profile",
+    "license_document": [file],  // Required
+    "qualification_document": [file],  // Required
+    "additional_documents": [file],    // Optional
+    "password": "secure_password",
+    "confirm_password": "secure_password",
+    "terms_and_privacy_accepted": true,
+    "bank_name": "Bank Name",
+    "account_holder_name": "Account Holder",
+    "account_number": "12345678",
+    "iban_number": "SA0380000000608010167519",
+    "swift_code": "TESTBICX"
 }
 ```
 
@@ -135,17 +139,18 @@ Verify email and SMS codes to complete the registration process.
 ```json
 {
     "status": "error",
-    "message": "Invalid verification codes",
-    "email_verified": false,
-    "phone_verified": false
+    "message": "Invalid verification code",
+    "data": {
+        "attempts_remaining": 2
+    }
 }
 ```
 
-3. Expired Codes (400 Bad Request):
+3. Expired Code (400 Bad Request):
 ```json
 {
     "status": "error",
-    "message": "Verification codes have expired"
+    "message": "Verification code has expired"
 }
 ```
 
@@ -153,46 +158,51 @@ Verify email and SMS codes to complete the registration process.
 ```json
 {
     "status": "error",
-    "message": "Invalid verification ID"
+    "message": "Invalid or expired verification ID"
 }
 ```
 
-## Important Notes
+## Implementation Notes
 
-1. **File Upload Requirements:**
-   - `license_document`: Required, max size 5MB, formats: PDF, JPG, PNG
-   - `qualification_document`: Required, max size 5MB, formats: PDF, JPG, PNG
-   - `additional_documents`: Optional, max size 5MB, formats: PDF, JPG, PNG
+1. Phone Number Format:
+   - Must start with country code (e.g., +966)
+   - Must be at least 9 digits after country code
+   - No special characters except leading '+'
 
-2. **Verification Process:**
-   - Both email and SMS codes must be verified
-   - Verification codes expire after 10 minutes
-   - Different codes are sent for email and SMS
-   - Maximum 3 verification attempts allowed
+2. SMS Verification:
+   - Code is 6 digits
+   - Valid for 10 minutes
+   - Maximum 3 verification attempts
+   - Code becomes invalid after successful verification
 
-3. **Password Requirements:**
+3. File Requirements:
+   - License document: Required, PDF format
+   - Qualification document: Required, PDF format
+   - Additional documents: Optional, PDF format
+   - Maximum file size: 5MB per file
+
+4. Password Requirements:
    - Minimum 8 characters
    - Must contain at least one uppercase letter
+   - Must contain at least one lowercase letter
    - Must contain at least one number
    - Must contain at least one special character
 
-4. **Phone Number Format:**
-   - Must start with country code (+966)
-   - Must be between 9-15 digits
-   - No spaces or special characters except '+'
-
-5. **Account Status:**
-   - Initial status is 'pending'
-   - Admin must approve account before doctor can sign in
-   - Doctor will be notified via email upon approval/rejection
+5. Bank Details:
+   - IBAN: Must follow Saudi IBAN format (24 characters)
+   - SWIFT code: Must be 8 or 11 characters
+   - Account number: Minimum 8 digits
 
 ## Security Considerations
 
-1. All endpoints use HTTPS
-2. Files are scanned for viruses
-3. Rate limiting applied: 5 requests per minute
-4. Verification codes are hashed before storage
-5. Registration data is encrypted at rest
+1. Use HTTPS for all API calls
+2. Implement rate limiting for verification attempts
+3. Validate file types and sizes before upload
+4. Sanitize all user inputs
+5. Implement proper session management
+6. Use secure password hashing
+7. Implement proper error handling
+8. Log all registration attempts
 
 ## Testing
 

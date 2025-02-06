@@ -1,22 +1,14 @@
 import os
 import django
-import json
-import requests
-from datetime import datetime
-from reportlab.pdfgen import canvas
 import uuid
+import json
+from datetime import datetime
+import requests
+from utils.pdf_utils import create_test_pdf
 
 # Set up Django environment
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
 django.setup()
-
-def create_test_pdf(filename, title="Test Document"):
-    """Create a test PDF file with given title"""
-    c = canvas.Canvas(filename)
-    c.drawString(100, 750, title)
-    c.drawString(100, 700, f"Generated for testing on {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-    c.save()
-    return filename
 
 def test_doctor_registration():
     """Test the complete doctor registration flow"""
@@ -116,4 +108,4 @@ def test_doctor_registration():
         os.remove(qualification_file)
 
 if __name__ == "__main__":
-    test_doctor_registration() 
+    test_doctor_registration()

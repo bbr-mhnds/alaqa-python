@@ -8,96 +8,100 @@
 
 ## Test Cases
 
-### 1. Initiate Registration - Success Case
+### 1. Initiate Registration
+
+#### a. Success Case
 ```bash
 curl -X POST http://localhost:8000/api/v1/doctors/register/initiate/ \
-  -H "Content-Type: multipart/form-data" \
-  -F "name_arabic=الطبيب محمد" \
-  -F "name=Dr. Mohammed" \
-  -F "sex=male" \
-  -F "email=test.doctor@zuwara.net" \
-  -F "phone=+966555555555" \
-  -F "experience=10 years" \
-  -F "category=specialist" \
-  -F "language_in_sessions=both" \
-  -F "license_number=12345" \
-  -F "specialities=[1,2]" \
-  -F "profile_arabic=نبذة عن الطبيب" \
-  -F "profile_english=Doctor profile" \
-  -F "license_document=@license.pdf" \
-  -F "qualification_document=@qualification.pdf" \
-  -F "password=Test@123" \
-  -F "confirm_password=Test@123"
+  -H "Content-Type: application/json" \
+  -d '{
+    "email": "test.doctor@alaqa.net",
+    "phone": "555552022"
+  }'
 ```
 
-### 2. Initiate Registration - Validation Error Cases
-
-#### a. Existing Email
+#### b. Invalid Email
 ```bash
 curl -X POST http://localhost:8000/api/v1/doctors/register/initiate/ \
-  -H "Content-Type: multipart/form-data" \
-  -F "email=existing.doctor@zuwara.net" \
-  # ... (other fields)
+  -H "Content-Type: application/json" \
+  -d '{
+    "email": "invalid-email",
+    "phone": "555552022"
+  }'
 ```
 
-#### b. Invalid Phone Format
+#### c. Invalid Phone
 ```bash
 curl -X POST http://localhost:8000/api/v1/doctors/register/initiate/ \
-  -H "Content-Type: multipart/form-data" \
-  -F "phone=123456789" \
-  # ... (other fields)
+  -H "Content-Type: application/json" \
+  -d '{
+    "email": "test.doctor@alaqa.net",
+    "phone": "123"
+  }'
 ```
 
-#### c. Missing Required Documents
-```bash
-curl -X POST http://localhost:8000/api/v1/doctors/register/initiate/ \
-  -H "Content-Type: multipart/form-data" \
-  # ... (without license_document)
-```
+### 2. Complete Registration
 
-### 3. Complete Registration - Success Case
+#### a. Success Case
 ```bash
 curl -X POST http://localhost:8000/api/v1/doctors/register/verify/ \
   -H "Content-Type: application/json" \
   -d '{
     "verification_id": "123",
-    "email_code": "123456",
-    "sms_code": "789012"
+    "email": "test.doctor@alaqa.net",
+    "sms_code": "000000",
+    "name_arabic": "طبيب تجريبي",
+    "name": "Test Doctor",
+    "sex": "male",
+    "phone": "555552022",
+    "experience": "10 years",
+    "category": "specialist",
+    "language_in_sessions": "both",
+    "license_number": "LIC20250106123456",
+    "specialities": ["188da049-4265-4ddb-9df7-5b9dc8cb2056"],
+    "profile_arabic": "نبذة عن الطبيب باللغة العربية",
+    "profile_english": "Doctor profile in English",
+    "password": "TestPass@123",
+    "confirm_password": "TestPass@123",
+    "terms_and_privacy_accepted": true,
+    "bank_name": "Test Bank",
+    "account_holder_name": "Test Doctor",
+    "account_number": "12345678",
+    "iban_number": "SA0380000000608010167519",
+    "swift_code": "TESTBICX"
   }'
 ```
 
-### 4. Complete Registration - Error Cases
-
-#### a. Invalid Verification Codes
+#### b. Invalid SMS Code
 ```bash
 curl -X POST http://localhost:8000/api/v1/doctors/register/verify/ \
   -H "Content-Type: application/json" \
   -d '{
     "verification_id": "123",
-    "email_code": "000000",
-    "sms_code": "000000"
+    "email": "test.doctor@alaqa.net",
+    "sms_code": "111111"
   }'
 ```
 
-#### b. Expired Verification
+#### c. Expired Verification
 ```bash
 curl -X POST http://localhost:8000/api/v1/doctors/register/verify/ \
   -H "Content-Type: application/json" \
   -d '{
     "verification_id": "expired_id",
-    "email_code": "123456",
-    "sms_code": "789012"
+    "email": "test.doctor@alaqa.net",
+    "sms_code": "000000"
   }'
 ```
 
-#### c. Invalid Verification ID
+#### d. Invalid Verification ID
 ```bash
 curl -X POST http://localhost:8000/api/v1/doctors/register/verify/ \
   -H "Content-Type: application/json" \
   -d '{
     "verification_id": "invalid_id",
-    "email_code": "123456",
-    "sms_code": "789012"
+    "email": "test.doctor@alaqa.net",
+    "sms_code": "000000"
   }'
 ```
 
@@ -106,7 +110,7 @@ curl -X POST http://localhost:8000/api/v1/doctors/register/verify/ \
 1. Start with a clean database state
 2. Run the success case for initiation
 3. Note down the verification_id from the response
-4. Check email and SMS for verification codes
+4. Check SMS for verification code
 5. Use these in the complete registration test
 6. Verify the response contains doctor details
 7. Try to login (should fail until approved)
@@ -118,7 +122,7 @@ curl -X POST http://localhost:8000/api/v1/doctors/register/verify/ \
    - Return 200/201 status codes
    - Provide verification ID for initiation
    - Show pending status after completion
-   - Send actual email and SMS codes
+   - Send actual SMS code
 
 2. Error cases should:
    - Return appropriate 4xx status codes
@@ -129,8 +133,7 @@ curl -X POST http://localhost:8000/api/v1/doctors/register/verify/ \
 ## Monitoring
 
 Monitor the following during tests:
-1. Email delivery logs
-2. SMS delivery logs
-3. Server logs for errors
-4. Database records
-5. File storage for uploaded documents 
+1. SMS delivery logs
+2. Server logs for errors
+3. Database records
+4. File storage for uploaded documents 
