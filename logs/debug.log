@@ -5428,3 +5428,76 @@ RuntimeError: You called this URL via POST, but the URL doesn't end in a slash a
 [2025-02-02 22:27:17] INFO email_service Email sent successfully to ['babar@alaqa.net']. Status code: 202
 [2025-02-02 22:28:39] INFO email_service Email sent successfully to ['babar@alaqa.net']. Status code: 202
 [2025-02-02 22:28:41] INFO email_service Email sent successfully to ['abdulrahman@alaqa.net']. Status code: 202
+[2025-02-06 10:28:57] INFO autoreload Watching for file changes with StatReloader
+[2025-02-06 10:30:49] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/views.py changed, reloading.
+[2025-02-06 10:30:49] INFO autoreload Watching for file changes with StatReloader
+[2025-02-06 10:51:54] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/models.py changed, reloading.
+[2025-02-06 10:51:55] INFO autoreload Watching for file changes with StatReloader
+[2025-02-06 10:52:10] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/admin.py changed, reloading.
+[2025-02-06 10:52:10] INFO autoreload Watching for file changes with StatReloader
+[2025-02-06 10:57:06] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/services.py changed, reloading.
+[2025-02-06 10:57:06] INFO autoreload Watching for file changes with StatReloader
+[2025-02-06 10:57:15] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/services.py changed, reloading.
+[2025-02-06 10:57:15] INFO autoreload Watching for file changes with StatReloader
+[2025-02-06 10:58:13] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/otp/services.py changed, reloading.
+[2025-02-06 10:58:13] INFO autoreload Watching for file changes with StatReloader
+[2025-02-06 10:59:04] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/serializers.py changed, reloading.
+[2025-02-06 10:59:04] INFO autoreload Watching for file changes with StatReloader
+[2025-02-06 10:59:15] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/serializers.py changed, reloading.
+[2025-02-06 10:59:15] INFO autoreload Watching for file changes with StatReloader
+[2025-02-06 11:00:08] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/serializers.py changed, reloading.
+[2025-02-06 11:00:08] INFO autoreload Watching for file changes with StatReloader
+[2025-02-06 11:00:23] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/serializers.py changed, reloading.
+[2025-02-06 11:00:23] INFO autoreload Watching for file changes with StatReloader
+[2025-02-06 11:00:45] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/views.py changed, reloading.
+[2025-02-06 11:00:45] INFO autoreload Watching for file changes with StatReloader
+[2025-02-06 11:01:00] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/views.py changed, reloading.
+[2025-02-06 11:01:00] INFO autoreload Watching for file changes with StatReloader
+[2025-02-06 11:52:12] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/models.py changed, reloading.
+[2025-02-06 11:52:14] INFO autoreload Watching for file changes with StatReloader
+[2025-02-06 13:10:54] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/migrations/0016_fix_doctor_verification_schema.py changed, reloading.
+[2025-02-06 13:10:55] INFO autoreload Watching for file changes with StatReloader
+[2025-02-06 13:17:40] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/models.py changed, reloading.
+[2025-02-06 13:17:41] INFO autoreload Watching for file changes with StatReloader
+[2025-02-06 13:56:10] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/models.py changed, reloading.
+[2025-02-06 13:56:10] INFO autoreload Watching for file changes with StatReloader
+[2025-02-06 14:32:49] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/services.py changed, reloading.
+[2025-02-06 14:32:49] INFO autoreload Watching for file changes with StatReloader
+[2025-02-06 15:36:11] INFO autoreload Watching for file changes with StatReloader
+[2025-02-06 15:37:36] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/models.py changed, reloading.
+[2025-02-06 15:37:36] INFO autoreload Watching for file changes with StatReloader
+[2025-02-06 15:38:50] INFO services [OTP_DEBUG] Starting OTP creation for phone: 966555555555
+[2025-02-06 15:38:50] INFO services [OTP_DEBUG] Generated OTP code: 000000
+[2025-02-06 15:38:50] INFO services [OTP_DEBUG] Generated OTP code: 000000 for phone: 966555555555
+[2025-02-06 15:38:50] INFO services [OTP_DEBUG] Created OTP record - ID: d3c80e9a-35e7-45d8-abeb-5fae262a3201, Phone: 966555555555
+[2025-02-06 15:38:50] INFO services [OTP_DEBUG] Prepared SMS message: ZUWARA: Your verification code is 000000
+[2025-02-06 15:38:50] INFO services [OTP_DEBUG] Attempting to send SMS to 966555555555
+[2025-02-06 15:38:50] INFO services [OTP_DEBUG] Message content: ZUWARA: Your verification code is 000000
+[2025-02-06 15:38:50] INFO services [OTP_DEBUG] Formatted number for sending: 555555555
+[2025-02-06 15:38:50] INFO services [OTP_DEBUG] DEV MODE - SMS would be sent to 555555555
+[2025-02-06 15:38:50] INFO services [OTP_DEBUG] DEV MODE - Message content: ZUWARA: Your verification code is 000000
+[2025-02-06 15:38:50] INFO services [OTP_DEBUG] SMS send result - Success: True, Response: SMS sent successfully (Development Mode)
+[2025-02-06 15:38:50] INFO services [OTP_DEBUG] Final result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': 'd3c80e9a-35e7-45d8-abeb-5fae262a3201'}
+[2025-02-06 15:39:01] INFO services Verifying OTP for 966555555555
+[2025-02-06 15:39:01] INFO services OTP verified successfully for 966555555555
+[2025-02-06 15:44:05] INFO autoreload Watching for file changes with StatReloader
+[2025-02-06 15:44:49] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/models.py changed, reloading.
+[2025-02-06 15:44:50] INFO autoreload Watching for file changes with StatReloader
+[2025-02-06 15:45:11] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/models.py changed, reloading.
+[2025-02-06 15:45:11] INFO autoreload Watching for file changes with StatReloader
+[2025-02-06 15:45:40] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/serializers.py changed, reloading.
+[2025-02-06 15:45:41] INFO autoreload Watching for file changes with StatReloader
+[2025-02-06 15:46:27] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/models.py changed, reloading.
+[2025-02-06 15:46:28] INFO autoreload Watching for file changes with StatReloader
+[2025-02-06 15:59:26] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/serializers.py changed, reloading.
+[2025-02-06 15:59:26] INFO autoreload Watching for file changes with StatReloader
+[2025-02-06 16:00:27] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/views.py changed, reloading.
+[2025-02-06 16:00:28] INFO autoreload Watching for file changes with StatReloader
+[2025-02-06 16:00:51] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/services.py changed, reloading.
+[2025-02-06 16:00:51] INFO autoreload Watching for file changes with StatReloader
+[2025-02-06 16:01:12] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/views.py changed, reloading.
+[2025-02-06 16:01:13] INFO autoreload Watching for file changes with StatReloader
+[2025-02-06 16:01:40] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/views.py changed, reloading.
+[2025-02-06 16:01:41] INFO autoreload Watching for file changes with StatReloader
+[2025-02-06 16:05:18] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/services.py changed, reloading.
+[2025-02-06 16:05:19] INFO autoreload Watching for file changes with StatReloader

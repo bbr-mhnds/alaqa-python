@@ -25,8 +25,16 @@ from .services import DoctorVerificationService
 import logging
 from django.core.exceptions import ValidationError
 from rest_framework.exceptions import ValidationError as DRFValidationError
+from django.db import transaction
+from rest_framework.throttling import AnonRateThrottle
 
 logger = logging.getLogger(__name__)
+
+class RegistrationRateThrottle(AnonRateThrottle):
+    rate = '5/hour'  # 5 attempts per hour
+    
+class VerificationRateThrottle(AnonRateThrottle):
+    rate = '3/hour'  # 3 attempts per hour
 
 class DoctorFilter(django_filters.FilterSet):
     status = django_filters.CharFilter(field_name='status')
@@ -252,6 +260,13 @@ class DoctorRegistrationViewSet(viewsets.ModelViewSet):
     authentication_classes = []  # Disable authentication completely
     permission_classes = [permissions.AllowAny]
     http_method_names = ['post']
+    
+    def get_throttles(self):
+        if self.action == 'initiate':
+            return [RegistrationRateThrottle()]
+        elif self.action == 'verify':
+            return [VerificationRateThrottle()]
+        return []
 
     def get_serializer_class(self):
         if self.action == 'initiate':
@@ -312,12 +327,17 @@ class DoctorRegistrationViewSet(viewsets.ModelViewSet):
     def verify(self, request):
         """Step 2: Complete registration with verification"""
         try:
+            logger.info(f"[DOCTOR_DEBUG] Starting verification process for email: {request.data.get('email')}")
+            
             # Extract verification data
             verification_data = {
                 'verification_id': request.data.get('verification_id'),
                 'email': request.data.get('email'),
                 'sms_code': request.data.get('sms_code')
             }
+            
+            # Log verification attempt
+            logger.info(f"[DOCTOR_DEBUG] Verification attempt - Data: {verification_data}")
             
             # Validate verification data
             verify_serializer = DoctorRegistrationVerifySerializer(data=verification_data)
@@ -326,55 +346,73 @@ class DoctorRegistrationViewSet(viewsets.ModelViewSet):
             verification = verify_serializer.validated_data['verification']
             otp = verify_serializer.validated_data['otp']
             
+            logger.info(f"[DOCTOR_DEBUG] Found verification record - ID: {verification.id}")
+            logger.info(f"[DOCTOR_DEBUG] Found OTP record - ID: {otp.id}, Attempts: {otp.attempts}")
+            
             # Verify OTP code
             if verification_data['sms_code'] == otp.otp_code:
-                # Mark OTP as verified
-                otp.is_verified = True
-                otp.save()
+                logger.info("[DOCTOR_DEBUG] OTP code matched, proceeding with registration")
                 
-                # Mark verification as complete
-                verification.phone_verified = True
-                verification.is_used = True
-                verification.save()
-                
-                # Complete registration with stored data
-                registration_data = verification.registration_data or {}
-                
-                # Update with new data, handling files separately
-                for key, value in request.data.items():
-                    if key not in ['verification_id', 'email', 'sms_code']:
-                        registration_data[key] = value
-                
-                # Handle file uploads
-                if 'license_document' in request.FILES:
-                    registration_data['license_document'] = request.FILES['license_document']
-                if 'qualification_document' in request.FILES:
-                    registration_data['qualification_document'] = request.FILES['qualification_document']
-                if 'additional_documents' in request.FILES:
-                    registration_data['additional_documents'] = request.FILES['additional_documents']
-                
-                # Complete registration
-                registration_serializer = DoctorRegistrationSerializer(data=registration_data)
-                registration_serializer.is_valid(raise_exception=True)
-                doctor = registration_serializer.save()
-                
-                return Response({
-                    'status': 'success',
-                    'message': 'Registration successful. Your account is pending approval.',
-                    'data': {
-                        'doctor': DoctorSerializer(doctor).data,
-                        'next_steps': [
-                            'Your registration is being reviewed by our team.',
-                            'You will receive a notification once your account is approved.',
-                            'After approval, you can sign in using your email and password.',
-                            'For any questions, please contact our support team.'
-                        ]
-                    }
-                }, status=status.HTTP_201_CREATED)
+                # Use transaction to ensure atomic operations
+                with transaction.atomic():
+                    # Mark OTP as verified
+                    otp.is_verified = True
+                    otp.save()
+                    logger.info(f"[DOCTOR_DEBUG] Marked OTP as verified - ID: {otp.id}")
+                    
+                    # Mark verification as complete
+                    verification.phone_verified = True
+                    verification.is_used = True
+                    verification.save()
+                    logger.info(f"[DOCTOR_DEBUG] Marked verification as complete - ID: {verification.id}")
+                    
+                    # Complete registration with stored data
+                    registration_data = verification.registration_data or {}
+                    
+                    # Update with new data, handling files separately
+                    for key, value in request.data.items():
+                        if key not in ['verification_id', 'email', 'sms_code']:
+                            registration_data[key] = value
+                    
+                    # Log file uploads
+                    if 'license_document' in request.FILES:
+                        logger.info("[DOCTOR_DEBUG] Processing license document")
+                        registration_data['license_document'] = request.FILES['license_document']
+                    if 'qualification_document' in request.FILES:
+                        logger.info("[DOCTOR_DEBUG] Processing qualification document")
+                        registration_data['qualification_document'] = request.FILES['qualification_document']
+                    if 'additional_documents' in request.FILES:
+                        logger.info("[DOCTOR_DEBUG] Processing additional documents")
+                        registration_data['additional_documents'] = request.FILES['additional_documents']
+                    
+                    # Complete registration
+                    logger.info("[DOCTOR_DEBUG] Validating registration data")
+                    registration_serializer = DoctorRegistrationSerializer(data=registration_data)
+                    registration_serializer.is_valid(raise_exception=True)
+                    
+                    logger.info("[DOCTOR_DEBUG] Creating doctor record")
+                    doctor = registration_serializer.save()
+                    logger.info(f"[DOCTOR_DEBUG] Doctor record created successfully - ID: {doctor.id}")
+                    
+                    return Response({
+                        'status': 'success',
+                        'message': 'Registration successful. Your account is pending approval.',
+                        'data': {
+                            'doctor': DoctorSerializer(doctor).data,
+                            'next_steps': [
+                                'Your registration is being reviewed by our team.',
+                                'You will receive a notification once your account is approved.',
+                                'After approval, you can sign in using your email and password.',
+                                'For any questions, please contact our support team.'
+                            ]
+                        }
+                    }, status=status.HTTP_201_CREATED)
             else:
                 # Increment OTP attempts
                 otp.attempts += 1
                 otp.save()
+                
+                logger.warning(f"[DOCTOR_DEBUG] Invalid OTP code provided - Attempts: {otp.attempts}")
                 
                 return Response({
                     'status': 'error',
@@ -386,13 +424,14 @@ class DoctorRegistrationViewSet(viewsets.ModelViewSet):
             
         except serializers.ValidationError as e:
             logger.error(f"[DOCTOR_DEBUG] Registration validation error: {str(e)}")
+            logger.error(f"[DOCTOR_DEBUG] Validation error details: {e.detail}")
             return Response({
                 'status': 'error',
                 'message': 'Validation error',
                 'errors': e.detail
             }, status=status.HTTP_400_BAD_REQUEST)
         except Exception as e:
-            logger.error(f"[DOCTOR_DEBUG] Registration error: {str(e)}")
+            logger.error(f"[DOCTOR_DEBUG] Registration error: {str(e)}", exc_info=True)
             return Response({
                 'status': 'error',
                 'message': str(e)

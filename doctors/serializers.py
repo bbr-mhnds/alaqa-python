@@ -575,7 +575,7 @@ class DoctorRegistrationInitiateSerializer(serializers.Serializer):
 
 class DoctorRegistrationVerifySerializer(serializers.Serializer):
     """Serializer for verifying doctor registration"""
-    verification_id = serializers.IntegerField()
+    verification_id = serializers.UUIDField()
     email = serializers.EmailField()
     sms_code = serializers.CharField()
 

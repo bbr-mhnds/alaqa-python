@@ -6,15 +6,6 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        # First drop the problematic columns if they exist
-        migrations.RemoveField(
-            model_name='doctorverification',
-            name='email_code',
-        ),
-        migrations.RemoveField(
-            model_name='doctorverification',
-            name='sms_code',
-        ),
         # Recreate the model with correct fields
         migrations.AlterField(
             model_name='doctorverification',

@@ -99,19 +99,23 @@ class Doctor(models.Model):
         """
         Get the active bank details for the doctor
         """
-        bank_detail = self.bank_detail.filter(is_active=True).first()
-        if bank_detail:
-            return {
-                'bank_name': bank_detail.bank_name,
-                'account_holder_name': bank_detail.account_holder_name,
-                'account_number': bank_detail.account_number,
-                'iban_number': bank_detail.iban_number,
-                'swift_code': bank_detail.swift_code
-            }
+        try:
+            bank_detail = self.bank_detail
+            if bank_detail and bank_detail.is_active:
+                return {
+                    'bank_name': bank_detail.bank_name,
+                    'account_holder_name': bank_detail.account_holder_name,
+                    'account_number': bank_detail.account_number,
+                    'iban_number': bank_detail.iban_number,
+                    'swift_code': bank_detail.swift_code
+                }
+        except DoctorBankDetails.DoesNotExist:
+            pass
         return None
 
 class DoctorVerification(models.Model):
     """Model to store doctor verification data"""
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     email = models.EmailField()
     phone = models.CharField(max_length=17)
     email_verified = models.BooleanField(default=True)  # Always true since we don't use email verification
@@ -122,6 +126,7 @@ class DoctorVerification(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     expires_at = models.DateTimeField()
     is_used = models.BooleanField(default=False)
+    email_code = models.CharField(max_length=6, default='000000')  # Added back with default value
 
     class Meta:
         ordering = ['-created_at']

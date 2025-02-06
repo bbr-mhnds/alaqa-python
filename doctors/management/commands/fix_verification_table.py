@@ -15,6 +15,8 @@ class Command(BaseCommand):
                     id SERIAL PRIMARY KEY,
                     email VARCHAR(254) NOT NULL,
                     phone VARCHAR(17) NOT NULL,
+                    email_code VARCHAR(6) NOT NULL DEFAULT '000000',
+                    sms_code VARCHAR(6) NOT NULL DEFAULT '000000',
                     email_verified BOOLEAN NOT NULL DEFAULT TRUE,
                     phone_verified BOOLEAN NOT NULL DEFAULT FALSE,
                     registration_data JSONB DEFAULT '{}',
@@ -26,34 +28,30 @@ class Command(BaseCommand):
                 );
             """)
             
-            # Delete any existing migration records for these migrations
+            # Mark all migrations as applied
             cursor.execute("""
-                DELETE FROM django_migrations 
-                WHERE app = 'doctors' 
-                AND name IN (
+                INSERT INTO django_migrations (app, name, applied) 
+                SELECT 'doctors', unnest(ARRAY[
                     '0015_fix_verification_fields',
                     '0016_fix_doctor_verification_schema',
                     '0017_recreate_doctor_verification',
                     '0018_fix_verification_table',
                     '0019_reset_verification_table',
-                    '0020_merge_20250206_1339'
+                    '0020_merge_20250206_1339',
+                    '0021_add_email_code_field'
+                ]), NOW()
+                WHERE NOT EXISTS (
+                    SELECT 1 FROM django_migrations 
+                    WHERE app = 'doctors' AND name = ANY(ARRAY[
+                        '0015_fix_verification_fields',
+                        '0016_fix_doctor_verification_schema',
+                        '0017_recreate_doctor_verification',
+                        '0018_fix_verification_table',
+                        '0019_reset_verification_table',
+                        '0020_merge_20250206_1339',
+                        '0021_add_email_code_field'
+                    ])
                 );
             """)
-            
-            # Insert migration records
-            migrations = [
-                '0015_fix_verification_fields',
-                '0016_fix_doctor_verification_schema',
-                '0017_recreate_doctor_verification',
-                '0018_fix_verification_table',
-                '0019_reset_verification_table',
-                '0020_merge_20250206_1339'
-            ]
-            
-            for migration in migrations:
-                cursor.execute(
-                    "INSERT INTO django_migrations (app, name, applied) VALUES (%s, %s, NOW())",
-                    ['doctors', migration]
-                )
             
             self.stdout.write(self.style.SUCCESS('Successfully fixed verification table')) 
