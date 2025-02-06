@@ -26,17 +26,34 @@ class Command(BaseCommand):
                 );
             """)
             
-            # Update django_migrations to mark all migrations as applied
+            # Delete any existing migration records for these migrations
             cursor.execute("""
-                INSERT INTO django_migrations (app, name, applied) 
-                VALUES 
-                    ('doctors', '0015_fix_verification_fields', NOW()),
-                    ('doctors', '0016_fix_doctor_verification_schema', NOW()),
-                    ('doctors', '0017_recreate_doctor_verification', NOW()),
-                    ('doctors', '0018_fix_verification_table', NOW()),
-                    ('doctors', '0019_reset_verification_table', NOW()),
-                    ('doctors', '0020_merge_20250206_1339', NOW())
-                ON CONFLICT (app, name) DO NOTHING;
+                DELETE FROM django_migrations 
+                WHERE app = 'doctors' 
+                AND name IN (
+                    '0015_fix_verification_fields',
+                    '0016_fix_doctor_verification_schema',
+                    '0017_recreate_doctor_verification',
+                    '0018_fix_verification_table',
+                    '0019_reset_verification_table',
+                    '0020_merge_20250206_1339'
+                );
             """)
+            
+            # Insert migration records
+            migrations = [
+                '0015_fix_verification_fields',
+                '0016_fix_doctor_verification_schema',
+                '0017_recreate_doctor_verification',
+                '0018_fix_verification_table',
+                '0019_reset_verification_table',
+                '0020_merge_20250206_1339'
+            ]
+            
+            for migration in migrations:
+                cursor.execute(
+                    "INSERT INTO django_migrations (app, name, applied) VALUES (%s, %s, NOW())",
+                    ['doctors', migration]
+                )
             
             self.stdout.write(self.style.SUCCESS('Successfully fixed verification table')) 
