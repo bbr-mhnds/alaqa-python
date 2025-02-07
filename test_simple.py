@@ -1,0 +1,1 @@
+import requests, json, time; base_url="https://api.alaqa.net"; print("Testing Doctor Registration..."); response = requests.post(f"{base_url}/api/v1/doctors/register/initiate/", json={"email": "test@example.com", "phone": "+966501234567"}, verify=False); print(f"Status: {response.status_code}"); print(f"Response: {response.text}")

@@ -5524,3 +5524,112 @@ RuntimeError: You called this URL via POST, but the URL doesn't end in a slash a
 [2025-02-06 20:01:30] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/serializers.py changed, reloading.
 [2025-02-06 20:01:32] INFO autoreload Watching for file changes with StatReloader
 [2025-02-06 22:53:10] INFO autoreload Watching for file changes with StatReloader
+[2025-02-07 00:16:48] WARNING utils Could not reverse url from auth.user
+[2025-02-07 00:17:11] WARNING log Unauthorized: /api/v1/auth/login/
+[2025-02-07 00:17:50] WARNING log Bad Request: /api/v1/doctors/register/initiate/
+[2025-02-07 00:18:50] WARNING log Bad Request: /api/v1/doctors/register/initiate/
+[2025-02-07 00:19:33] INFO services [OTP_DEBUG] Starting OTP creation for phone: 966501234567
+[2025-02-07 00:19:33] INFO services [OTP_DEBUG] Generated OTP code: 000000
+[2025-02-07 00:19:33] INFO services [OTP_DEBUG] Generated OTP code: 000000 for phone: 966501234567
+[2025-02-07 00:19:34] INFO services [OTP_DEBUG] Created OTP record - ID: 6a6a4128-c436-4c30-8911-9e632a18d263, Phone: 966501234567
+[2025-02-07 00:19:34] INFO services [OTP_DEBUG] Prepared SMS message: ZUWARA: Your verification code is 000000
+[2025-02-07 00:19:34] INFO services [OTP_DEBUG] Attempting to send SMS to 966501234567
+[2025-02-07 00:19:34] INFO services [OTP_DEBUG] Message content: ZUWARA: Your verification code is 000000
+[2025-02-07 00:19:34] INFO services [OTP_DEBUG] Formatted number for sending: 501234567
+[2025-02-07 00:19:34] INFO services [OTP_DEBUG] Sending SMS with params: {'user': 'test_user', 'secret_key': 'test_secret', 'to': '501234567', 'message': 'ZUWARA: Your verification code is 000000', 'sender': 'ZUWARA'}
+[2025-02-07 00:19:34] INFO services [OTP_DEBUG] API URL: https://api.dreams.sa/v1/messages
+[2025-02-07 00:19:34] ERROR services [OTP_DEBUG] SMS API request failed: HTTPSConnectionPool(host='api.dreams.sa', port=443): Max retries exceeded with url: /v1/messages?user=test_user&secret_key=test_secret&to=501234567&message=ZUWARA%3A+Your+verification+code+is+000000&sender=ZUWARA (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x79fe0bb047d0>: Failed to resolve 'api.dreams.sa' ([Errno -5] No address associated with hostname)"))
+[2025-02-07 00:19:34] INFO services [OTP_DEBUG] SMS send result - Success: False, Response: Failed to send SMS: HTTPSConnectionPool(host='api.dreams.sa', port=443): Max retries exceeded with url: /v1/messages?user=test_user&secret_key=test_secret&to=501234567&message=ZUWARA%3A+Your+verification+code+is+000000&sender=ZUWARA (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x79fe0bb047d0>: Failed to resolve 'api.dreams.sa' ([Errno -5] No address associated with hostname)"))
+[2025-02-07 00:19:34] ERROR services [OTP_DEBUG] Failed to send SMS - OTP ID: 6a6a4128-c436-4c30-8911-9e632a18d263, Phone: 966501234567
+[2025-02-07 00:19:34] INFO services [OTP_DEBUG] Final result: {'success': False, 'message': 'Failed to send SMS: HTTPSConnectionPool(host=\'api.dreams.sa\', port=443): Max retries exceeded with url: /v1/messages?user=test_user&secret_key=test_secret&to=501234567&message=ZUWARA%3A+Your+verification+code+is+000000&sender=ZUWARA (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x79fe0bb047d0>: Failed to resolve \'api.dreams.sa\' ([Errno -5] No address associated with hostname)"))', 'otp_id': None}
+[2025-02-07 00:19:34] WARNING log Bad Request: /api/v1/doctors/register/initiate/
+[2025-02-07 00:23:17] WARNING utils Could not reverse url from auth.user
+[2025-02-07 00:23:17] WARNING utils Could not reverse url from auth.user
+[2025-02-07 00:23:17] WARNING utils Could not reverse url from auth.user
+[2025-02-07 00:23:17] WARNING utils Could not reverse url from auth.user
+[2025-02-07 00:23:29] WARNING utils Could not reverse url from auth.user
+[2025-02-07 00:23:29] WARNING utils Could not reverse url from auth.user
+[2025-02-07 00:23:29] WARNING utils Could not reverse url from auth.user
+[2025-02-07 00:23:29] WARNING utils Could not reverse url from auth.user
+[2025-02-07 00:35:35] WARNING log Unauthorized: /api/v1/auth/login/
+[2025-02-07 01:35:35] WARNING log Not Found: /
+[2025-02-07 02:12:19] INFO services [OTP_DEBUG] Starting OTP creation for phone: 966555343123
+[2025-02-07 02:12:20] INFO services [OTP_DEBUG] Generated OTP code: 000000
+[2025-02-07 02:12:20] INFO services [OTP_DEBUG] Generated OTP code: 000000 for phone: 966555343123
+[2025-02-07 02:12:20] INFO services [OTP_DEBUG] Created OTP record - ID: a5cfe0f7-9b23-4fb4-82d8-c073d4240c4d, Phone: 966555343123
+[2025-02-07 02:12:20] INFO services [OTP_DEBUG] Prepared SMS message: ZUWARA: Your verification code is 000000
+[2025-02-07 02:12:20] INFO services [OTP_DEBUG] Attempting to send SMS to 966555343123
+[2025-02-07 02:12:20] INFO services [OTP_DEBUG] Message content: ZUWARA: Your verification code is 000000
+[2025-02-07 02:12:20] INFO services [OTP_DEBUG] Formatted number for sending: 555343123
+[2025-02-07 02:12:20] INFO services [OTP_DEBUG] Sending SMS with params: {'user': 'test_user', 'secret_key': 'test_secret', 'to': '555343123', 'message': 'ZUWARA: Your verification code is 000000', 'sender': 'ZUWARA'}
+[2025-02-07 02:12:20] INFO services [OTP_DEBUG] API URL: https://api.dreams.sa/v1/messages
+[2025-02-07 02:12:22] ERROR services [OTP_DEBUG] SMS API request failed: HTTPSConnectionPool(host='api.dreams.sa', port=443): Max retries exceeded with url: /v1/messages?user=test_user&secret_key=test_secret&to=555343123&message=ZUWARA%3A+Your+verification+code+is+000000&sender=ZUWARA (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x79fe0b94ee70>: Failed to resolve 'api.dreams.sa' ([Errno -5] No address associated with hostname)"))
+[2025-02-07 02:12:22] INFO services [OTP_DEBUG] SMS send result - Success: False, Response: Failed to send SMS: HTTPSConnectionPool(host='api.dreams.sa', port=443): Max retries exceeded with url: /v1/messages?user=test_user&secret_key=test_secret&to=555343123&message=ZUWARA%3A+Your+verification+code+is+000000&sender=ZUWARA (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x79fe0b94ee70>: Failed to resolve 'api.dreams.sa' ([Errno -5] No address associated with hostname)"))
+[2025-02-07 02:12:22] ERROR services [OTP_DEBUG] Failed to send SMS - OTP ID: a5cfe0f7-9b23-4fb4-82d8-c073d4240c4d, Phone: 966555343123
+[2025-02-07 02:12:22] INFO services [OTP_DEBUG] Final result: {'success': False, 'message': 'Failed to send SMS: HTTPSConnectionPool(host=\'api.dreams.sa\', port=443): Max retries exceeded with url: /v1/messages?user=test_user&secret_key=test_secret&to=555343123&message=ZUWARA%3A+Your+verification+code+is+000000&sender=ZUWARA (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x79fe0b94ee70>: Failed to resolve \'api.dreams.sa\' ([Errno -5] No address associated with hostname)"))', 'otp_id': None}
+[2025-02-07 02:12:22] WARNING log Bad Request: /api/v1/doctors/register/initiate/
+[2025-02-07 02:13:44] INFO services [OTP_DEBUG] Starting OTP creation for phone: 966555434123
+[2025-02-07 02:13:44] INFO services [OTP_DEBUG] Generated OTP code: 000000
+[2025-02-07 02:13:44] INFO services [OTP_DEBUG] Generated OTP code: 000000 for phone: 966555434123
+[2025-02-07 02:13:44] INFO services [OTP_DEBUG] Created OTP record - ID: 1cbff0cc-14fa-42d1-8ec9-65244b4686b9, Phone: 966555434123
+[2025-02-07 02:13:44] INFO services [OTP_DEBUG] Prepared SMS message: ZUWARA: Your verification code is 000000
+[2025-02-07 02:13:44] INFO services [OTP_DEBUG] Attempting to send SMS to 966555434123
+[2025-02-07 02:13:44] INFO services [OTP_DEBUG] Message content: ZUWARA: Your verification code is 000000
+[2025-02-07 02:13:44] INFO services [OTP_DEBUG] Formatted number for sending: 555434123
+[2025-02-07 02:13:44] INFO services [OTP_DEBUG] Sending SMS with params: {'user': 'test_user', 'secret_key': 'test_secret', 'to': '555434123', 'message': 'ZUWARA: Your verification code is 000000', 'sender': 'ZUWARA'}
+[2025-02-07 02:13:44] INFO services [OTP_DEBUG] API URL: https://api.dreams.sa/v1/messages
+[2025-02-07 02:13:44] ERROR services [OTP_DEBUG] SMS API request failed: HTTPSConnectionPool(host='api.dreams.sa', port=443): Max retries exceeded with url: /v1/messages?user=test_user&secret_key=test_secret&to=555434123&message=ZUWARA%3A+Your+verification+code+is+000000&sender=ZUWARA (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x79fe0b968c80>: Failed to resolve 'api.dreams.sa' ([Errno -5] No address associated with hostname)"))
+[2025-02-07 02:13:44] INFO services [OTP_DEBUG] SMS send result - Success: False, Response: Failed to send SMS: HTTPSConnectionPool(host='api.dreams.sa', port=443): Max retries exceeded with url: /v1/messages?user=test_user&secret_key=test_secret&to=555434123&message=ZUWARA%3A+Your+verification+code+is+000000&sender=ZUWARA (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x79fe0b968c80>: Failed to resolve 'api.dreams.sa' ([Errno -5] No address associated with hostname)"))
+[2025-02-07 02:13:44] ERROR services [OTP_DEBUG] Failed to send SMS - OTP ID: 1cbff0cc-14fa-42d1-8ec9-65244b4686b9, Phone: 966555434123
+[2025-02-07 02:13:44] INFO services [OTP_DEBUG] Final result: {'success': False, 'message': 'Failed to send SMS: HTTPSConnectionPool(host=\'api.dreams.sa\', port=443): Max retries exceeded with url: /v1/messages?user=test_user&secret_key=test_secret&to=555434123&message=ZUWARA%3A+Your+verification+code+is+000000&sender=ZUWARA (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x79fe0b968c80>: Failed to resolve \'api.dreams.sa\' ([Errno -5] No address associated with hostname)"))', 'otp_id': None}
+[2025-02-07 02:13:44] WARNING log Bad Request: /api/v1/doctors/register/initiate/
+[2025-02-07 04:28:36] WARNING log Not Found: /.env
+[2025-02-07 09:11:58] WARNING log Not Found: /.env
+[2025-02-07 10:13:14] WARNING log Unauthorized: /api/v1/auth/login/
+[2025-02-07 10:13:49] WARNING log Not Found: /
+[2025-02-07 10:16:24] INFO services [OTP_DEBUG] Starting OTP creation for phone: 966555434123
+[2025-02-07 10:16:24] INFO services [OTP_DEBUG] Generated OTP code: 000000
+[2025-02-07 10:16:24] INFO services [OTP_DEBUG] Generated OTP code: 000000 for phone: 966555434123
+[2025-02-07 10:16:25] INFO services [OTP_DEBUG] Created OTP record - ID: bf95ba57-342c-488f-b643-bfdc6f70cfcb, Phone: 966555434123
+[2025-02-07 10:16:25] INFO services [OTP_DEBUG] Prepared SMS message: ZUWARA: Your verification code is 000000
+[2025-02-07 10:16:25] INFO services [OTP_DEBUG] Attempting to send SMS to 966555434123
+[2025-02-07 10:16:25] INFO services [OTP_DEBUG] Message content: ZUWARA: Your verification code is 000000
+[2025-02-07 10:16:25] INFO services [OTP_DEBUG] Formatted number for sending: 555434123
+[2025-02-07 10:16:25] INFO services [OTP_DEBUG] Sending SMS with params: {'user': 'test_user', 'secret_key': 'test_secret', 'to': '555434123', 'message': 'ZUWARA: Your verification code is 000000', 'sender': 'ZUWARA'}
+[2025-02-07 10:16:25] INFO services [OTP_DEBUG] API URL: https://api.dreams.sa/v1/messages
+[2025-02-07 10:16:26] ERROR services [OTP_DEBUG] SMS API request failed: HTTPSConnectionPool(host='api.dreams.sa', port=443): Max retries exceeded with url: /v1/messages?user=test_user&secret_key=test_secret&to=555434123&message=ZUWARA%3A+Your+verification+code+is+000000&sender=ZUWARA (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7c8218702de0>: Failed to resolve 'api.dreams.sa' ([Errno -5] No address associated with hostname)"))
+[2025-02-07 10:16:26] INFO services [OTP_DEBUG] SMS send result - Success: False, Response: Failed to send SMS: HTTPSConnectionPool(host='api.dreams.sa', port=443): Max retries exceeded with url: /v1/messages?user=test_user&secret_key=test_secret&to=555434123&message=ZUWARA%3A+Your+verification+code+is+000000&sender=ZUWARA (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7c8218702de0>: Failed to resolve 'api.dreams.sa' ([Errno -5] No address associated with hostname)"))
+[2025-02-07 10:16:26] ERROR services [OTP_DEBUG] Failed to send SMS - OTP ID: bf95ba57-342c-488f-b643-bfdc6f70cfcb, Phone: 966555434123
+[2025-02-07 10:16:26] INFO services [OTP_DEBUG] Final result: {'success': False, 'message': 'Failed to send SMS: HTTPSConnectionPool(host=\'api.dreams.sa\', port=443): Max retries exceeded with url: /v1/messages?user=test_user&secret_key=test_secret&to=555434123&message=ZUWARA%3A+Your+verification+code+is+000000&sender=ZUWARA (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7c8218702de0>: Failed to resolve \'api.dreams.sa\' ([Errno -5] No address associated with hostname)"))', 'otp_id': None}
+[2025-02-07 10:16:26] WARNING log Bad Request: /api/v1/doctors/register/initiate/
+[2025-02-07 11:59:53] WARNING log Not Found: /
+[2025-02-07 12:11:03] WARNING log Not Found: /autodiscover/autodiscover.json
+[2025-02-07 14:23:43] WARNING log Not Found: /
+[2025-02-07 14:45:08] WARNING log Not Found: /.env
+[2025-02-07 14:45:08] INFO services [OTP_DEBUG] Starting OTP creation for phone: 966501234567
+[2025-02-07 14:45:08] INFO services [OTP_DEBUG] Generated OTP code: 000000
+[2025-02-07 14:45:08] INFO services [OTP_DEBUG] Generated OTP code: 000000 for phone: 966501234567
+[2025-02-07 14:45:09] INFO services [OTP_DEBUG] Created OTP record - ID: fb59258e-4bbb-485d-b106-55074b8e45fa, Phone: 966501234567
+[2025-02-07 14:45:09] INFO services [OTP_DEBUG] Prepared SMS message: ZUWARA: Your verification code is 000000
+[2025-02-07 14:45:09] INFO services [OTP_DEBUG] Attempting to send SMS to 966501234567
+[2025-02-07 14:45:09] INFO services [OTP_DEBUG] Message content: ZUWARA: Your verification code is 000000
+[2025-02-07 14:45:09] INFO services [OTP_DEBUG] Formatted number for sending: 501234567
+[2025-02-07 14:45:09] INFO services [OTP_DEBUG] Sending SMS with params: {'user': 'Alaqa', 'secret_key': '97aca06a4fd54aeb571d0de1ecac4f84ee19d323d5b56fe0a74d7eb2bfc673fe', 'to': '501234567', 'message': 'ZUWARA: Your verification code is 000000', 'sender': 'zuwara'}
+[2025-02-07 14:45:09] INFO services [OTP_DEBUG] API URL: https://dreams.sa/api/sendsms/
+[2025-02-07 14:45:20] ERROR services [OTP_DEBUG] SMS API request timed out
+[2025-02-07 14:45:20] INFO services [OTP_DEBUG] SMS send result - Success: False, Response: Failed to send SMS: Request timed out
+[2025-02-07 14:45:20] ERROR services [OTP_DEBUG] Failed to send SMS - OTP ID: fb59258e-4bbb-485d-b106-55074b8e45fa, Phone: 966501234567
+[2025-02-07 14:45:20] INFO services [OTP_DEBUG] Final result: {'success': False, 'message': 'Failed to send SMS: Request timed out', 'otp_id': None}
+[2025-02-07 14:45:20] WARNING log Bad Request: /api/v1/doctors/register/initiate/
+[2025-02-07 15:02:53] WARNING log Not Found: /
+[2025-02-07 15:03:21] WARNING log Not Found: /favicon.ico
+[2025-02-07 15:07:01] WARNING utils Could not reverse url from auth.user
+[2025-02-07 15:07:01] WARNING utils Could not reverse url from auth.user
+[2025-02-07 15:07:01] WARNING utils Could not reverse url from auth.user
+[2025-02-07 15:07:01] WARNING utils Could not reverse url from auth.user
+[2025-02-07 15:50:28] WARNING log Not Found: /.env
+[2025-02-07 16:01:35] WARNING utils Could not reverse url from auth.user
+[2025-02-07 16:01:36] WARNING utils Could not reverse url from auth.user
+[2025-02-07 16:01:36] WARNING utils Could not reverse url from auth.user
+[2025-02-07 16:01:36] WARNING utils Could not reverse url from auth.user
+[2025-02-07 17:35:44] WARNING log Not Found: /
