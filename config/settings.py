@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'django_filters',
     'corsheaders',
     'drf_yasg',
+    'django_cron',  # Add django-cron
     
     # Local apps
     'authentication.apps.AuthenticationConfig',
@@ -446,3 +447,23 @@ EMAIL_BACKEND = 'sendgrid_backend.SendgridBackend'
 SENDGRID_API_KEY = env('SENDGRID_API_KEY', default='')
 DEFAULT_FROM_EMAIL = env('DEFAULT_FROM_EMAIL', default='noreply@alaqa.net')
 SENDGRID_SANDBOX_MODE_IN_DEBUG = env.bool('SENDGRID_SANDBOX_MODE_IN_DEBUG', default=True)
+
+# Django Cron Settings
+CRON_CLASSES = [
+    'appointments.cron.AutoCompleteAppointmentsCronJob',
+]
+
+# Cron Job Settings
+DJANGO_CRON_LOCK_BACKEND = 'django_cron.backends.lock.file.FileLock'
+DJANGO_CRON_LOCKFILE_PATH = os.path.join(BASE_DIR, 'cron_jobs.lock')
+DJANGO_CRON_CACHE = 'default'
+DJANGO_CRON_LOCK_TIME = 24*60*60  # 24 hours
+
+# Email settings for failed cron jobs
+CRON_EMAIL_HOST = env('EMAIL_HOST', default='smtp.sendgrid.net')
+CRON_EMAIL_HOST_USER = env('EMAIL_HOST_USER', default='apikey')
+CRON_EMAIL_HOST_PASSWORD = env('SENDGRID_API_KEY', default='')
+CRON_EMAIL_PORT = env.int('EMAIL_PORT', default=587)
+CRON_EMAIL_USE_TLS = env.bool('EMAIL_USE_TLS', default=True)
+CRON_EMAIL_SENDER = env('DEFAULT_FROM_EMAIL', default='noreply@alaqa.net')
+CRON_EMAIL_RECIPIENT = env('ADMIN_EMAIL', default='admin@alaqa.net')

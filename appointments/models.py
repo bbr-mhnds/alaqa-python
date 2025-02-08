@@ -27,6 +27,13 @@ class Appointment(models.Model):
     slot_time = models.DateTimeField()
     video_token = models.CharField(max_length=500, blank=True, null=True)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='SCHEDULED')
+    
+    # Completion fields
+    completion_notes = models.TextField(blank=True, null=True)
+    completion_time = models.DateTimeField(blank=True, null=True)
+    duration_minutes = models.PositiveIntegerField(blank=True, null=True)
+    patient_id = models.CharField(max_length=100, blank=True, null=True)  # Made nullable for existing records
+    
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

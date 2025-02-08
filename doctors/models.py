@@ -4,6 +4,7 @@ from django.conf import settings
 from django.core.validators import RegexValidator
 from specialties.models import Specialty
 from django.core.exceptions import ValidationError
+from django.core.validators import MinLengthValidator
 
 class Doctor(models.Model):
     SEX_CHOICES = (
@@ -118,6 +119,7 @@ class DoctorVerification(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     email = models.EmailField()
     phone = models.CharField(max_length=17)
+    email_code = models.CharField(max_length=6, default='000000')
     email_verified = models.BooleanField(default=True)  # Always true since we don't use email verification
     phone_verified = models.BooleanField(default=False)
     registration_data = models.JSONField(default=dict)  # Store registration data temporarily
@@ -126,7 +128,6 @@ class DoctorVerification(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     expires_at = models.DateTimeField()
     is_used = models.BooleanField(default=False)
-    email_code = models.CharField(max_length=6, default='000000')  # Added back with default value
 
     class Meta:
         ordering = ['-created_at']
