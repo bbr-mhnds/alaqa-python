@@ -5524,3 +5524,1153 @@ RuntimeError: You called this URL via POST, but the URL doesn't end in a slash a
 [2025-02-06 20:01:30] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/serializers.py changed, reloading.
 [2025-02-06 20:01:32] INFO autoreload Watching for file changes with StatReloader
 [2025-02-06 22:53:10] INFO autoreload Watching for file changes with StatReloader
+[2025-02-07 17:49:01] INFO autoreload Watching for file changes with StatReloader
+[2025-02-07 17:49:42] INFO autoreload Watching for file changes with StatReloader
+[2025-02-07 18:08:50] WARNING log Unauthorized: /api/v1/appointments/
+[2025-02-07 18:08:50] WARNING log Not Found: /api/v1/auth/refresh-token/
+[2025-02-08 09:23:07] WARNING log Unauthorized: /api/v1/appointments/
+[2025-02-08 09:23:08] WARNING log Not Found: /api/v1/auth/refresh-token/
+[2025-02-08 09:25:34] WARNING log Not Found: /api/v1/appointments/16/complete/
+[2025-02-08 09:38:06] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/appointments/views.py changed, reloading.
+[2025-02-08 09:38:06] INFO autoreload Watching for file changes with StatReloader
+[2025-02-08 09:38:19] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/appointments/serializers.py changed, reloading.
+[2025-02-08 09:38:19] INFO autoreload Watching for file changes with StatReloader
+[2025-02-08 09:40:01] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/appointments/views.py changed, reloading.
+[2025-02-08 09:40:02] INFO autoreload Watching for file changes with StatReloader
+[2025-02-08 09:41:13] WARNING log Unauthorized: /api/v1/appointments/
+[2025-02-08 09:41:13] WARNING log Not Found: /api/v1/auth/refresh-token/
+[2025-02-08 09:41:28] ERROR log Internal Server Error: /api/v1/appointments/
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 43, in list
+    return self.get_paginated_response(serializer.data)
+                                       ^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 768, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 687, in to_representation
+    self.child.to_representation(item) for item in iterable
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 507, in to_representation
+    for field in fields:
+                 ^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 368, in _readable_fields
+    for field in self.fields.values():
+                 ^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+                      ~~~~~~~~~~~~~~~^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1076, in get_fields
+    field_class, field_kwargs = self.build_field(
+                                ~~~~~~~~~~~~~~~~^
+        source, info, model, depth
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1222, in build_field
+    return self.build_unknown_field(field_name, model_class)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1340, in build_unknown_field
+    raise ImproperlyConfigured(
+    ...<2 lines>...
+    )
+django.core.exceptions.ImproperlyConfigured: Field name `completion_notes` is not valid for model `Appointment`.
+[2025-02-08 09:41:37] ERROR log Internal Server Error: /api/v1/appointments/
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 43, in list
+    return self.get_paginated_response(serializer.data)
+                                       ^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 768, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 687, in to_representation
+    self.child.to_representation(item) for item in iterable
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 507, in to_representation
+    for field in fields:
+                 ^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 368, in _readable_fields
+    for field in self.fields.values():
+                 ^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+                      ~~~~~~~~~~~~~~~^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1076, in get_fields
+    field_class, field_kwargs = self.build_field(
+                                ~~~~~~~~~~~~~~~~^
+        source, info, model, depth
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1222, in build_field
+    return self.build_unknown_field(field_name, model_class)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1340, in build_unknown_field
+    raise ImproperlyConfigured(
+    ...<2 lines>...
+    )
+django.core.exceptions.ImproperlyConfigured: Field name `completion_notes` is not valid for model `Appointment`.
+[2025-02-08 09:43:19] ERROR log Internal Server Error: /api/v1/appointments/
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 43, in list
+    return self.get_paginated_response(serializer.data)
+                                       ^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 768, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 687, in to_representation
+    self.child.to_representation(item) for item in iterable
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 507, in to_representation
+    for field in fields:
+                 ^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 368, in _readable_fields
+    for field in self.fields.values():
+                 ^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+                      ~~~~~~~~~~~~~~~^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1076, in get_fields
+    field_class, field_kwargs = self.build_field(
+                                ~~~~~~~~~~~~~~~~^
+        source, info, model, depth
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1222, in build_field
+    return self.build_unknown_field(field_name, model_class)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1340, in build_unknown_field
+    raise ImproperlyConfigured(
+    ...<2 lines>...
+    )
+django.core.exceptions.ImproperlyConfigured: Field name `completion_notes` is not valid for model `Appointment`.
+[2025-02-08 09:43:35] ERROR log Internal Server Error: /api/v1/appointments/
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 43, in list
+    return self.get_paginated_response(serializer.data)
+                                       ^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 768, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 687, in to_representation
+    self.child.to_representation(item) for item in iterable
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 507, in to_representation
+    for field in fields:
+                 ^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 368, in _readable_fields
+    for field in self.fields.values():
+                 ^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+                      ~~~~~~~~~~~~~~~^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1076, in get_fields
+    field_class, field_kwargs = self.build_field(
+                                ~~~~~~~~~~~~~~~~^
+        source, info, model, depth
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1222, in build_field
+    return self.build_unknown_field(field_name, model_class)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1340, in build_unknown_field
+    raise ImproperlyConfigured(
+    ...<2 lines>...
+    )
+django.core.exceptions.ImproperlyConfigured: Field name `completion_notes` is not valid for model `Appointment`.
+[2025-02-08 09:43:46] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/appointments/models.py changed, reloading.
+[2025-02-08 09:43:47] INFO autoreload Watching for file changes with StatReloader
+[2025-02-08 09:44:40] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/appointments/models.py changed, reloading.
+[2025-02-08 09:44:41] INFO autoreload Watching for file changes with StatReloader
+[2025-02-08 09:45:41] WARNING log Conflict: /api/v1/appointments/1/complete/
+[2025-02-08 09:45:42] ERROR log Internal Server Error: /api/v1/appointments/2/complete/
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/alaqa-python/appointments/views.py", line 108, in complete_appointment
+    if completion_time < appointment.scheduled_time:
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Appointment' object has no attribute 'scheduled_time'
+[2025-02-08 09:45:42] WARNING log Bad Request: /api/v1/appointments/3/complete/
+[2025-02-08 09:45:42] WARNING log Bad Request: /api/v1/appointments/4/complete/
+[2025-02-08 09:45:43] WARNING log Bad Request: /api/v1/appointments/5/complete/
+[2025-02-08 09:45:43] ERROR log Internal Server Error: /api/v1/appointments/6/complete/
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/alaqa-python/appointments/views.py", line 108, in complete_appointment
+    if completion_time < appointment.scheduled_time:
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Appointment' object has no attribute 'scheduled_time'
+[2025-02-08 09:45:44] WARNING log Bad Request: /api/v1/appointments/7/complete/
+[2025-02-08 09:45:44] WARNING log Unauthorized: /api/v1/appointments/8/complete/
+[2025-02-08 09:45:44] WARNING log Bad Request: /api/v1/appointments/9/complete/
+[2025-02-08 09:45:45] WARNING log Conflict: /api/v1/appointments/10/complete/
+[2025-02-08 09:45:45] WARNING log Not Found: /api/v1/appointments/99999/complete/
+[2025-02-08 09:46:12] ERROR log Internal Server Error: /api/v1/appointments/
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 43, in list
+    return self.get_paginated_response(serializer.data)
+                                       ^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 768, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 687, in to_representation
+    self.child.to_representation(item) for item in iterable
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 507, in to_representation
+    for field in fields:
+                 ^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 368, in _readable_fields
+    for field in self.fields.values():
+                 ^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+                      ~~~~~~~~~~~~~~~^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1076, in get_fields
+    field_class, field_kwargs = self.build_field(
+                                ~~~~~~~~~~~~~~~~^
+        source, info, model, depth
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1222, in build_field
+    return self.build_unknown_field(field_name, model_class)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1340, in build_unknown_field
+    raise ImproperlyConfigured(
+    ...<2 lines>...
+    )
+django.core.exceptions.ImproperlyConfigured: Field name `scheduled_time` is not valid for model `Appointment`.
+[2025-02-08 09:46:14] ERROR log Internal Server Error: /api/v1/appointments/
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 43, in list
+    return self.get_paginated_response(serializer.data)
+                                       ^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 768, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 687, in to_representation
+    self.child.to_representation(item) for item in iterable
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 507, in to_representation
+    for field in fields:
+                 ^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 368, in _readable_fields
+    for field in self.fields.values():
+                 ^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+                      ~~~~~~~~~~~~~~~^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1076, in get_fields
+    field_class, field_kwargs = self.build_field(
+                                ~~~~~~~~~~~~~~~~^
+        source, info, model, depth
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1222, in build_field
+    return self.build_unknown_field(field_name, model_class)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1340, in build_unknown_field
+    raise ImproperlyConfigured(
+    ...<2 lines>...
+    )
+django.core.exceptions.ImproperlyConfigured: Field name `scheduled_time` is not valid for model `Appointment`.
+[2025-02-08 09:46:15] ERROR log Internal Server Error: /api/v1/appointments/
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 43, in list
+    return self.get_paginated_response(serializer.data)
+                                       ^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 768, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 687, in to_representation
+    self.child.to_representation(item) for item in iterable
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 507, in to_representation
+    for field in fields:
+                 ^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 368, in _readable_fields
+    for field in self.fields.values():
+                 ^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+                      ~~~~~~~~~~~~~~~^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1076, in get_fields
+    field_class, field_kwargs = self.build_field(
+                                ~~~~~~~~~~~~~~~~^
+        source, info, model, depth
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1222, in build_field
+    return self.build_unknown_field(field_name, model_class)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1340, in build_unknown_field
+    raise ImproperlyConfigured(
+    ...<2 lines>...
+    )
+django.core.exceptions.ImproperlyConfigured: Field name `scheduled_time` is not valid for model `Appointment`.
+[2025-02-08 09:46:16] ERROR log Internal Server Error: /api/v1/appointments/
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 43, in list
+    return self.get_paginated_response(serializer.data)
+                                       ^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 768, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 687, in to_representation
+    self.child.to_representation(item) for item in iterable
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 507, in to_representation
+    for field in fields:
+                 ^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 368, in _readable_fields
+    for field in self.fields.values():
+                 ^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+                      ~~~~~~~~~~~~~~~^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1076, in get_fields
+    field_class, field_kwargs = self.build_field(
+                                ~~~~~~~~~~~~~~~~^
+        source, info, model, depth
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1222, in build_field
+    return self.build_unknown_field(field_name, model_class)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1340, in build_unknown_field
+    raise ImproperlyConfigured(
+    ...<2 lines>...
+    )
+django.core.exceptions.ImproperlyConfigured: Field name `scheduled_time` is not valid for model `Appointment`.
+[2025-02-08 09:46:17] ERROR log Internal Server Error: /api/v1/appointments/
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 43, in list
+    return self.get_paginated_response(serializer.data)
+                                       ^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 768, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 687, in to_representation
+    self.child.to_representation(item) for item in iterable
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 507, in to_representation
+    for field in fields:
+                 ^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 368, in _readable_fields
+    for field in self.fields.values():
+                 ^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+                      ~~~~~~~~~~~~~~~^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1076, in get_fields
+    field_class, field_kwargs = self.build_field(
+                                ~~~~~~~~~~~~~~~~^
+        source, info, model, depth
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1222, in build_field
+    return self.build_unknown_field(field_name, model_class)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1340, in build_unknown_field
+    raise ImproperlyConfigured(
+    ...<2 lines>...
+    )
+django.core.exceptions.ImproperlyConfigured: Field name `scheduled_time` is not valid for model `Appointment`.
+[2025-02-08 09:46:17] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/appointments/views.py changed, reloading.
+[2025-02-08 09:46:18] INFO autoreload Watching for file changes with StatReloader
+[2025-02-08 09:46:21] ERROR log Internal Server Error: /api/v1/appointments/
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 43, in list
+    return self.get_paginated_response(serializer.data)
+                                       ^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 768, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 687, in to_representation
+    self.child.to_representation(item) for item in iterable
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 507, in to_representation
+    for field in fields:
+                 ^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 368, in _readable_fields
+    for field in self.fields.values():
+                 ^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+                      ~~~~~~~~~~~~~~~^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1076, in get_fields
+    field_class, field_kwargs = self.build_field(
+                                ~~~~~~~~~~~~~~~~^
+        source, info, model, depth
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1222, in build_field
+    return self.build_unknown_field(field_name, model_class)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1340, in build_unknown_field
+    raise ImproperlyConfigured(
+    ...<2 lines>...
+    )
+django.core.exceptions.ImproperlyConfigured: Field name `scheduled_time` is not valid for model `Appointment`.
+[2025-02-08 09:46:22] ERROR log Internal Server Error: /api/v1/appointments/
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 43, in list
+    return self.get_paginated_response(serializer.data)
+                                       ^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 768, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 687, in to_representation
+    self.child.to_representation(item) for item in iterable
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 507, in to_representation
+    for field in fields:
+                 ^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 368, in _readable_fields
+    for field in self.fields.values():
+                 ^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+                      ~~~~~~~~~~~~~~~^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1076, in get_fields
+    field_class, field_kwargs = self.build_field(
+                                ~~~~~~~~~~~~~~~~^
+        source, info, model, depth
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1222, in build_field
+    return self.build_unknown_field(field_name, model_class)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1340, in build_unknown_field
+    raise ImproperlyConfigured(
+    ...<2 lines>...
+    )
+django.core.exceptions.ImproperlyConfigured: Field name `scheduled_time` is not valid for model `Appointment`.
+[2025-02-08 09:46:27] WARNING log Conflict: /api/v1/appointments/1/complete/
+[2025-02-08 09:46:27] WARNING log Bad Request: /api/v1/appointments/2/complete/
+[2025-02-08 09:46:27] WARNING log Bad Request: /api/v1/appointments/3/complete/
+[2025-02-08 09:46:28] WARNING log Bad Request: /api/v1/appointments/4/complete/
+[2025-02-08 09:46:28] WARNING log Bad Request: /api/v1/appointments/5/complete/
+[2025-02-08 09:46:29] WARNING log Bad Request: /api/v1/appointments/6/complete/
+[2025-02-08 09:46:29] WARNING log Bad Request: /api/v1/appointments/7/complete/
+[2025-02-08 09:46:29] WARNING log Unauthorized: /api/v1/appointments/8/complete/
+[2025-02-08 09:46:30] WARNING log Forbidden: /api/v1/appointments/9/complete/
+[2025-02-08 09:46:30] WARNING log Conflict: /api/v1/appointments/10/complete/
+[2025-02-08 09:46:31] WARNING log Not Found: /api/v1/appointments/99999/complete/
+[2025-02-08 09:46:37] ERROR log Internal Server Error: /api/v1/appointments/
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 43, in list
+    return self.get_paginated_response(serializer.data)
+                                       ^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 768, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 687, in to_representation
+    self.child.to_representation(item) for item in iterable
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 507, in to_representation
+    for field in fields:
+                 ^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 368, in _readable_fields
+    for field in self.fields.values():
+                 ^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+                      ~~~~~~~~~~~~~~~^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1076, in get_fields
+    field_class, field_kwargs = self.build_field(
+                                ~~~~~~~~~~~~~~~~^
+        source, info, model, depth
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1222, in build_field
+    return self.build_unknown_field(field_name, model_class)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1340, in build_unknown_field
+    raise ImproperlyConfigured(
+    ...<2 lines>...
+    )
+django.core.exceptions.ImproperlyConfigured: Field name `scheduled_time` is not valid for model `Appointment`.
+[2025-02-08 09:46:46] ERROR log Internal Server Error: /api/v1/appointments/
+Traceback (most recent call last):
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/mixins.py", line 43, in list
+    return self.get_paginated_response(serializer.data)
+                                       ^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 768, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 687, in to_representation
+    self.child.to_representation(item) for item in iterable
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 507, in to_representation
+    for field in fields:
+                 ^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 368, in _readable_fields
+    for field in self.fields.values():
+                 ^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+                      ~~~~~~~~~~~~~~~^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1076, in get_fields
+    field_class, field_kwargs = self.build_field(
+                                ~~~~~~~~~~~~~~~~^
+        source, info, model, depth
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1222, in build_field
+    return self.build_unknown_field(field_name, model_class)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/babarsultan/Documents/alaqa/python-django/venv/lib/python3.13/site-packages/rest_framework/serializers.py", line 1340, in build_unknown_field
+    raise ImproperlyConfigured(
+    ...<2 lines>...
+    )
+django.core.exceptions.ImproperlyConfigured: Field name `scheduled_time` is not valid for model `Appointment`.
+[2025-02-08 09:46:56] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/appointments/serializers.py changed, reloading.
+[2025-02-08 09:46:56] INFO autoreload Watching for file changes with StatReloader
+[2025-02-08 09:47:31] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/appointments/views.py changed, reloading.
+[2025-02-08 09:47:32] INFO autoreload Watching for file changes with StatReloader
+[2025-02-08 09:47:41] WARNING log Conflict: /api/v1/appointments/1/complete/
+[2025-02-08 09:47:42] WARNING log Bad Request: /api/v1/appointments/2/complete/
+[2025-02-08 09:47:42] WARNING log Bad Request: /api/v1/appointments/3/complete/
+[2025-02-08 09:47:42] WARNING log Bad Request: /api/v1/appointments/4/complete/
+[2025-02-08 09:47:43] WARNING log Bad Request: /api/v1/appointments/5/complete/
+[2025-02-08 09:47:43] WARNING log Bad Request: /api/v1/appointments/6/complete/
+[2025-02-08 09:47:44] WARNING log Bad Request: /api/v1/appointments/7/complete/
+[2025-02-08 09:47:44] WARNING log Unauthorized: /api/v1/appointments/8/complete/
+[2025-02-08 09:47:44] WARNING log Forbidden: /api/v1/appointments/9/complete/
+[2025-02-08 09:47:45] WARNING log Conflict: /api/v1/appointments/10/complete/
+[2025-02-08 09:47:45] WARNING log Not Found: /api/v1/appointments/99999/complete/
+[2025-02-08 09:48:47] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/appointments/serializers.py changed, reloading.
+[2025-02-08 09:48:47] INFO autoreload Watching for file changes with StatReloader
+[2025-02-08 09:49:13] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/appointments/views.py changed, reloading.
+[2025-02-08 09:49:14] INFO autoreload Watching for file changes with StatReloader
+[2025-02-08 09:49:21] WARNING log Conflict: /api/v1/appointments/1/complete/
+[2025-02-08 09:49:21] WARNING log Bad Request: /api/v1/appointments/2/complete/
+[2025-02-08 09:49:22] WARNING log Bad Request: /api/v1/appointments/3/complete/
+[2025-02-08 09:49:22] WARNING log Bad Request: /api/v1/appointments/4/complete/
+[2025-02-08 09:49:22] WARNING log Bad Request: /api/v1/appointments/5/complete/
+[2025-02-08 09:49:23] WARNING log Bad Request: /api/v1/appointments/6/complete/
+[2025-02-08 09:49:23] WARNING log Bad Request: /api/v1/appointments/7/complete/
+[2025-02-08 09:49:24] WARNING log Unauthorized: /api/v1/appointments/8/complete/
+[2025-02-08 09:49:24] WARNING log Forbidden: /api/v1/appointments/9/complete/
+[2025-02-08 09:49:24] WARNING log Conflict: /api/v1/appointments/10/complete/
+[2025-02-08 09:49:25] WARNING log Not Found: /api/v1/appointments/99999/complete/
+[2025-02-08 09:49:43] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/appointments/serializers.py changed, reloading.
+[2025-02-08 09:49:43] INFO autoreload Watching for file changes with StatReloader
+[2025-02-08 09:49:51] WARNING log Conflict: /api/v1/appointments/1/complete/
+[2025-02-08 09:49:51] WARNING log Bad Request: /api/v1/appointments/2/complete/
+[2025-02-08 09:49:52] WARNING log Bad Request: /api/v1/appointments/3/complete/
+[2025-02-08 09:49:52] WARNING log Bad Request: /api/v1/appointments/4/complete/
+[2025-02-08 09:49:52] WARNING log Bad Request: /api/v1/appointments/5/complete/
+[2025-02-08 09:49:53] WARNING log Bad Request: /api/v1/appointments/6/complete/
+[2025-02-08 09:49:53] WARNING log Bad Request: /api/v1/appointments/7/complete/
+[2025-02-08 09:49:54] WARNING log Unauthorized: /api/v1/appointments/8/complete/
+[2025-02-08 09:49:54] WARNING log Forbidden: /api/v1/appointments/9/complete/
+[2025-02-08 09:49:54] WARNING log Conflict: /api/v1/appointments/10/complete/
+[2025-02-08 09:49:55] WARNING log Not Found: /api/v1/appointments/99999/complete/
+[2025-02-08 09:50:19] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/appointments/serializers.py changed, reloading.
+[2025-02-08 09:50:19] INFO autoreload Watching for file changes with StatReloader
+[2025-02-08 09:50:28] WARNING log Conflict: /api/v1/appointments/1/complete/
+[2025-02-08 09:50:28] WARNING log Bad Request: /api/v1/appointments/2/complete/
+[2025-02-08 09:50:28] WARNING log Bad Request: /api/v1/appointments/3/complete/
+[2025-02-08 09:50:29] WARNING log Bad Request: /api/v1/appointments/4/complete/
+[2025-02-08 09:50:29] WARNING log Bad Request: /api/v1/appointments/5/complete/
+[2025-02-08 09:50:29] WARNING log Bad Request: /api/v1/appointments/6/complete/
+[2025-02-08 09:50:30] WARNING log Bad Request: /api/v1/appointments/7/complete/
+[2025-02-08 09:50:30] WARNING log Unauthorized: /api/v1/appointments/8/complete/
+[2025-02-08 09:50:31] WARNING log Forbidden: /api/v1/appointments/9/complete/
+[2025-02-08 09:50:31] WARNING log Conflict: /api/v1/appointments/10/complete/
+[2025-02-08 09:50:31] WARNING log Not Found: /api/v1/appointments/99999/complete/
+[2025-02-08 09:50:57] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/appointments/serializers.py changed, reloading.
+[2025-02-08 09:50:57] INFO autoreload Watching for file changes with StatReloader
+[2025-02-08 09:51:18] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/appointments/views.py changed, reloading.
+[2025-02-08 09:51:18] INFO autoreload Watching for file changes with StatReloader
+[2025-02-08 09:51:26] WARNING log Conflict: /api/v1/appointments/1/complete/
+[2025-02-08 09:51:27] WARNING log Bad Request: /api/v1/appointments/2/complete/
+[2025-02-08 09:51:27] WARNING log Bad Request: /api/v1/appointments/3/complete/
+[2025-02-08 09:51:27] WARNING log Bad Request: /api/v1/appointments/4/complete/
+[2025-02-08 09:51:28] WARNING log Bad Request: /api/v1/appointments/5/complete/
+[2025-02-08 09:51:28] WARNING log Bad Request: /api/v1/appointments/6/complete/
+[2025-02-08 09:51:28] WARNING log Bad Request: /api/v1/appointments/7/complete/
+[2025-02-08 09:51:29] WARNING log Unauthorized: /api/v1/appointments/8/complete/
+[2025-02-08 09:51:29] WARNING log Forbidden: /api/v1/appointments/9/complete/
+[2025-02-08 09:51:30] WARNING log Conflict: /api/v1/appointments/10/complete/
+[2025-02-08 09:51:30] WARNING log Not Found: /api/v1/appointments/99999/complete/
+[2025-02-08 09:51:47] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/appointments/serializers.py changed, reloading.
+[2025-02-08 09:51:48] INFO autoreload Watching for file changes with StatReloader
+[2025-02-08 09:51:55] WARNING log Conflict: /api/v1/appointments/1/complete/
+[2025-02-08 09:51:55] WARNING log Bad Request: /api/v1/appointments/2/complete/
+[2025-02-08 09:51:56] WARNING log Bad Request: /api/v1/appointments/3/complete/
+[2025-02-08 09:51:56] WARNING log Bad Request: /api/v1/appointments/4/complete/
+[2025-02-08 09:51:56] WARNING log Bad Request: /api/v1/appointments/5/complete/
+[2025-02-08 09:51:57] WARNING log Bad Request: /api/v1/appointments/6/complete/
+[2025-02-08 09:51:57] WARNING log Bad Request: /api/v1/appointments/7/complete/
+[2025-02-08 09:51:57] WARNING log Unauthorized: /api/v1/appointments/8/complete/
+[2025-02-08 09:51:58] WARNING log Forbidden: /api/v1/appointments/9/complete/
+[2025-02-08 09:51:58] WARNING log Conflict: /api/v1/appointments/10/complete/
+[2025-02-08 09:51:59] WARNING log Not Found: /api/v1/appointments/99999/complete/
+[2025-02-08 09:52:33] WARNING log Conflict: /api/v1/appointments/1/complete/
+[2025-02-08 09:52:34] WARNING log Bad Request: /api/v1/appointments/2/complete/
+[2025-02-08 09:52:34] WARNING log Bad Request: /api/v1/appointments/3/complete/
+[2025-02-08 09:52:34] WARNING log Bad Request: /api/v1/appointments/4/complete/
+[2025-02-08 09:52:35] WARNING log Bad Request: /api/v1/appointments/5/complete/
+[2025-02-08 09:52:35] WARNING log Bad Request: /api/v1/appointments/6/complete/
+[2025-02-08 09:52:35] WARNING log Bad Request: /api/v1/appointments/7/complete/
+[2025-02-08 09:52:36] WARNING log Unauthorized: /api/v1/appointments/8/complete/
+[2025-02-08 09:52:36] WARNING log Forbidden: /api/v1/appointments/9/complete/
+[2025-02-08 09:52:37] WARNING log Conflict: /api/v1/appointments/10/complete/
+[2025-02-08 09:52:37] WARNING log Not Found: /api/v1/appointments/99999/complete/
+[2025-02-08 09:52:59] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/appointments/views.py changed, reloading.
+[2025-02-08 09:52:59] INFO autoreload Watching for file changes with StatReloader
+[2025-02-08 09:53:06] WARNING log Conflict: /api/v1/appointments/1/complete/
+[2025-02-08 09:53:07] WARNING log Bad Request: /api/v1/appointments/2/complete/
+[2025-02-08 09:53:07] WARNING log Bad Request: /api/v1/appointments/3/complete/
+[2025-02-08 09:53:08] WARNING log Bad Request: /api/v1/appointments/4/complete/
+[2025-02-08 09:53:08] WARNING log Bad Request: /api/v1/appointments/5/complete/
+[2025-02-08 09:53:09] WARNING log Bad Request: /api/v1/appointments/7/complete/
+[2025-02-08 09:53:09] WARNING log Unauthorized: /api/v1/appointments/8/complete/
+[2025-02-08 09:53:09] WARNING log Forbidden: /api/v1/appointments/9/complete/
+[2025-02-08 09:53:10] WARNING log Conflict: /api/v1/appointments/10/complete/
+[2025-02-08 09:53:10] WARNING log Not Found: /api/v1/appointments/99999/complete/
+[2025-02-08 09:53:33] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/appointments/views.py changed, reloading.
+[2025-02-08 09:53:34] INFO autoreload Watching for file changes with StatReloader
+[2025-02-08 09:53:41] WARNING log Conflict: /api/v1/appointments/1/complete/
+[2025-02-08 09:53:42] WARNING log Bad Request: /api/v1/appointments/2/complete/
+[2025-02-08 09:53:42] WARNING log Bad Request: /api/v1/appointments/4/complete/
+[2025-02-08 09:53:43] WARNING log Bad Request: /api/v1/appointments/5/complete/
+[2025-02-08 09:53:44] WARNING log Unauthorized: /api/v1/appointments/8/complete/
+[2025-02-08 09:53:44] WARNING log Forbidden: /api/v1/appointments/9/complete/
+[2025-02-08 09:53:45] WARNING log Conflict: /api/v1/appointments/10/complete/
+[2025-02-08 09:53:45] WARNING log Not Found: /api/v1/appointments/99999/complete/
+[2025-02-08 09:54:11] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/appointments/views.py changed, reloading.
+[2025-02-08 09:54:11] INFO autoreload Watching for file changes with StatReloader
+[2025-02-08 09:54:16] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/appointments/views.py changed, reloading.
+[2025-02-08 09:54:16] INFO autoreload Watching for file changes with StatReloader
+[2025-02-08 09:54:20] WARNING log Conflict: /api/v1/appointments/1/complete/
+[2025-02-08 09:54:20] WARNING log Bad Request: /api/v1/appointments/2/complete/
+[2025-02-08 09:54:20] WARNING log Bad Request: /api/v1/appointments/3/complete/
+[2025-02-08 09:54:21] WARNING log Bad Request: /api/v1/appointments/4/complete/
+[2025-02-08 09:54:21] WARNING log Bad Request: /api/v1/appointments/5/complete/
+[2025-02-08 09:54:22] WARNING log Bad Request: /api/v1/appointments/7/complete/
+[2025-02-08 09:54:22] WARNING log Unauthorized: /api/v1/appointments/8/complete/
+[2025-02-08 09:54:23] WARNING log Forbidden: /api/v1/appointments/9/complete/
+[2025-02-08 09:54:23] WARNING log Conflict: /api/v1/appointments/10/complete/
+[2025-02-08 09:54:24] WARNING log Not Found: /api/v1/appointments/99999/complete/
+[2025-02-08 09:54:58] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/appointments/views.py changed, reloading.
+[2025-02-08 09:54:59] INFO autoreload Watching for file changes with StatReloader
+[2025-02-08 09:55:12] WARNING log Conflict: /api/v1/appointments/1/complete/
+[2025-02-08 09:55:12] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/appointments/views.py changed, reloading.
+[2025-02-08 09:55:12] WARNING log Bad Request: /api/v1/appointments/2/complete/
+[2025-02-08 09:55:13] INFO autoreload Watching for file changes with StatReloader
+[2025-02-08 09:55:13] WARNING log Bad Request: /api/v1/appointments/4/complete/
+[2025-02-08 09:55:14] WARNING log Bad Request: /api/v1/appointments/5/complete/
+[2025-02-08 09:55:15] WARNING log Unauthorized: /api/v1/appointments/8/complete/
+[2025-02-08 09:55:15] WARNING log Forbidden: /api/v1/appointments/9/complete/
+[2025-02-08 09:55:15] WARNING log Conflict: /api/v1/appointments/10/complete/
+[2025-02-08 09:55:16] WARNING log Not Found: /api/v1/appointments/99999/complete/
+[2025-02-08 09:55:39] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/appointments/views.py changed, reloading.
+[2025-02-08 09:55:40] INFO autoreload Watching for file changes with StatReloader
+[2025-02-08 09:55:47] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/appointments/views.py changed, reloading.
+[2025-02-08 09:55:48] INFO autoreload Watching for file changes with StatReloader
+[2025-02-08 09:55:49] WARNING log Conflict: /api/v1/appointments/1/complete/
+[2025-02-08 09:55:49] WARNING log Bad Request: /api/v1/appointments/2/complete/
+[2025-02-08 09:55:50] WARNING log Bad Request: /api/v1/appointments/3/complete/
+[2025-02-08 09:55:50] WARNING log Bad Request: /api/v1/appointments/4/complete/
+[2025-02-08 09:55:50] WARNING log Bad Request: /api/v1/appointments/5/complete/
+[2025-02-08 09:55:51] WARNING log Bad Request: /api/v1/appointments/7/complete/
+[2025-02-08 09:55:52] WARNING log Unauthorized: /api/v1/appointments/8/complete/
+[2025-02-08 09:55:52] WARNING log Forbidden: /api/v1/appointments/9/complete/
+[2025-02-08 09:55:52] WARNING log Conflict: /api/v1/appointments/10/complete/
+[2025-02-08 09:55:53] WARNING log Not Found: /api/v1/appointments/99999/complete/
+[2025-02-08 09:56:33] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/appointments/views.py changed, reloading.
+[2025-02-08 09:56:34] INFO autoreload Watching for file changes with StatReloader
+[2025-02-08 09:56:47] WARNING log Conflict: /api/v1/appointments/1/complete/
+[2025-02-08 09:56:48] WARNING log Bad Request: /api/v1/appointments/2/complete/
+[2025-02-08 09:56:48] WARNING log Bad Request: /api/v1/appointments/3/complete/
+[2025-02-08 09:56:49] WARNING log Bad Request: /api/v1/appointments/4/complete/
+[2025-02-08 09:56:49] WARNING log Bad Request: /api/v1/appointments/5/complete/
+[2025-02-08 09:56:50] WARNING log Unauthorized: /api/v1/appointments/8/complete/
+[2025-02-08 09:56:50] WARNING log Forbidden: /api/v1/appointments/9/complete/
+[2025-02-08 09:56:51] WARNING log Conflict: /api/v1/appointments/10/complete/
+[2025-02-08 09:56:51] WARNING log Not Found: /api/v1/appointments/99999/complete/
+[2025-02-08 09:57:27] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/appointments/views.py changed, reloading.
+[2025-02-08 09:57:27] INFO autoreload Watching for file changes with StatReloader
+[2025-02-08 09:57:34] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/appointments/views.py changed, reloading.
+[2025-02-08 09:57:34] INFO autoreload Watching for file changes with StatReloader
+[2025-02-08 09:57:36] WARNING log Conflict: /api/v1/appointments/1/complete/
+[2025-02-08 09:57:37] WARNING log Bad Request: /api/v1/appointments/2/complete/
+[2025-02-08 09:57:37] WARNING log Bad Request: /api/v1/appointments/3/complete/
+[2025-02-08 09:57:38] WARNING log Bad Request: /api/v1/appointments/4/complete/
+[2025-02-08 09:57:38] WARNING log Bad Request: /api/v1/appointments/5/complete/
+[2025-02-08 09:57:39] WARNING log Unauthorized: /api/v1/appointments/8/complete/
+[2025-02-08 09:57:39] WARNING log Forbidden: /api/v1/appointments/9/complete/
+[2025-02-08 09:57:40] WARNING log Conflict: /api/v1/appointments/10/complete/
+[2025-02-08 09:57:40] WARNING log Not Found: /api/v1/appointments/99999/complete/
+[2025-02-08 10:02:23] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/config/settings.py changed, reloading.
+[2025-02-08 10:02:23] INFO autoreload Watching for file changes with StatReloader
+[2025-02-08 10:03:23] INFO cron Auto-completion job finished. Processed 5 appointments, completed 5.
+[2025-02-08 10:04:09] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/config/settings.py changed, reloading.
+[2025-02-08 10:04:10] INFO autoreload Watching for file changes with StatReloader
+[2025-02-08 10:04:33] WARNING log Unauthorized: /api/v1/appointments/
+[2025-02-08 10:04:33] WARNING log Not Found: /api/v1/auth/refresh-token/
+[2025-02-08 18:12:37] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/appointments/serializers.py changed, reloading.
+[2025-02-08 18:12:37] INFO autoreload Watching for file changes with StatReloader
+[2025-02-08 18:12:51] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/appointments/views.py changed, reloading.
+[2025-02-08 18:12:51] INFO autoreload Watching for file changes with StatReloader
+[2025-02-08 18:13:07] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/appointments/views.py changed, reloading.
+[2025-02-08 18:13:07] INFO autoreload Watching for file changes with StatReloader
+[2025-02-08 18:17:23] WARNING log Unauthorized: /api/v1/appointments/appointments/
+[2025-02-08 18:18:03] INFO autoreload Watching for file changes with StatReloader
+[2025-02-08 18:20:37] INFO autoreload Watching for file changes with StatReloader
+[2025-02-08 18:22:45] INFO views [OTP_DEBUG] Received send_otp request
+[2025-02-08 18:22:45] INFO views [OTP_DEBUG] Request Method: POST
+[2025-02-08 18:22:45] INFO views [OTP_DEBUG] Request Headers: {'Content-Length': '31', 'Content-Type': 'application/json', 'Host': 'localhost:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Not A(Brand";v="8", "Chromium";v="132", "Google Chrome";v="132"', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:4200', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:4200/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8,ps;q=0.7'}
+[2025-02-08 18:22:45] INFO views [OTP_DEBUG] Request Data: {'phone_number': '966555552022'}
+[2025-02-08 18:22:45] INFO views [OTP_DEBUG] Extracted phone number: 966555552022
+[2025-02-08 18:22:45] INFO views [OTP_DEBUG] Sanitized phone number: 966555552022
+[2025-02-08 18:22:45] INFO views [OTP_DEBUG] Calling OTPService.create_and_send_otp
+[2025-02-08 18:22:45] INFO services [OTP_DEBUG] Starting OTP creation for phone: 966555552022
+[2025-02-08 18:22:45] INFO services [OTP_DEBUG] Generated OTP code: 000000
+[2025-02-08 18:22:45] INFO services [OTP_DEBUG] Generated OTP code: 000000 for phone: 966555552022
+[2025-02-08 18:22:45] INFO services [OTP_DEBUG] Created OTP record - ID: e37ebe39-90ba-475d-a587-add65e83edeb, Phone: 966555552022
+[2025-02-08 18:22:45] INFO services [OTP_DEBUG] Prepared SMS message: ZUWARA: Your verification code is 000000
+[2025-02-08 18:22:45] INFO services [OTP_DEBUG] Attempting to send SMS to 966555552022
+[2025-02-08 18:22:45] INFO services [OTP_DEBUG] Message content: ZUWARA: Your verification code is 000000
+[2025-02-08 18:22:45] INFO services [OTP_DEBUG] Formatted number for sending: 555552022
+[2025-02-08 18:22:45] INFO services [OTP_DEBUG] DEV MODE - SMS would be sent to 555552022
+[2025-02-08 18:22:45] INFO services [OTP_DEBUG] DEV MODE - Message content: ZUWARA: Your verification code is 000000
+[2025-02-08 18:22:45] INFO services [OTP_DEBUG] SMS send result - Success: True, Response: SMS sent successfully (Development Mode)
+[2025-02-08 18:22:45] INFO services [OTP_DEBUG] Final result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': 'e37ebe39-90ba-475d-a587-add65e83edeb'}
+[2025-02-08 18:22:45] INFO views [OTP_DEBUG] OTPService result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': 'e37ebe39-90ba-475d-a587-add65e83edeb'}
+[2025-02-08 18:22:45] INFO views [OTP_DEBUG] Sending success response: {'status': 'success', 'message': 'OTP sent successfully', 'data': {'otp_id': 'e37ebe39-90ba-475d-a587-add65e83edeb'}}
+[2025-02-08 18:22:53] INFO views [OTP_DEBUG] Received verify_otp request
+[2025-02-08 18:22:53] INFO views [OTP_DEBUG] Request Method: POST
+[2025-02-08 18:22:53] INFO views [OTP_DEBUG] Request Headers: {'Content-Length': '51', 'Content-Type': 'application/json', 'Host': 'localhost:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', 'Accept': 'application/json, text/plain, */*', 'Sec-Ch-Ua': '"Not A(Brand";v="8", "Chromium";v="132", "Google Chrome";v="132"', 'Sec-Ch-Ua-Mobile': '?0', 'Origin': 'http://localhost:4200', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:4200/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8,ps;q=0.7'}
+[2025-02-08 18:22:53] INFO views [OTP_DEBUG] Request Data: {'phone_number': '966555552022', 'otp_code': '000000'}
+[2025-02-08 18:22:53] INFO views [OTP_DEBUG] Verifying OTP - Phone: 966555552022, Code: 000000
+[2025-02-08 18:22:53] INFO views [OTP_DEBUG] Sanitized phone number: 966555552022
+[2025-02-08 18:22:53] INFO views [OTP_DEBUG] Sanitized OTP code: 000000
+[2025-02-08 18:22:53] INFO views [OTP_DEBUG] Calling OTPService.verify_otp
+[2025-02-08 18:22:53] INFO services Verifying OTP for 966555552022
+[2025-02-08 18:22:53] INFO services OTP verified successfully for 966555552022
+[2025-02-08 18:22:53] INFO views [OTP_DEBUG] Verification result - Success: True, Message: OTP verified successfully
+[2025-02-08 18:22:53] INFO views [OTP_DEBUG] Sending success response: {'status': 'success', 'message': 'OTP verified successfully'}
+[2025-02-08 18:23:06] WARNING views Validation error in appointment creation: {'non_field_errors': [ErrorDetail(string='Selected doctor must be associated with at least one of the selected specialties', code='invalid')]}
+[2025-02-08 18:23:06] WARNING log Bad Request: /api/v1/appointments/
+[2025-02-08 18:23:56] INFO views Generated Agora token for channel: vid_fdb62949-ce34-4bac-ba7b-0aeee5a3ec1e_20250208182356, uid: 9036844, expiry: 1739042636
+[2025-02-08 18:23:56] INFO views Created appointment 17 for doctor fdb62949-ce34-4bac-ba7b-0aeee5a3ec1e with video token at 2025-02-08 18:23:56.831000+00:00
+[2025-02-08 18:28:17] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/video_calls/views.py changed, reloading.
+[2025-02-08 18:28:18] INFO autoreload Watching for file changes with StatReloader
+[2025-02-08 18:28:24] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/video_calls/views.py changed, reloading.
+[2025-02-08 18:28:25] INFO autoreload Watching for file changes with StatReloader
+[2025-02-08 18:29:31] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/video_calls/views.py changed, reloading.
+[2025-02-08 18:29:31] INFO autoreload Watching for file changes with StatReloader
+[2025-02-08 18:29:41] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/video_calls/token_builder.py changed, reloading.
+[2025-02-08 18:29:41] INFO autoreload Watching for file changes with StatReloader
+[2025-02-08 22:37:05] INFO services [OTP_DEBUG] Starting OTP creation for phone: 966555552922
+[2025-02-08 22:37:05] INFO services [OTP_DEBUG] Generated OTP code: 000000
+[2025-02-08 22:37:05] INFO services [OTP_DEBUG] Generated OTP code: 000000 for phone: 966555552922
+[2025-02-08 22:37:05] INFO services [OTP_DEBUG] Created OTP record - ID: ac8cfa0d-6aac-4d39-8508-fdf855bc6f57, Phone: 966555552922
+[2025-02-08 22:37:05] INFO services [OTP_DEBUG] Prepared SMS message: ZUWARA: Your verification code is 000000
+[2025-02-08 22:37:05] INFO services [OTP_DEBUG] Attempting to send SMS to 966555552922
+[2025-02-08 22:37:05] INFO services [OTP_DEBUG] Message content: ZUWARA: Your verification code is 000000
+[2025-02-08 22:37:05] INFO services [OTP_DEBUG] Formatted number for sending: 555552922
+[2025-02-08 22:37:05] INFO services [OTP_DEBUG] DEV MODE - SMS would be sent to 555552922
+[2025-02-08 22:37:05] INFO services [OTP_DEBUG] DEV MODE - Message content: ZUWARA: Your verification code is 000000
+[2025-02-08 22:37:05] INFO services [OTP_DEBUG] SMS send result - Success: True, Response: SMS sent successfully (Development Mode)
+[2025-02-08 22:37:05] INFO services [OTP_DEBUG] Final result: {'success': True, 'message': 'SMS sent successfully (Development Mode)', 'otp_id': 'ac8cfa0d-6aac-4d39-8508-fdf855bc6f57'}
+[2025-02-08 22:37:05] ERROR services [DOCTOR_DEBUG] Error creating verification: column "id" is of type integer but expression is of type uuid
+LINE 1: ...", "expires_at", "is_used", "email_code") VALUES ('672871ce7...
+                                                             ^
+HINT:  You will need to rewrite or cast the expression.
+[2025-02-08 22:37:05] WARNING log Bad Request: /api/v1/doctors/register/initiate/
+[2025-02-08 22:38:55] INFO services [OTP_DEBUG] Starting OTP creation for phone: 966555552922
+[2025-02-08 22:38:55] INFO services [OTP_DEBUG] Valid OTP already exists for 966555552922
+[2025-02-08 22:38:55] INFO services [OTP_DEBUG] Attempting to send SMS to 966555552922
+[2025-02-08 22:38:55] INFO services [OTP_DEBUG] Message content: ZUWARA: Your verification code is 000000
+[2025-02-08 22:38:55] INFO services [OTP_DEBUG] Formatted number for sending: 555552922
+[2025-02-08 22:38:55] INFO services [OTP_DEBUG] DEV MODE - SMS would be sent to 555552922
+[2025-02-08 22:38:55] INFO services [OTP_DEBUG] DEV MODE - Message content: ZUWARA: Your verification code is 000000
+[2025-02-08 22:38:55] ERROR services [DOCTOR_DEBUG] Error creating verification: column "email_code" of relation "doctors_doctorverification" does not exist
+LINE 1: ...document", "created_at", "expires_at", "is_used", "email_cod...
+                                                             ^
+[2025-02-08 22:38:55] WARNING log Bad Request: /api/v1/doctors/register/initiate/
+[2025-02-08 22:40:04] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/models.py changed, reloading.
+[2025-02-08 22:40:05] INFO autoreload Watching for file changes with StatReloader
+[2025-02-08 22:40:22] INFO autoreload /Users/babarsultan/Documents/alaqa/alaqa-python/doctors/models.py changed, reloading.
+[2025-02-08 22:40:22] INFO autoreload Watching for file changes with StatReloader
+[2025-02-08 22:40:27] INFO services [OTP_DEBUG] Starting OTP creation for phone: 966555552922
+[2025-02-08 22:40:27] INFO services [OTP_DEBUG] Valid OTP already exists for 966555552922
+[2025-02-08 22:40:27] INFO services [OTP_DEBUG] Attempting to send SMS to 966555552922
+[2025-02-08 22:40:27] INFO services [OTP_DEBUG] Message content: ZUWARA: Your verification code is 000000
+[2025-02-08 22:40:27] INFO services [OTP_DEBUG] Formatted number for sending: 555552922
+[2025-02-08 22:40:27] INFO services [OTP_DEBUG] DEV MODE - SMS would be sent to 555552922
+[2025-02-08 22:40:27] INFO services [OTP_DEBUG] DEV MODE - Message content: ZUWARA: Your verification code is 000000
+[2025-02-08 22:40:35] INFO views [DOCTOR_DEBUG] Starting verification process for email: asd@as.com
+[2025-02-08 22:40:35] INFO views [DOCTOR_DEBUG] Verification attempt - Data: {'verification_id': 'faf1c81b-e06e-4905-a568-b49f9bb5cc40', 'email': 'asd@as.com', 'sms_code': '000000'}
+[2025-02-08 22:40:35] INFO views [DOCTOR_DEBUG] Found verification record - ID: faf1c81b-e06e-4905-a568-b49f9bb5cc40
+[2025-02-08 22:40:35] INFO views [DOCTOR_DEBUG] Found OTP record - ID: ac8cfa0d-6aac-4d39-8508-fdf855bc6f57, Attempts: 0
+[2025-02-08 22:40:35] INFO views [DOCTOR_DEBUG] OTP code matched
+[2025-02-08 22:40:35] INFO views [DOCTOR_DEBUG] Marked OTP as verified - ID: ac8cfa0d-6aac-4d39-8508-fdf855bc6f57
+[2025-02-08 22:40:35] INFO views [DOCTOR_DEBUG] Marked verification as complete - ID: faf1c81b-e06e-4905-a568-b49f9bb5cc40
+[2025-02-08 22:40:35] INFO views [DOCTOR_DEBUG] Created user account - ID: 530f130f-6946-4150-9f7b-864d304605bf
+[2025-02-08 22:40:35] INFO views [DOCTOR_DEBUG] Created doctor profile - ID: 34719c45-96c1-41b4-b3a9-01e50f4c7abd

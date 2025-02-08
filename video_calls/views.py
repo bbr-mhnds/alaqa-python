@@ -13,7 +13,7 @@ from rest_framework.response import Response
 from rest_framework.exceptions import ValidationError, PermissionDenied, NotFound
 from doctors.models import Doctor
 from patients.models import Patient
-from agora_token_builder import RtcTokenBuilder
+from .token_builder import AgoraTokenBuilder
 from .models import VideoCall
 from .serializers import VideoCallSerializer, TokenSerializer, TokenRequestSerializer
 
@@ -32,7 +32,7 @@ Role_Subscriber = 2
 
 def generate_agora_rtc_token(channel_name, uid):
     """
-    Generate an Agora RTC token using the official Agora token builder.
+    Generate an Agora RTC token using our custom token builder.
     
     Args:
         channel_name (str): The name of the channel to join
@@ -56,8 +56,8 @@ def generate_agora_rtc_token(channel_name, uid):
         # Calculate privilege expire time (24 hours from now)
         privilegeExpiredTs = current_timestamp + TOKEN_EXPIRATION_IN_SECONDS
         
-        # Build token using Agora's SDK
-        token = RtcTokenBuilder.buildTokenWithUid(
+        # Build token using our custom token builder
+        token = AgoraTokenBuilder.build_token_with_uid(
             settings.AGORA_APP_ID,
             settings.AGORA_APP_CERTIFICATE,
             channel_name,
