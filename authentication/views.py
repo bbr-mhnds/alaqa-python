@@ -16,7 +16,6 @@ from .serializers import (
     TokenSerializer,
     ChangePasswordSerializer,
     ResetPasswordRequestSerializer,
-    ResetPasswordConfirmSerializer,
     UpdateProfileSerializer,
 )
 
@@ -111,47 +110,30 @@ class AuthViewSet(viewsets.GenericViewSet):
         
         try:
             user = User.objects.get(email=serializer.validated_data['email'])
-            token = Token.objects.create(
-                user=user,
-                token=RefreshToken.for_user(user),
-                type='reset_password',
-                expires_at=timezone.now() + timedelta(hours=24)
-            )
-            # Send email with reset token (implement email sending logic)
+            # Generate a random password
+            import string
+            import random
+            new_password = ''.join(random.choices(string.ascii_letters + string.digits + '@#$%^&*', k=12))
+            
+            # Set the new password
+            user.set_password(new_password)
+            user.save()
+            
+            # TODO: Send email with new password
+            # For now, return the password in response (only for development)
             return Response({
                 'status': 'success',
-                'message': 'Password reset email sent successfully'
+                'message': 'Password has been reset successfully',
+                'data': {
+                    'new_password': new_password  # Remove this in production
+                }
             })
         except User.DoesNotExist:
+            # Don't reveal whether a user exists
             return Response({
                 'status': 'success',
-                'message': 'Password reset email sent successfully'
+                'message': 'If the email exists, a password reset email will be sent'
             })
-
-    @action(detail=False, methods=['post'], serializer_class=ResetPasswordConfirmSerializer)
-    def password_reset_confirm(self, request):
-        serializer = self.get_serializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        
-        try:
-            token = Token.objects.get(
-                token=serializer.validated_data['token'],
-                type='reset_password',
-                expires_at__gt=timezone.now()
-            )
-            user = token.user
-            user.set_password(serializer.validated_data['password'])
-            user.save()
-            token.delete()
-            return Response({
-                'status': 'success',
-                'message': 'Password reset successfully'
-            })
-        except Token.DoesNotExist:
-            return Response({
-                'status': 'error',
-                'message': 'Invalid or expired token'
-            }, status=status.HTTP_400_BAD_REQUEST)
 
     @action(detail=False, methods=['post'], serializer_class=ChangePasswordSerializer, permission_classes=[IsAuthenticated])
     def password_change(self, request):

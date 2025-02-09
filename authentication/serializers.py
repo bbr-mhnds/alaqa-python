@@ -60,20 +60,6 @@ class ChangePasswordSerializer(serializers.Serializer):
 class ResetPasswordRequestSerializer(serializers.Serializer):
     email = serializers.EmailField(required=True)
 
-class ResetPasswordConfirmSerializer(serializers.Serializer):
-    token = serializers.CharField(required=True)
-    password = serializers.CharField(required=True)
-    password_confirmation = serializers.CharField(required=True)
-
-    def validate(self, attrs):
-        if attrs['password'] != attrs['password_confirmation']:
-            raise serializers.ValidationError({"password": "Password fields didn't match."})
-        try:
-            validate_password(attrs['password'])
-        except ValidationError as e:
-            raise serializers.ValidationError({"password": list(e.messages)})
-        return attrs
-
 class UpdateProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
