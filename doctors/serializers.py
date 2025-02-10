@@ -553,33 +553,39 @@ class PriceCategorySerializer(serializers.ModelSerializer):
 
         return instance
 
-class DoctorRegistrationInitiateSerializer(serializers.Serializer):
+class DoctorRegistrationInitiateSerializer(serializers.ModelSerializer):
     """Serializer for initiating doctor registration"""
-    email = serializers.EmailField()
-    phone = serializers.CharField()
+    password = serializers.CharField(write_only=True, required=True)
+    confirm_password = serializers.CharField(write_only=True, required=True)
+    specialities = serializers.ListField(child=serializers.UUIDField(), required=True)
+    license_document = serializers.FileField(required=False)
+    qualification_document = serializers.FileField(required=False)
+    additional_documents = serializers.FileField(required=False, allow_null=True)
+    terms_and_privacy_accepted = serializers.BooleanField(required=True)
 
-    def validate_email(self, value):
-        from django.contrib.auth import get_user_model
-        User = get_user_model()
-        if User.objects.filter(email=value).exists():
-            raise serializers.ValidationError("A user with this email already exists.")
-        return value
+    class Meta:
+        model = Doctor
+        fields = [
+            'name_arabic', 'name', 'sex', 'email', 'phone',
+            'experience', 'category', 'language_in_sessions',
+            'license_number', 'specialities', 'profile_arabic',
+            'profile_english', 'photo', 'license_document',
+            'qualification_document', 'additional_documents',
+            'password', 'confirm_password', 'terms_and_privacy_accepted'
+        ]
 
-    def validate_phone(self, value):
-        # Remove any non-digit characters
-        phone = ''.join(filter(str.isdigit, value))
+    def validate(self, data):
+        # Validate terms and privacy acceptance
+        if not data.get('terms_and_privacy_accepted'):
+            raise serializers.ValidationError({
+                "terms_and_privacy_accepted": "You must accept the terms and privacy policy to register."
+            })
         
-        # Add Saudi prefix if needed
-        if phone.startswith('5'):
-            phone = '966' + phone
-        elif phone.startswith('05'):
-            phone = '966' + phone[1:]
-            
-        # Validate length
-        if len(phone) != 12:  # 966 + 9 digits
-            raise serializers.ValidationError("Invalid phone number format. Must be a Saudi number.")
-            
-        return phone
+        # Validate passwords match
+        if data.get('password') != data.get('confirm_password'):
+            raise serializers.ValidationError("Passwords do not match")
+
+        return data
 
 class DoctorRegistrationVerifySerializer(serializers.Serializer):
     """Serializer for verifying doctor registration"""

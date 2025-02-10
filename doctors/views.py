@@ -277,42 +277,88 @@ class DoctorRegistrationViewSet(viewsets.ModelViewSet):
 
     @action(detail=False, methods=['post'], authentication_classes=[], permission_classes=[permissions.AllowAny])
     def initiate(self, request):
-        """Step 1: Initiate registration and send verification codes"""
+        """Step 1: Complete registration with full doctor details"""
         try:
-            # Validate initial data
+            # Validate registration data
             serializer = self.get_serializer(data=request.data)
             serializer.is_valid(raise_exception=True)
             
-            email = serializer.validated_data['email']
-            phone = serializer.validated_data['phone']
+            validated_data = serializer.validated_data
+            email = validated_data['email']
+            phone = validated_data['phone']
             
-            # Store registration data for later use
-            registration_data = {
-                'email': email,
-                'phone': phone
-            }
-            
-            # Send verification codes
-            verification_result = DoctorVerificationService.send_verification_codes(
-                email=email,
-                phone=phone,
-                registration_data=registration_data  # Pass registration data to store
-            )
-            
-            if verification_result['success']:
+            # Create doctor instance with all data
+            with transaction.atomic():
+                # Create doctor
+                doctor = Doctor.objects.create(
+                    name=validated_data['name'],
+                    name_arabic=validated_data['name_arabic'],
+                    sex=validated_data['sex'],
+                    email=email,
+                    phone=phone,
+                    experience=validated_data['experience'],
+                    category=validated_data['category'],
+                    language_in_sessions=validated_data['language_in_sessions'],
+                    license_number=validated_data['license_number'],
+                    profile_arabic=validated_data['profile_arabic'],
+                    profile_english=validated_data['profile_english'],
+                    status='pending',
+                    terms_and_privacy_accepted=validated_data['terms_and_privacy_accepted']
+                )
+
+                # Handle file uploads
+                if 'license_document' in request.FILES:
+                    doctor.license_document = request.FILES['license_document']
+                if 'qualification_document' in request.FILES:
+                    doctor.qualification_document = request.FILES['qualification_document']
+                if 'additional_documents' in request.FILES:
+                    doctor.additional_documents = request.FILES['additional_documents']
+                if 'photo' in request.FILES:
+                    doctor.photo = request.FILES['photo']
+                
+                doctor.save()
+
+                # Add specialities
+                doctor.specialities.set(validated_data['specialities'])
+
+                # Create user account
+                from django.contrib.auth import get_user_model
+                from django.contrib.auth.models import Group
+                User = get_user_model()
+                
+                user = User.objects.create_user(
+                    email=email,
+                    password=validated_data['password'],
+                    is_active=False,  # Will be activated upon approval
+                    is_staff=True  # Doctors need admin panel access
+                )
+                
+                # Add doctor role
+                doctor_group, _ = Group.objects.get_or_create(name='Doctors')
+                user.groups.add(doctor_group)
+
+                # Send verification codes
+                verification_result = DoctorVerificationService.send_verification_codes(
+                    email=email,
+                    phone=phone,
+                    registration_data={}  # Empty since we've already saved the data
+                )
+                
                 return Response({
                     'status': 'success',
-                    'message': verification_result['message'],
+                    'message': 'Registration initiated successfully. Please verify your phone number.',
                     'data': {
-                        'verification_id': verification_result.get('verification_id'),
-                        'otp_id': verification_result.get('otp_id')
+                        'verification_id': str(verification_result['verification_id']),
+                        'doctor_id': str(doctor.id),
+                        'next_steps': [
+                            'Check your phone for the verification code.',
+                            'Use the code to verify your phone number.',
+                            'Your profile will be reviewed by our team after verification.',
+                            'You will receive a notification once your account is approved.'
+                        ]
                     }
                 })
-            else:
-                return Response({
-                    'status': 'error',
-                    'message': verification_result['message']
-                }, status=status.HTTP_400_BAD_REQUEST)
+                
         except serializers.ValidationError as e:
             return Response({
                 'status': 'error',
@@ -323,7 +369,7 @@ class DoctorRegistrationViewSet(viewsets.ModelViewSet):
             return Response({
                 'status': 'error',
                 'message': str(e)
-            }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            }, status=status.HTTP_400_BAD_REQUEST)
 
     @action(detail=False, methods=['post'], authentication_classes=[], permission_classes=[permissions.AllowAny])
     def verify(self, request):

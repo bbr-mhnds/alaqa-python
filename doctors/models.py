@@ -43,7 +43,7 @@ class Doctor(models.Model):
     experience = models.CharField(max_length=255)
     category = models.CharField(max_length=20, choices=CATEGORY_CHOICES)
     language_in_sessions = models.CharField(max_length=10, choices=LANGUAGE_CHOICES)
-    license_number = models.CharField(max_length=100, unique=True)
+    license_number = models.CharField(max_length=100, unique=True, null=True, blank=True)
     specialities = models.ManyToManyField(Specialty, related_name='doctors')
     profile_arabic = models.TextField()
     profile_english = models.TextField()
