@@ -553,15 +553,39 @@ class PriceCategorySerializer(serializers.ModelSerializer):
 
         return instance
 
-class DoctorRegistrationInitiateSerializer(serializers.ModelSerializer):
-    """Serializer for initiating doctor registration"""
+class DoctorRegistrationInitiateSerializer(serializers.Serializer):
+    """Serializer for initiating doctor registration with just email and phone"""
+    email = serializers.EmailField(required=True)
+    phone = serializers.CharField(required=True)
+
+    def validate_phone(self, value):
+        if not value.startswith('+'):
+            raise serializers.ValidationError("Phone number must start with '+'")
+        return value
+
+    def validate_email(self, value):
+        from django.contrib.auth import get_user_model
+        User = get_user_model()
+        if User.objects.filter(email=value).exists():
+            raise serializers.ValidationError("A user with this email already exists.")
+        if Doctor.objects.filter(email=value).exists():
+            raise serializers.ValidationError("A doctor with this email already exists.")
+        return value
+
+class DoctorRegistrationCompleteSerializer(serializers.ModelSerializer):
+    """Serializer for completing doctor registration with all details"""
     password = serializers.CharField(write_only=True, required=True)
     confirm_password = serializers.CharField(write_only=True, required=True)
-    specialities = serializers.ListField(child=serializers.CharField(), required=True)
-    license_document = serializers.FileField(required=False)
-    qualification_document = serializers.FileField(required=False)
+    specialities = serializers.ListField(child=serializers.UUIDField(), required=True)
+    license_document = serializers.FileField(required=True)
+    qualification_document = serializers.FileField(required=True)
     additional_documents = serializers.FileField(required=False, allow_null=True)
     terms_and_privacy_accepted = serializers.BooleanField(required=True)
+    account_holder_name = serializers.CharField(write_only=True, required=True)
+    account_number = serializers.CharField(write_only=True, required=True)
+    iban_number = serializers.CharField(write_only=True, required=True)
+    bank_name = serializers.CharField(write_only=True, required=True)
+    swift_code = serializers.CharField(write_only=True, required=True)
 
     class Meta:
         model = Doctor
@@ -571,8 +595,11 @@ class DoctorRegistrationInitiateSerializer(serializers.ModelSerializer):
             'license_number', 'specialities', 'profile_arabic',
             'profile_english', 'photo', 'license_document',
             'qualification_document', 'additional_documents',
-            'password', 'confirm_password', 'terms_and_privacy_accepted'
+            'password', 'confirm_password', 'terms_and_privacy_accepted',
+            'account_holder_name', 'account_number', 'iban_number',
+            'bank_name', 'swift_code'
         ]
+        read_only_fields = ['email', 'phone']  # These were set in initiate step
 
     def validate_specialities(self, value):
         """
@@ -618,6 +645,49 @@ class DoctorRegistrationInitiateSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("Passwords do not match")
 
         return data
+
+    def create(self, validated_data):
+        # Remove password fields from validated data
+        password = validated_data.pop('password')
+        validated_data.pop('confirm_password', None)
+        
+        # Get specialities and remove from validated data
+        specialities = validated_data.pop('specialities')
+        
+        # Get bank details and remove from validated data
+        bank_details_data = {
+            'bank_name': validated_data.pop('bank_name'),
+            'account_holder_name': validated_data.pop('account_holder_name'),
+            'account_number': validated_data.pop('account_number'),
+            'iban_number': validated_data.pop('iban_number'),
+            'swift_code': validated_data.pop('swift_code')
+        }
+        
+        # Create doctor instance
+        doctor = Doctor.objects.create(**validated_data)
+        
+        # Add specialities
+        doctor.specialities.set(specialities)
+        
+        # Create user account for doctor (initially inactive)
+        from django.contrib.auth import get_user_model
+        User = get_user_model()
+        user = User.objects.create_user(
+            email=validated_data['email'],
+            password=password,
+            is_active=False,  # Will be activated upon approval
+            is_staff=True  # Doctors need admin panel access
+        )
+        
+        # Add doctor role/group
+        from django.contrib.auth.models import Group
+        doctor_group, _ = Group.objects.get_or_create(name='Doctors')
+        user.groups.add(doctor_group)
+        
+        # Create bank details
+        DoctorBankDetails.objects.create(doctor=doctor, **bank_details_data)
+        
+        return doctor
 
 class DoctorRegistrationVerifySerializer(serializers.Serializer):
     """Serializer for verifying doctor registration"""
