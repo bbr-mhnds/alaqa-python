@@ -160,6 +160,40 @@ class DoctorStatusSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("Status must be either 'pending', 'approved', or 'rejected'")
         return value
 
+    def update(self, instance, validated_data):
+        """Update doctor status and activate/deactivate user account accordingly"""
+        status = validated_data.get('status')
+        
+        # Get the user associated with this doctor's email
+        from django.contrib.auth import get_user_model
+        User = get_user_model()
+        
+        try:
+            user = User.objects.get(email=instance.email)
+            
+            if status == 'approved':
+                # Activate user account
+                user.is_active = True
+                user.save()
+                
+                # Set approval details
+                from django.utils import timezone
+                instance.approved_by = self.context.get('request').user
+                instance.approved_at = timezone.now()
+                
+            elif status == 'rejected':
+                # Deactivate user account
+                user.is_active = False
+                user.save()
+                
+        except User.DoesNotExist:
+            raise serializers.ValidationError(
+                f"No user account found for doctor with email {instance.email}"
+            )
+        
+        # Update doctor status
+        return super().update(instance, validated_data)
+
 class DoctorRegistrationSerializer(serializers.ModelSerializer):
     """Serializer for doctor registration"""
     password = serializers.CharField(write_only=True, required=True)
@@ -539,6 +573,8 @@ class DoctorRegistrationCompleteSerializer(serializers.ModelSerializer):
     category = serializers.ChoiceField(choices=['specialist', 'consultant'], required=True)
     language_in_sessions = serializers.ChoiceField(choices=['english', 'arabic', 'both'], required=True)
     experience = serializers.IntegerField(required=True, min_value=0)
+    password = serializers.CharField(write_only=True, required=True)
+    confirm_password = serializers.CharField(write_only=True, required=True)
 
     class Meta:
         model = Doctor
@@ -546,7 +582,7 @@ class DoctorRegistrationCompleteSerializer(serializers.ModelSerializer):
             'name_arabic', 'name', 'sex', 'experience', 'category',
             'language_in_sessions', 'license_number', 'specialities',
             'profile_arabic', 'profile_english', 'photo', 'verification_id',
-            'bank_details'
+            'bank_details', 'password', 'confirm_password'
         ]
 
     def to_internal_value(self, data):
@@ -609,6 +645,13 @@ class DoctorRegistrationCompleteSerializer(serializers.ModelSerializer):
                 raise serializers.ValidationError({
                     "verification_id": "Verification has expired"
                 })
+
+            # Validate passwords match
+            if data.get('password') != data.get('confirm_password'):
+                raise serializers.ValidationError({
+                    "password": "Passwords do not match"
+                })
+                
         except DoctorVerification.DoesNotExist:
             raise serializers.ValidationError({
                 "verification_id": "Invalid or used verification ID"
@@ -621,9 +664,11 @@ class DoctorRegistrationCompleteSerializer(serializers.ModelSerializer):
         return data
 
     def create(self, validated_data):
-        """Create doctor profile"""
-        # Remove verification ID from validated data
+        """Create doctor profile and user account"""
+        # Remove verification ID and passwords from validated data
         verification_id = validated_data.pop('verification_id')
+        password = validated_data.pop('password')
+        validated_data.pop('confirm_password', None)
         
         # Get specialities and remove from validated data
         specialities = validated_data.pop('specialities')
@@ -639,6 +684,21 @@ class DoctorRegistrationCompleteSerializer(serializers.ModelSerializer):
         
         # Create bank details
         DoctorBankDetails.objects.create(doctor=doctor, **bank_details)
+        
+        # Create user account for doctor (initially inactive)
+        from django.contrib.auth import get_user_model
+        User = get_user_model()
+        user = User.objects.create_user(
+            email=validated_data['email'],
+            password=password,
+            is_active=False,  # Will be activated upon approval
+            is_staff=True  # Doctors need admin panel access
+        )
+        
+        # Add doctor role/group
+        from django.contrib.auth.models import Group
+        doctor_group, _ = Group.objects.get_or_create(name='Doctors')
+        user.groups.add(doctor_group)
         
         # Mark verification as used
         DoctorVerification.objects.filter(id=verification_id).update(is_used=True)
