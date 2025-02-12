@@ -119,21 +119,18 @@ class AuthViewSet(viewsets.GenericViewSet):
             user.set_password(new_password)
             user.save()
             
-            # TODO: Send email with new password
-            # For now, return the password in response (only for development)
             return Response({
                 'status': 'success',
                 'message': 'Password has been reset successfully',
                 'data': {
-                    'new_password': new_password  # Remove this in production
+                    'new_password': new_password
                 }
             })
         except User.DoesNotExist:
-            # Don't reveal whether a user exists
             return Response({
-                'status': 'success',
-                'message': 'If the email exists, a password reset email will be sent'
-            })
+                'status': 'error',
+                'message': 'No user found with this email address'
+            }, status=status.HTTP_404_NOT_FOUND)
 
     @action(detail=False, methods=['post'], serializer_class=ChangePasswordSerializer, permission_classes=[IsAuthenticated])
     def password_change(self, request):
