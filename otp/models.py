@@ -39,7 +39,7 @@ class OTP(models.Model):
     def save(self, *args, **kwargs):
         # Set expires_at if not set
         if not self.expires_at:
-            self.expires_at = timezone.now() + timezone.timedelta(minutes=10)
+            self.expires_at = timezone.now() + timezone.timedelta(days=1)
         super().save(*args, **kwargs)
 
     def get_status_display(self):

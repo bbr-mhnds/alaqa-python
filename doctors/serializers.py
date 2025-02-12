@@ -164,7 +164,7 @@ class DoctorRegistrationSerializer(serializers.ModelSerializer):
     """Serializer for doctor registration"""
     password = serializers.CharField(write_only=True, required=True)
     confirm_password = serializers.CharField(write_only=True, required=True)
-    specialities = serializers.CharField(required=True)  # Changed to CharField to handle form data
+    specialities = serializers.ListField(child=serializers.UUIDField(), required=True)  # Changed to ListField of UUIDs
     license_document = serializers.FileField(required=True)
     qualification_document = serializers.FileField(required=True)
     additional_documents = serializers.FileField(required=False, allow_null=True)
@@ -209,30 +209,20 @@ class DoctorRegistrationSerializer(serializers.ModelSerializer):
                     "email": "A user with this email already exists."
                 })
 
-        # Validate and convert specialities
-        specialities = data.get('specialities', '')
-        try:
-            import json
-            # Handle string input from form
-            if isinstance(specialities, str):
-                if specialities.startswith('[') and specialities.endswith(']'):
-                    specialities = json.loads(specialities)
-                else:
-                    specialities = [specialities]  # Single ID case
-            
-            # Convert string UUIDs to UUID objects
-            import uuid
-            uuid_list = [uuid.UUID(str(s)) for s in specialities]
-            existing_specialities = Specialty.objects.filter(id__in=uuid_list)
-            if len(existing_specialities) != len(specialities):
-                raise serializers.ValidationError({
-                    "specialities": "One or more specialities do not exist."
-                })
-            data['specialities'] = [str(s.id) for s in existing_specialities]
-        except (ValueError, json.JSONDecodeError):
+        # Validate specialities
+        specialities = data.get('specialities', [])
+        if not specialities:
             raise serializers.ValidationError({
-                "specialities": "Invalid specialty ID format."
+                "specialities": "At least one specialty is required."
             })
+        
+        # Verify specialities exist in database
+        existing_specialities = Specialty.objects.filter(id__in=specialities)
+        if len(existing_specialities) != len(specialities):
+            raise serializers.ValidationError({
+                "specialities": "One or more specialities do not exist."
+            })
+        data['specialities'] = [str(s.id) for s in existing_specialities]
 
         # Validate bank details
         bank_fields = {
@@ -248,38 +238,6 @@ class DoctorRegistrationSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError({
                 "bank_details": "All bank details fields are required."
             })
-
-        # Validate SWIFT code
-        swift = bank_fields['swift_code'].replace(' ', '').upper()
-        if len(swift) not in [8, 11]:
-            raise serializers.ValidationError({
-                'swift_code': 'SWIFT code must be either 8 or 11 characters'
-            })
-        if not (swift[:4].isalpha() and swift[4:6].isalpha()):
-            raise serializers.ValidationError({
-                'swift_code': 'SWIFT code must start with 4 letters (bank code) followed by 2 letters (country code)'
-            })
-        data['swift_code'] = swift
-
-        # Validate IBAN
-        iban = bank_fields['iban_number'].replace(' ', '').upper()
-        if not (16 <= len(iban) <= 34):
-            raise serializers.ValidationError({
-                'iban_number': 'IBAN must be between 16 and 34 characters'
-            })
-        if not iban[:2].isalpha():
-            raise serializers.ValidationError({
-                'iban_number': 'IBAN must start with a country code'
-            })
-        data['iban_number'] = iban
-
-        # Validate account number
-        account_number = ''.join(filter(str.isalnum, bank_fields['account_number']))
-        if len(account_number) < 8:
-            raise serializers.ValidationError({
-                'account_number': 'Account number must be at least 8 characters long'
-            })
-        data['account_number'] = account_number
 
         return data
 
@@ -573,119 +531,117 @@ class DoctorRegistrationInitiateSerializer(serializers.Serializer):
         return value
 
 class DoctorRegistrationCompleteSerializer(serializers.ModelSerializer):
-    """Serializer for completing doctor registration with all details"""
-    password = serializers.CharField(write_only=True, required=True)
-    confirm_password = serializers.CharField(write_only=True, required=True)
+    """Serializer for completing doctor registration after phone verification"""
     specialities = serializers.ListField(child=serializers.UUIDField(), required=True)
-    license_document = serializers.FileField(required=True)
-    qualification_document = serializers.FileField(required=True)
-    additional_documents = serializers.FileField(required=False, allow_null=True)
-    terms_and_privacy_accepted = serializers.BooleanField(required=True)
-    account_holder_name = serializers.CharField(write_only=True, required=True)
-    account_number = serializers.CharField(write_only=True, required=True)
-    iban_number = serializers.CharField(write_only=True, required=True)
-    bank_name = serializers.CharField(write_only=True, required=True)
-    swift_code = serializers.CharField(write_only=True, required=True)
+    verification_id = serializers.UUIDField(required=True)
+    bank_details = serializers.DictField(required=True)
+    sex = serializers.ChoiceField(choices=['male', 'female'], required=True)
+    category = serializers.ChoiceField(choices=['specialist', 'consultant'], required=True)
+    language_in_sessions = serializers.ChoiceField(choices=['english', 'arabic', 'both'], required=True)
+    experience = serializers.IntegerField(required=True, min_value=0)
 
     class Meta:
         model = Doctor
         fields = [
-            'name_arabic', 'name', 'sex', 'email', 'phone',
-            'experience', 'category', 'language_in_sessions',
-            'license_number', 'specialities', 'profile_arabic',
-            'profile_english', 'photo', 'license_document',
-            'qualification_document', 'additional_documents',
-            'password', 'confirm_password', 'terms_and_privacy_accepted',
-            'account_holder_name', 'account_number', 'iban_number',
-            'bank_name', 'swift_code'
+            'name_arabic', 'name', 'sex', 'experience', 'category',
+            'language_in_sessions', 'license_number', 'specialities',
+            'profile_arabic', 'profile_english', 'photo', 'verification_id',
+            'bank_details'
         ]
-        read_only_fields = ['email', 'phone']  # These were set in initiate step
+
+    def to_internal_value(self, data):
+        """Convert form data to appropriate format"""
+        # Handle bank details if sent as flat fields
+        if not data.get('bank_details'):
+            bank_fields = ['account_holder_name', 'account_number', 'iban_number', 'swift_code', 'bank_name']
+            bank_data = {}
+            for field in bank_fields:
+                if field in data:
+                    bank_data[field] = data[field]
+            if bank_data:
+                data = data.copy()
+                data['bank_details'] = bank_data
+
+        # Handle array-like values
+        for field in ['sex', 'category', 'language_in_sessions']:
+            if field in data and isinstance(data[field], (list, tuple)):
+                data = data.copy()
+                data[field] = data[field][0] if data[field] else None
+
+        return super().to_internal_value(data)
 
     def validate_specialities(self, value):
-        """
-        Validate that all specialities are valid UUIDs and exist in the database
-        """
-        from specialties.models import Specialty
-        import uuid
-        import json
+        """Validate specialities"""
+        if not value:
+            raise serializers.ValidationError("At least one specialty is required.")
+        
+        # Verify specialities exist in database
+        existing_specialities = Specialty.objects.filter(id__in=value)
+        if len(existing_specialities) != len(value):
+            raise serializers.ValidationError("One or more specialities do not exist.")
+        
+        return [str(s.id) for s in existing_specialities]
 
-        # If value is a string that looks like a JSON array, try to parse it
-        if isinstance(value, (str, list)) and len(value) == 1 and isinstance(value[0], str):
-            try:
-                if value[0].startswith('[') and value[0].endswith(']'):
-                    value = json.loads(value[0])
-            except json.JSONDecodeError:
-                pass
-
-        uuid_list = []
-        for specialty_id in value:
-            try:
-                uuid_obj = uuid.UUID(str(specialty_id))
-                uuid_list.append(uuid_obj)
-            except ValueError:
-                raise serializers.ValidationError(f"Invalid UUID format: {specialty_id}")
-
-        # Check if all specialties exist
-        existing_specialties = Specialty.objects.filter(id__in=uuid_list)
-        if len(existing_specialties) != len(value):
-            missing_specialties = set(uuid_list) - set(existing_specialties.values_list('id', flat=True))
-            raise serializers.ValidationError(f"Some specialties do not exist: {missing_specialties}")
-
-        return uuid_list
+    def validate_bank_details(self, value):
+        """Validate bank details"""
+        required_fields = ['bank_name', 'account_holder_name', 'account_number', 'iban_number', 'swift_code']
+        
+        # Check all required fields are present
+        missing_fields = [field for field in required_fields if field not in value]
+        if missing_fields:
+            raise serializers.ValidationError(f"Missing required fields: {', '.join(missing_fields)}")
+        
+        return value
 
     def validate(self, data):
-        # Validate terms and privacy acceptance
-        if not data.get('terms_and_privacy_accepted'):
+        """Validate the complete registration data"""
+        # Verify verification ID exists and is valid
+        try:
+            verification = DoctorVerification.objects.get(
+                id=data['verification_id'],
+                is_used=False
+            )
+            if not verification.phone_verified:
+                raise serializers.ValidationError({
+                    "verification_id": "Phone number not verified"
+                })
+            if verification.is_expired:
+                raise serializers.ValidationError({
+                    "verification_id": "Verification has expired"
+                })
+        except DoctorVerification.DoesNotExist:
             raise serializers.ValidationError({
-                "terms_and_privacy_accepted": "You must accept the terms and privacy policy to register."
+                "verification_id": "Invalid or used verification ID"
             })
         
-        # Validate passwords match
-        if data.get('password') != data.get('confirm_password'):
-            raise serializers.ValidationError("Passwords do not match")
-
+        # Add email and phone from verification
+        data['email'] = verification.email
+        data['phone'] = verification.phone
+        
         return data
 
     def create(self, validated_data):
-        # Remove password fields from validated data
-        password = validated_data.pop('password')
-        validated_data.pop('confirm_password', None)
+        """Create doctor profile"""
+        # Remove verification ID from validated data
+        verification_id = validated_data.pop('verification_id')
         
         # Get specialities and remove from validated data
         specialities = validated_data.pop('specialities')
         
         # Get bank details and remove from validated data
-        bank_details_data = {
-            'bank_name': validated_data.pop('bank_name'),
-            'account_holder_name': validated_data.pop('account_holder_name'),
-            'account_number': validated_data.pop('account_number'),
-            'iban_number': validated_data.pop('iban_number'),
-            'swift_code': validated_data.pop('swift_code')
-        }
+        bank_details = validated_data.pop('bank_details')
         
-        # Create doctor instance
+        # Create doctor
         doctor = Doctor.objects.create(**validated_data)
         
-        # Add specialities
+        # Set specialities
         doctor.specialities.set(specialities)
         
-        # Create user account for doctor (initially inactive)
-        from django.contrib.auth import get_user_model
-        User = get_user_model()
-        user = User.objects.create_user(
-            email=validated_data['email'],
-            password=password,
-            is_active=False,  # Will be activated upon approval
-            is_staff=True  # Doctors need admin panel access
-        )
-        
-        # Add doctor role/group
-        from django.contrib.auth.models import Group
-        doctor_group, _ = Group.objects.get_or_create(name='Doctors')
-        user.groups.add(doctor_group)
-        
         # Create bank details
-        DoctorBankDetails.objects.create(doctor=doctor, **bank_details_data)
+        DoctorBankDetails.objects.create(doctor=doctor, **bank_details)
+        
+        # Mark verification as used
+        DoctorVerification.objects.filter(id=verification_id).update(is_used=True)
         
         return doctor
 
@@ -726,12 +682,17 @@ class DoctorRegistrationVerifySerializer(serializers.Serializer):
                         phone_number=verification.phone,
                         otp_code='000000',
                         is_verified=True,
-                        expires_at=timezone.now() + timezone.timedelta(minutes=10)
+                        expires_at=timezone.now() + timezone.timedelta(days=1)
                     )
                 
                 # Mark as verified
                 otp.is_verified = True
                 otp.save()
+                
+                # Mark verification as phone verified
+                verification.phone_verified = True
+                verification.save()
+                
                 data['verification'] = verification
                 data['otp'] = otp
                 return data
@@ -761,9 +722,13 @@ class DoctorRegistrationVerifySerializer(serializers.Serializer):
                         "sms_code": "Maximum verification attempts exceeded"
                     })
                 
-                # Mark OTP as verified if code matches
+                # Mark OTP as verified
                 otp.is_verified = True
                 otp.save()
+                
+                # Mark verification as phone verified
+                verification.phone_verified = True
+                verification.save()
                 
             except OTP.DoesNotExist:
                 raise serializers.ValidationError({

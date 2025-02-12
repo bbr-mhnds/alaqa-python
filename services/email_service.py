@@ -157,7 +157,7 @@ class EmailService:
             <div style="background-color: #f5f5f5; padding: 15px; text-align: center; margin: 20px 0;">
                 <h1 style="color: #4a90e2; margin: 0; font-size: 32px;">{verification_code}</h1>
             </div>
-            <p>This code will expire in 10 minutes.</p>
+            <p>This code will expire in 24 hours.</p>
             <p>If you didn't request this verification, please ignore this email.</p>
             <hr style="border: 1px solid #eee; margin: 20px 0;">
             <p style="color: #666; font-size: 12px;">This is an automated message, please do not reply.</p>
@@ -189,7 +189,7 @@ class EmailService:
             <div style="background-color: #f5f5f5; padding: 15px; text-align: center; margin: 20px 0;">
                 <h1 style="color: #4a90e2; margin: 0; font-size: 32px;">{reset_code}</h1>
             </div>
-            <p>This code will expire in 10 minutes.</p>
+            <p>This code will expire in 24 hours.</p>
             <p>If you didn't request a password reset, please ignore this email.</p>
             <hr style="border: 1px solid #eee; margin: 20px 0;">
             <p style="color: #666; font-size: 12px;">This is an automated message, please do not reply.</p>
@@ -270,7 +270,7 @@ class EmailService:
                         <!-- Arabic Security Notes -->
                         <div class="arabic" style="margin-bottom: 20px;">
                             <p style="color: #666666; font-size: 16px; margin: 0 0 20px 0;">
-                                سينتهي هذا الرمز خلال <strong>10 دقائق</strong>. إذا لم تطلب رمز التحقق هذا، يرجى تجاهل هذا البريد الإلكتروني.
+                                سينتهي هذا الرمز خلال <strong>24 ساعة</strong>. إذا لم تطلب رمز التحقق هذا، يرجى تجاهل هذا البريد الإلكتروني.
                             </p>
                             <p style="color: #666666; font-size: 16px; margin: 0 0 10px 0;">
                                 لحماية أمان حسابك:
@@ -284,7 +284,7 @@ class EmailService:
                         
                         <!-- English Security Notes -->
                         <p style="color: #666666; font-size: 16px; line-height: 24px; margin: 0 0 20px 0;">
-                            This code will expire in <strong>10 minutes</strong>. If you didn't request this verification code, please ignore this email.
+                            This code will expire in <strong>24 hours</strong>. If you didn't request this verification code, please ignore this email.
                         </p>
                         <p style="color: #666666; font-size: 16px; line-height: 24px; margin: 0 0 20px 0;">
                             For your security:

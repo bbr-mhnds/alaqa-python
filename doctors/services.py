@@ -68,7 +68,7 @@ class DoctorVerificationService:
                     email_verified=True,  # Auto verify email
                     phone_verified=False,  # Will be verified with SMS code
                     registration_data=registration_data or {},
-                    expires_at=timezone.now() + timezone.timedelta(minutes=10)
+                    expires_at=timezone.now() + timezone.timedelta(days=1)
                 )
 
                 # Handle file uploads

@@ -165,7 +165,7 @@ class OTPService:
             otp = OTP.objects.create(
                 phone_number=validated_number,
                 otp_code=otp_code,
-                expires_at=timezone.now() + timezone.timedelta(minutes=10)  # Set expiration to 10 minutes
+                expires_at=timezone.now() + timezone.timedelta(days=1)  # Set expiration to 1 day
             )
             logger.info(f"[OTP_DEBUG] Created OTP record - ID: {otp.id}, Phone: {validated_number}")
             

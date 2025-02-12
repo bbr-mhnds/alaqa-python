@@ -409,36 +409,91 @@ class DoctorRegistrationViewSet(viewsets.ModelViewSet):
         """Step 3: Complete registration with full doctor details"""
         try:
             verification_id = request.data.get('verification_id')
-            email = request.data.get('email')
             
-            logger.info(f"[DOCTOR_DEBUG] Starting complete registration for email: {email}")
-            
-            try:
-                verification = DoctorVerification.objects.get(
-                    id=verification_id,
-                    email=email,
-                    phone_verified=True,
-                    is_used=False
-                )
-            except DoctorVerification.DoesNotExist:
+            if not verification_id:
                 return Response({
                     'status': 'error',
-                    'message': 'Invalid or unverified verification ID',
+                    'message': 'Missing verification ID',
                     'errors': {
-                        'verification_id': ['Please verify your phone number first']
+                        'verification_id': ['Verification ID is required']
                     }
                 }, status=status.HTTP_400_BAD_REQUEST)
             
-            # Update registration data
-            registration_data = request.data.copy()
-            registration_data['email'] = verification.email
-            registration_data['phone'] = verification.phone
-            
-            # Validate and create doctor
-            serializer = self.get_serializer(data=registration_data)
-            serializer.is_valid(raise_exception=True)
-            
             with transaction.atomic():
+                try:
+                    verification = DoctorVerification.objects.select_for_update().get(
+                        id=verification_id,
+                        is_used=False
+                    )
+                    
+                    if not verification.phone_verified:
+                        return Response({
+                            'status': 'error',
+                            'message': 'Phone number not verified',
+                            'errors': {
+                                'verification_id': ['Please verify your phone number first']
+                            }
+                        }, status=status.HTTP_400_BAD_REQUEST)
+                    
+                    if verification.is_expired:
+                        return Response({
+                            'status': 'error',
+                            'message': 'Verification has expired',
+                            'errors': {
+                                'verification_id': ['Verification has expired. Please start registration again.']
+                            }
+                        }, status=status.HTTP_400_BAD_REQUEST)
+                    
+                except DoctorVerification.DoesNotExist:
+                    return Response({
+                        'status': 'error',
+                        'message': 'Invalid or unverified verification ID',
+                        'errors': {
+                            'verification_id': ['Please verify your phone number first']
+                        }
+                    }, status=status.HTTP_400_BAD_REQUEST)
+                
+                # Clean up form data arrays
+                registration_data = {}
+                for key, value in request.data.items():
+                    if isinstance(value, list):
+                        registration_data[key] = value[0]
+                    else:
+                        registration_data[key] = value
+                
+                # Handle specialities - convert string JSON to list
+                if 'specialities' in registration_data:
+                    import json
+                    try:
+                        if isinstance(registration_data['specialities'], str):
+                            registration_data['specialities'] = json.loads(registration_data['specialities'])
+                    except json.JSONDecodeError:
+                        pass
+
+                # Add email and phone from verification
+                registration_data['email'] = verification.email
+                registration_data['phone'] = verification.phone
+                
+                # Create bank_details dictionary
+                bank_fields = ['account_holder_name', 'account_number', 'iban_number', 'swift_code', 'bank_name']
+                bank_data = {}
+                for field in bank_fields:
+                    if field in registration_data:
+                        bank_data[field] = registration_data.pop(field)
+                registration_data['bank_details'] = bank_data
+                
+                # Log the data for debugging
+                logger.info(f"[DOCTOR_DEBUG] Registration data after cleanup: {registration_data}")
+                
+                # Validate and create doctor
+                serializer = self.get_serializer(data=registration_data)
+                
+                try:
+                    serializer.is_valid(raise_exception=True)
+                except serializers.ValidationError as e:
+                    logger.error(f"[DOCTOR_DEBUG] Validation error: {e.detail}")
+                    raise
+                
                 doctor = serializer.save()
                 
                 # Mark verification as used
@@ -460,15 +515,13 @@ class DoctorRegistrationViewSet(viewsets.ModelViewSet):
                 }, status=status.HTTP_200_OK)
                 
         except serializers.ValidationError as e:
-            logger.error(f"[DOCTOR_DEBUG] Registration validation error: {str(e)}")
-            logger.error(f"[DOCTOR_DEBUG] Validation error details: {e.detail}")
             return Response({
                 'status': 'error',
                 'message': 'Validation error',
                 'errors': e.detail
             }, status=status.HTTP_400_BAD_REQUEST)
         except Exception as e:
-            logger.error(f"[DOCTOR_DEBUG] Registration error: {str(e)}", exc_info=True)
+            logger.error(f"[DOCTOR_DEBUG] Error in complete registration: {str(e)}", exc_info=True)
             return Response({
                 'status': 'error',
                 'message': str(e)
