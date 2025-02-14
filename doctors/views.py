@@ -225,11 +225,22 @@ class DoctorViewSet(viewsets.ModelViewSet):
                 'message': str(e)
             }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-    @action(detail=True, methods=['patch'], url_path='status')
+    @action(detail=True, methods=['patch'], url_path='status', permission_classes=[IsAuthenticated])
     def update_status(self, request, pk=None):
         try:
+            if not request.user.is_authenticated:
+                return Response({
+                    'status': 'error',
+                    'message': 'Authentication required'
+                }, status=status.HTTP_401_UNAUTHORIZED)
+
             instance = self.get_object()
-            serializer = DoctorStatusSerializer(instance, data=request.data, partial=True)
+            serializer = DoctorStatusSerializer(
+                instance, 
+                data=request.data, 
+                context={'request': request},
+                partial=True
+            )
             serializer.is_valid(raise_exception=True)
             serializer.save()
             return Response({

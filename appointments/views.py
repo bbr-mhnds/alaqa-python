@@ -5,7 +5,7 @@ from rest_framework.permissions import IsAuthenticated, AllowAny
 import logging
 from django.utils import timezone
 from django.db import transaction
-from .models import Appointment
+from .models import Appointment, Doctor
 from .serializers import AppointmentSerializer, AppointmentCompletionSerializer
 from .permissions import IsAppointmentDoctor
 from datetime import timedelta
@@ -73,11 +73,22 @@ class AppointmentViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         queryset = super().get_queryset()
-        doctor_id = self.request.query_params.get("doctor_id")
-        status_param = self.request.query_params.get("status")
         
+        # If user is authenticated and is a doctor, only show their appointments
+        if self.request.user.is_authenticated:
+            try:
+                doctor = Doctor.objects.get(email=self.request.user.email)
+                return queryset.filter(doctor=doctor)
+            except Doctor.DoesNotExist:
+                pass
+        
+        # For unauthenticated users or non-doctors, filter by doctor_id if provided
+        doctor_id = self.request.query_params.get("doctor_id")
         if doctor_id:
             queryset = queryset.filter(doctor_id=doctor_id)
+            
+        # Filter by status if provided
+        status_param = self.request.query_params.get("status")
         if status_param:
             queryset = queryset.filter(status=status_param)
             

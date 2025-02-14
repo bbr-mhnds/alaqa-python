@@ -365,10 +365,18 @@ CSRF_TRUSTED_ORIGINS = [
     "https://admin.zuwara.net"
 ]
 
-# Only enforce CSRF cookie security in production
-CSRF_COOKIE_SECURE = not DEBUG
-SESSION_COOKIE_SECURE = not DEBUG
-SECURE_SSL_REDIRECT = not DEBUG
+# HTTPS settings
+SECURE_SSL_REDIRECT = env.bool('SECURE_SSL_REDIRECT', default=False)  # Don't force HTTPS in development
+SECURE_PROXY_SSL_HEADER = None  # Disable proxy SSL header in development
+SESSION_COOKIE_SECURE = env.bool('SESSION_COOKIE_SECURE', default=False)  # Allow non-HTTPS cookies in development
+CSRF_COOKIE_SECURE = env.bool('CSRF_COOKIE_SECURE', default=False)  # Allow non-HTTPS CSRF in development
+
+if not DEBUG:
+    # Only enable these security settings in production
+    SECURE_SSL_REDIRECT = True
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
 
 # Development server settings
 if DEBUG:

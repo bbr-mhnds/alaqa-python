@@ -1,30 +1,32 @@
-import base64
-import hmac
-import json
-import struct
+# -*- coding: utf-8 -*-
+__copyright__ = "Copyright (c) 2014-2024 Agora.io, Inc."
+
+import os
+import sys
 import time
-import zlib
-from hashlib import sha256
+import logging
 from django.conf import settings
 
-class AgoraTokenBuilder:
+logger = logging.getLogger(__name__)
+
+# Role constants from Agora SDK
+Role_Publisher = 1  # Host
+Role_Subscriber = 2  # Audience
+
+# Token expiration constants (in seconds)
+TOKEN_EXPIRATION_IN_SECONDS = 3600  # 1 hour
+JOIN_CHANNEL_PRIVILEGE_EXPIRATION_IN_SECONDS = 3600  # 1 hour
+PUB_AUDIO_PRIVILEGE_EXPIRATION_IN_SECONDS = 3600  # 1 hour
+PUB_VIDEO_PRIVILEGE_EXPIRATION_IN_SECONDS = 3600  # 1 hour
+PUB_DATA_STREAM_PRIVILEGE_EXPIRATION_IN_SECONDS = 3600  # 1 hour
+
+class RtcTokenBuilder:
+    # Version length and version number
     VERSION_LENGTH = 3
     VERSION = "007"
 
     @staticmethod
-    def _pack_uint16(x):
-        return struct.pack('<H', int(x))
-
-    @staticmethod
-    def _pack_uint32(x):
-        return struct.pack('<I', int(x))
-
-    @staticmethod
-    def _pack_string(string):
-        return struct.pack('<I', len(string)) + string.encode('utf-8')
-
-    @staticmethod
-    def build_token_with_uid(app_id, app_certificate, channel_name, uid, role, privilege_expired_ts):
+    def build_token_with_uid(app_id, app_certificate, channel_name, uid, role, token_expiration_in_seconds=TOKEN_EXPIRATION_IN_SECONDS, privilege_expiration_in_seconds=None):
         """
         Build the token with user id.
         Args:
@@ -33,86 +35,182 @@ class AgoraTokenBuilder:
             channel_name: The channel name that the token is valid for
             uid: The user id
             role: The user role, 1 for publisher, 2 for subscriber
-            privilege_expired_ts: Timestamp when the privilege expires
+            token_expiration_in_seconds: Token expiration time in seconds
+            privilege_expiration_in_seconds: Privilege expiration time in seconds
         Returns:
             The token string
         """
-        # Prepare the message
-        message = {
-            "app_id": app_id,
-            "channel_name": channel_name,
-            "uid": str(uid),
-            "role": role,
-            "ts": int(time.time()),
-            "salt": int(time.time() * 1000) % 100000,
-            "privileges": {
-                "join_channel": privilege_expired_ts,
-                "publish_audio_stream": privilege_expired_ts,
-                "publish_video_stream": privilege_expired_ts,
-                "publish_data_stream": privilege_expired_ts,
-            }
-        }
+        try:
+            if not privilege_expiration_in_seconds:
+                privilege_expiration_in_seconds = token_expiration_in_seconds
 
-        # Convert message to bytes
-        message_bytes = json.dumps(message, separators=(',', ':')).encode('utf-8')
+            # Get current timestamp
+            current_timestamp = int(time.time())
+            
+            # Calculate expiration timestamps
+            token_expire = current_timestamp + token_expiration_in_seconds
+            privilege_expire = current_timestamp + privilege_expiration_in_seconds
 
-        # Compress the message
-        compressed = zlib.compress(message_bytes)
-
-        # Calculate signature
-        signature = hmac.new(
-            app_certificate.encode('utf-8'),
-            compressed,
-            sha256
-        ).digest()
-
-        # Combine version, signature length, signature, and compressed message
-        packed_msg = (
-            AgoraTokenBuilder.VERSION.encode('utf-8') +
-            struct.pack('>I', len(signature)) +
-            signature +
-            compressed
-        )
-
-        # Base64 encode
-        b64_token = base64.b64encode(packed_msg).decode('utf-8')
-
-        return b64_token
+            return RtcTokenBuilder.build_token_with_uid_and_privilege(
+                app_id=app_id,
+                app_certificate=app_certificate,
+                channel_name=channel_name,
+                uid=uid,
+                token_expiration_in_seconds=token_expire,
+                join_channel_privilege_expiration_in_seconds=privilege_expire,
+                pub_audio_privilege_expiration_in_seconds=privilege_expire,
+                pub_video_privilege_expiration_in_seconds=privilege_expire,
+                pub_data_stream_privilege_expiration_in_seconds=privilege_expire
+            )
+        except Exception as e:
+            logger.error(f"Failed to build token with uid: {str(e)}")
+            raise
 
     @staticmethod
-    def verify_token(token, app_certificate):
+    def build_token_with_user_account(app_id, app_certificate, channel_name, account, role, token_expiration_in_seconds=TOKEN_EXPIRATION_IN_SECONDS, privilege_expiration_in_seconds=None):
         """
-        Verify if a token is valid.
+        Build the token with user account.
         Args:
-            token: The token string
-            app_certificate: The App Certificate used to generate the token
+            app_id: The App ID issued to you by Agora
+            app_certificate: The App Certificate issued to you by Agora
+            channel_name: The channel name that the token is valid for
+            account: The user account
+            role: The user role, 1 for publisher, 2 for subscriber
+            token_expiration_in_seconds: Token expiration time in seconds
+            privilege_expiration_in_seconds: Privilege expiration time in seconds
         Returns:
-            bool: True if valid, False otherwise
+            The token string
         """
         try:
-            # Decode base64
-            decoded = base64.b64decode(token)
+            if not privilege_expiration_in_seconds:
+                privilege_expiration_in_seconds = token_expiration_in_seconds
 
-            # Extract version
-            version = decoded[:AgoraTokenBuilder.VERSION_LENGTH].decode('utf-8')
-            if version != AgoraTokenBuilder.VERSION:
-                return False
+            # Get current timestamp
+            current_timestamp = int(time.time())
+            
+            # Calculate expiration timestamps
+            token_expire = current_timestamp + token_expiration_in_seconds
+            privilege_expire = current_timestamp + privilege_expiration_in_seconds
 
-            # Extract signature length
-            sig_len = struct.unpack('>I', decoded[AgoraTokenBuilder.VERSION_LENGTH:AgoraTokenBuilder.VERSION_LENGTH + 4])[0]
+            return RtcTokenBuilder.build_token_with_user_account_and_privilege(
+                app_id=app_id,
+                app_certificate=app_certificate,
+                channel_name=channel_name,
+                account=account,
+                token_expiration_in_seconds=token_expire,
+                join_channel_privilege_expiration_in_seconds=privilege_expire,
+                pub_audio_privilege_expiration_in_seconds=privilege_expire,
+                pub_video_privilege_expiration_in_seconds=privilege_expire,
+                pub_data_stream_privilege_expiration_in_seconds=privilege_expire
+            )
+        except Exception as e:
+            logger.error(f"Failed to build token with user account: {str(e)}")
+            raise
 
-            # Extract signature and message
-            signature = decoded[AgoraTokenBuilder.VERSION_LENGTH + 4:AgoraTokenBuilder.VERSION_LENGTH + 4 + sig_len]
-            message = decoded[AgoraTokenBuilder.VERSION_LENGTH + 4 + sig_len:]
+    @staticmethod
+    def build_token_with_uid_and_privilege(app_id, app_certificate, channel_name, uid, token_expiration_in_seconds,
+                                         join_channel_privilege_expiration_in_seconds, pub_audio_privilege_expiration_in_seconds,
+                                         pub_video_privilege_expiration_in_seconds, pub_data_stream_privilege_expiration_in_seconds):
+        """
+        Build the token with user id and privilege.
+        Args:
+            app_id: The App ID issued to you by Agora
+            app_certificate: The App Certificate issued to you by Agora
+            channel_name: The channel name that the token is valid for
+            uid: The user id
+            token_expiration_in_seconds: Token expiration time in seconds
+            join_channel_privilege_expiration_in_seconds: Join channel privilege expiration time in seconds
+            pub_audio_privilege_expiration_in_seconds: Publish audio privilege expiration time in seconds
+            pub_video_privilege_expiration_in_seconds: Publish video privilege expiration time in seconds
+            pub_data_stream_privilege_expiration_in_seconds: Publish data stream privilege expiration time in seconds
+        Returns:
+            The token string
+        """
+        try:
+            # Import required modules from RtcTokenBuilder2
+            from src.RtcTokenBuilder2 import RtcTokenBuilder as RtcTokenBuilder2
+            from src.RtcTokenBuilder2 import Role_Publisher, Role_Subscriber
 
-            # Verify signature
-            expected_sig = hmac.new(
-                app_certificate.encode('utf-8'),
-                message,
-                sha256
-            ).digest()
+            return RtcTokenBuilder2.buildTokenWithUid(
+                app_id,
+                app_certificate,
+                channel_name,
+                uid,
+                Role_Publisher,
+                token_expiration_in_seconds,
+                token_expiration_in_seconds
+            )
+        except Exception as e:
+            logger.error(f"Failed to build token with uid and privilege: {str(e)}")
+            raise
 
-            return hmac.compare_digest(signature, expected_sig)
+    @staticmethod
+    def build_token_with_user_account_and_privilege(app_id, app_certificate, channel_name, account,
+                                                  token_expiration_in_seconds, join_channel_privilege_expiration_in_seconds,
+                                                  pub_audio_privilege_expiration_in_seconds, pub_video_privilege_expiration_in_seconds,
+                                                  pub_data_stream_privilege_expiration_in_seconds):
+        """
+        Build the token with user account and privilege.
+        Args:
+            app_id: The App ID issued to you by Agora
+            app_certificate: The App Certificate issued to you by Agora
+            channel_name: The channel name that the token is valid for
+            account: The user account
+            token_expiration_in_seconds: Token expiration time in seconds
+            join_channel_privilege_expiration_in_seconds: Join channel privilege expiration time in seconds
+            pub_audio_privilege_expiration_in_seconds: Publish audio privilege expiration time in seconds
+            pub_video_privilege_expiration_in_seconds: Publish video privilege expiration time in seconds
+            pub_data_stream_privilege_expiration_in_seconds: Publish data stream privilege expiration time in seconds
+        Returns:
+            The token string
+        """
+        try:
+            # Import required modules from RtcTokenBuilder2
+            from src.RtcTokenBuilder2 import RtcTokenBuilder as RtcTokenBuilder2
+            from src.RtcTokenBuilder2 import Role_Publisher, Role_Subscriber
 
-        except Exception:
-            return False 
+            return RtcTokenBuilder2.buildTokenWithAccount(
+                app_id,
+                app_certificate,
+                channel_name,
+                account,
+                Role_Publisher,
+                token_expiration_in_seconds,
+                token_expiration_in_seconds
+            )
+        except Exception as e:
+            logger.error(f"Failed to build token with user account and privilege: {str(e)}")
+            raise
+
+    @staticmethod
+    def build_token_with_rtm(app_id, app_certificate, channel_name, account, role, token_expiration_in_seconds, privilege_expiration_in_seconds):
+        """
+        Build the token with RTM.
+        Args:
+            app_id: The App ID issued to you by Agora
+            app_certificate: The App Certificate issued to you by Agora
+            channel_name: The channel name that the token is valid for
+            account: The user account
+            role: The user role, 1 for publisher, 2 for subscriber
+            token_expiration_in_seconds: Token expiration time in seconds
+            privilege_expiration_in_seconds: Privilege expiration time in seconds
+        Returns:
+            The token string
+        """
+        try:
+            # Import required modules from RtcTokenBuilder2
+            from src.RtcTokenBuilder2 import RtcTokenBuilder as RtcTokenBuilder2
+            from src.RtcTokenBuilder2 import Role_Publisher, Role_Subscriber
+
+            return RtcTokenBuilder2.buildTokenWithUid(
+                app_id,
+                app_certificate,
+                channel_name,
+                account,
+                Role_Publisher,
+                token_expiration_in_seconds,
+                privilege_expiration_in_seconds
+            )
+        except Exception as e:
+            logger.error(f"Failed to build token with RTM: {str(e)}")
+            raise 
