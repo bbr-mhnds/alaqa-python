@@ -10,6 +10,8 @@ from .serializers import AppointmentSerializer, AppointmentCompletionSerializer
 from .permissions import IsAppointmentDoctor
 from datetime import timedelta
 from rest_framework import serializers
+from services.email_service import EmailService
+from otp.services import OTPService
 
 logger = logging.getLogger(__name__)
 
@@ -26,13 +28,16 @@ class AppointmentViewSet(viewsets.ModelViewSet):
 
     def create(self, request, *args, **kwargs):
         """
-        Create a new appointment with video token generation.
+        Create a new appointment with video token generation and notifications.
         """
         try:
             with transaction.atomic():
                 serializer = self.get_serializer(data=request.data)
                 serializer.is_valid(raise_exception=True)
                 appointment = serializer.save()
+                
+                # Send notifications to doctor
+                self._send_doctor_notifications(appointment)
                 
                 # Log successful appointment creation with video token
                 logger.info(
@@ -71,6 +76,44 @@ class AppointmentViewSet(viewsets.ModelViewSet):
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
 
+    def _send_doctor_notifications(self, appointment):
+        """
+        Send email and SMS notifications to the doctor about the new appointment.
+        """
+        try:
+            doctor = appointment.doctor
+            slot_time = appointment.slot_time.strftime("%Y-%m-%d %H:%M")
+            duration = appointment.duration
+            
+            # Send email using enterprise template
+            email_service = EmailService()
+            email_result = email_service.send_appointment_notification(
+                to_email=doctor.email,
+                doctor_name=doctor.name,
+                doctor_name_arabic=doctor.name_arabic,
+                slot_time=slot_time,
+                duration=duration,
+                phone_number=appointment.phone_number,
+                language=appointment.language
+            )
+            
+            if not email_result['success']:
+                logger.error(f"Failed to send email to doctor {doctor.email}: {email_result['message']}")
+            
+            # Prepare SMS content (bilingual and concise)
+            sms_content = f"""ALAQA: New appointment scheduled for {slot_time}. Duration: {duration}min.
+موعد جديد في {slot_time}. المدة: {duration} دقيقة"""
+            
+            # Send SMS
+            sms_result = OTPService.send_sms(doctor.phone, sms_content)
+            
+            if not sms_result[0]:  # sms_result returns (success, message)
+                logger.error(f"Failed to send SMS to doctor {doctor.phone}: {sms_result[1]}")
+                
+        except Exception as e:
+            logger.error(f"Failed to send notifications: {str(e)}", exc_info=True)
+            # Don't raise the exception to prevent appointment creation from failing
+            
     def get_queryset(self):
         queryset = super().get_queryset()
         

@@ -6,6 +6,7 @@ import sys
 import time
 import logging
 from django.conf import settings
+from agora_token_builder import RtcTokenBuilder as AgoraRtcTokenBuilder
 
 logger = logging.getLogger(__name__)
 
@@ -51,17 +52,19 @@ class RtcTokenBuilder:
             token_expire = current_timestamp + token_expiration_in_seconds
             privilege_expire = current_timestamp + privilege_expiration_in_seconds
 
-            return RtcTokenBuilder.build_token_with_uid_and_privilege(
-                app_id=app_id,
-                app_certificate=app_certificate,
-                channel_name=channel_name,
-                uid=uid,
-                token_expiration_in_seconds=token_expire,
-                join_channel_privilege_expiration_in_seconds=privilege_expire,
-                pub_audio_privilege_expiration_in_seconds=privilege_expire,
-                pub_video_privilege_expiration_in_seconds=privilege_expire,
-                pub_data_stream_privilege_expiration_in_seconds=privilege_expire
+            # Use the installed agora-token-builder package
+            token = AgoraRtcTokenBuilder.buildTokenWithUid(
+                app_id,
+                app_certificate,
+                channel_name,
+                uid,
+                role,
+                token_expire
             )
+
+            logger.info(f"Generated Agora token for channel: {channel_name}, uid: {uid}, expiry: {token_expire}")
+            return token
+
         except Exception as e:
             logger.error(f"Failed to build token with uid: {str(e)}")
             raise

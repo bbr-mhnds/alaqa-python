@@ -163,6 +163,11 @@ LOGGING = {
     'disable_existing_loggers': False,
     'formatters': {
         'verbose': {
+            'format': '[{asctime}] {levelname} {module} {process:d} {thread:d} {message}',
+            'style': '{',
+            'datefmt': '%Y-%m-%d %H:%M:%S'
+        },
+        'simple': {
             'format': '[{asctime}] {levelname} {module} {message}',
             'style': '{',
             'datefmt': '%Y-%m-%d %H:%M:%S'
@@ -172,17 +177,30 @@ LOGGING = {
         'console': {
             'class': 'logging.StreamHandler',
             'formatter': 'verbose',
+            'level': 'DEBUG',
         },
         'file': {
             'class': 'logging.FileHandler',
             'filename': os.path.join(BASE_DIR, 'logs', 'debug.log'),
             'formatter': 'verbose',
+            'level': 'DEBUG',
+        },
+        'email_file': {
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'logs', 'email.log'),
+            'formatter': 'verbose',
+            'level': 'DEBUG',
         },
     },
     'loggers': {
         '': {  # Root logger
             'handlers': ['console', 'file'],
             'level': 'INFO',
+        },
+        'services.email_service': {  # Email service logger
+            'handlers': ['console', 'email_file', 'file'],
+            'level': 'DEBUG',
+            'propagate': False,
         },
         'otp': {  # OTP app logger
             'handlers': ['console', 'file'],
@@ -453,8 +471,8 @@ DREAMS_SMS_SENDER = env('DREAMS_SMS_SENDER', default='zuwara')
 # Email Settings
 EMAIL_BACKEND = 'sendgrid_backend.SendgridBackend'
 SENDGRID_API_KEY = env('SENDGRID_API_KEY', default='')
-DEFAULT_FROM_EMAIL = env('DEFAULT_FROM_EMAIL', default='noreply@alaqa.net')
-SENDGRID_SANDBOX_MODE_IN_DEBUG = env.bool('SENDGRID_SANDBOX_MODE_IN_DEBUG', default=True)
+DEFAULT_FROM_EMAIL = 'contact@alaqa.net'
+SENDGRID_SANDBOX_MODE_IN_DEBUG = False  # Set to False to send real emails in development
 
 # Django Cron Settings
 CRON_CLASSES = [
