@@ -43,6 +43,12 @@ class DoctorVerificationService:
                     'verification_id': None
                 }
             
+            # In debug mode, log additional information
+            if settings.DEBUG:
+                logger.info(f"[DEBUG] Verification code sent (simulated) to phone: {phone}")
+                if registration_data:
+                    logger.info(f"[DEBUG] Registration data: {registration_data}")
+            
             # Create DoctorVerification instance
             from django.utils import timezone
             from .models import DoctorVerification

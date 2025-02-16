@@ -60,6 +60,12 @@ class OTPService:
         logger.info(f"[OTP_DEBUG] Attempting to send SMS to {phone_number}")
         logger.info(f"[OTP_DEBUG] Message content: {message}")
         
+        # In debug mode, just log the message and return success
+        if settings.DEBUG:
+            logger.info(f"[OTP_DEBUG] Debug mode: Simulating SMS send to {phone_number}")
+            logger.info(f"[OTP_DEBUG] Debug mode: Message would be: {message}")
+            return True, "SMS simulated successfully (Debug Mode)"
+        
         # Format phone number: remove country code and leading zeros
         if phone_number.startswith('966'):
             phone_number = phone_number[3:]  # Remove 966

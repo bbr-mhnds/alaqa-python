@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
     'django_filters',
-    'corsheaders',
+    'corsheaders',  # Add CORS headers
     'drf_yasg',
     'django_cron',  # Add django-cron
     
@@ -71,7 +71,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',  # Add CORS middleware
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -357,86 +357,25 @@ REST_FRAMEWORK = {
         'rest_framework.parsers.MultiPartParser',
     ],
 }
-# CORS_ALLOWED_ORIGINS = ["https://api.alaqa.net:8000", "http://localhost:8000", "https://patient.zuwara.net", "https://doctor.zuwara.net", "https://admin.zuwara.net"]
-# CSRF_TRUSTED_ORIGINS = ["https://api.alaqa.net:8000", "http://localhost:8000", "https://patient.zuwara.net", "https://doctor.zuwara.net", "https://admin.zuwara.net"]
-# CSRF_COOKIE_SECURE = True
-# CSRF_USE_SESSIONS = True
+
 # CORS settings
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:8000",
-    "http://127.0.0.1:8000",
-    "http://localhost:4200",  # Angular development server
-    "http://127.0.0.1:4200",  # Angular development server alternative
-    "https://api.alaqa.net:8000",
-    "https://patient.zuwara.net",
-    "https://doctor.zuwara.net",
-    "https://admin.zuwara.net"
-]
-CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:8000",
-    "http://127.0.0.1:8000",
-    "http://localhost:4200",  # Angular development server
-    "http://127.0.0.1:4200",  # Angular development server alternative
-    "https://api.alaqa.net:8000",
-    "https://patient.zuwara.net",
-    "https://doctor.zuwara.net",
-    "https://admin.zuwara.net"
-]
-
-# HTTPS settings
-SECURE_SSL_REDIRECT = env.bool('SECURE_SSL_REDIRECT', default=False)  # Don't force HTTPS in development
-SECURE_PROXY_SSL_HEADER = None  # Disable proxy SSL header in development
-SESSION_COOKIE_SECURE = env.bool('SESSION_COOKIE_SECURE', default=False)  # Allow non-HTTPS cookies in development
-CSRF_COOKIE_SECURE = env.bool('CSRF_COOKIE_SECURE', default=False)  # Allow non-HTTPS CSRF in development
-
-if not DEBUG:
-    # Only enable these security settings in production
-    SECURE_SSL_REDIRECT = True
-    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-    SESSION_COOKIE_SECURE = True
-    CSRF_COOKIE_SECURE = True
-
-# Development server settings
-if DEBUG:
-    # Disable all HTTPS/SSL related settings
-    CSRF_COOKIE_SECURE = False
-    SESSION_COOKIE_SECURE = False
-    SECURE_SSL_REDIRECT = False
-    SECURE_PROXY_SSL_HEADER = None
-    SECURE_SSL_HOST = None
-    SECURE_HSTS_SECONDS = None
-    SECURE_HSTS_INCLUDE_SUBDOMAINS = None
-    SECURE_HSTS_PRELOAD = None
-    SECURE_CONTENT_TYPE_NOSNIFF = None
-    SECURE_BROWSER_XSS_FILTER = None
-    X_FRAME_OPTIONS = 'SAMEORIGIN'
-    
-    # Allow all hosts in development
-    ALLOWED_HOSTS = ['*']
-    
-    # Development-specific CORS settings
-    CORS_ALLOW_ALL_ORIGINS = True
-    CORS_ALLOWED_ORIGINS = [
-        "http://localhost:8000",
-        "http://127.0.0.1:8000",
-        "http://localhost:4200",
-        "http://127.0.0.1:4200",
-    ]
-    CORS_ORIGIN_ALLOW_ALL = True
-    
-    # Use console email backend in development
-    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-else:
-    # Production settings remain unchanged
-    CSRF_COOKIE_SECURE = True
-    SESSION_COOKIE_SECURE = True
-    SECURE_SSL_REDIRECT = True
-    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-    CORS_ALLOW_ALL_ORIGINS = False
-    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-
-# Common settings for both development and production
+CORS_ALLOW_ALL_ORIGINS = False  # Changed to False for security
 CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOWED_ORIGINS = [
+    "https://tclinics.zuwara.net",
+    "https://doctor.zuwara.net",
+    "https://admin.zuwara.net",
+    "https://api.alaqa.net",
+    "http://localhost:4200",
+    "http://localhost:8000",
+    "http://127.0.0.1:4200",
+    "http://127.0.0.1:8000"
+]
+
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    r"^https://.*\.zuwara\.net$",
+]
+
 CORS_ALLOW_METHODS = [
     'DELETE',
     'GET',
@@ -446,7 +385,6 @@ CORS_ALLOW_METHODS = [
     'PUT',
 ]
 
-# Additional CORS settings
 CORS_ALLOW_HEADERS = [
     'accept',
     'accept-encoding',
@@ -459,8 +397,34 @@ CORS_ALLOW_HEADERS = [
     'x-requested-with',
 ]
 
-# Disable CORS_URLS_REGEX for development
-CORS_URLS_REGEX = r'^/api/.*$'
+CORS_EXPOSE_HEADERS = [
+    'access-control-allow-origin',
+    'access-control-allow-credentials',
+]
+
+# Cookie settings
+CSRF_COOKIE_NAME = 'csrftoken'
+CSRF_COOKIE_SECURE = True  # Changed to True for security
+CSRF_COOKIE_HTTPONLY = True  # Changed to True for security
+CSRF_COOKIE_SAMESITE = 'None'  # Changed to None for CORS
+SESSION_COOKIE_SECURE = True  # Changed to True for security
+SESSION_COOKIE_HTTPONLY = True
+SESSION_COOKIE_SAMESITE = 'None'  # Changed to None for CORS
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://tclinics.zuwara.net",
+    "https://doctor.zuwara.net",
+    "https://admin.zuwara.net",
+    "https://api.alaqa.net",
+    "http://localhost:4200",
+    "http://localhost:8000",
+    "http://127.0.0.1:4200",
+    "http://127.0.0.1:8000"
+]
+
+# Security settings
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = False  # Keep False for local development
 
 # Agora Settings
 AGORA_APP_ID = env('AGORA_APP_ID', default='')
