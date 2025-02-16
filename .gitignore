@@ -1,21 +1,42 @@
-*.pyc
+# Python
 __pycache__/
-*.log
-staticfiles/
-.env
-.env.prod
+*.py[cod]
+*$py.class
+
+# Virtual Environment
 venv/
+env/
+ENV/
+
+# Environment Variables
+.env
+.env.backup
+
+# Django
+*.log
+db.sqlite3
 media/
-logs/
-*.sqlite3
-.DS_Store
+staticfiles/
+
+# IDE
 .idea/
 .vscode/
 *.swp
 *.swo
-*.swn
-*.bak
-*.tmp
-*.pid
-celerybeat-schedule
-*.rdb
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Additional ignores
+*.pyc
+*.log
+staticfiles/
+venv/
+*.pyc
+__pycache__/
+.DS_Store

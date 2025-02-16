@@ -249,7 +249,6 @@ class EmailTemplates:
                 <ul>
                     <li><strong>📅 Date and Time:</strong> {slot_time}</li>
                     <li><strong>⏱️ Duration:</strong> {duration} minutes</li>
-                    <li><strong>📞 Patient Phone:</strong> {phone_number}</li>
                     <li><strong>🗣️ Language:</strong> {language}</li>
                 </ul>
             </div>
@@ -269,7 +268,6 @@ class EmailTemplates:
                 <ul>
                     <li><strong>📅 التاريخ والوقت:</strong> {slot_time}</li>
                     <li><strong>⏱️ المدة:</strong> {duration} دقيقة</li>
-                    <li><strong>📞 هاتف المريض:</strong> {phone_number}</li>
                     <li><strong>🗣️ اللغة:</strong> {language}</li>
                 </ul>
             </div>

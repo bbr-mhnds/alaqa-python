@@ -1,11 +1,16 @@
 from django.shortcuts import render
-from rest_framework import viewsets, status
+from rest_framework import viewsets, status, permissions
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from django_filters import rest_framework as filters
 from django.db import models
 from .models import Patient
 from .serializers import PatientSerializer, PatientStatusSerializer
+from services.email_service import EmailService
+from otp.services import OTPService
+import logging
+
+logger = logging.getLogger(__name__)
 
 class PatientFilter(filters.FilterSet):
     status = filters.ChoiceFilter(choices=Patient.StatusChoices.choices)
@@ -125,3 +130,51 @@ class PatientViewSet(viewsets.ModelViewSet):
             "message": "Invalid request parameters",
             "errors": serializer.errors
         }, status=status.HTTP_400_BAD_REQUEST)
+
+    @action(detail=True, methods=['post'], url_path='security-code', permission_classes=[permissions.AllowAny])
+    def security_code(self, request, pk=None):
+        """Generate and send a security code to patient's email and phone"""
+        try:
+            patient = self.get_object()
+            
+            # Initialize services
+            otp_service = OTPService()
+            email_service = EmailService()
+            
+            # Generate and send OTP
+            otp_result = otp_service.create_and_send_otp(patient.phone)
+            
+            if not otp_result['success']:
+                return Response({
+                    'status': 'error',
+                    'message': f"Failed to send SMS: {otp_result['message']}"
+                }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            
+            # Get the OTP code from the service
+            otp = otp_service.get_otp_by_id(otp_result['otp_id'])
+            if not otp:
+                return Response({
+                    'status': 'error',
+                    'message': 'Failed to retrieve security code'
+                }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            
+            # Send email with the same code
+            email_result = email_service.send_otp_email(patient.email, otp.otp_code)
+            
+            if not email_result['success']:
+                logger.error(f"Failed to send email to {patient.email}: {email_result['message']}")
+            
+            return Response({
+                'status': 'success',
+                'message': 'Security code sent successfully',
+                'data': {
+                    'otp_id': str(otp.id)
+                }
+            }, status=status.HTTP_200_OK)
+            
+        except Exception as e:
+            logger.exception(f"Error sending security code to patient {pk}")
+            return Response({
+                'status': 'error',
+                'message': str(e)
+            }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

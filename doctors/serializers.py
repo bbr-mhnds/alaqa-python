@@ -4,6 +4,35 @@ from specialties.serializers import SpecialtySerializer
 from specialties.models import Specialty
 from django.utils import timezone
 
+class TimeSlotSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TimeSlot
+        fields = ['id', 'start_time', 'end_time']
+
+class DoctorScheduleSerializer(serializers.ModelSerializer):
+    time_slots = TimeSlotSerializer(many=True, read_only=True)
+    
+    class Meta:
+        model = DoctorSchedule
+        fields = ['id', 'day', 'is_available', 'time_slots']
+
+class DurationPriceSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = DoctorDurationPrice
+        fields = ['id', 'duration', 'price']
+
+class PriceCategorySerializer(serializers.ModelSerializer):
+    entries = DurationPriceSerializer(many=True, read_only=True)
+    
+    class Meta:
+        model = PriceCategory
+        fields = ['id', 'type', 'is_enabled', 'entries']
+
+class DoctorBankDetailsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = DoctorBankDetails
+        fields = ['id', 'bank_name', 'account_holder_name', 'account_number', 'iban_number', 'swift_code', 'is_active']
+
 class DoctorSerializer(serializers.ModelSerializer):
     specialities = SpecialtySerializer(many=True, read_only=True)
     speciality_ids = serializers.ListField(
@@ -13,6 +42,8 @@ class DoctorSerializer(serializers.ModelSerializer):
     )
     bank_details = serializers.SerializerMethodField()
     photo = serializers.ImageField(required=False)
+    schedules = DoctorScheduleSerializer(many=True, read_only=True)
+    price_categories = PriceCategorySerializer(many=True, read_only=True)
 
     class Meta:
         model = Doctor
@@ -20,7 +51,8 @@ class DoctorSerializer(serializers.ModelSerializer):
             'id', 'name_arabic', 'name', 'sex', 'email', 'phone',
             'experience', 'category', 'language_in_sessions', 'license_number',
             'specialities', 'speciality_ids', 'profile_arabic', 'profile_english',
-            'status', 'photo', 'bank_details', 'created_at', 'updated_at'
+            'status', 'photo', 'bank_details', 'schedules', 'price_categories',
+            'created_at', 'updated_at'
         ]
         read_only_fields = ['id', 'status', 'created_at', 'updated_at']
 
@@ -357,193 +389,6 @@ class DoctorApprovalSerializer(serializers.ModelSerializer):
                 )
         
         return super().update(instance, validated_data)
-
-class DoctorBankDetailsSerializer(serializers.ModelSerializer):
-    """
-    Serializer for DoctorBankDetails model
-    """
-    class Meta:
-        model = DoctorBankDetails
-        fields = [
-            'id', 'doctor', 'bank_name', 'account_holder_name',
-            'account_number', 'iban_number', 'swift_code',
-            'is_active', 'created_at', 'updated_at'
-        ]
-        read_only_fields = ['id', 'created_at', 'updated_at']
-        extra_kwargs = {
-            'doctor': {'write_only': True}
-        }
-
-    def validate(self, attrs):
-        # Clean the data using model's clean method
-        instance = DoctorBankDetails(**attrs)
-        instance.clean()
-        return attrs
-
-class TimeSlotSerializer(serializers.ModelSerializer):
-    """Serializer for TimeSlot model"""
-    class Meta:
-        model = TimeSlot
-        fields = ['id', 'start_time', 'end_time']
-        read_only_fields = ['id']
-
-    def validate(self, attrs):
-        start_time = attrs.get('start_time')
-        end_time = attrs.get('end_time')
-
-        if start_time and end_time:
-            # Validate time format
-            time_format = "%H:%M"
-            try:
-                start_str = start_time.strftime(time_format)
-                end_str = end_time.strftime(time_format)
-            except ValueError:
-                raise serializers.ValidationError({
-                    'time_slots': ['Time must be in 24-hour format (HH:mm)']
-                })
-
-            # Validate end time is after start time
-            if end_time <= start_time:
-                raise serializers.ValidationError({
-                    'time_slots': ['End time must be after start time']
-                })
-
-        return attrs
-
-class DoctorScheduleSerializer(serializers.ModelSerializer):
-    """Serializer for DoctorSchedule model"""
-    time_slots = TimeSlotSerializer(many=True, required=False)
-
-    class Meta:
-        model = DoctorSchedule
-        fields = ['day', 'is_available', 'time_slots']
-
-    def validate(self, attrs):
-        is_available = attrs.get('is_available', True)
-        time_slots_data = attrs.get('time_slots', [])
-
-        if is_available and not time_slots_data and self.context.get('check_slots', True):
-            raise serializers.ValidationError({
-                'time_slots': ['Time slots are required when the day is available']
-            })
-
-        # Validate time slots don't overlap
-        if time_slots_data:
-            slots = sorted(time_slots_data, key=lambda x: x['start_time'])
-            for i in range(1, len(slots)):
-                if slots[i]['start_time'] <= slots[i-1]['end_time']:
-                    raise serializers.ValidationError({
-                        'time_slots': ['Time slots cannot overlap']
-                    })
-
-        return attrs
-
-    def create(self, validated_data):
-        time_slots_data = validated_data.pop('time_slots', [])
-        schedule = DoctorSchedule.objects.create(**validated_data)
-
-        for slot_data in time_slots_data:
-            TimeSlot.objects.create(schedule=schedule, **slot_data)
-
-        return schedule
-
-    def update(self, instance, validated_data):
-        time_slots_data = validated_data.pop('time_slots', [])
-        
-        # Update schedule fields
-        for attr, value in validated_data.items():
-            setattr(instance, attr, value)
-        instance.save()
-
-        # If is_available is False, delete all time slots
-        if not instance.is_available:
-            instance.time_slots.all().delete()
-        else:
-            # Update time slots
-            instance.time_slots.all().delete()  # Remove existing slots
-            for slot_data in time_slots_data:
-                TimeSlot.objects.create(schedule=instance, **slot_data)
-
-        return instance
-
-class DurationPriceSerializer(serializers.ModelSerializer):
-    """Serializer for duration-based price entries"""
-    class Meta:
-        model = DoctorDurationPrice
-        fields = ['duration', 'price']
-
-    def validate_duration(self, value):
-        if value < 5:
-            raise serializers.ValidationError("Duration must be at least 5 minutes")
-        if value % 5 != 0:
-            raise serializers.ValidationError("Duration must be in increments of 5 minutes")
-        return value
-
-    def validate_price(self, value):
-        if value < 0:
-            raise serializers.ValidationError("Price cannot be negative")
-        return value
-
-class PriceCategorySerializer(serializers.ModelSerializer):
-    """Serializer for price categories with nested duration prices"""
-    entries = DurationPriceSerializer(many=True, required=False)
-
-    class Meta:
-        model = PriceCategory
-        fields = ['type', 'is_enabled', 'entries']
-
-    def validate(self, attrs):
-        is_enabled = attrs.get('is_enabled', True)
-        entries = attrs.get('entries', [])
-
-        if is_enabled and not entries and self.context.get('check_entries', True):
-            raise serializers.ValidationError({
-                'entries': 'At least one duration-price entry is required when category is enabled'
-            })
-
-        # Check for duplicate durations
-        if entries:
-            durations = [entry['duration'] for entry in entries]
-            if len(durations) != len(set(durations)):
-                raise serializers.ValidationError({
-                    'entries': 'Duplicate durations are not allowed'
-                })
-
-            # Check maximum entries
-            if len(entries) > 10:
-                raise serializers.ValidationError({
-                    'entries': 'Maximum 10 entries allowed per category'
-                })
-
-        return attrs
-
-    def create(self, validated_data):
-        entries_data = validated_data.pop('entries', [])
-        category = PriceCategory.objects.create(**validated_data)
-
-        for entry_data in entries_data:
-            DoctorDurationPrice.objects.create(category=category, **entry_data)
-
-        return category
-
-    def update(self, instance, validated_data):
-        entries_data = validated_data.pop('entries', [])
-        
-        # Update category fields
-        for attr, value in validated_data.items():
-            setattr(instance, attr, value)
-        instance.save()
-
-        # If category is disabled, remove all entries
-        if not instance.is_enabled:
-            instance.entries.all().delete()
-        else:
-            # Update entries
-            instance.entries.all().delete()  # Remove existing entries
-            for entry_data in entries_data:
-                DoctorDurationPrice.objects.create(category=instance, **entry_data)
-
-        return instance
 
 class DoctorRegistrationInitiateSerializer(serializers.Serializer):
     """Serializer for initiating doctor registration with just email and phone"""

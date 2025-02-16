@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Doctor, DoctorVerification
+from .models import Doctor, DoctorVerification, DoctorBankDetails
 
 @admin.register(Doctor)
 class DoctorAdmin(admin.ModelAdmin):
@@ -18,9 +18,6 @@ class DoctorAdmin(admin.ModelAdmin):
         }),
         ('Profile', {
             'fields': ('profile_arabic', 'profile_english', 'photo')
-        }),
-        ('Bank Details', {
-            'fields': ('account_holder_name', 'account_number', 'iban_number')
         }),
         ('Status', {
             'fields': ('status',)
@@ -53,6 +50,29 @@ class DoctorVerificationAdmin(admin.ModelAdmin):
         }),
         ('Timestamps', {
             'fields': ('created_at', 'expires_at'),
+            'classes': ('collapse',)
+        }),
+    )
+
+@admin.register(DoctorBankDetails)
+class DoctorBankDetailsAdmin(admin.ModelAdmin):
+    list_display = ('doctor', 'bank_name', 'account_holder_name', 'is_active')
+    list_filter = ('is_active', 'created_at')
+    search_fields = ('doctor__name', 'account_holder_name', 'account_number', 'iban_number')
+    readonly_fields = ('created_at', 'updated_at')
+    
+    fieldsets = (
+        (None, {
+            'fields': ('doctor', 'bank_name', 'account_holder_name')
+        }),
+        ('Account Information', {
+            'fields': ('account_number', 'iban_number', 'swift_code')
+        }),
+        ('Status', {
+            'fields': ('is_active',)
+        }),
+        ('Timestamps', {
+            'fields': ('created_at', 'updated_at'),
             'classes': ('collapse',)
         }),
     )

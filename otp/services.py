@@ -18,10 +18,22 @@ class OTPService:
 
     @staticmethod
     def generate_otp():
-        """Generate a fixed 6-digit OTP code for testing"""
-        otp_code = '000000'
+        """Generate a random 6-digit OTP code"""
+        otp_code = ''.join([str(random.randint(0, 9)) for _ in range(6)])
         logger.info(f"[OTP_DEBUG] Generated OTP code: {otp_code}")
         return otp_code
+
+    @staticmethod
+    def get_otp_by_id(otp_id):
+        """Get OTP instance by ID"""
+        try:
+            return OTP.objects.get(id=otp_id)
+        except OTP.DoesNotExist:
+            logger.error(f"[OTP_DEBUG] OTP not found with ID: {otp_id}")
+            return None
+        except Exception as e:
+            logger.exception(f"[OTP_DEBUG] Error retrieving OTP with ID {otp_id}")
+            return None
 
     @staticmethod
     def validate_phone_number(phone_number):
@@ -54,12 +66,6 @@ class OTPService:
         phone_number = phone_number.lstrip('0')  # Remove any leading zeros
         logger.info(f"[OTP_DEBUG] Formatted number for sending: {phone_number}")
         
-        # Development mode - always succeed and log the OTP
-        if settings.DEBUG:
-            logger.info(f"[OTP_DEBUG] DEV MODE - SMS would be sent to {phone_number}")
-            logger.info(f"[OTP_DEBUG] DEV MODE - Message content: {message}")
-            return True, "SMS sent successfully (Development Mode)"
-            
         # Validate required settings
         required_settings = [
             'DREAMS_SMS_API_URL',
